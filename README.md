@@ -1,6 +1,6 @@
-# **Vapor Deli**
+# **Vapor Deli** (review after project and add where needed)
 
-Vapor deli is a fictional vape supply store to sell e-liquids related hardware to vape connoisseur worldwide. It aims to offer good quality products at an affordable price.
+Vapor deli is a fictional B2C vape supply store design and implemented with Django, Python, HTML and CSS. IIt aims to provide and easy to use interface where customers can browse all items at once or sort into specified categories. The site provides search functionality as well as an inbuilt stock system to ensure users cannot buy items which are not currently in stock, and once signed in allows the user to save an address to their profile for easy and convenient checkout.
 
 **RESPONSIVE SCREENSHOT TO GO HERE**
 
