@@ -12,37 +12,53 @@ Vapor deli is a fictional B2C vape supply store design and implemented with Djan
 
 ### ***Site Aims***
 
-To provide a fully functioning e-commerce platform which:
+These days vaping has become a very popular and wide spread replacement for traditional cigarettes and therefore the possible product categories are vast. For the purpose of this project I will only be focusing on the few categories which are widely considered to be the core products in the vaping scene,  and any customer would expect to find in a store of this type. The exception to this would be sites that specialize in solely the production of e-liquid (e.g. [flavor art](https://flavourart.com/)) or vaping devices (e.g [SmokStore](https://www.smokstore.com/)). Since this site is designed to be the web presence of a physical shop, a variety of products is expect to assist people with their vaping needs.
 
-* Users can use to browser products by category applying various filters as desired.
-* Provides the ability to add items to a basket and to checkout making payments
-* Allows the user to make payments to complete their purchases.
-* Provides the ability to register an account, there by creating a profile where personal information can be stored for a quicker check out experience.
-* Allows for guest checkouts.
-* Allows registered users to view previous orders.
-* Takes SEO into consideration throughout.
-* Provides a mailing list option.
-* Sends out email confirmations for orders.
-* Allows the admin to edit/remove products quickly and easily.
-* Allow customers to leave a review of the product.
-* Manages stock levels.
-* Can easily chance a product to be on sale via the admin page.
-* Utilizes facebook pages to boost social media presence.
+The minimum must have product categories for a shops in the genre are: -
+
+* Disposable vapes.
+* E-liquids.
+* DIY liquids section.
+* MODS with Variable wattage/voltage, and/or temperature control.
+* Tanks and coils.
+* Batteries.
+* Chargers.
 
 ### ***Opportunities:***
 
+To provide a fully functioning e-commerce platform the following opportunities are available: -
+
 Opportunity | Importance | Viability/Feasibility
 ---|---|---
-Landing page | 5 | 5
-Mail chimp mailing list | 5 | 5
+Age verification on first visit | 5 | 5
+Mailing list | 5 | 5
 Account profile | 5 | 5
 Product Filters/searching | 5 | 5
 SEO language throughout | 5 | 5
 stripe payments | 5 | 5
-Guest checkout | 3 | 3
-Email confirmation | 5 | 5
+Payment feedback in the browser | 5 | 5
+Check out system | 5 | 5
+Guest checkout completion | 5 | 5
+User log in/register | 5 | 5 |
+Vape Blog | 1 | 1
+Video demo of products 1 | 1
+Delivery information | 3 | 5
 User Role permissions | 5 | 5
 Product reviews | 5 | 5
+Full CRUD functionality | 5 | 5
+Order History | 5 | 5
+Stock management system | 5 | 5 |
+Inventory tracking | 5 | 5
+Contact form | 4 | 5
+Social Media pages | 5 | 5
+Special offers | 5 | 5
+Password Recovery | 5 | 5
+Email confirmation of order | 5 | 5
+Linking online stock to Point of sale system in the shop | 1 | 1
+related products | 1 | 1
+Saved customer details on checkout | 5 | 5
+Admin can add/remove products via the front end | 5 | 5
+
 ---------------------- | --- | ---
 Totals | 50 | 50
 
