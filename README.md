@@ -12,7 +12,9 @@ Vapor deli is a fictional B2C vape supply store design and implemented with Djan
 
 ### ***Site Aims***
 
-These days vaping has become a very popular and wide spread replacement for traditional cigarettes and therefore the possible product categories are vast. For the purpose of this project I will only be focusing on the few categories which are widely considered to be the core products in the vaping scene,  and any customer would expect to find in a store of this type. The exception to this would be sites that specialize in solely the production of e-liquid (e.g. [flavor art](https://flavourart.com/)) or vaping devices (e.g [SmokStore](https://www.smokstore.com/)). Since this site is designed to be the web presence of a physical shop, a variety of products is expect to assist people with their vaping needs.
+These days vaping has become a very popular and wide spread replacement for traditional cigarettes and therefore the possible product categories are vast. For some is has proved a way to stop smoking, for others it has become a hobby/lifestyle, and in some places it has even become a sport with organized cloud chasing competitions to judge who can make the biggest vapor clouds. The aim of this site is to act as the online presence for a fictional vape supply store, and to provide a simple and easy to use interface for customers to browse and purchase products.
+
+For the purpose of this project I will only be focusing on the few categories which are widely considered to be the core products in the vaping scene,  and any customer would expect to find in a store of this type. The exception to this would be sites that specialize in solely the production of e-liquid (e.g. [flavor art](https://flavourart.com/)) or vaping devices (e.g [SmokStore](https://www.smokstore.com/)). Since this site is designed to be the web presence of a physical shop, a variety of products is expected to assist people with their vaping needs.
 
 The minimum must have product categories for a shops in the genre are: -
 
@@ -60,9 +62,10 @@ Admin can add/remove products via the front end | 3 | 5
 Multiple currencies | 5 | 1
 Trustpilot reviews | 5 | 1
 Terms and conditions | 3 | 5
+Generate sales reports | 5 | 1
 
 ---------------------- | --- | ---
-Totals | 130 | 128
+Totals | 135 | 129
 
 ### ***Scope:***
 
@@ -106,4 +109,7 @@ To avoid scope creep I have divided the above opportunities into the below categ
 * As they are so far out of the scope of this project, UX efforts **will not** address these opportunities: -
   * Linking online stock to Point of sale system in the shop.
   * Trustpilot reviews.
-  * Multiple currencies
+  * Multiple currencies.
+  * Generate sales reports.
+
+### ***Structure:***
