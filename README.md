@@ -41,7 +41,7 @@ Check out system | 5 | 5
 Guest checkout completion | 5 | 5
 User log in/register | 5 | 5 |
 Vape Blog | 1 | 5
-Video demo of products 1 | 5
+Video demo of products | 1 | 5
 Delivery information | 3 | 5
 User Role permissions | 5 | 5
 Product reviews | 5 | 3
@@ -53,22 +53,22 @@ Social Media pages | 5 | 5
 Special offers | 5 | 5
 Password Recovery | 5 | 5
 Email confirmation of order | 5 | 5
-Linking online stock to Point of sale system in the shop | 0 | 0
+Linking online stock to Point of sale system in the shop | 5 | 1
 Related products | 1 | 1
 Saved customer details on checkout | 5 | 5
 Admin can add/remove products via the front end | 3 | 5
-Multiple currencies | 0 | 0
-Trustpilot reviews | 0 | 0
+Multiple currencies | 5 | 1
+Trustpilot reviews | 5 | 1
 Terms and conditions | 3 | 5
 
 ---------------------- | --- | ---
-Totals | 50 | 50
+Totals | 130 | 128
 
 ### ***Scope:***
 
-Due to the time given for this project and the required grade criteria There will definitely need to be some trade offs in design/development process. Using the agile methodology I will be reviewing my progress weekly and adding, adapting or removing features as applicable to the project at the review portion after each sprint.
+Due to the time given for this project and the required grade criteria There will definitely need to be some trade offs in design/development process. Using the agile methodology I will be reviewing my progress weekly and adding, adapting or removing features as applicable to the project at the review portion after each sprint in order to ensure a MVP is delivered by the deadline.
 
-To avoid scope creep I have divided the above opportunities into the below categories to help ensure I can release an MVP by the projects deadline: -
+To avoid scope creep I have divided the above opportunities into the below categories to help me prioritize and ensure that I can achieve my goal: -
 
 * In order to create a minimum functional E-commerce site, UX efforts **must** address these opportunities: -
   * Full CRUD Functionality.
