@@ -26,42 +26,84 @@ The minimum must have product categories for a shops in the genre are: -
 
 ### ***Opportunities:***
 
-To provide a fully functioning e-commerce platform the following opportunities are available: -
+To provide a fully functioning E-commerce platform the following opportunities are available: -
 
 Opportunity | Importance | Viability/Feasibility
 ---|---|---
-Age verification on first visit | 5 | 5
+Age verification on first visit | 5 | 3
 Mailing list | 5 | 5
 Account profile | 5 | 5
 Product Filters/searching | 5 | 5
 SEO language throughout | 5 | 5
 stripe payments | 5 | 5
-Payment feedback in the browser | 5 | 5
+User feedback for actions taken | 5 | 5
 Check out system | 5 | 5
 Guest checkout completion | 5 | 5
 User log in/register | 5 | 5 |
-Vape Blog | 1 | 1
-Video demo of products 1 | 1
+Vape Blog | 1 | 5
+Video demo of products 1 | 5
 Delivery information | 3 | 5
 User Role permissions | 5 | 5
-Product reviews | 5 | 5
+Product reviews | 5 | 3
 Full CRUD functionality | 5 | 5
 Order History | 5 | 5
-Stock management system | 5 | 5 |
-Inventory tracking | 5 | 5
-Contact form | 4 | 5
+Stock management system | 5 | 3 |
+Contact form | 3 | 5
 Social Media pages | 5 | 5
 Special offers | 5 | 5
 Password Recovery | 5 | 5
 Email confirmation of order | 5 | 5
-Linking online stock to Point of sale system in the shop | 1 | 1
-related products | 1 | 1
+Linking online stock to Point of sale system in the shop | 0 | 0
+Related products | 1 | 1
 Saved customer details on checkout | 5 | 5
-Admin can add/remove products via the front end | 5 | 5
+Admin can add/remove products via the front end | 3 | 5
+Multiple currencies | 0 | 0
+Trustpilot reviews | 0 | 0
+Terms and conditions | 3 | 5
 
 ---------------------- | --- | ---
 Totals | 50 | 50
 
 ### ***Scope:***
 
-The above represents the bare minimum required for a fully functional E-commerce website. Given the time frame for this project I believe all of it to be achievable however using the agile methodology I will be reviewing my progress weekly and adding, adapting or removing features as applicable to the project at the review portion after each sprint.
+Due to the time given for this project and the required grade criteria There will definitely need to be some trade offs in design/development process. Using the agile methodology I will be reviewing my progress weekly and adding, adapting or removing features as applicable to the project at the review portion after each sprint.
+
+To avoid scope creep I have divided the above opportunities into the below categories to help ensure I can release an MVP by the projects deadline: -
+
+* In order to create a minimum functional E-commerce site, UX efforts **must** address these opportunities: -
+  * Full CRUD Functionality.
+  * User log in/register.
+  * Checkout system.
+  * Account profile.
+  * Mailing list.
+  * Product Filters/searching.
+  * Stripe payments.
+  * SEO language throughout.
+  * Guest checkout completion.
+  * User Role permissions.
+  * Order History.
+  * Social Media pages.
+  * Special offers.
+  * Password Recovery.
+  * Email confirmation of order.
+  * User feedback for actions taken.
+  * Saved customer details on checkout.
+
+* In order to enhance the customer experience and increase the sites functionality, UX efforts **should** address these opportunities: -
+  * Age verification on first visit.
+  * Product reviews.
+  * Stock management system.
+  * Contact form.
+  * Admin can add/remove products via the front end.
+  * Delivery information.
+  * Terms and conditions.
+
+* In order to increase the sites popularity and customer base, UX efforts **could** address these opportunities: -
+  * Vape Blog.
+  * Video demo of products.
+  * Related products
+
+* As they are so far out of the scope of this project, UX efforts **will not** address these opportunities: -
+  * Linking online stock to Point of sale system in the shop.
+  * Trustpilot reviews.
+  * Multiple currencies
