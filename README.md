@@ -63,9 +63,11 @@ Multiple currencies | 5 | 1
 Trustpilot reviews | 5 | 1
 Terms and conditions | 3 | 5
 Generate sales reports | 5 | 1
+Order Status | 2 | 5
+Ability to edit order until status set to processing | 1 | 5
 
 ---------------------- | --- | ---
-Totals | 135 | 129
+Totals | 138 | 139
 
 ### ***Scope:***
 
@@ -100,11 +102,13 @@ To avoid scope creep I have divided the above opportunities into the below categ
   * Admin can add/remove products via the front end.
   * Delivery information.
   * Terms and conditions.
+  * Order Status.
 
 * In order to increase the sites popularity and customer base, UX efforts **could** address these opportunities: -
   * Vape Blog.
   * Video demo of products.
   * Related products
+  * Ability to edit order until status set to processing.
 
 * As they are so far out of the scope of this project, UX efforts **will not** address these opportunities: -
   * Linking online stock to Point of sale system in the shop.
