@@ -65,8 +65,7 @@ Terms and conditions | 3 | 5
 Generate sales reports | 5 | 1
 Order Status | 2 | 5
 Ability to edit order until status set to processing | 1 | 5
-
----------------------- | --- | ---
+---------------------- | --- | ---  
 Totals | 138 | 139
 
 ### ***Scope:***
