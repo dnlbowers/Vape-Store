@@ -117,3 +117,13 @@ To avoid scope creep I have divided the above opportunities into the below categ
   * Generate sales reports.
 
 ### ***Structure:***
+
+Using the the above as a guide I have created a flow diagram to help me visualize how the user will navigate through the core functionality of the web store. During the Agile process there may be some minor tweaks to this pre planned user journey but the overall structure will remain the same. **TO ADD MAILING LIST TO FLOW CHART and give each path a final check**
+
+![UserFlow Journey flowchart](docs/flowcharts/userjourney.jpg)
+
+#### **User Stories:**
+
+To assist the AGILE process I have created a number of user stories to help me plan and implement the project. These will help me prioritize the features and functionality of the site and ensure that I am delivering a MVP by the deadline. The below user stories are divided to EPICs and will be reviewed and updated after each sprint.
+
+##### **EPIC 1:**
