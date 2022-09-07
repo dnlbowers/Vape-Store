@@ -125,4 +125,12 @@ Using the the above as a guide I have created a flow diagram to help me visualiz
 
 To assist the AGILE process I have created a number of user stories to help me plan and implement the project. These will help me prioritize the features and functionality of the site and ensure that I am delivering a MVP by the deadline. The below user stories are divided to EPICs and will be reviewed and updated after each sprint.
 
-##### **EPIC 1:**
+##### **EPIC 1 - Viewing and Navigation**
+
+* As a **Shopper** I want to be able to...
+  * ...View a list of products so that I can select some to purchase.
+  * ...View individual product details so that I can identify the price, description, and product image.
+  * ...View the total of my purchases at any time so that I can see how much I have spent.
+  * ...Leave a review so that I can share my opinion of a product.
+  * ...View reviews of a product so that I can see what other people think of a product.
+  * ...Identify any promotions that are available so that I can take advantage of them.
