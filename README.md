@@ -134,3 +134,16 @@ To assist the AGILE process I have created a number of user stories to help me p
   * ...Leave a review so that I can share my opinion of a product.
   * ...View reviews of a product so that I can see what other people think of a product.
   * ...Identify any promotions that are available so that I can take advantage of them.
+
+##### **EPIC 2 - Registration and User Accounts**
+
+* As a **Site User** I want to be able to...
+  * ...Register for an account so that I can save my personal details, view my order history online.
+  * ...Easily login or logout so that I can access my personal account information.
+  * ...Add multiple addresses to my account so that I can order to different locations.
+  * ...Save my personal details to my profile from the check out page so that I don’t have to enter them every time I make a purchase.
+  * ...Amend my personal details from my profile so I can update information as should there be any changes.
+  * ...Recover my password in case I forget it so that I can regain access to my account.
+  * ...Receive an email confirmation upon registration so that I can confirm the registration process worked correctly.
+
+##### **EPIC 3 - Sorting and Searching**
