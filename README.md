@@ -72,7 +72,7 @@ Totals | 138 | 139
 
 Due to the time given for this project and the required grade criteria There will definitely need to be some trade offs in design/development process. Using the agile methodology I will be reviewing my progress weekly and adding, adapting or removing features as applicable to the project at the review portion after each sprint in order to ensure a MVP is delivered by the deadline.
 
-To avoid scope creep I have divided the above opportunities into the below categories to help me prioritize and ensure that I can achieve my goal: -
+To avoid scope creep I have used the MoSCoW method to divided the above opportunities into the below categories aiding me prioritize and ensure that I can achieve my goal of a fully functioning MVP by the deadline: -
 
 * In order to create a minimum functional E-commerce site, UX efforts **must** address these opportunities: -
   * Full CRUD Functionality.
@@ -125,7 +125,21 @@ Using the the above as a guide I have created a flow diagram to help me visualiz
 
 To assist the AGILE process I have created a number of user stories to help me plan and implement the project. These will help me prioritize the features and functionality of the site and ensure that I am delivering a MVP by the deadline. The below user stories are divided to EPICs and will be reviewed and updated after each sprint.
 
-##### **EPIC 1 - Viewing and Navigation**
+##### **EPIC 1 - Set up and Deployment:**
+
+This Epics will be tasks rather than user stories since they will be aimed at me as the developer rather than the user. The below tasks will be completed before the first sprint and will be used to set up the project and ensure that it is deployed to Heroku with the AWS S3 bucket for static files. Some of these were taken/adapted from the Code Institute's sample project Boutique ado.
+
+* As a **Developer** I can...
+  * ...**Install Django and required libraries** so that I can **work with a postgress Database and cloudbased images from my local development IDE.**
+  * ...**Set up my local coding environment** so that I can **develop on my local machine and deploy securely without revealing sensitive information.**
+  * ...**Create a Heroku app** so that I can **link to the same virtually hosted Postgres database for the deployed site.**
+  * ...**Create a new AWS S3 bucket** so that I can **store static files and images securely.**
+
+The only user story in this Epic is related to the initial deployment, this is a user story rather than a task because it directly offers value to the user as opposed to being tasks required to create the project: -
+
+* As a **User**, I can **access a live url** so that I can **use the site on any device**.
+
+##### **EPIC 2 - Viewing and Navigation:**
 
 * As a **Shopper** I want to be able to...
   * ...**View a list of products** so that I can **select some to purchase.**
@@ -135,7 +149,7 @@ To assist the AGILE process I have created a number of user stories to help me p
   * ...**View reviews of a product** so that I can **see what other people think of a product.**
   * ...**Identify any promotions that are available** so that I can **take advantage of them.**
 
-##### **EPIC 2 - Registration and User Accounts**
+##### **EPIC 3 - Registration and User Accounts:**
 
 * As a **Site User** I want to be able to...
   * ...**Register for an account** so that I can **save my personal details, view my order history online.**
@@ -146,4 +160,7 @@ To assist the AGILE process I have created a number of user stories to help me p
   * ...**Recover my password in case I forget it** so that I can **regain access to my account.**
   * ...**Receive an email confirmation upon registration** so that I can **confirm the registration process worked correctly.**
 
-##### **EPIC 3 - Sorting and Searching**
+##### **EPIC 4 - Sorting and Searching:**
+
+* As a **Shopper** I want to be able to...
+  * ...  
