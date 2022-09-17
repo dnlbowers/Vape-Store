@@ -130,9 +130,11 @@ To assist the AGILE process I have created a number of user stories to help me p
 This Epics will be tasks rather than user stories since they will be aimed at me as the developer rather than the user. The below tasks will be completed before the first sprint and will be used to set up the project and ensure that it is deployed to Heroku with the AWS S3 bucket for static files. Some of these were taken/adapted from the Code Institute's sample project Boutique ado.
 
 * As a **Developer** I can...
+  * ...**Create a Git hub repository** so that I can **Store my project files online.**
+  * ...**Create a virtual environment on my local machine** so that I can **avoid polluting my machine on a global level.**
   * ...**Install Django and required libraries** so that I can **work with a postgress Database and cloudbased images from my local development IDE.**
   * ...**Set up my local coding environment** so that I can **develop on my local machine and deploy securely without revealing sensitive information.**
-  * ...**Create a Heroku app** so that I can **link to the same virtually hosted Postgres database for the deployed site.**
+  * ...**Create a Heroku app** so that I can **link to the a virtually hosted Postgres database for the deployed site.**
   * ...**Create a new AWS S3 bucket** so that I can **store static files and images securely.**
 
 The only user story in this Epic is related to the initial deployment, this is a user story rather than a task because it directly offers value to the user as opposed to being tasks required to create the project: -
