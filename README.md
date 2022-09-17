@@ -163,4 +163,37 @@ The only user story in this Epic is related to the initial deployment, this is a
 ##### **EPIC 4 - Sorting and Searching:**
 
 * As a **Shopper** I want to be able to...
-  * ...  
+  * ...**Sort the list of available products** so that I can **view them in different orders. and find the highest/lowest rating/prices and sort alphabetically to aid finding the most suitable products to suit my needs.**
+  * ...**Search for a product by name or description** so that I can **find a specific product I am looking for.**
+  * ...**View a list of products in a specific category** so that I can **view all products in that category.**
+  * ...**Easily identify what I have searched for and the number of results found** so that I can **easily find the product I want.**
+  * ...**Sort a specific category of products** so that I can **search for a specific type of product according to my needs.**
+
+##### **EPIC 5 - Purchasing and Checkout:**
+
+* As a **Shopper** I want to be able to...
+  * ...**Select a quantity of a product** so that I can **buy the correct amount of the product.**
+  * ...**View items in my bag to be purchased** so that I can **identify the total cost of my purchases before checkout.**
+  * ...**Adjust the quantity of individual items in my bag** so that I can **easily make changes to my bag.**
+  * ...**Easily enter my payment information** so that I can **checkout quickly with no hassles by using information previously stored in the system.**
+  * ...**View an order confirmation after checkout** so that I can **verify that I haven’t made any mistakes.**
+  * ...**Receive an email confirmation after checking out** so that I can **keep a record of my order.**
+  * ...**View my order history** so that I can **see the orders I have made previously.**
+
+##### **EPIC 6 - Admin and Store Management:** ***To be reviewed later***
+
+* As a **Store Owner** I want to be able to...
+  * ...**Add a product** so that I can **add new products to the store.**
+  * ...**Edit/update a product** so that I can **change product details.**
+  * ...**Delete a product** so that I can **remove products that are no longer for sale.**
+  * ...**Add a category** so that I can **add new categories to the store.**
+  * ...**Edit/update a category** so that I can **change category details.**
+  * ...**Delete a category** so that I can **remove categories that are no longer for sale.**
+  * ...**Add a promotion** so that I can **add new promotions to the store.**
+  * ...**manually manage the stock levels** so that I can **input received purchase orders and ensure that the stock levels are accurate in case of found discrepancies.**
+
+### **Skeleton:**
+
+#### **Wireframes:**
+
+#### **Database Schema**:
