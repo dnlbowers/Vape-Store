@@ -31,7 +31,7 @@ Below are the steps I took to deploy the site to Heroku and any console commands
     * ```pip freeze --local > requirements.txt```
 1. Create an empty folder for your project in your chosen location.
 1. Create a project in the above folder:
-    * django-admin startproject <PROJECT_NAME> (in the case of this project, the project name was "jobsagooden")
+    * ```django-admin startproject <PROJECT_NAME>``` (in the case of this project, the project name was "vapeshop")
 1. Create an app within the project:
     * ```python manage.py startapp APP_NAME``` (in the case of this project, the app name was "job_search")
 1. Add a new app to the list of installed apps in setting.py
@@ -57,13 +57,26 @@ The below works on the assumption that you already have an account with [Heroku]
     * left box under config vars (variable KEY) = SECRET_KEY
     * right box under config vars (variable VALUE) = Value copied from settings.py in project.
 
+### AWS S3 Bucket
+
+The below works on the assumption that you already have an account with [AWS](https://signin.aws.amazon.com/signin?redirect_uri=https%3A%2F%2Fus-east-1.console.aws.amazon.com%2Fconsole%2Fhome%3FhashArgs%3D%2523%26isauthcode%3Dtrue%26nc2%3Dh_ct%26region%3Dus-east-1%26skipRegion%3Dtrue%26src%3Dheader-signin%26state%3DhashArgsFromTB_us-east-1_5ebca9aa1f981aaf&client_id=arn%3Aaws%3Asignin%3A%3A%3Aconsole%2Fcanvas&forceMobileApp=0&code_challenge=tXaJuB6g7gFkIttyTd75shZNQrYlt0B3-zdaKPesuQI&code_challenge_method=SHA-256) and are already signed in.
+
+1. Create a new S3 bucket:
+    * Click "Services" in the top left-hand corner of the landing page, click on "Storage" then click "S3."
+    * Click "Create bucket."
+    * Give the bucket a unique name:
+        * Will form part of the URL (in the case of this project, I called the S3 bucket pp5-vapeshop)
+    * Select the nearest location:
+        * For me, this was EU (Frankfurt) eu-central-1.
+    * Under the "Object Ownership" section, select "ACLS enabled"
+    * Under the "Block Public Access settings for this bucket" section, untick "Block all public access" and tick the box to acknowledge that this will make the bucket public.
+    * Click "Create bucket."
+
 ### Creating Environmental Variables Locally
 
 1. Install dotenv package:
     * pip install python-dotenv
 1. On your local machine, create a file called ".env" at the same level as settings.py and add this to the .gitignore file.
-1. From the Heroku app settings tab, click "reveal config vars" and copy the value of the variable DATABASE_URL. Add this value to a variable called DATABASE_URL in your create .env file:
-    * ``` DATABASE_URL=PastedValueFromHerokuHere ``` - ***(note that with the dotenv package no quotation marks are required)***
 1. From your projects settings.py file, copy the SECRET_KEY value and assign it to a variable called SECRET_KEY in your .env file
     * ``` SECRET_KEY=PastedValueFromYourProjectsSettings.pyFile ```
 1. Add DEVELOPMENT variable to .env file:
@@ -88,12 +101,20 @@ The below works on the assumption that you already have an account with [Heroku]
         DEBUG = "DEVELOPMENT" in os.environ
     ```
 
-1. Delete the value from the setting.py DATABASES section and replace it with the following snippet to link up the Heroku Postgres server:  
+1. Add a conditional in setting.py DATABASES section and replace it with the following snippet to link up the Heroku Postgres server when in production and SQLite3 when developing locally:  
 
     ``` python
+    if 'DATABASE_URL' in os.environ:
     DATABASES = {
-    'default': dj_database_url.parse(os.environ.get("DATABASE_URL"))
+        'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))
     }
+   else:
+       DATABASES = {
+           'default': {
+               'ENGINE': 'django.db.backends.sqlite3',
+               'NAME': BASE_DIR / 'db.sqlite3',
+           }
+       }
     ```
 
 1. Add Cloudinary libraries to the installed apps section of settings.py file:
