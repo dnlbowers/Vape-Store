@@ -71,6 +71,51 @@ The below works on the assumption that you already have an account with [AWS](ht
     * Under the "Object Ownership" section, select "ACLS enabled"
     * Under the "Block Public Access settings for this bucket" section, untick "Block all public access" and tick the box to acknowledge that this will make the bucket public.
     * Click "Create bucket."
+1. Amend Bucket settings:
+    * Bucket Properties: -
+       * Click on the bucket name to open the bucket.
+       * Click on the "Properties" tab.
+       * Under the "Static website hosting" section, click "Edit."
+       * Under the "Static website hosting" section select "Enable".
+       * Under the "Hosting type" section ensure "Host a static website" is selected.
+       * Under the "Index document" section enter "index.html".
+       * Click "Save changes."
+    * Bucket Permissions: -
+       * Click on the "Permissions" tab.
+       * Scroll down to the "CORS configuration" section and click edit.
+       * Enter the following snippet into the text box:
+
+       ```JSON
+            [
+                {
+                    "AllowedHeaders": [
+                    "Authorization"
+                    ],
+                    "AllowedMethods": [
+                    "GET"
+                    ],
+                    "AllowedOrigins": [
+                    "*"
+                    ],
+                    "ExposeHeaders": []
+                }
+            ]
+        ```
+
+       * Click "Save changes."
+       * Scroll back up to the "Bucket Policy" section and click "Edit."
+       * Take note of the "Bucket ARN" click on the "Policy Generator" button to open the AWS policy generator in a new tab.
+       * In the newly opened tab under Step 1 "Select Policy Type" select "S3 Bucket Policy." from the drop down menu.
+       * Under Step 2 "Add Statement(s)" enter " * " in the "Principal" text box.
+       * From the "s3:Action" drop down menu select "s3:GetObject".
+       * Enter the "ARN" noted from the bucket policy page into the "Amazon Resource Name (ARN)" text box.
+       * Click "Add Statement."
+       * Under Step 3 "Generate Policy" click "Generate Policy."
+       * Copy the resultant policy and paste it into the bucket policy text box on the previous tab.
+       * In the same text box add "/*" to the end of the resource key to allow access to all resources in this bucket.
+       * Click "Save changes."
+       * When back on the buckets permissions tab, scroll down to the "Access Control List" section and click "Edit."
+       * enable "List" for "Everyone (public access)", tick the box to accept that "I understand the effects of these changes on my objects and buckets."  and click "Save changes."
 
 ### Creating Environmental Variables Locally
 
