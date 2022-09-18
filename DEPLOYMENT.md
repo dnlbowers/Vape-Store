@@ -21,12 +21,12 @@ Below are the steps I took to deploy the site to Heroku and any console commands
     * python -m venv .venv
 1. To ensure the virtual environment is not tracked by version control, add .venv to the .gitignore file.
 1. Install Django with version 3.2:
-    * ```pip install django3.2 ```
+    * ```pip install django==3.2.14```
 1. Install gunicorn:
     * ```pip install gunicorn```
 1. Install supporting libraries:
-    * ```pip install dj_database_url psycopg2```
-    * ```pip install dj3-cloudinary-storage```
+    * ```pip install dj_database_url```
+    * ```pip install psycopg2-binary```
 1. Create requirements.txt:
     * ```pip freeze --local > requirements.txt```
 1. Create an empty folder for your project in your chosen location.
@@ -80,7 +80,7 @@ The below works on the assumption that you already have an account with [Heroku]
     ```python
         import os
         import dj_database_url
-        if os.path.isfile('jobsagooden/.env'):  
+        if os.path.isfile('vapeshop/.env'):  
             from dotenv import load_dotenv  
             load_dotenv()
 
@@ -172,7 +172,7 @@ The below works on the assumption that you already have an account with [Heroku]
 
 ## Cloning on a Local machine or Via Gitpod Terminal
 
-1. Navigate to the [GitHub repository](https://github.com/dnlbowers/battleships), and follow [these steps to clone the project](https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository) into your IDE of choice.
+1. Navigate to the [GitHub repository](https://github.com/dnlbowers/vapeshop), and follow [these steps to clone the project](https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository) into your IDE of choice.
 
    * **Gitpod** only **requires** you to have the **web extension** installed and **click** the **green Gitpod button** from the repositories main page. If you are **using Gitpod**, please **skip step 2** below as you do not require a virtual environment to protect your machine.  
   
