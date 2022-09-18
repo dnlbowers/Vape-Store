@@ -1,21 +1,21 @@
-# Deployment (**To be adjusted for new project)
+# **Deployment** (**To be adjusted for new project)
 
-## Table of Contents
+## **Table of Contents**
 
 **TO BE ADDED AT THE END OF THE PROJECT**
 
-## Initial Deployment
+## **Initial Deployment**
 
 Below are the steps I took to deploy the site to Heroku and any console commands required to initiate it.
 
-### Create repository
+### **Create repository**
 
 1. Create a new repository in GitHub and clone it locally following [these instructions](https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository)
     * ***Note*** - If you are cloning my project, then you can skip all pip installs below and just run the following command in the terminal to install all the required libraries/packages at once:
        * ```pip install -r requirements.txt```
     * ***IMPORTANT*** -  If developing locally on your device, ensure you set up/activate the virtual environment ([see below](#setting-up-the-workspace-to-be-done-locally-via-the-console-of-your-chosen-editor)) before installing/generating the requirements.txt file; failure to do this will pollute your machine and put other projects at risk
 
-### Setting up the Workspace (To be done locally via the console of your chosen editor)
+### **Setting up the Workspace** (To be done locally via the console of your chosen editor)
 
 1. Create a virtual environment on your machine (Can be skipped if using gitpod):
     * python -m venv .venv
@@ -40,7 +40,7 @@ Below are the steps I took to deploy the site to Heroku and any console commands
 1. Test server works locally:
     * ```python manage.py runserver```  (You should see the default Django success page)
 
-### Create Heroku App
+### **Create Heroku App**
 
 The below works on the assumption that you already have an account with [Heroku](https://id.heroku.com/login) and are already signed in.
 
@@ -57,7 +57,7 @@ The below works on the assumption that you already have an account with [Heroku]
     * left box under config vars (variable KEY) = SECRET_KEY
     * right box under config vars (variable VALUE) = Value copied from settings.py in project.
 
-### AWS S3 Bucket
+### **AWS S3 Bucket**
 
 The below works on the assumption that you already have an account with [AWS](https://signin.aws.amazon.com/signin?redirect_uri=https%3A%2F%2Fus-east-1.console.aws.amazon.com%2Fconsole%2Fhome%3FhashArgs%3D%2523%26isauthcode%3Dtrue%26nc2%3Dh_ct%26region%3Dus-east-1%26skipRegion%3Dtrue%26src%3Dheader-signin%26state%3DhashArgsFromTB_us-east-1_5ebca9aa1f981aaf&client_id=arn%3Aaws%3Asignin%3A%3A%3Aconsole%2Fcanvas&forceMobileApp=0&code_challenge=tXaJuB6g7gFkIttyTd75shZNQrYlt0B3-zdaKPesuQI&code_challenge_method=SHA-256) and are already signed in.
 
@@ -116,6 +116,22 @@ The below works on the assumption that you already have an account with [AWS](ht
        * Click "Save changes."
        * When back on the buckets permissions tab, scroll down to the "Access Control List" section and click "Edit."
        * enable "List" for "Everyone (public access)", tick the box to accept that "I understand the effects of these changes on my objects and buckets."  and click "Save changes."
+
+1. Create AWS Staticfiles User and assign to S3 Bucket:
+    * Create "User Group": -
+        * Click "Services" in the top left-hand corner of the landing page, click on "IAM" then click "User Groups."
+    * Click "Add user."
+    * Enter a user name:
+        * In the case of this project, I called the user "pp5-vapeshop-staticfiles"
+    * Select "Programmatic access" from the "Access type" drop-down menu.
+    * Click "Next: Permissions."
+    * Click "Attach existing policies directly."
+    * Search for "AmazonS3FullAccess" and tick the box next to it.
+    * Click "Next: Tags."
+    * Click "Next: Review."
+    * Click "Create user."
+    * Take note of the "Access key ID" and "Secret access key" as you will need these to connect to the bucket from Django.
+    * Click "Close."
 
 ### Creating Environmental Variables Locally
 
