@@ -160,6 +160,8 @@ The below works on the assumption that you already have an account with [AWS](ht
         * Click "Download .csv" to download the credentials.
         * Click "Close."
 
+**type up the S3 bucket set up steps** https://learn.codeinstitute.net/courses/course-v1:CodeInstitute+EA101+2021_T1/courseware/eb05f06e62c64ac89823cc956fcd8191/40cc2543c48643fda09351da6fa90579/
+
 ### Creating Environmental Variables Locally
 
 1. Install dotenv package:
