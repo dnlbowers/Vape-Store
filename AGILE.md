@@ -15,5 +15,5 @@ Below is a summary of learnings from each Sprint
 The sprints focus was to get the development environment step up and deployed to Heroku to be able to test in production as early as possible.
 
 * Due to the addition of AWS S3 bucket in this project I allowed a little bit longer for sprint than I did for myu previous project The allocated story points for each ticket indicate where I expect to have to spend more time on things due to lack of experience or previous issues when performing this aspect of the initial deployment of a project.
-* This sprint began on 18/9/2022 and was due to finish at 21/09/2022.
-
+* This sprint began on 18/9/2022 at 02:00 and was due to finish at 21/09/2022 by 23:59.
+* Finished well ahead of time as I was able to complete all the tasks in less than 24 hours with no major issues. I did however take a little bit longer than 24 hours to document the process in DEPLOYMENT.md and therefore the higher story point values were warranted.
