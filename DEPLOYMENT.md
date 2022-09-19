@@ -117,21 +117,48 @@ The below works on the assumption that you already have an account with [AWS](ht
        * When back on the buckets permissions tab, scroll down to the "Access Control List" section and click "Edit."
        * enable "List" for "Everyone (public access)", tick the box to accept that "I understand the effects of these changes on my objects and buckets."  and click "Save changes."
 
-1. Create AWS Staticfiles User and assign to S3 Bucket:
+1. Create AWS static files User and assign to S3 Bucket:
     * Create "User Group": -
-        * Click "Services" in the top left-hand corner of the landing page, click on "IAM" then click "User Groups."
-    * Click "Add user."
-    * Enter a user name:
-        * In the case of this project, I called the user "pp5-vapeshop-staticfiles"
-    * Select "Programmatic access" from the "Access type" drop-down menu.
-    * Click "Next: Permissions."
-    * Click "Attach existing policies directly."
-    * Search for "AmazonS3FullAccess" and tick the box next to it.
-    * Click "Next: Tags."
-    * Click "Next: Review."
-    * Click "Create user."
-    * Take note of the "Access key ID" and "Secret access key" as you will need these to connect to the bucket from Django.
-    * Click "Close."
+        * Click "Services" in the top left-hand corner of the landing page, from the left side of the menu click on "Security, Identity, & Compliance" and select "IAM" from the right side of the menu.
+        * Under "Access management" click "User Groups."
+        * Click "Create Group."
+        * Enter a user name (in the case of this project, I called the user group "manage-pp5-vapeshop").
+        * Scroll to the bottom of the page and click "Create Group."
+    * Create permissions policy for the new user group: -
+        * Click "Policies" in the left-hand menu.
+        * Click "Create Policy."
+        * Click "Import managed policy."
+        * Search for "AmazonS3FullAccess", select this policy, and click "Import".
+        * Click "JSON" under "Policy Document" to see the imported policy
+        * Copy the bucket ARN from the bucket policy page and paste it into the "Resource" section of the JSON snippet. Be sure to remove the default value of the resource key ("*") and replace it with the bucket ARN.
+        * Copy the bucket ARN a second time into the "Resource" section of the JSON snippet. This time, add "/*" to the end of the ARN to allow access to all resources in this bucket.
+        * Click "Next: Tags."
+        * Click "Next: Review."
+        * Click "Review Policy."
+        * Enter a name for the policy (in the case of this project, I called the policy "pp5-vapeshop-policy").
+        * Enter a description for the policy.
+        * Click "Create Policy."
+    * Attach Policy to User Group: -
+        * Click "User Groups" in the left-hand menu.
+        * Click on the user group name created during the above step.
+        * Select the "Permissions" tab.
+        * click "Attach Policy."
+        * Search for the policy created during the above step, and select it.
+        * Click "Attach Policy."
+    * Create User: -
+        * Click "Users" in the left-hand menu.
+        * Click "Add user."
+        * Enter a "User name" (in the case of this project, I called the user "pp5-vapeshop-staticfiles-user").
+        * Select "Programmatic access" and "AWS Management Console access."
+        * Click "Next: Permissions."
+        * Select "Add user to group."
+        * Select the user group created during the above step.
+        * Click "Next: Tags."
+        * Click "Next: Review."
+        * Click "Create user."
+        * Take note of the "Access key ID" and "Secret access key" as these will be needed to connect to the S3 bucket.
+        * Click "Download .csv" to download the credentials.
+        * Click "Close."
 
 ### Creating Environmental Variables Locally
 
