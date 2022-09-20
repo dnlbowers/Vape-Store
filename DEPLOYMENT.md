@@ -159,24 +159,30 @@ The below works on the assumption that you already have an account with [AWS](ht
         * Take note of the "Access key ID" and "Secret access key" as these will be needed to connect to the S3 bucket.
         * Click "Download .csv" to download the credentials.
         * Click "Close."
+1. Install required packages to used AWS S3 Bucket in Django:
+    * ```pip install boto3```
+    * ```pip install django-storages```
+1. Add 'storages' to the bottom of the installed apps section of settings.py file:
 
-**type up the S3 bucket set up steps** https://learn.codeinstitute.net/courses/course-v1:CodeInstitute+EA101+2021_T1/courseware/eb05f06e62c64ac89823cc956fcd8191/40cc2543c48643fda09351da6fa90579/
+   ```python
+    INSTALLED_APPS = [
+    …,
+        'storages'
+    …,
+   ]
+   ```
 
-### Creating Environmental Variables Locally
+### **Creating Environmental Variables Locally**
 
 1. Install dotenv package:
-    * pip install python-dotenv
+    * ```pip install python-dotenv```
 1. On your local machine, create a file called ".env" at the same level as settings.py and add this to the .gitignore file.
 1. From your projects settings.py file, copy the SECRET_KEY value and assign it to a variable called SECRET_KEY in your .env file
     * ``` SECRET_KEY=PastedValueFromYourProjectsSettings.pyFile ```
 1. Add DEVELOPMENT variable to .env file:
     * ``` DEVELOPMENT=development ```
-1. Add CLOUDINARY_URL variable to .env file:
-    * Log into cloudinary and from the dashboard copy the API Environmental Variable.
-    * Add to .env file like below
-        * ``` CLOUDINARY_URL=PastedApiEnvironmentalVariable ```
 
-### Setting up setting.py File
+### **Setting up setting.py File**
 
 1. At the top of your settings.py file, add the following snippet immediately after the other imports:
 
@@ -191,14 +197,14 @@ The below works on the assumption that you already have an account with [AWS](ht
         DEBUG = "DEVELOPMENT" in os.environ
     ```
 
-1. Add a conditional in setting.py DATABASES section and replace it with the following snippet to link up the Heroku Postgres server when in production and SQLite3 when developing locally:  
+1. Add a conditional in setting.py DATABASES section by replacing it with the following snippet to link up the Heroku Postgres server when in production and SQLite3 when developing locally:  
 
     ``` python
     if 'DATABASE_URL' in os.environ:
-    DATABASES = {
-        'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))
-    }
-   else:
+       DATABASES = {
+           'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))
+       }
+    else:
        DATABASES = {
            'default': {
                'ENGINE': 'django.db.backends.sqlite3',
@@ -207,49 +213,55 @@ The below works on the assumption that you already have an account with [AWS](ht
        }
     ```
 
-1. Add Cloudinary libraries to the installed apps section of settings.py file:
+1. Tell Django to where to store media and static files by placing this snippet under the comments indicated below:
 
-   ```python
-    INSTALLED_APPS = [
-   …,
-   'cloudinary_storage',
-   'django.contrib.staticfiles',
-   'cloudinary',
-   …,
-   ]
-   (note: order is important)
-   ```
+    ``` python
+       # Static files (CSS, JavaScript, Images)
+       # https://docs.djangoproject.com/en/3.2/howto/static-files/
+       STATIC_URL = '/static/'
+       STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'),)
 
-1.. Tell Django to use Cloudinary to store media and static files by placing this snippet under the comments indicated below:
-
-```python
-    # Static files (CSS, JavaScript, Images)
-    # https://docs.djangoproject.com/en/3.2/howto/static-files/
-    STATIC_URL = '/static/'
-    STATICFILES_STORAGE = 'cloudinary_storage.storage.StaticHashedCloudinaryStorage'
-    STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static/')]
-    STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
-
-    MEDIA_URL = '/media/'
-    DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
-```
+       MEDIA_URL = '/media/'
+       MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+    ```
 
 1. Under the line with BASE_DIR, link templates directly in Heroku via settings.py:
    * ``` TEMPLATES_DIR = os.path.join(BASE_DIR, 'templates') ```
 
 1. Within TEMPLATES array, add ``` 'DIRS':[TEMPLATES_DIR] ``` like the below example:
 
-```python
-   TEMPLATES = [
-       {
-           …,
-           'DIRS': [TEMPLATES_DIR],
-           …,
-          
-        },
-       },
-   ]
-```
+   ```python
+      TEMPLATES = [
+          {
+              …,
+              'DIRS': [TEMPLATES_DIR],
+              …,
+             
+           },
+      ]
+   ```
+
+1. Link S3 Bucket to Django Project by adding the following to the settings.py file:
+
+      ``` python
+      # its important to keep the AWS keys secret so we use environment variables which will be added to Heroku later
+      # Bucket config
+      AWS_STORAGE_BUCKET_NAME = '{Bucket name}' # name of your bucket
+      AWS_S3_REGION_NAME = '{Region name}' # region of your bucket
+      AWS_ACCESS_KEY_ID = os.environ.get('AWS_ACCESS_KEY_ID')
+      AWS_SECRET_ACCESS_KEY = os.environ.get('AWS_SECRET_ACCESS_KEY')
+      AWS_S3_CUSTOM_DOMAIN = f'{AWS_STORAGE_BUCKET_NAME}.s3.amazonaws.com'
+
+      # Static and media files
+      STATICFILES_STORAGE = 'custom_storages.StaticStorage'
+      STATICFILES_LOCATION = 'static'
+      DEFAULT_FILE_STORAGE = 'custom_storages.MediaStorage'
+      MEDIAFILES_LOCATION = 'media'
+
+      # Override static and media URLs in production
+      STATIC_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/{STATICFILES_LOCATION}/'
+      MEDIA_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/{MEDIAFILES_LOCATION}/'
+      ```
 
 1. Add allowed hosts to settings.py:
     * ``` ALLOWED_HOSTS = ["PROJECT_NAME.herokuapp.com", "localhost"] ```
@@ -261,6 +273,22 @@ The below works on the assumption that you already have an account with [AWS](ht
     * ```git add .```
     * ```git commit -m "Initial deployment"```
     * ```git push```
+
+1. Add AWS Keys rom step 7 above to Heroku Config Vars.
+1. Add the ```USE_AWS``` variable to Heroku Config Vars and set it to True.
+1. Create a file call "Custom_storages.py" in the root of the project and add the following code:
+
+    ```python
+    # this file is used to tell Django where to store static and media files when COLLECT_STATIC is run (when deploying to heroku)
+    from django.conf import settings
+    from storages.backends.s3boto3 import S3Boto3Storage
+
+    class StaticStorage(S3Boto3Storage):
+        location = settings.STATICFILES_LOCATION
+
+    class MediaStorage(S3Boto3Storage):
+        location = settings.MEDIAFILES_LOCATION
+    ```
 
 ### Set up Heroku for use via the console
 
@@ -279,7 +307,7 @@ The below works on the assumption that you already have an account with [AWS](ht
     * ```git add . && git commit -m "Deploy to Heroku via CLI"```
 1. Push to GitHub and Heroku
     * ```git push origin main```
-    * ```git push heroku main ```
+    * ```git push heroku main```
 
 ## Cloning on a Local machine or Via Gitpod Terminal
 
@@ -287,17 +315,19 @@ The below works on the assumption that you already have an account with [AWS](ht
 
    * **Gitpod** only **requires** you to have the **web extension** installed and **click** the **green Gitpod button** from the repositories main page. If you are **using Gitpod**, please **skip step 2** below as you do not require a virtual environment to protect your machine.  
   
-2. **Create** the **virtual environment** with the terminal command **```python3 -m venv venv```.** Once complete add the "venv" file to you're ".gitignore" file and use the terminal command **```venv\Scripts\activate.bat``` to activate it.**
+1. **Create** the **virtual environment** with the terminal command **```python3 -m venv venv```.** Once complete add the "venv" file to you're ".gitignore" file and use the terminal command **```venv\Scripts\activate.bat``` to activate it.**
 
    * ***IMPORTANT*** If developing locally on your device, ensure you **set up/activate the virtual environment before installing/generating the requirements.txt file**; failure to do this will pollute your machine and put other projects at risk.
 
-3. **Install the requirements** listed in requirements.txt using the terminal command  **```pip3 install -r requirements.txt```**
+1. **Install the requirements** listed in requirements.txt using the terminal command  **```pip3 install -r requirements.txt```**
    * Kindly note that since I developed the project from scratch and installed the required libraries as I progressed **I have already included a requirements.txt for this app** by using the terminal command **```pip3 freeze > requirements.txt```** to generate it.
 
-4. **[Create your own Heroku app](#create-heroku-app)**, and update allowed hosts in settings.py.
+1. **[Create your own Heroku app](#create-heroku-app)**, and update allowed hosts in settings.py.
 
-5. **[Create your .env file](#creating-environmental-variables-locally).
+1. **[Create your own AWS bucket](#AWS-S3-Bucket)**, and update AWS settings for name and region of the bucket in settings.py.
 
-6. **Run server locally** with ``` python mange.py runserver ```
+1. **[Create your .env file](#creating-environmental-variables-locally)**.
+
+1. **Run server locally** with ``` python mange.py runserver ```
 
 [Back to Readme](README.md)
