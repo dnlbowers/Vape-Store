@@ -165,11 +165,11 @@ The only user story in this Epic is related to the initial deployment, this is a
 ##### **EPIC 4 - Sorting and Searching:**
 
 * As a **Shopper** I want to be able to...
-  * ...**Sort the list of available products** so that I can **view them in different orders. and find the highest/lowest rating/prices and sort alphabetically to aid finding the most suitable products to suit my needs.**
-  * ...**Search for a product by name or description** so that I can **find a specific product I am looking for.**
+  * ...**Sort the list of available products** so that I can **view them in different orders. and find the highest/lowest rating/prices and sort alphabetically to aid in finding the most suitable products to suit my needs.**
+  * ...**Search for a product by name or content in the product description** so that I can **find a specific product I am looking for.**
   * ...**View a list of products in a specific category** so that I can **view all products in that category.**
-  * ...**Easily identify what I have searched for and the number of results found** so that I can **easily find the product I want.**
-  * ...**Sort a specific category of products** so that I can **search for a specific type of product according to my needs.**
+  * ...**Identify what I have searched for easily and the number of results found** so that I can **easily see the availability of the item I searched for and quickly find the product I want.**
+  <!-- * ...**Sort a specific category of products** so that I can **search for a specific type of product according to my needs.** -->
 
 ##### **EPIC 5 - Purchasing and Checkout:**
 
