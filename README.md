@@ -145,21 +145,21 @@ The only user story in this Epic is related to the initial deployment, this is a
 
 * As a **Shopper** I want to be able to...
   * ...**View a list of products** so that I can **select some to purchase.**
-  * ...**View individual product details** so that I can **identify the price, description, and product image.**
-  * ...**View the total of my purchases at any time** so that I can **see how much I have spent.**
-  * ...**Leave a review** so that I can **share my opinion of a product.**
+  * ...**View individual product details** so that I can **identify the price, description, detailed reviews, and product image enabling me to compare how the product differs from other items.**
+  * ...**View the total of my purchases at any time** so that I can **see and review how much I am spending at any time whilst building an order.**
+  * ...**Leave a review** so that I can **share my opinion of a product and leave a star rating.**
   * ...**View reviews of a product** so that I can **see what other people think of a product.**
-  * ...**Identify any promotions that are available** so that I can **take advantage of them.**
+  * ...**Identify any promotions that are available** so that I can **take advantage of them and obtain the best value for money possible.**
 
 ##### **EPIC 3 - Registration and User Accounts:**
 
 * As a **Site User** I want to be able to...
   * ...**Register for an account** so that I can **save my personal details, view my order history online.**
-  * ...**Easily login or logout at any time** so that I can **access my personal account information.**
+  * ...**Easily login or logout at any time** so that I can **access my personal account information and protect it from unauthorized viewing on shared devices.**
   * ...**Add multiple addresses to my account** so that I can **order to different locations.**
   * ...**Save my personal details to my profile from the checkout page** so that I **don’t have to enter them every time I make a purchase.**
-  * ...**Amend my personal details from my profile** so that I can **update information as should there be any changes.**
-  * ...**Recover my password in case I forget it** so that I can **regain access to my account.**
+  * ...**Amend my personal details from my profile** so that I can **update information should there be any changes.**
+  * ...**Recover my password in case I forget it** so that I can **regain access to my account in the event I lose my password.**
   * ...**Receive an email confirmation upon registration** so that I can **confirm the registration process worked correctly.**
 
 ##### **EPIC 4 - Sorting and Searching:**

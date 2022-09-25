@@ -243,25 +243,30 @@ The below works on the assumption that you already have an account with [AWS](ht
 
 1. Link S3 Bucket to Django Project by adding the following to the settings.py file:
 
-      ``` python
-      # its important to keep the AWS keys secret so we use environment variables which will be added to Heroku later
-      # Bucket config
-      AWS_STORAGE_BUCKET_NAME = '{Bucket name}' # name of your bucket
-      AWS_S3_REGION_NAME = '{Region name}' # region of your bucket
-      AWS_ACCESS_KEY_ID = os.environ.get('AWS_ACCESS_KEY_ID')
-      AWS_SECRET_ACCESS_KEY = os.environ.get('AWS_SECRET_ACCESS_KEY')
-      AWS_S3_CUSTOM_DOMAIN = f'{AWS_STORAGE_BUCKET_NAME}.s3.amazonaws.com'
+    ``` python
+        # its important to keep the AWS keys secret so we use environment variables which will be added to Heroku later
+        # Cache control
+        AWS_S3_OBJECT_PARAMETERS = {
+           'Expires': 'Thu, 31 Dec 2099 20:00:00 GMT',
+           'CacheControl': 'max-age=94608000',
+        }
+        # Bucket config
+        AWS_STORAGE_BUCKET_NAME = '{Bucket name}' # name of your bucket
+        AWS_S3_REGION_NAME = '{Region name}' # region of your bucket
+        AWS_ACCESS_KEY_ID = os.environ.get('AWS_ACCESS_KEY_ID')
+        AWS_SECRET_ACCESS_KEY = os.environ.get('AWS_SECRET_ACCESS_KEY')
+        AWS_S3_CUSTOM_DOMAIN = f'{AWS_STORAGE_BUCKET_NAME}.s3.amazonaws.com'
 
-      # Static and media files
-      STATICFILES_STORAGE = 'custom_storages.StaticStorage'
-      STATICFILES_LOCATION = 'static'
-      DEFAULT_FILE_STORAGE = 'custom_storages.MediaStorage'
-      MEDIAFILES_LOCATION = 'media'
+        # Static and media files
+        STATICFILES_STORAGE = 'custom_storages.StaticStorage'
+        STATICFILES_LOCATION = 'static'
+        DEFAULT_FILE_STORAGE = 'custom_storages.MediaStorage'
+        MEDIAFILES_LOCATION = 'media'
 
-      # Override static and media URLs in production
-      STATIC_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/{STATICFILES_LOCATION}/'
-      MEDIA_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/{MEDIAFILES_LOCATION}/'
-      ```
+        # Override static and media URLs in production
+        STATIC_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/{STATICFILES_LOCATION}/'
+        MEDIA_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/{MEDIAFILES_LOCATION}/'
+    ```
 
 1. Add allowed hosts to settings.py:
     * ``` ALLOWED_HOSTS = ["PROJECT_NAME.herokuapp.com", "localhost"] ```
@@ -274,20 +279,20 @@ The below works on the assumption that you already have an account with [AWS](ht
     * ```git commit -m "Initial deployment"```
     * ```git push```
 
-1. Add AWS Keys rom step 7 above to Heroku Config Vars.
+1. Add AWS Keys from step 7 above to Heroku Config Vars.
 1. Add the ```USE_AWS``` variable to Heroku Config Vars and set it to True.
 1. Create a file call "Custom_storages.py" in the root of the project and add the following code:
 
     ```python
-    # this file is used to tell Django where to store static and media files when COLLECT_STATIC is run (when deploying to heroku)
-    from django.conf import settings
-    from storages.backends.s3boto3 import S3Boto3Storage
+        # this file is used to tell Django where to store static and media files when COLLECT_STATIC is run (when deploying to heroku)
+        from django.conf import settings
+        from storages.backends.s3boto3 import S3Boto3Storage
 
-    class StaticStorage(S3Boto3Storage):
-        location = settings.STATICFILES_LOCATION
+        class StaticStorage(S3Boto3Storage):
+            location = settings.STATICFILES_LOCATION
 
-    class MediaStorage(S3Boto3Storage):
-        location = settings.MEDIAFILES_LOCATION
+        class MediaStorage(S3Boto3Storage):
+            location = settings.MEDIAFILES_LOCATION
     ```
 
 ### Set up Heroku for use via the console
