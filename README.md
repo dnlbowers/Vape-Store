@@ -174,7 +174,7 @@ The only user story in this Epic is related to the initial deployment, this is a
 ##### **EPIC 5 - Purchasing and Checkout:**
 
 * As a **Shopper** I want to be able to...
-  * ...**Select a quantity of a product** so that I can **buy the correct amount of the product.**
+  * ...**Select a quantity of a product** so that I can **buy the required amount of the product.**
   * ...**View items in my bag to be purchased** so that I can **identify the total cost of my purchases before checkout.**
   * ...**Adjust the quantity of individual items in my bag** so that I can **easily make changes to my bag.**
   * ...**Easily enter my payment information** so that I can **checkout quickly with no hassles by using information previously stored in the system.**
