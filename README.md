@@ -144,6 +144,7 @@ The only user story in this Epic is related to the initial deployment, this is a
 ##### **EPIC 2 - Viewing and Navigation:**
 
 * As a **Shopper** I want to be able to...
+  * ...**Clearly identity the sites purpose upon visiting** so that I can **determine if the site is what I am looking for.**
   * ...**View a list of products** so that I can **select some to purchase.**
   * ...**View individual product details** so that I can **identify the price, description, detailed reviews, and product image enabling me to compare how the product differs from other items.**
   * ...**View the total of my purchases at any time** so that I can **see and review how much I am spending at any time whilst building an order.**
@@ -182,7 +183,7 @@ The only user story in this Epic is related to the initial deployment, this is a
   * ...**Receive an email confirmation after checking out** so that I can **keep a record of my order.**
   * ...**View my order history** so that I can **see the orders I have made previously.**
 
-##### **EPIC 6 - Admin and Store Management:** ***To be reviewed later***
+##### **EPIC 6 - Admin and Store Management:**
 
 * As a **Store Owner** I want to be able to...
   * ...**Add a product** so that I can **add new products to the store.**
@@ -192,7 +193,7 @@ The only user story in this Epic is related to the initial deployment, this is a
   * ...**Edit/update a category** so that I can **change category details.**
   * ...**Delete a category** so that I can **remove categories that are no longer for sale.**
   * ...**Add a promotion** so that I can **add new promotions to the store.**
-  * ...**manually manage the stock levels** so that I can **input received purchase orders and ensure that the stock levels are accurate in case of found discrepancies.**
+  * ...**manually manage the stock levels** so that I can **input received purchase orders and ensure that the stock levels are accurate in case of discrepancies or damages.**
 
 ### **Skeleton:**
 

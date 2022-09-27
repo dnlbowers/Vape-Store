@@ -225,6 +225,21 @@ The below works on the assumption that you already have an account with [AWS](ht
        MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
     ```
 
+1. Import setting and static functions into the project settings.py file:
+
+    ``` python
+       from django.conf import settings
+       from django.conf.urls.static import static
+    ```
+
+1. Add the following snippet to the end of the urlpatterns list:
+
+    ``` python
+       urlpatterns =[
+            path('admin/', admin.site.urls),
+        ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+    ```
+
 1. Under the line with BASE_DIR, link templates directly in Heroku via settings.py:
    * ``` TEMPLATES_DIR = os.path.join(BASE_DIR, 'templates') ```
 
