@@ -284,7 +284,7 @@ The below works on the assumption that you already have an account with [AWS](ht
     ```
 
 1. Add allowed hosts to settings.py:
-    * ``` ALLOWED_HOSTS = ["PROJECT_NAME.herokuapp.com", "localhost"] ```
+    * ``` ALLOWED_HOSTS = ["PROJECT_NAME.herokuapp.com", "localhost", "127.0.0.1"] ```
 
 1. Create Procfile at the top level of the file structure and insert the following:
     * ``` web: gunicorn PROJECT_NAME.wsgi ```

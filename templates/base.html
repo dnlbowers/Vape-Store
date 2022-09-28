@@ -5,7 +5,14 @@
        {% include includes/layout/head.html %}
     </head>
     <body>
+        {% block page_header %}
+        {% endblock  %}
 
+        {% block content %}
+        {% endblock  %}
+
+        {% block postloadjs %}
+        {% endblock  %}
 
     </body>
 </html>
