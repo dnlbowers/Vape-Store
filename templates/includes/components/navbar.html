@@ -1,0 +1,79 @@
+<div class="row mt-2 d-none d-lg-flex">
+    <div class="col-12 col-lg-4 my-auto">
+        <a class="navbar-brand" href="{% url 'home' %}">
+            <h2>Vapor Town</h2>
+        </a>
+    </div>
+    <div class="col-12 col-lg-4 my-auto">
+        <form class="form-inline my-2">
+            <div class="input-group w-100">
+                <input class="form-control" type="search" name="q" placeholder="Search" aria-label="Search">
+                <div class="input-group-append">
+                    <button class="form-control btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="col-12 col-lg-4">
+        <ul class="list-inline list-unstyled text-right my-auto">
+            <li class="dropdown list-inline-item">
+                <a class="nav-link" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <div class="text-center">
+                        <i class="fas fa-user fa-lg"></i>
+                    </div>
+                    <p class="my-0">Account</p>
+                </a>
+                <div class="dropdown-menu">
+                    <a class="dropdown-item" href="#">Action</a>
+                    <a class="dropdown-item" href="#">Another action</a>
+                    <a class="dropdown-item" href="#">Something else here</a>
+                </div>
+            </li>
+            <li class="list-inline-item">
+                <a class="nav-link" aria-label="View your cart and review your order before purchase">
+                    <div class="text-center">
+                        <i class="fa-solid fa-cart-shopping fa-lg"></i>
+                    </div>
+                    <p class="my-0">0.00</p>
+                </a>
+                <div class="dropdown-menu">
+                    <a class="dropdown-item" href="#">Action</a>
+                    <a class="dropdown-item" href="#">Another action</a>
+                    <a class="dropdown-item" href="#">Something else here</a>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mx-auto text-centre">
+            <li class="nav-item active">
+            <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+            <a class="nav-link" href="#">Link</a>
+            </li>
+            <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Dropdown
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="#">Action</a>
+                <a class="dropdown-item" href="#">Another action</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="#">Something else here</a>
+            </div>
+            </li>
+            <li class="nav-item">
+            <a class="nav-link disabled" href="#">Disabled</a>
+            </li>
+        </ul>
+        
+    </div>
+</nav>
