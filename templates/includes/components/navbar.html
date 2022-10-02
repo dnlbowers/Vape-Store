@@ -1,7 +1,7 @@
 <div class="row mt-2 d-none d-lg-flex pl-3 pr-3">
     <div class="col-12 col-lg-4 my-auto">
         <a class="navbar-brand" href="{% url 'home' %}">
-            <h2><span class="rounded-circle border border-warning bg-warning text-dark"><i class="fa-solid fa-city fa-lg"></i></span> <strong>V</strong>apor <strong>T</strong>own</h2>
+            {% include 'includes/layout/logo.html'%}
         </a>
     </div>
     <div class="col-12 col-lg-4 my-auto">
@@ -47,8 +47,8 @@
         </div>
         <div class="col-4 col-lg-0 my-auto">
             <div class="d-flex d-lg-none my-auto justify-content-center">
-                <a id="mob-logo"  class="navbar-brand" href="{% url 'home' %}">
-                    <div class="rounded-circle border border-warning bg-warning text-dark"><i class="fa-solid fa-city fa-lg"></i></div>
+                <a class="navbar-brand" href="{% url 'home' %}">
+                    {% include 'includes/layout/logo.html'%}
                 </a>
             </div>
         </div>
