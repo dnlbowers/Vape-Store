@@ -7,6 +7,9 @@
         <header class="container-fluid pl-0 pr-0">
             {% include 'includes/components/navbar.html' %}
         </header>
+        <div class="d-flex d-lg-none justify-content-center">
+            {% include 'includes/components/searchform.html'%}
+        </div>
         
         {% block page_header %}
         {% endblock  %}

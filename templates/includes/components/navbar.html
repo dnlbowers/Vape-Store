@@ -5,14 +5,7 @@
         </a>
     </div>
     <div class="col-12 col-lg-4 my-auto">
-        <form class="form-inline my-2">
-            <div class="input-group w-100">
-                <input class="form-control" type="search" name="q" placeholder="Search" aria-label="Search">
-                <div class="input-group-append">
-                    <button class="form-control btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-                </div>
-            </div>
-        </form>
+        {% include 'includes/components/searchform.html'%}
     </div>
     <nav class="col-12 col-lg-4">
         <ul class="list-inline list-unstyled text-right my-auto">
@@ -24,16 +17,7 @@
                     <p class="my-0">Account</p>
                 </a>
                 <div class="dropdown-menu border-0" aria-labelledby="user-options">
-                    {% if request.user.is_authenticated %}
-                        {% if request.user.is_superuser %}
-                            <a href="#" class="dropdown-item">Product Management</a>
-                        {% endif %}
-                        <a href="#" class="dropdown-item">My Profile</a>
-                        <a href="{% url 'account_logout' %}" class="dropdown-item">Logout</a>
-                    {% else %}
-                        <a href="{% url 'account_signup' %}" class="dropdown-item">Register</a>
-                        <a href="{% url 'account_login' %}" class="dropdown-item">Login</a>
-                    {% endif %}
+                    {% include 'includes/components/accountdropdown.html'%}
                 </div>
             </li>
             <li class="list-inline-item">
@@ -78,16 +62,7 @@
                         <p class="my-0">Account</p>
                     </a>
                     <div class="dropdown-menu border-0" aria-labelledby="user-options">
-                        {% if request.user.is_authenticated %}
-                            {% if request.user.is_superuser %}
-                                <a href="#" class="dropdown-item">Product Management</a>
-                            {% endif %}
-                            <a href="#" class="dropdown-item">My Profile</a>
-                            <a href="{% url 'account_logout' %}" class="dropdown-item">Logout</a>
-                        {% else %}
-                            <a href="{% url 'account_signup' %}" class="dropdown-item">Register</a>
-                            <a href="{% url 'account_login' %}" class="dropdown-item">Login</a>
-                        {% endif %}
+                        {% include 'includes/components/accountdropdown.html'%}
                     </div>
                 </li>
                 <li class="list-inline-item">
