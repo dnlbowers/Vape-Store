@@ -25,6 +25,11 @@
    "terminal.integrated.gpuAcceleration": "canvas",
    "editor.defaultFormatter": "HookyQR.beautify",
    "cSpell.words": [
-      "allauth"
+      "allauth",
+      "dotenv",
+      "MEDIAFILES",
+      "socialaccount",
+      "vapeshop",
+      "vaportown"
    ]
 }

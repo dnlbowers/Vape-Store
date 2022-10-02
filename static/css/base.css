@@ -1,0 +1,14 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* General CSS rules */
+.font-smaller {
+    font-size: smaller!important;
+}
+
+#mob-logo {
+    font-size: 1.8rem !important;
+}

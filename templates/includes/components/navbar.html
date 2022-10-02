@@ -14,7 +14,7 @@
             </div>
         </form>
     </div>
-    <div class="col-12 col-lg-4">
+    <nav class="col-12 col-lg-4">
         <ul class="list-inline list-unstyled text-right my-auto">
             <li class="dropdown list-inline-item">
                 <a class="nav-link" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -23,10 +23,17 @@
                     </div>
                     <p class="my-0">Account</p>
                 </a>
-                <div class="dropdown-menu">
-                    <a class="dropdown-item" href="#">Action</a>
-                    <a class="dropdown-item" href="#">Another action</a>
-                    <a class="dropdown-item" href="#">Something else here</a>
+                <div class="dropdown-menu border-0" aria-labelledby="user-options">
+                    {% if request.user.is_authenticated %}
+                        {% if request.user.is_superuser %}
+                            <a href="#" class="dropdown-item">Product Management</a>
+                        {% endif %}
+                        <a href="#" class="dropdown-item">My Profile</a>
+                        <a href="{% url 'account_logout' %}" class="dropdown-item">Logout</a>
+                    {% else %}
+                        <a href="{% url 'account_signup' %}" class="dropdown-item">Register</a>
+                        <a href="{% url 'account_login' %}" class="dropdown-item">Login</a>
+                    {% endif %}
                 </div>
             </li>
             <li class="list-inline-item">
@@ -43,27 +50,74 @@
                 </div>
             </li>
         </ul>
-    </div>
+    </nav>
 </div>
 
+<!-- Nav bar with mobile verison inluded -->
 <nav class="navbar navbar-expand-lg navbar-light bg-light border-top border-bottom">
-
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-    </button>
+    <div class="row mx-auto w-100">
+        <div class="col-4 col-lg-0 my-auto d-flex justify-content-start">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+        </div>
+        <div class="col-4 col-lg-0 my-auto">
+            <div class="d-flex d-lg-none my-auto justify-content-center">
+                <a id="mob-logo"  class="navbar-brand" href="{% url 'home' %}">
+                    <div class="rounded-circle border border-warning bg-warning text-dark"><i class="fa-solid fa-city fa-lg"></i></div>
+                </a>
+            </div>
+        </div>
+        <div class="col-4 col-lg-0 my-auto p-0">
+            <ul class="list-inline list-unstyled my-auto d-flex d-lg-none my-auto justify-content-end">
+                <li class="dropdown list-inline-item">
+                    <a class="nav-link px-1 py-3" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <div class="text-center">
+                            <i class="fas fa-user fa-lg"></i>
+                        </div>
+                        <p class="my-0">Account</p>
+                    </a>
+                    <div class="dropdown-menu border-0" aria-labelledby="user-options">
+                        {% if request.user.is_authenticated %}
+                            {% if request.user.is_superuser %}
+                                <a href="#" class="dropdown-item">Product Management</a>
+                            {% endif %}
+                            <a href="#" class="dropdown-item">My Profile</a>
+                            <a href="{% url 'account_logout' %}" class="dropdown-item">Logout</a>
+                        {% else %}
+                            <a href="{% url 'account_signup' %}" class="dropdown-item">Register</a>
+                            <a href="{% url 'account_login' %}" class="dropdown-item">Login</a>
+                        {% endif %}
+                    </div>
+                </li>
+                <li class="list-inline-item">
+                    <a class="nav-link px-1 py-3" aria-label="View your cart and review your order before purchase">
+                        <div class="text-center">
+                            <i class="fa-solid fa-cart-shopping fa-lg"></i>
+                        </div>
+                        <p class="my-0">0.00</p>
+                    </a>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" href="#">Action</a>
+                        <a class="dropdown-item" href="#">Another action</a>
+                        <a class="dropdown-item" href="#">Something else here</a>
+                    </div>
+                </li>
+            </ul>
+        </div>
     
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mx-auto text-centre">
             <li class="nav-item active">
-            <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
-            <a class="nav-link" href="#">Link</a>
+                <a class="nav-link" href="#">Link</a>
             </li>
             <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Dropdown
-            </a>
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Dropdown
+                </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                 <a class="dropdown-item" href="#">Action</a>
                 <a class="dropdown-item" href="#">Another action</a>
@@ -72,7 +126,7 @@
             </div>
             </li>
             <li class="nav-item">
-            <a class="nav-link disabled" href="#">Disabled</a>
+                <a class="nav-link disabled" href="#">Disabled</a>
             </li>
         </ul>
         
