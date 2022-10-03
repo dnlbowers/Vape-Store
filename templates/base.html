@@ -1,22 +1,24 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" class="h-100">
     <head>
-       {% include 'includes/layout/head.html' %}
+       {% include 'includes/page/head.html' %}
     </head>
-    <body>
+    <body class="d-flex flex-column h-100">
         <header class="container-fluid px-0">
-            {% include 'includes/components/navbar.html' %}
+            {% include 'includes//components/navbar.html' %}
         </header>
+
+        {% block page_header %}
+        {% endblock  %}
+
         <div class="d-lg-none py-0 my-0">
             {% include 'includes/components/searchform.html'%}
         </div>
         
-        {% block page_header %}
-        {% endblock  %}
-
         {% block content %}
         {% endblock  %}
 
+        {% include 'includes/components/footer.html'%}
         {% block postloadjs %}
         {% endblock  %}
 

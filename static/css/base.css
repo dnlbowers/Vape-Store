@@ -8,3 +8,11 @@
 .font-smaller {
     font-size: smaller!important;
 }
+
+footer {
+    margin-top: -175px;
+}
+
+.footer-section {
+    min-height: 175px;
+}
