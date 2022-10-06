@@ -1,19 +1,45 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <section class="hero-image-container bg-black">
+    <section class="hero-image-container bg-black  border-bottom border-danger">
         <div class="hero-animation index-hero-image mx-auto">
         </div>
         
     </section>
-    <main class="">
-        <p>f</p>
-        <p>f</p>
-        <p>f</p>
-        <p>f</p>
-        <p>f</p>
-        <p>f</p>
-        <p>f</p>
-        <p>f</p>
+    <main class="container-fluid no-gutters mx-auto">
+
+        <div class="row mx-auto mt-3">
+            <div class="col-sm-6">
+                <div class="card shadow p-3 mx-auto my-3 rounded w-100">
+                    <div class="card-body">
+                        Vaping Devices
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <div class="card shadow p-3 mx-auto my-3 rounded w-100 ">
+                    <div class="card-body">
+                        E-liquids
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row mx-auto mb-3 mt-sm-2">
+            <div class="col-sm-6">
+                <div class="card shadow p-3 mx-auto my-3 rounded w-100">
+                    <div class="card-body">
+                        Tanks and coils
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <div class="card shadow p-3 mx-auto my-3 rounded w-100">
+                    <div class="card-body">
+                        Batteries and Chargers
+                    </div>
+                </div>
+            </div>
+        </div>
     </main>
 {% endblock %}

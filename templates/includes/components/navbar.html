@@ -1,4 +1,4 @@
-<div class="row mt-2 d-none d-lg-flex pl-3 pr-3 no-gutters">
+<div class="row pt-2 d-none d-lg-flex border-bottom border-danger pl-3 pr-3 no-gutters bg-black text-light">
     <div class="col-12 col-lg-4 my-auto">
         <a class="navbar-brand" href="{% url 'home' %}">
             {% include 'includes/layout/logo.html'%}
@@ -10,7 +10,7 @@
     <nav class="col-12 col-lg-4">
         <ul class="list-inline list-unstyled text-right my-auto">
             <li class="dropdown list-inline-item">
-                <a class="nav-link" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <a class="nav-link text-reset" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <div class="text-center">
                         <i class="fas fa-user fa-lg"></i>
                     </div>
@@ -21,7 +21,7 @@
                 </div>
             </li>
             <li class="list-inline-item">
-                <a class="nav-link" aria-label="View your cart and review your order before purchase">
+                <a class="nav-link text-reset" aria-label="View your cart and review your order before purchase">
                     <div class="text-center">
                         <i class="fa-solid fa-cart-shopping fa-lg"></i>
                     </div>
@@ -38,11 +38,11 @@
 </div>
 
 <!-- Nav bar with mobile verison inluded -->
-<nav class="navbar navbar-expand-lg navbar-light bg-light border-top border-bottom">
+<nav class="navbar navbar-expand-lg bg-black border-bottom border-danger text-light">
     <div class="row mx-auto w-100">
         <div class="col-4 col-lg-0 my-auto d-flex justify-content-start">
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
+                <span class="fa-solid fa-bars fa-lg text-light"</span>
             </button>
         </div>
         <div class="col-4 col-lg-0 my-auto">
@@ -55,7 +55,7 @@
         <div class="col-4 col-lg-0 my-auto p-0">
             <ul class="list-inline list-unstyled my-auto d-flex d-lg-none my-auto justify-content-end">
                 <li class="dropdown list-inline-item">
-                    <a class="nav-link px-1 py-3" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <a class="nav-link px-1 py-3 text-reset" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         <div class="text-center">
                             <i class="fas fa-user fa-lg"></i>
                         </div>
@@ -66,7 +66,7 @@
                     </div>
                 </li>
                 <li class="list-inline-item">
-                    <a class="nav-link px-1 py-3" aria-label="View your cart and review your order before purchase">
+                    <a class="nav-link px-1 py-3 text-reset" aria-label="View your cart and review your order before purchase">
                         <div class="text-center">
                             <i class="fa-solid fa-cart-shopping fa-lg"></i>
                         </div>
@@ -82,15 +82,15 @@
         </div>
     
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav mx-auto text-centre">
+        <ul class="navbar-nav mx-auto text-centre text-light">
             <li class="nav-item active">
-                <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                <a class="nav-link text-reset" href="#">Home <span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">Link</a>
+                <a class="nav-link text-reset" href="#">Link</a>
             </li>
             <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <a class="nav-link dropdown-toggle text-reset" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     Dropdown
                 </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -101,7 +101,7 @@
             </div>
             </li>
             <li class="nav-item">
-                <a class="nav-link disabled" href="#">Disabled</a>
+                <a class="nav-link text-reset" href="#">Link</a>
             </li>
         </ul>
         
