@@ -27,3 +27,5 @@ The sprints focus was to get the development environment step up and deployed to
 This sprint was aimed at getting the coding side of the project up and running. I have decided to stick with one week sprints as I did with my previous project. The planning aspect of this sprint has probably seen me over estimate the story points however due to the fact that I took a break to focus on my new professional role I wanted to ensure I had enough time to get back into the swing of things.
 
 * This sprint began on 28/09/2022 at 22:00 and was due to finish at 5/10/2022 by 23:30.
+* Finished a day late because I took a bit long to arrange the styling as part of PV5-46. There were perhaps some additionally parts to the styling I could have added, however a sprint is supposed to be a set time period which I had breached already and the extra bits were not essential to meet the acceptance criteria or meet the tasks related to the ticket.
+* I carried over PV5-10 to the next sprint as I was not able to complete it in time.
