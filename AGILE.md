@@ -29,3 +29,12 @@ This sprint was aimed at getting the coding side of the project up and running. 
 * This sprint began on 28/09/2022 at 22:00 and was due to finish at 5/10/2022 by 23:30.
 * Finished a day late because I took a bit long to arrange the styling as part of PV5-46. There were perhaps some additionally parts to the styling I could have added, however a sprint is supposed to be a set time period which I had breached already and the extra bits were not essential to meet the acceptance criteria or meet the tasks related to the ticket.
 * I carried over PV5-10 to the next sprint as I was not able to complete it in time.
+
+### Sprint 3 Notes
+
+![Sprint 3](/docs/agile/sprintscreenshots/sprint3.jpg)
+
+This sprint is aimed at getting the products portion of the site up and running, I need to make the models to hold the product/category data, upload some products and then create the views to display the data to the user. This process will include creating the admin page for products so I can manually add them to the site.
+
+* This sprint began on 7/10/2022 at 17:45 and was due to finish at 15/10/2022 by 00:00.
+* 55 story points in total organized to be 60% must haves, 20% nice to haves, and 20% should haves.
