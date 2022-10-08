@@ -1,6 +1,8 @@
 from django.test import TestCase
 
 # Create your tests here.
+
+
 class TestPage(TestCase):
 
     def test_index_page(self):
