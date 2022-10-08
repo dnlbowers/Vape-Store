@@ -1,3 +1,4 @@
+from enum import unique
 from django.db import models
 from polymorphic.models import PolymorphicModel
 
@@ -33,26 +34,28 @@ class Product(PolymorphicModel):
         null=True,
         blank=True,
         on_delete=models.SET_NULL)
-    sku = models.CharField(max_length=254, null=True, blank=True)
+    sku = models.CharField(max_length=254, null=True, blank=True, unique=True)
     name = models.CharField(max_length=254)
     brand = models.CharField(max_length=254, null=True, blank=True)
     description = models.TextField()
     current_rating = models.DecimalField(
         max_digits=6, decimal_places=2,
-        null=True, blank=True
+        null=True, blank=True, default=0
     )
-    accumulative_rating = models.IntegerField(default=0)
+    accumulative_rating = models.IntegerField(null=True, blank=True, default=0)
     Number_of_ratings = models.IntegerField(null=True, blank=True, default=0)
     image_url = models.URLField(max_length=1024, null=True, blank=True)
     image = models.ImageField(null=True, blank=True)
     stock_level = models.IntegerField()
     in_stock = models.BooleanField(default=True)
     has_sale = models.BooleanField(default=False)
-    price = models.DecimalField(max_digits=6, decimal_places=2)
-    sale_price = models.DecimalField(max_digits=6, decimal_places=2, null=True, blank=True)
+    rrp = models.DecimalField(max_digits=6, decimal_places=2)
+    price = models.DecimalField(max_digits=6, decimal_places=2, null=True, blank=True)
+    discounted_price = models.DecimalField(max_digits=6, decimal_places=2, null=True, blank=True)
 
     def __str__(self):
         return self.name
+
 
     def get_rating(self):
         """
@@ -65,7 +68,18 @@ class Product(PolymorphicModel):
             self.current_rating = self.accumulative_rating / self.Number_of_ratings
             return self.current_rating
 
-        
+
+    def save(self, *args, **kwargs):
+        """
+        Override the original save method to set the price
+        according to if it has a sale or not
+        """
+        if self.has_sale:
+            self.price = self.discounted_price
+        else:
+            self.price = self.rrp
+            
+        super().save(*args, **kwargs)
 
 
 class DisposableVapes(Product):
