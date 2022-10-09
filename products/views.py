@@ -18,3 +18,4 @@ class AllProductsView(ListView):
         context['products'] = AllProducts.objects.all()
         context['categories'] = CategoryGroupings.objects.all()
         return context
+        

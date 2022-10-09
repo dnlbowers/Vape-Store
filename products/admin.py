@@ -44,7 +44,7 @@ class ProductAdmin(ModelAChildAdmin):
         'current_rating',
         'has_sale',
         'image')
-    search_fields = ('name', 'brand', 'description', 'category__friendly_name')
+    search_fields = ('name', 'brand', 'description', 'category__name')
     actions = ['add_sale', 'remove_sale']
 
     def add_sale(self, request, queryset):
@@ -68,7 +68,7 @@ class ProductAdmin(ModelAChildAdmin):
         'current_rating',
         'has_sale',
         'image')
-    search_fields = ('name', 'brand', 'description', 'category__friendly_name')
+    search_fields = ('name', 'brand', 'description', 'category__name')
     actions = ['add_sale', 'remove_sale']
 
     def add_sale(self, request, queryset):
@@ -92,7 +92,7 @@ class ProductAdmin(ModelAChildAdmin):
         'current_rating',
         'has_sale',
         'image')
-    search_fields = ('name', 'brand', 'description', 'category__friendly_name')
+    search_fields = ('name', 'brand', 'description', 'category__name')
     actions = ['add_sale', 'remove_sale']
 
     def add_sale(self, request, queryset):
@@ -116,7 +116,7 @@ class ProductAdmin(ModelAChildAdmin):
         'current_rating',
         'has_sale',
         'image')
-    search_fields = ('name', 'brand', 'description', 'category__friendly_name')
+    search_fields = ('name', 'brand', 'description', 'category__name')
     actions = ['add_sale', 'remove_sale']
 
     def add_sale(self, request, queryset):
@@ -140,7 +140,7 @@ class ProductAdmin(ModelAChildAdmin):
         'current_rating',
         'has_sale',
         'image')
-    search_fields = ('name', 'brand', 'description', 'category__friendly_name')
+    search_fields = ('name', 'brand', 'description', 'category__name')
     actions = ['add_sale', 'remove_sale']
 
     def add_sale(self, request, queryset):
@@ -164,7 +164,7 @@ class ProductAdmin(ModelAChildAdmin):
         'current_rating',
         'has_sale',
         'image')
-    search_fields = ('name', 'brand', 'description', 'category__friendly_name')
+    search_fields = ('name', 'brand', 'description', 'category__name')
     actions = ['add_sale', 'remove_sale']
 
     def add_sale(self, request, queryset):
@@ -188,7 +188,7 @@ class ProductAdmin(ModelAChildAdmin):
         'current_rating',
         'has_sale',
         'image')
-    search_fields = ('name', 'brand', 'description', 'category__friendly_name')
+    search_fields = ('name', 'brand', 'description', 'category__name')
     actions = ['add_sale', 'remove_sale']
 
     def add_sale(self, request, queryset):
@@ -212,7 +212,7 @@ class ProductAdmin(ModelAChildAdmin):
         'current_rating',
         'has_sale',
         'image')
-    search_fields = ('name', 'brand', 'description', 'category__friendly_name')
+    search_fields = ('name', 'brand', 'description', 'category__name')
     actions = ['add_sale', 'remove_sale']
 
     def add_sale(self, request, queryset):
@@ -236,7 +236,7 @@ class ProductAdmin(ModelAChildAdmin):
         'current_rating',
         'has_sale',
         'image')
-    search_fields = ('name', 'brand', 'description', 'category__friendly_name')
+    search_fields = ('name', 'brand', 'description', 'category__name')
     actions = ['add_sale', 'remove_sale']
 
     def add_sale(self, request, queryset):
@@ -260,7 +260,7 @@ class ProductAdmin(ModelAChildAdmin):
         'current_rating',
         'has_sale',
         'image')
-    search_fields = ('name', 'brand', 'description', 'category__friendly_name')
+    search_fields = ('name', 'brand', 'description', 'category__name')
     actions = ['add_sale', 'remove_sale']
 
     def add_sale(self, request, queryset):
@@ -285,7 +285,7 @@ class ProductAdmin(PolymorphicParentModelAdmin):
         'current_rating',
         'has_sale',
         'image')
-    search_fields = ('name', 'brand', 'description', 'category__friendly_name')
+    search_fields = ('name', 'brand', 'description', 'category__name')
     actions = ['add_sale', 'remove_sale']
 
     def add_sale(self, request, queryset):
@@ -300,5 +300,5 @@ class CategoryAdmin(admin.ModelAdmin):
     """ Admin registration and configuration for the Category groupings model"""
     list_display = (
         'friendly_name',
-        'programmatic_name',
+        'name',
     )

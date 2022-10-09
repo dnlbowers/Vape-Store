@@ -12,18 +12,18 @@ class CategoryGroupings(models.Model):
 
         verbose_name_plural = 'Category Groupings'
 
-    programmatic_name = models.CharField(max_length=254)
+    name = models.CharField(max_length=254)
     friendly_name = models.CharField(max_length=254, null=True, blank=True)
 
     def __str__(self):
-        return self.friendly_name
+        return self.name
 
-    def get_programmatic_name(self):
+    def get_friendly_name(self):
         """
         Passes the friendly name to the template/admin panel
         """
 
-        return self.programmatic_name
+        return self.friendly_name
 
 
 class AllProducts(PolymorphicModel):

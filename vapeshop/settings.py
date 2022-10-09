@@ -94,6 +94,44 @@ LOGIN_URL = '/accounts/login/'
 LOGIN_REDIRECT_URL = '/'
 WSGI_APPLICATION = 'vapeshop.wsgi.application'
 
+
+SUMMERNOTE_theme = 'bs4'
+
+SUMMERNOTE_CONFIG = {
+    # Using SummernoteWidget - iframe mode, default
+    'iframe': True,
+
+    # custom Summernote settings
+    'summernote': {
+        # As an example, using Summernote Air-mode
+        'airMode': False,
+
+        # Change editor size
+        'width': '100%',
+        'height': '400',
+    },
+
+    # Toolbar customization
+    'toolbar': [
+        ['style', ['style']],
+        ['font', [
+            'bold',
+            'italic'
+            'underline'
+            'clear',
+            'superscript',
+            'subscript',
+            'strikethrough', ]],
+        ['fontname', ['fontname']],
+        ['fontsize', ['fontsize']],
+        ['color', ['color']],
+        ['para', ['ul', 'ol', 'paragraph']],
+        ['height', ['height']],
+        ['table', ['table']],
+        ['insert', ['link', 'picture', 'video', 'hr']],
+        ['view', ['fullscreen', 'codeview', 'help']],
+    ],
+}
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 if 'DATABASE_URL' in os.environ:

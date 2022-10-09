@@ -6,8 +6,28 @@
         </div>
         
     </section>
-    <main class="container-fluid no-gutters mx-auto">
-
+    <main class="container no-gutters mx-auto">
+            
+        <div class="row my-3 no-gutters">
+            <div class="card-deck">
+            {% for product in products %}
+                <div class="col-sm-6 col-md-6 col-lg-4 col-xl-3 my-3">
+                    
+                        <div class="card h-100">
+                            <img src="{{ product.image.url }}" class="card-img-top img-fluid" alt="{{ product.name }}">
+                            <div class="card-body">
+                                <h5 class="card-title">{{ product.name }}</h5>
+                            </div>
+                            <div class="card-text">
+                                <p>{{ product.price }}</p>
+                            </div>
+                        </div>
+                    
+                </div>
+            {% endfor %}
+        </div>
+        </div>
+            
         {{ products }}
     </main>
 {% endblock %}
