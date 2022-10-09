@@ -299,6 +299,6 @@ class ProductAdmin(PolymorphicParentModelAdmin):
 class CategoryAdmin(admin.ModelAdmin):
     """ Admin registration and configuration for the Category groupings model"""
     list_display = (
-        'programmatic_name',
         'friendly_name',
+        'programmatic_name',
     )

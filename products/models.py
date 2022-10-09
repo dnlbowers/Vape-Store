@@ -52,7 +52,7 @@ class AllProducts(PolymorphicModel):
     accumulative_rating = models.IntegerField(null=True, blank=True, default=0)
     Number_of_ratings = models.IntegerField(null=True, blank=True, default=0)
     image_url = models.URLField(max_length=1024, null=True, blank=True)
-    image = models.ImageField(null=True, blank=True)
+    image = models.ImageField(upload_to='products/', null=True, blank=True)
     stock_level = models.IntegerField()
     in_stock = models.BooleanField(default=True)
     has_sale = models.BooleanField(default=False)
