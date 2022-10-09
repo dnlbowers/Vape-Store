@@ -2,7 +2,7 @@ from django.db import models
 from polymorphic.models import PolymorphicModel
 
 
-class Category(models.Model):
+class CategoryGroupings(models.Model):
     """"A model for the category of the product"""
 
     class Meta:
@@ -10,26 +10,34 @@ class Category(models.Model):
         Alters the name of the category in the admin panel
         """
 
-        verbose_name_plural = 'Categories'
+        verbose_name_plural = 'Category Groupings'
 
     programmatic_name = models.CharField(max_length=254)
     friendly_name = models.CharField(max_length=254, null=True, blank=True)
 
     def __str__(self):
-        return self.programmatic_name
+        return self.friendly_name
 
-    def get_friendly_name(self):
+    def get_programmatic_name(self):
         """
         Passes the friendly name to the template/admin panel
         """
 
-        return self.friendly_name
+        return self.programmatic_name
 
 
-class Product(PolymorphicModel):
+class AllProducts(PolymorphicModel):
     """Base model for all products"""
+
+    class Meta:
+        """"
+        Alters the name of the category in the admin panel
+        """
+
+        verbose_name_plural = 'All Products'
+
     category = models.ForeignKey(
-        'Category',
+        'CategoryGroupings',
         null=True,
         blank=True,
         on_delete=models.SET_NULL)
@@ -84,7 +92,7 @@ class Product(PolymorphicModel):
         super().save(*args, **kwargs)
 
 
-class DisposableVapes(Product):
+class DisposableVapes(AllProducts):
     """Model for disposable vapes"""
 
     class Meta:
@@ -108,7 +116,7 @@ class DisposableVapes(Product):
     liquid_capacity = models.CharField(max_length=254, null=True, blank=True)
 
 
-class Mods(Product):
+class Mods(AllProducts):
     """Model for mods"""
 
     class Meta:
@@ -121,7 +129,7 @@ class Mods(Product):
     colour = models.CharField(max_length=254, null=True, blank=True)
 
 
-class Tanks(Product):
+class Tanks(AllProducts):
     """"
     Model for tanks
     """
@@ -145,13 +153,69 @@ class Tanks(Product):
         max_length=7,
         choices=TANK_TYPE,
         default='Sub-Ohm')
-    # coil_type = models.ManyToManyField(
-    #     'Coils',
-    #     blank=True,
-    #     related_name='coils')
 
 
-class VapeJuice(Product):
+class PreBuiltCoils(AllProducts):
+    """"
+    Model for coils
+    """
+
+    class Meta:
+        """"
+        Alters the name of the product in the admin panel
+        """
+
+        verbose_name_plural = 'Pre-Built Coils'
+
+    COIL_TYPE = (
+        ('Mesh', 'Mesh'),
+        ('Kanthal', 'Kanthal'),
+        ('Nickel', 'Nickel'),
+        ('Stainless Steel', 'Stainless Steel'),
+    )
+
+    coil_type = models.CharField(
+        max_length=15,
+        choices=COIL_TYPE,
+        default='Mesh')
+    resistance = models.CharField(max_length=254, null=True, blank=True)
+    quantity = models.IntegerField(null=True, blank=True, default=1)
+    tank = models.ForeignKey(
+        'Tanks',
+        null=True,
+        blank=True,
+        on_delete=models.SET_NULL,
+        related_name='coils')
+
+
+class Batteries(AllProducts):
+    """"
+    Model for batteries
+    """
+
+    class Meta:
+        """"
+        Alters the name of the product in the admin panel
+        """
+
+        verbose_name_plural = 'Batteries'
+
+    BATTERY_TYPE = (
+        ('18650', '18650'),
+        ('20700', '20700'),
+        ('21700', '21700'),
+    )
+
+    battery_type = models.CharField(
+        max_length=5,
+        choices=BATTERY_TYPE,
+        default='18650')
+    capacity = models.CharField(max_length=254, null=True, blank=True)
+    discharge_rate = models.CharField(max_length=254, null=True, blank=True)
+
+
+
+class VapeJuice(AllProducts):
     """"
     Model for vape juice
     """
@@ -194,3 +258,130 @@ class VapeJuice(Product):
         max_length=3, choices=BOTTLE_SIZE, default='10')
     pg_vg_ratio = models.CharField(
         max_length=5, choices=PG_VG_MIX_RATIOS, default='50/50')
+
+
+class BaseLiquids(AllProducts):
+    """"
+    Model for base liquids
+    """
+
+    class Meta:
+        """"
+        Alters the name of the product in the admin panel
+        """
+
+        verbose_name_plural = 'Base Liquids'
+
+    BOTTLE_SIZE = (
+        ('250', '250ml'),
+        ('500', '500ml'),
+        ('1000', '1000ml'),
+    )
+    
+    PG_VG_MIX_RATIOS = (
+        ('50/50', '50pg/50vg'),
+        ('70/30', '70pg/30vg'),
+        ('100/0', '100%pg'),
+        ('0/100', '100%vg'),
+    )
+
+    size = models.CharField(
+        max_length=4, choices=BOTTLE_SIZE, default='250')
+    pg_vg_ratio = models.CharField(
+        max_length=5, choices=PG_VG_MIX_RATIOS, default='50/50')
+
+    def __str__(self):
+        return self.name
+
+
+class NicotineShots(AllProducts):
+    """"
+    Model for nicotine
+    """
+
+    class Meta:
+        """"
+        Alters the name of the product in the admin panel
+        """
+
+        verbose_name_plural = 'Nicotine'
+
+    BOTTLE_SIZE = (
+        ('10', '10ml'),
+    )
+
+    NICOTINE_STRENGTHS = (
+        ('18', '18mg'),
+        ('20', '20mg'),
+        ('36', '36mg'),
+    )
+
+    NICOTINE_TYPE = (
+        ('Nicotine', 'Nicotine'),
+        ('Nicotine Salt', 'Nicotine Salt'),
+    )
+
+    size = models.CharField(
+        max_length=2, choices=BOTTLE_SIZE, default='10')
+    nicotine_strength = models.CharField(
+        max_length=2, choices=NICOTINE_STRENGTHS, default='18')
+    nicotine_type = models.CharField(
+        max_length=13, choices=NICOTINE_TYPE, default='Nicotine')
+
+    def __str__(self):
+        return self.name
+
+
+class FlavorConcentrates(AllProducts):
+    """"
+    Model for flavor concentrates
+    """
+
+    class Meta:
+        """"
+        Alters the name of the product in the admin panel
+        """
+
+        verbose_name_plural = 'Flavor Concentrates'
+
+    BOTTLE_SIZE = (
+        ('10', '10ml'),
+        ('30', '30ml'),
+    )
+
+    size = models.CharField(
+        max_length=3, choices=BOTTLE_SIZE, default='10')
+    flavour = models.CharField(max_length=254, null=True, blank=True)
+
+    def __str__(self):
+        return self.name
+
+
+class Accessories(AllProducts):
+    """"
+    Model for accessories
+    """
+
+    class Meta:
+        """"
+        Alters the name of the product in the admin panel
+        """
+
+        verbose_name_plural = 'Accessories'
+
+    ACCESSORY_TYPE = (
+        ('Wire', 'Wire'),
+        ('Wick', 'Wick'),
+        ('Chargers', 'Chargers'),
+        ('Cases', 'Cases'),
+        ('Tools', 'Tools'),
+        ('Other', 'Other'),
+    )
+
+    accessory_type = models.CharField(
+        max_length=8,
+        choices=ACCESSORY_TYPE,
+        default='Chargers')
+
+
+

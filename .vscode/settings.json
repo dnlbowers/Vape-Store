@@ -4,9 +4,9 @@
    "python.linting.pep8Enabled": true,
    "python.linting.flake8Enabled": true,
    "python.terminal.activateEnvironment": false,
-   "python.formatting.autopep8Path": "/home/gitpod/.pyenv/shims/autopep8",
-   "python.linting.flake8Path": "/home/gitpod/.pyenv/shims/flake8",
-   "cornflakes.linter.executablePath": "/home/gitpod/.pyenv/shims/flake8",
+   "python.formatting.autopep8Path": "/.venv/Lib/site-packages/autopep8-1.7.0.dist-info",
+   "python.linting.flake8Path": "/.venv/Lib/site-packages/flake8",
+   "cornflakes.linter.executablePath": "/.venv/Lib/site-packages/flake8",
    "files.exclude": {
       "**/.DS_Store": true,
       "**/.git": true,
@@ -31,5 +31,6 @@
       "socialaccount",
       "vapeshop",
       "vaportown"
-   ]
+   ],
+
 }
