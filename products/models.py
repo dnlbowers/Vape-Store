@@ -145,10 +145,10 @@ class Tanks(Product):
         max_length=7,
         choices=TANK_TYPE,
         default='Sub-Ohm')
-    coil_type = models.ManyToManyField(
-        'Coils',
-        blank=True,
-        related_name='coils')
+    # coil_type = models.ManyToManyField(
+    #     'Coils',
+    #     blank=True,
+    #     related_name='coils')
 
 
 class VapeJuice(Product):
@@ -191,6 +191,6 @@ class VapeJuice(Product):
     nicotine_strength = models.CharField(
         max_length=2, choices=NICOTINE_STRENGTHS, default='0')
     size = models.CharField(
-        max_length=2, choices=BOTTLE_SIZE, default='10')
+        max_length=3, choices=BOTTLE_SIZE, default='10')
     pg_vg_ratio = models.CharField(
         max_length=5, choices=PG_VG_MIX_RATIOS, default='50/50')

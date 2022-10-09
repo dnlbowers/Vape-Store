@@ -1,4 +1,3 @@
-from itertools import product
 from django.contrib import admin
 from polymorphic.admin import PolymorphicParentModelAdmin, PolymorphicChildModelAdmin, PolymorphicChildModelFilter
 from django_summernote.admin import SummernoteModelAdmin
