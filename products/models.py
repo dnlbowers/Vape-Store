@@ -35,6 +35,7 @@ class AllProducts(PolymorphicModel):
         """
 
         verbose_name_plural = 'All Products'
+        ordering = ['id']
 
     category = models.ForeignKey(
         'CategoryGroupings',

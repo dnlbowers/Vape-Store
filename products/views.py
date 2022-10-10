@@ -8,14 +8,10 @@ class AllProductsView(ListView):
     """
     model = AllProducts
     template_name = 'products/products.html'
-    paginate_by = 12
+    paginate_by = 4  
 
-    def get_context_data(self, **kwargs):
+    def get_context_object_name(self, object_list):
         """"
         Passes the products to the template
         """
-        context = super().get_context_data(**kwargs)
-        context['products'] = AllProducts.objects.all()
-        context['categories'] = CategoryGroupings.objects.all()
-        return context
-        
+        return 'products'
