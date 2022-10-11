@@ -19,11 +19,11 @@ class Testmodels(TestCase):
             Number_of_ratings=43,
             stock_level=12,
             rrp=12.99,
-            discounted_price=10.99,            
+            discounted_price=10.99,
         )
 
     def test_name_is_copied_into_slug_field_upon_creation(self):
-        
+
         self.assertEqual(self.product.slug, 'test_name')
 
     def test_rating_is_correctly_calculated_the_average_of_all_ratings(self):
@@ -34,10 +34,8 @@ class Testmodels(TestCase):
 
     def test_price_is_correctly_calculated_from_rrp(self):
         self.assertEqual(self.product.price, 12.99)
-    
+
     def test_price_is_correctly_calculated_when_has_sale_equals_true(self):
-        self.has_sale=True
+        self.has_sale = True
         self.product.save()
         self.assertEqual(self.product.price, 12.99)
-        
-

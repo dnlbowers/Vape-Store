@@ -284,7 +284,15 @@ class ProductAdmin(ModelAChildAdmin):
 class ProductAdmin(PolymorphicParentModelAdmin):
     """ Admin registration and configuration for the Product model"""
     base_model = AllProducts
-    child_models = (DisposableVapes, Mods, Tanks, VapeJuice, BaseLiquids, Accessories, Batteries, PreBuiltCoils)
+    child_models = (
+        DisposableVapes,
+        Mods,
+        Tanks,
+        VapeJuice,
+        BaseLiquids,
+        Accessories,
+        Batteries,
+        PreBuiltCoils)
     summer_fields = ('description',)
     list_display = (
         'sku',

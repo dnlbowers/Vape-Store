@@ -12,11 +12,16 @@ class Migration(migrations.Migration):
     operations = [
         migrations.AlterModelOptions(
             name='allproducts',
-            options={'ordering': ['id'], 'verbose_name_plural': 'All Products'},
+            options={
+                'ordering': ['id'],
+                'verbose_name_plural': 'All Products'},
         ),
         migrations.AddField(
             model_name='allproducts',
             name='slug',
-            field=models.SlugField(blank=True, max_length=254, null=True),
+            field=models.SlugField(
+                blank=True,
+                max_length=254,
+                null=True),
         ),
     ]

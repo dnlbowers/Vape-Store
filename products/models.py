@@ -79,7 +79,8 @@ class AllProducts(PolymorphicModel):
         if self.Number_of_ratings == 0:
             return 0
         else:
-            self.current_rating = round(self.accumulative_rating / self.Number_of_ratings, 2)
+            self.current_rating = round(
+                self.accumulative_rating / self.Number_of_ratings, 2)
             return self.current_rating
 
     def save(self, *args, **kwargs):
@@ -224,7 +225,6 @@ class Batteries(AllProducts):
     discharge_rate = models.CharField(max_length=254, null=True, blank=True)
 
 
-
 class VapeJuice(AllProducts):
     """"
     Model for vape juice
@@ -287,7 +287,7 @@ class BaseLiquids(AllProducts):
         ('500', '500ml'),
         ('1000', '1000ml'),
     )
-    
+
     PG_VG_MIX_RATIOS = (
         ('50/50', '50pg/50vg'),
         ('70/30', '70pg/30vg'),
@@ -392,6 +392,3 @@ class Accessories(AllProducts):
         max_length=8,
         choices=ACCESSORY_TYPE,
         default='Chargers')
-
-
-
