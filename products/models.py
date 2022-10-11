@@ -1,4 +1,5 @@
 from django.db import models
+from django.utils.text import slugify
 from polymorphic.models import PolymorphicModel
 
 
@@ -44,6 +45,7 @@ class AllProducts(PolymorphicModel):
         on_delete=models.SET_NULL)
     sku = models.CharField(max_length=254, null=True, blank=True, unique=True)
     name = models.CharField(max_length=254)
+    slug = models.SlugField(max_length=254, null=True, blank=True)
     brand = models.CharField(max_length=254, null=True, blank=True)
     description = models.TextField()
     current_rating = models.DecimalField(
@@ -77,7 +79,7 @@ class AllProducts(PolymorphicModel):
         if self.Number_of_ratings == 0:
             return 0
         else:
-            self.current_rating = self.accumulative_rating / self.Number_of_ratings
+            self.current_rating = round(self.accumulative_rating / self.Number_of_ratings, 2)
             return self.current_rating
 
     def save(self, *args, **kwargs):
@@ -85,6 +87,13 @@ class AllProducts(PolymorphicModel):
         Override the original save method to set the price
         according to if it has a sale or not
         """
+        self.get_rating()
+
+        if self.stock_level <= 0:
+            self.in_stock = False
+
+        self.slug = slugify(self.name)
+
         if self.has_sale:
             self.price = self.discounted_price
         else:

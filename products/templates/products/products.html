@@ -1,11 +1,11 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <section class="hero-image-container bg-black  border-bottom border-danger">
+    {% comment %} <section class="hero-image-container bg-black  border-bottom border-danger">
         <div class="hero-animation index-hero-image mx-auto">
         </div>
         
-    </section>
+    </section> {% endcomment %}
     <main class="container no-gutters mx-auto">
             
         <div class="row my-3 no-gutters">
@@ -19,7 +19,7 @@
                                 <h5 class="card-title">{{ product.name }}</h5>
                             </div>
                             <div class="card-text">
-                                <p>{{ product.price }}</p>
+                                <p>&euro;{{ product.price }}</p>
                             </div>
                         </div>   
                     </div>

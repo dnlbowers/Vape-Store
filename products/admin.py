@@ -45,6 +45,7 @@ class ProductAdmin(ModelAChildAdmin):
         'has_sale',
         'image')
     search_fields = ('name', 'brand', 'description', 'category__name')
+    prepopulated_fields = {'slug': ('name',)}
     actions = ['add_sale', 'remove_sale']
 
     def add_sale(self, request, queryset):
@@ -69,6 +70,7 @@ class ProductAdmin(ModelAChildAdmin):
         'has_sale',
         'image')
     search_fields = ('name', 'brand', 'description', 'category__name')
+    prepopulated_fields = {'slug': ('name',)}
     actions = ['add_sale', 'remove_sale']
 
     def add_sale(self, request, queryset):
@@ -93,6 +95,7 @@ class ProductAdmin(ModelAChildAdmin):
         'has_sale',
         'image')
     search_fields = ('name', 'brand', 'description', 'category__name')
+    prepopulated_fields = {'slug': ('name',)}
     actions = ['add_sale', 'remove_sale']
 
     def add_sale(self, request, queryset):
@@ -117,6 +120,7 @@ class ProductAdmin(ModelAChildAdmin):
         'has_sale',
         'image')
     search_fields = ('name', 'brand', 'description', 'category__name')
+    prepopulated_fields = {'slug': ('name',)}
     actions = ['add_sale', 'remove_sale']
 
     def add_sale(self, request, queryset):
@@ -141,6 +145,7 @@ class ProductAdmin(ModelAChildAdmin):
         'has_sale',
         'image')
     search_fields = ('name', 'brand', 'description', 'category__name')
+    prepopulated_fields = {'slug': ('name',)}
     actions = ['add_sale', 'remove_sale']
 
     def add_sale(self, request, queryset):
@@ -165,6 +170,7 @@ class ProductAdmin(ModelAChildAdmin):
         'has_sale',
         'image')
     search_fields = ('name', 'brand', 'description', 'category__name')
+    prepopulated_fields = {'slug': ('name',)}
     actions = ['add_sale', 'remove_sale']
 
     def add_sale(self, request, queryset):
@@ -189,6 +195,7 @@ class ProductAdmin(ModelAChildAdmin):
         'has_sale',
         'image')
     search_fields = ('name', 'brand', 'description', 'category__name')
+    prepopulated_fields = {'slug': ('name',)}
     actions = ['add_sale', 'remove_sale']
 
     def add_sale(self, request, queryset):
@@ -213,6 +220,7 @@ class ProductAdmin(ModelAChildAdmin):
         'has_sale',
         'image')
     search_fields = ('name', 'brand', 'description', 'category__name')
+    prepopulated_fields = {'slug': ('name',)}
     actions = ['add_sale', 'remove_sale']
 
     def add_sale(self, request, queryset):
@@ -237,6 +245,7 @@ class ProductAdmin(ModelAChildAdmin):
         'has_sale',
         'image')
     search_fields = ('name', 'brand', 'description', 'category__name')
+    prepopulated_fields = {'slug': ('name',)}
     actions = ['add_sale', 'remove_sale']
 
     def add_sale(self, request, queryset):
@@ -261,6 +270,7 @@ class ProductAdmin(ModelAChildAdmin):
         'has_sale',
         'image')
     search_fields = ('name', 'brand', 'description', 'category__name')
+    prepopulated_fields = {'slug': ('name',)}
     actions = ['add_sale', 'remove_sale']
 
     def add_sale(self, request, queryset):
@@ -286,6 +296,7 @@ class ProductAdmin(PolymorphicParentModelAdmin):
         'has_sale',
         'image')
     search_fields = ('name', 'brand', 'description', 'category__name')
+    prepopulated_fields = {'slug': ('name',)}
     actions = ['add_sale', 'remove_sale']
 
     def add_sale(self, request, queryset):

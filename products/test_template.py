@@ -6,7 +6,7 @@ from django.urls import reverse
 
 class TestPage(TestCase):
 
-    def test_index_page(self):
-        response = self.client.get(reverse("home"))
+    def test_products_page_template(self):
+        response = self.client.get(reverse("products"))
         self.assertEqual(response.status_code, 200)
-        self.assertTemplateUsed(response, "home/index.html")
+        self.assertTemplateUsed(response, "products/products.html")
