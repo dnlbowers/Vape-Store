@@ -1,9 +1,8 @@
 from django.shortcuts import get_object_or_404, render
 from django.views import generic, View  # noqa
-
-from .models import Accessories, AllProducts, BaseLiquids, Batteries, DisposableVapes, FlavorConcentrates, Mods, NicotineShots, PreBuiltCoils,  Tanks, VapeJuice
-
-# Create your views here.
+from .models import Accessories, AllProducts, BaseLiquids, Batteries
+from .models import DisposableVapes, FlavorConcentrates, Mods, NicotineShots
+from .models import PreBuiltCoils, Tanks, VapeJuice
 
 
 class AllProducts(generic.ListView):
@@ -25,9 +24,10 @@ class ProductDetails(View):
     """"
     View to return a single product
     """
+
     def get(self, request, id, *args, **kwargs):
         """"
-        Returns a single product
+        Returns a single product and it details
         """
         all_products = [
             Accessories,
@@ -56,4 +56,4 @@ class ProductDetails(View):
             request,
             'products/product_detail.html', {
                 'product': 'not found'
-                })
+            })

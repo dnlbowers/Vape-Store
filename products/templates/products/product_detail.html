@@ -2,26 +2,53 @@
 
 {% block content %}
 
-    <main class="container-fluid no-gutters mx-auto">
+    <main class="mx-auto">
         {% if product == 'not found' %}
             No Product found
         {% else %}
-            <div class="row">
-                <div class="col-12 col-md-6">
-                    <img src="{{ product.image.url }}" alt="{{ product.name }}" class="img-fluid">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb small">
+                    <li class="breadcrumb-item"><a href="{% url 'home' %}">Home</a></li>
+                    <li class="breadcrumb-item"><a href="#">{{ product.category.friendly_name }}</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">{{ product.name}}</li>
+                </ol>
+            </nav>
+            <div class="row mt-5 mx-5 mb-3">
+                <div class="col-12 col-sm-6">
+                    <h2 class="text-center d-sm-none">{{ product.name }}</h2>
+                    <p class="small text-center d-sm-none text-muted">SKU: {{ product.sku }}</p>
+                    <a href="{{ product.image.url }}" target="_blank" aria-label="opens product image in a new tab">
+                        <img src="{{ product.image.url }}" alt="{{ product.name }}" class="img-fluid">
+                    </a>
                 </div>
             
-                <div class="col-12 col-md-6">
-                    <h2 class="text-center">{{ product.name }}</h2>
-                    <p class="small text-right">{{ product.sku }}</p>
-                    <p class="text-center {% if not product.rating %}mb-1{% endif %}"><i class="fa-solid fa-star"></i>{% if not product.rating %} 0 </p><p class="text-center mt-0">Be the first to rate this product </p>{% else %} {{ product.rating }} {% endif %}</p>
+                <div class="col-12 col-sm-6">
+                    <h2 class="text-center d-none d-sm-block">{{ product.name }}</h2>
+                    <p class="small text-right d-none d-sm-block text-muted">SKU: {{ product.sku }}</p>
+                    <p class="text-center text-sm-left {% if product.current_rating == 0 %}mb-1{% endif %}"> Customer Rating = <i class="fa-solid fa-star"></i>{% if product.current_rating == 0 %} 0 / 5 </p><p class="text-left mt-0">Be the first to rate this product </p>{% else %} {{ product.current_rating }} / 5{% endif %}</p>
+                    <div class="bg-black text-light text-center p-3 font-weight-bold">&euro; {{ product.price }}</div>
+                    <p class="text-center mt-1">Remaining in stock: {{product.stock_level}} </p>
                 </div>
             </div>
             
         {% endif %}
-        
-        
-       
-        
+            <hr>
+            <div class="row container-fluid mx-auto">
+                <div class="col">
+                <nav>
+                    <div class="nav nav-pills d-flex justify-content-center bg-black border border-dark" id="nav-tab" role="tablist">
+                        <button class="nav-link active btn-danger" id="nav-Product-decription-tab" data-toggle="tab" data-target="#nav-Product-decription" type="button" role="tab" aria-controls="nav-Product-decription" aria-selected="true">Products Description</button>
+                        <button class="nav-link btn-danger" id="nav-reviews-tab" data-toggle="tab" data-target="#nav-reviews" type="button" role="tab" aria-controls="nav-reviews" aria-selected="false">Customer Reviews</button>
+                    </div>
+                </nav>
+                <div class="tab-content p-5 border border-dark mb-3" id="nav-tabContent">
+                    <div class="tab-pane fade show active" id="nav-Product-decription" role="tabpanel" aria-labelledby="nav-Product-decription-tab">
+                        {{ product.description|safe }}
+                    </div>
+                    <div class="tab-pane fade" id="nav-reviews" role="tabpanel" aria-labelledby="nav-reviews-tab">
+                        Reviews form to go here
+                    </div>
+                </div>
+            </div>
     </main>
 {% endblock %}

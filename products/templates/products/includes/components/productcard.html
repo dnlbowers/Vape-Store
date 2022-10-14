@@ -1,5 +1,7 @@
 <div class="card h-100">
-    <img src="{{ product.image.url }}" class="card-img-top img-fluid my-3 mx-auto w-75" alt="{{ product.name }}">
+    <a href="{% url 'product_detail' product.id %}" class="text-center">
+        <img src="{{ product.image.url }}" class="card-img-top img-fluid mx-auto my-3 w-75" alt="{{ product.name }}">
+    </a>
     <div class="card-body">
         <h5 class="card-title">{{ product.name }}</h5>
     </div>
