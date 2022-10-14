@@ -1,14 +1,27 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    {% comment %} <section class="hero-image-container bg-black  border-bottom border-danger">
-        <div class="hero-animation index-hero-image mx-auto">
-        </div>
+
+    <main class="container-fluid no-gutters mx-auto">
+        {% if product == 'not found' %}
+            No Product found
+        {% else %}
+            <div class="row">
+                <div class="col-12 col-md-6">
+                    <img src="{{ product.image.url }}" alt="{{ product.name }}" class="img-fluid">
+                </div>
+            
+                <div class="col-12 col-md-6">
+                    <h2 class="text-center">{{ product.name }}</h2>
+                    <p class="small text-right">{{ product.sku }}</p>
+                    <p class="text-center {% if not product.rating %}mb-1{% endif %}"><i class="fa-solid fa-star"></i>{% if not product.rating %} 0 </p><p class="text-center mt-0">Be the first to rate this product </p>{% else %} {{ product.rating }} {% endif %}</p>
+                </div>
+            </div>
+            
+        {% endif %}
         
-    </section> {% endcomment %}
-    <main class="container no-gutters mx-auto">
         
-        {{ product.name }}
+       
         
     </main>
 {% endblock %}

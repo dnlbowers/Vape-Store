@@ -41,7 +41,19 @@ class ProductDetails(View):
             Tanks,
             VapeJuice
         ]
+
         for product in all_products:
             if product.objects.filter(id=id).exists():
                 product = get_object_or_404(product, id=id)
-                return render(request, 'products/product_detail.html', {'product': product})
+                context = {
+                    'product': product
+                }
+                return render(
+                    request,
+                    'products/product_detail.html', context)
+
+        return render(
+            request,
+            'products/product_detail.html', {
+                'product': 'not found'
+                })
