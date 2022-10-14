@@ -11,4 +11,7 @@ Below is a list of bugs and fixes found while creating a feature. You can find o
 * Issue - When trying to paginate my products view all products were displayed on the same page instead of being paginated.
 * Cause - The first issue here was the lack of ordering in the model. The second issue was using the wrong function in my class view to retrieve the context data.
 * Solution - First I added ordering to the AllProducts model to order the record by ID. Second I replaced the get_context_data function with get_context_object_name, this function then took the model fed into the class view and and returned the context name as products.
-* 
+
+* Issue - When trying to use AllProducts in the ProductDetails view, I was getting an error saying that this model had not object attribute. The odd thing was that in shell I was able to use a for loop to iterate through the model and its child models.
+* Cause - There seems to be a know issue where the base model doesn't work when iterating via the views when using the django-polymorphic library.
+* Solution - The solution for this was a work around. I collected al the child models into and array and then iterated through the array in the view to find the correct ID passed in the URL. The down side of this is when scaling the site up later, it created a extra manual process to add the child models to the array if any new sub types of products are added.

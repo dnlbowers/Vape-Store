@@ -73,7 +73,8 @@ class AllProducts(PolymorphicModel):
 
     def get_rating(self):
         """
-        calculates the overall rating from the total number of rating and the accumulative rating
+        calculates the overall rating from the total number of rating and the
+        accumulative rating
         """
 
         if self.Number_of_ratings == 0:

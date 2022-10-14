@@ -295,6 +295,7 @@ class ProductAdmin(PolymorphicParentModelAdmin):
         PreBuiltCoils)
     summer_fields = ('description',)
     list_display = (
+        'id',
         'sku',
         'name',
         'category',
