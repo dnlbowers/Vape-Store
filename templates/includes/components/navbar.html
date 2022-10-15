@@ -84,25 +84,41 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mx-auto text-centre text-light">
             <li class="nav-item active">
-                <a class="nav-link text-reset" href="#">Home <span class="sr-only">(current)</span></a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link text-reset" href="{% url 'products' %}">Products</a>
+                <a class="nav-link text-reset" href="{% url 'products' %}">All Products<span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle text-reset" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    Dropdown
+                    Hardware
                 </a>
-            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <a class="dropdown-item" href="#">Action</a>
-                <a class="dropdown-item" href="#">Another action</a>
-                <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="#">Something else here</a>
-            </div>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="#">Mods</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="#">Disposables</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="#">Tanks</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="#">Coils</a>
+                    
+                </div>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle text-reset" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    VapeJuice
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="#">Pre-mixed</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="#">Base Liquids</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="#">Flavour concentrates</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="#">Nicotine</a>
+                </div>
             </li>
             <li class="nav-item">
-                <a class="nav-link text-reset" href="#">Link</a>
+                <a class="nav-link text-reset" href="#">Accessories</a>
             </li>
+
         </ul>
         
     </div>
