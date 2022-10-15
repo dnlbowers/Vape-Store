@@ -35,14 +35,17 @@ class AllProductsView(generic.ListView):
     paginate_by = 4
     query = None
     categories = None
+    product = None
 
     def get_queryset(self, *args, **kwargs):
         qs = super(AllProductsView, self).get_queryset(*args, **kwargs)
 
-        # if 'category' in self.request.GET:
-        #     categories = self.request.GET['category'].split(',')
-        #     products = products.filter(category__name__in=categories)
-        #     categories = CategoryGroupings.objects.filter(name__in=categories)
+        if 'category' in self.request.GET:
+            self.categories = self.request.GET['category'].split(',')
+            self.products = qs.filter(category__name__in=self.categories)
+            # self.categories = CategoryGroupings.objects.filter(name__in=self.categories)
+
+            return self.products
 
         if 'q' in self.request.GET:
             self.query = self.request.GET['q']
@@ -77,11 +80,7 @@ class ProductDetails(View):
         """"
         Returns a single product and it details
         """
-        # all_products = [
-        # ..., add the mixin list back here is needed
-        #     FlavorConcentrates,
-        # ...,
-        # ]
+
         individual_product = get_object_or_404(AllProducts, id=id)
 
         context = {
@@ -90,20 +89,3 @@ class ProductDetails(View):
         return render(
             request,
             'products/product_detail.html', context)
-
-
-        # for product in self.ALL_PRODUCTS:
-        #     if product.objects.filter(id=id).exists():
-        #         product = get_object_or_404(product, id=id)
-        #         context = {
-        #             'product': product
-        #         }
-        #         return render(
-        #             request,
-        #             'products/product_detail.html', context)
-
-        # return render(
-        #     request,
-        #     'products/product_detail.html', {
-        #         'product': 'not found'
-        #     })
