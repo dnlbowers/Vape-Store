@@ -4,25 +4,29 @@ from django.contrib import messages
 from django.db.models import Q
 from .models import Accessories, AllProducts, BaseLiquids, Batteries
 from .models import DisposableVapes, FlavorConcentrates, Mods, NicotineShots
-from .models import PreBuiltCoils, Tanks, VapeJuice
+from .models import PreBuiltCoils, Tanks, VapeJuice, CategoryGroupings
 
 
-class ProductGroupsMixin(View):
-    ALL_PRODUCTS = [
-        Accessories,
-        BaseLiquids,
-        Batteries,
-        DisposableVapes,
-        FlavorConcentrates,
-        Mods,
-        NicotineShots,
-        PreBuiltCoils,
-        Tanks,
-        VapeJuice
-    ]
+# Keep til later in case needed
+# class ProductGroupsMixin(View):
+#     ALL_PRODUCTS = [
+#         Accessories,
+#         BaseLiquids,
+#         Batteries,
+#         DisposableVapes,
+#         FlavorConcentrates,
+#         Mods,
+#         NicotineShots,
+#         PreBuiltCoils,
+#         Tanks,
+#         VapeJuice
+#     ]
+#     product_list = []
+#     for product in ALL_PRODUCTS:
+#         product_list.append(product.objects.all())
 
 
-class AllProductsView(ProductGroupsMixin, generic.ListView):
+class AllProductsView(generic.ListView):
     """"
     View to return all products
     """
@@ -30,9 +34,16 @@ class AllProductsView(ProductGroupsMixin, generic.ListView):
     template_name = 'products/products.html'
     paginate_by = 4
     query = None
+    categories = None
 
     def get_queryset(self, *args, **kwargs):
         qs = super(AllProductsView, self).get_queryset(*args, **kwargs)
+
+        # if 'category' in self.request.GET:
+        #     categories = self.request.GET['category'].split(',')
+        #     products = products.filter(category__name__in=categories)
+        #     categories = CategoryGroupings.objects.filter(name__in=categories)
+
         if 'q' in self.request.GET:
             self.query = self.request.GET['q']
             if not self.query:
@@ -47,18 +58,17 @@ class AllProductsView(ProductGroupsMixin, generic.ListView):
             products = qs.filter(queries)
             return products
         else:
-            qs = qs.order_by("id")
             return qs
 
     def get_context_object_name(self, object_list):
         """"
         Changes the name of the object that passes the products to the template
-        """       
-        
+        """
+
         return 'products'
 
 
-class ProductDetails(ProductGroupsMixin, View):
+class ProductDetails(View):
     """"
     View to return a single product
     """
@@ -72,19 +82,28 @@ class ProductDetails(ProductGroupsMixin, View):
         #     FlavorConcentrates,
         # ...,
         # ]
+        individual_product = get_object_or_404(AllProducts, id=id)
 
-        for product in self.ALL_PRODUCTS:
-            if product.objects.filter(id=id).exists():
-                product = get_object_or_404(product, id=id)
-                context = {
-                    'product': product
+        context = {
+                    'product': individual_product
                 }
-                return render(
-                    request,
-                    'products/product_detail.html', context)
-
         return render(
             request,
-            'products/product_detail.html', {
-                'product': 'not found'
-            })
+            'products/product_detail.html', context)
+
+
+        # for product in self.ALL_PRODUCTS:
+        #     if product.objects.filter(id=id).exists():
+        #         product = get_object_or_404(product, id=id)
+        #         context = {
+        #             'product': product
+        #         }
+        #         return render(
+        #             request,
+        #             'products/product_detail.html', context)
+
+        # return render(
+        #     request,
+        #     'products/product_detail.html', {
+        #         'product': 'not found'
+        #     })
