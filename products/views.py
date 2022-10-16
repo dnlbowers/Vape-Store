@@ -2,34 +2,34 @@ from django.shortcuts import get_object_or_404, render, reverse, redirect
 from django.views import generic, View  # noqa
 from django.contrib import messages
 from django.db.models import Q
-# from .models import CategoryGroupings, AllProducts
-from .models import Accessories, AllProducts, BaseLiquids, Batteries
-from .models import DisposableVapes, FlavorConcentrates, Mods, NicotineShots
-from .models import PreBuiltCoils, Tanks, VapeJuice
+from .models import AllProducts
+# from .models import Accessories, AllProducts, BaseLiquids, Batteries
+# from .models import DisposableVapes, FlavorConcentrates, Mods, NicotineShots
+# from .models import PreBuiltCoils, Tanks, VapeJuice
 
 
 # Keep til later in case needed
-class ProductGroupsMixin(View):
-    ALL_PRODUCTS = [
-        Accessories,
-        BaseLiquids,
-        Batteries,
-        DisposableVapes,
-        FlavorConcentrates,
-        Mods,
-        NicotineShots,
-        PreBuiltCoils,
-        Tanks,
-        VapeJuice
-    ]
-    product_list = []
-    for product in ALL_PRODUCTS:
-        product_list.append(product.objects.all())
+# class ProductGroupsMixin(View):
+#     ALL_PRODUCTS = [
+#         Accessories,
+#         BaseLiquids,
+#         Batteries,
+#         DisposableVapes,
+#         FlavorConcentrates,
+#         Mods,
+#         NicotineShots,
+#         PreBuiltCoils,
+#         Tanks,
+#         VapeJuice
+#     ]
+#     product_list = []
+#     for product in ALL_PRODUCTS:
+#         product_list.append(product.objects.all())
 
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        context['product_list'] = self.product_list
-        return context
+#     def get_context_data(self, **kwargs):
+#         context = super().get_context_data(**kwargs)
+#         context['product_list'] = self.product_list
+#         return context
 
 
 class AllProductsView(generic.ListView):
@@ -43,13 +43,15 @@ class AllProductsView(generic.ListView):
 
     def get_queryset(self, *args, **kwargs):
         qs = super(AllProductsView, self).get_queryset(*args, **kwargs)
-        # products = super(ProductGroupsMixin, self).get_context_data(**kwargs)
 
         if 'category' in self.request.GET:
             self.categories = self.request.GET['category'].split(',')
             products = qs.filter(category__name__in=self.categories)
-            # self.categories = CategoryGroupings.objects.filter(name__in=self.categories)
+            return products
 
+        if 'subcategory' in self.request.GET:
+            self.subcategories = self.request.GET['subcategory'].split(',')
+            products = qs.filter(sub_category__name__in=self.subcategories)
             return products
 
         if 'q' in self.request.GET:

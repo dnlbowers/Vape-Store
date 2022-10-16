@@ -91,13 +91,13 @@
                     Hardware
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href="#">Mods</a>
+                    <a class="dropdown-item" href="{% url 'products' %}?subcategory=mod">Mods</a>
                     <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="#">Disposables</a>
+                    <a class="dropdown-item" href="{% url 'products' %}?subcategory=disposable">Disposables</a>
                     <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="#">Tanks</a>
+                    <a class="dropdown-item" href="{% url 'products' %}?subcategory=tank">Tanks</a>
                     <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="#">Coils</a>
+                    <a class="dropdown-item" href="{% url 'products' %}?subcategory=coil">Coils</a>
                     
                 </div>
             </li>
@@ -106,17 +106,17 @@
                     VapeJuice
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href="{% url 'products' %}?subcategory=VapeJuice">Pre-mixed</a>
+                    <a class="dropdown-item" href="{% url 'products' %}?subcategory=vapejuice">Pre-mixed</a>
                     <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="#">Base Liquids</a>
+                    <a class="dropdown-item" href="{% url 'products' %}?subcategory=baseliquid">Base Liquids</a>
                     <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="#">Flavour concentrates</a>
+                    <a class="dropdown-item" href="{% url 'products' %}?subcategory=concentrate">Flavour concentrates</a>
                     <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="#">Nicotine</a>
+                    <a class="dropdown-item" href="{% url 'products' %}?subcategory=nicotine">Nicotine</a>
                 </div>
             </li>
             <li class="nav-item">
-                <a class="nav-link text-reset" href="#">Accessories</a>
+                <a class="nav-link text-reset" href="{% url 'products' %}?subcategory=accessories">Accessories</a>
             </li>
 
         </ul>

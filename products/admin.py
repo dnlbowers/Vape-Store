@@ -1,7 +1,7 @@
 from django.contrib import admin
 from polymorphic.admin import PolymorphicParentModelAdmin, PolymorphicChildModelAdmin, PolymorphicChildModelFilter
 from django_summernote.admin import SummernoteModelAdmin
-from .models import CategoryGroupings, Mods, PreBuiltCoils, AllProducts, DisposableVapes, Tanks, VapeJuice, BaseLiquids, NicotineShots, FlavorConcentrates, Batteries, Accessories, BaseLiquids
+from .models import CategoryGroupings, SubCategory, Mods, PreBuiltCoils, AllProducts, DisposableVapes, Tanks, VapeJuice, BaseLiquids, NicotineShots, FlavorConcentrates, Batteries, Accessories, BaseLiquids
 
 # if time come back and create promo sale functions i,e 10% off all products
 
@@ -320,5 +320,13 @@ class CategoryAdmin(admin.ModelAdmin):
     """ Admin registration and configuration for the Category groupings model"""
     list_display = (
         'friendly_name',
+        'name',
+    )
+
+
+@admin.register(SubCategory)
+class SubCategoryAdmin(admin.ModelAdmin):
+    """ Admin registration and configuration for the Category groupings model"""
+    list_display = (
         'name',
     )
