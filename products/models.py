@@ -120,12 +120,20 @@ class DisposableVapes(AllProducts):
         ('20', '20mg'),
     )
 
+    PRODUCT_TYPE = (
+        ('disposable', 'Disposable'),
+    )
+
     battery_size = models.CharField(max_length=254, null=True, blank=True)
     max_puffs = models.CharField(max_length=254, null=True, blank=True)
     flavour = models.CharField(max_length=254, null=True, blank=True)
     nicotine_strength = models.CharField(
         max_length=2, choices=NICOTINE_STRENGTHS, default='0')
     liquid_capacity = models.CharField(max_length=254, null=True, blank=True)
+    product_type = models.CharField(
+        max_length=30,
+        choices=PRODUCT_TYPE,
+        default='disposable')
 
 
 class Mods(AllProducts):
@@ -138,7 +146,15 @@ class Mods(AllProducts):
 
         verbose_name_plural = 'Mods'
 
+    PRODUCT_TYPE = (
+        ('mod', 'Mod'),
+    )
+
     colour = models.CharField(max_length=254, null=True, blank=True)
+    product_type = models.CharField(
+        max_length=30,
+        choices=PRODUCT_TYPE,
+        default='mod')
 
 
 class Tanks(AllProducts):
@@ -160,11 +176,20 @@ class Tanks(AllProducts):
         ('Dripper', 'Dripper'),
     )
 
+    PRODUCT_TYPE = (
+        ('tank', 'Tank'),
+    )
+
     capacity = models.CharField(max_length=254, null=True, blank=True)
     tank_type = models.CharField(
         max_length=7,
         choices=TANK_TYPE,
         default='Sub-Ohm')
+
+    product_type = models.CharField(
+        max_length=30,
+        choices=PRODUCT_TYPE,
+        default='tank')
 
 
 class PreBuiltCoils(AllProducts):
@@ -186,6 +211,10 @@ class PreBuiltCoils(AllProducts):
         ('Stainless Steel', 'Stainless Steel'),
     )
 
+    PRODUCT_TYPE = (
+        ('coil', 'Coil'),
+    )
+
     coil_type = models.CharField(
         max_length=15,
         choices=COIL_TYPE,
@@ -198,6 +227,10 @@ class PreBuiltCoils(AllProducts):
         blank=True,
         on_delete=models.SET_NULL,
         related_name='coils')
+    product_type = models.CharField(
+        max_length=30,
+        choices=PRODUCT_TYPE,
+        default='coil')
 
 
 class Batteries(AllProducts):
@@ -218,12 +251,20 @@ class Batteries(AllProducts):
         ('21700', '21700'),
     )
 
+    PRODUCT_TYPE = (
+        ('battery', 'Battery'),
+    )
+
     battery_type = models.CharField(
         max_length=5,
         choices=BATTERY_TYPE,
         default='18650')
     capacity = models.CharField(max_length=254, null=True, blank=True)
     discharge_rate = models.CharField(max_length=254, null=True, blank=True)
+    product_type = models.CharField(
+        max_length=30,
+        choices=PRODUCT_TYPE,
+        default='battery')
 
 
 class VapeJuice(AllProducts):
@@ -262,6 +303,10 @@ class VapeJuice(AllProducts):
         ('0/100', '100%vg'),
     )
 
+    PRODUCT_TYPE = (
+        ('vapejuice', 'Vape Juice'),
+    )
+
     flavour = models.CharField(max_length=254, null=True, blank=True)
     nicotine_strength = models.CharField(
         max_length=2, choices=NICOTINE_STRENGTHS, default='0')
@@ -269,6 +314,10 @@ class VapeJuice(AllProducts):
         max_length=3, choices=BOTTLE_SIZE, default='10')
     pg_vg_ratio = models.CharField(
         max_length=5, choices=PG_VG_MIX_RATIOS, default='50/50')
+    product_type = models.CharField(
+        max_length=30,
+        choices=PRODUCT_TYPE,
+        default='vapejuice')
 
 
 class BaseLiquids(AllProducts):
@@ -296,13 +345,18 @@ class BaseLiquids(AllProducts):
         ('0/100', '100%vg'),
     )
 
+    PRODUCT_TYPE = (
+        ('baseliquid', 'Base Liquid'),
+    )
+
     size = models.CharField(
         max_length=4, choices=BOTTLE_SIZE, default='250')
     pg_vg_ratio = models.CharField(
         max_length=5, choices=PG_VG_MIX_RATIOS, default='50/50')
-
-    def __str__(self):
-        return self.name
+    product_type = models.CharField(
+        max_length=30,
+        choices=PRODUCT_TYPE,
+        default='baseliquid')
 
 
 class NicotineShots(AllProducts):
@@ -332,15 +386,20 @@ class NicotineShots(AllProducts):
         ('Nicotine Salt', 'Nicotine Salt'),
     )
 
+    PRODUCT_TYPE = (
+        ('nicotine', 'Nicotine'),
+    )
+
     size = models.CharField(
         max_length=2, choices=BOTTLE_SIZE, default='10')
     nicotine_strength = models.CharField(
         max_length=2, choices=NICOTINE_STRENGTHS, default='18')
     nicotine_type = models.CharField(
         max_length=13, choices=NICOTINE_TYPE, default='Nicotine')
-
-    def __str__(self):
-        return self.name
+    product_type = models.CharField(
+        max_length=30,
+        choices=PRODUCT_TYPE,
+        default='nicotine')
 
 
 class FlavorConcentrates(AllProducts):
@@ -360,12 +419,17 @@ class FlavorConcentrates(AllProducts):
         ('30', '30ml'),
     )
 
+    PRODUCT_TYPE = (
+        ('concentrate', 'Flavor Concentrate'),
+    )
+
     size = models.CharField(
         max_length=3, choices=BOTTLE_SIZE, default='10')
     flavour = models.CharField(max_length=254, null=True, blank=True)
-
-    def __str__(self):
-        return self.name
+    product_type = models.CharField(
+        max_length=30,
+        choices=PRODUCT_TYPE,
+        default='concentrate')
 
 
 class Accessories(AllProducts):
@@ -389,7 +453,15 @@ class Accessories(AllProducts):
         ('Other', 'Other'),
     )
 
+    PRODUCT_TYPE = (
+        ('accessory', 'Accessory'),
+    )
+
     accessory_type = models.CharField(
         max_length=8,
         choices=ACCESSORY_TYPE,
         default='Chargers')
+    product_type = models.CharField(
+        max_length=30,
+        choices=PRODUCT_TYPE,
+        default='accessory')

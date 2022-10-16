@@ -40,6 +40,10 @@
     }
 }
 
+.card {
+    min-width: 250px !important;
+}
+
 
 footer {
     margin-top: -175px;

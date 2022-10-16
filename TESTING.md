@@ -16,8 +16,8 @@ Below is a list of bugs and fixes found while creating a feature. You can find o
 * Cause - There seems to be a know issue where the base model doesn't work when iterating via the views when using the django-polymorphic library.
 * Solution - The solution for this was a work around. I collected al the child models into and array and then iterated through the array in the view to find the correct ID passed in the URL. The down side of this is when scaling the site up later, it created a extra manual process to add the child models to the array if any new sub types of products are added.
 
-## to fix later
-
 * Issue - when one product is return from the search query, the product car is thinner than normal
-* Cause - I think due to the card deck
-* Solution - TBC
+* Cause - I am not sure why this is happening. I think it has something to do with the way the product card is being rendered using the bootstrap class.
+* Solution - Adding a min-width to the card class resolved the issue.
+
+## to fix later
