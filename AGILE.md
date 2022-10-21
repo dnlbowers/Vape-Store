@@ -38,3 +38,13 @@ This sprint is aimed at getting the products portion of the site up and running,
 
 * This sprint began on 7/10/2022 at 17:45 and was due to finish at 15/10/2022 by 00:00.
 * 55 story points in total organized to be 60% must haves, 20% nice to haves, and 20% should haves.
+* Finished a day late because I was having issues with the polymorphic relationship between the AllProducts model and subclass models. in the end I had to go for a work around due to time constraints. and will revisit this issue in the future.
+
+### Sprint 4 Notes
+
+![Sprint 4](/docs/agile/sprintscreenshots/sprint4.jpg)
+
+This sprint is aimed at sorting products and starting the shopping cart.
+
+* This sprint began on 20/10/2022 at 10:47 and was due to finish at 28/10/2022 by 00:00.
+* 45 story points in total organized to be 60% must haves, 20% nice to haves, and 20% should haves.
