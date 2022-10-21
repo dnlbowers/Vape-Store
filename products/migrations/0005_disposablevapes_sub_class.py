@@ -13,6 +13,10 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='disposablevapes',
             name='sub_class',
-            field=models.CharField(default='disposablevape', editable=False, max_length=254, null=True),
+            field=models.CharField(
+                default='disposablevape',
+                editable=False,
+                max_length=254,
+                null=True),
         ),
     ]

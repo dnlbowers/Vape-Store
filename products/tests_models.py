@@ -16,7 +16,7 @@ class Testmodels(TestCase):
             brand='test_brand',
             description='test_description',
             accumulative_rating=197,
-            Number_of_ratings=43,
+            number_of_ratings=43,
             stock_level=12,
             rrp=12.99,
             discounted_price=10.99,

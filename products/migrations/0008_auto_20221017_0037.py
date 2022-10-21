@@ -14,8 +14,39 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='SubCategory',
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('name', models.CharField(choices=[('tobedefined', 'To be defined'), ('disposable', 'Disposable'), ('mod', 'Mod'), ('tank', 'Tank'), ('coil', 'Coil'), ('battery', 'Battery'), ('vapejuice', 'Vape Juice'), ('baseliquid', 'Base Liquid'), ('nicotine', 'Nicotine'), ('concentrate', 'Flavor Concentrate'), ('accessory', 'Accessory')], default='tobedefined', max_length=30)),
+                ('id',
+                 models.BigAutoField(
+                     auto_created=True,
+                     primary_key=True,
+                     serialize=False,
+                     verbose_name='ID')),
+                ('name',
+                 models.CharField(
+                     choices=[
+                         ('tobedefined',
+                          'To be defined'),
+                         ('disposable',
+                          'Disposable'),
+                         ('mod',
+                          'Mod'),
+                         ('tank',
+                          'Tank'),
+                         ('coil',
+                          'Coil'),
+                         ('battery',
+                          'Battery'),
+                         ('vapejuice',
+                          'Vape Juice'),
+                         ('baseliquid',
+                          'Base Liquid'),
+                         ('nicotine',
+                          'Nicotine'),
+                         ('concentrate',
+                          'Flavor Concentrate'),
+                         ('accessory',
+                          'Accessory')],
+                     default='tobedefined',
+                     max_length=30)),
             ],
             options={
                 'verbose_name_plural': 'Sub Category',
@@ -64,6 +95,10 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='allproducts',
             name='sub_category',
-            field=models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.SET_NULL, to='products.subcategory'),
+            field=models.ForeignKey(
+                blank=True,
+                null=True,
+                on_delete=django.db.models.deletion.SET_NULL,
+                to='products.subcategory'),
         ),
     ]

@@ -91,7 +91,7 @@ class AllProducts(PolymorphicModel):
         null=True, blank=True, default=0
     )
     accumulative_rating = models.IntegerField(null=True, blank=True, default=0)
-    Number_of_ratings = models.IntegerField(null=True, blank=True, default=0)
+    number_of_ratings = models.IntegerField(null=True, blank=True, default=0)
     image_url = models.URLField(max_length=1024, null=True, blank=True)
     image = models.ImageField(upload_to='products/', null=True, blank=True)
     stock_level = models.IntegerField()
@@ -115,11 +115,11 @@ class AllProducts(PolymorphicModel):
         accumulative rating
         """
 
-        if self.Number_of_ratings == 0:
+        if self.number_of_ratings == 0:
             return 0
         else:
             self.current_rating = round(
-                self.accumulative_rating / self.Number_of_ratings, 2)
+                self.accumulative_rating / self.number_of_ratings, 2)
             return self.current_rating
 
     def save(self, *args, **kwargs):
