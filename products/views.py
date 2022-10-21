@@ -1,8 +1,10 @@
+from django.http import HttpResponse
 from django.shortcuts import get_object_or_404, render, reverse, redirect
 from django.views import generic, View  # noqa
 from django.contrib import messages
 from django.db.models import Q
 from .models import AllProducts
+from django.db.models.functions import Lower
 # from .models import Accessories, AllProducts, BaseLiquids, Batteries
 # from .models import DisposableVapes, FlavorConcentrates, Mods, NicotineShots
 # from .models import PreBuiltCoils, Tanks, VapeJuice
@@ -39,43 +41,83 @@ class AllProductsView(generic.ListView):
     model = AllProducts
     template_name = 'products/products.html'
     context_object_name = 'products'
-    paginate_by = 4
+    # paginate_by = 4
+    sort = None
+
+    def get_ordering(self, *args, **kwargs):
+
+        if self.request.GET.get('ordering'):
+            sort_by = self.request.GET['ordering']
+            self.sort = sort_by
+
+            if sort_by == 'name':
+                sort_by = self.request.GET.get('sort_by', 'name')
+
+            elif sort_by == 'price':
+                sort_by = self.request.GET.get('ordering', 'price')
+
+            elif sort_by == 'current_rating':
+                sort_by = self.request.GET.get('ordering', 'current_rating')
+        else:
+            sort_by = 'name'
+        return sort_by
+
+    def get_direction(self, *args, **kwargs):
+        if self.request.GET.get('direction'):
+            direction = self.request.GET['direction']
+            if direction == 'desc':
+                direction = '-'
+            else:
+                direction = ''
+        else:
+            direction = ''
+        return direction
 
     def get_queryset(self, *args, **kwargs):
-        qs = super(AllProductsView, self).get_queryset(*args, **kwargs)
+        products = super(AllProductsView, self).get_queryset(*args, **kwargs)
 
-        if 'category' in self.request.GET:
-            self.categories = self.request.GET['category'].split(',')
-            products = qs.filter(category__name__in=self.categories)
-            return products
+        if self.request.GET:
+            ordering = self.get_ordering(self)
+            direction = self.get_direction(self)
 
-        if 'subcategory' in self.request.GET:
-            self.subcategories = self.request.GET['subcategory'].split(',')
-            products = qs.filter(sub_category__name__in=self.subcategories)
-            return products
+            if 'category' in self.request.GET:
+                self.categories = self.request.GET['category'].split(',')
+                products = products.filter(
+                    category__name__in=self.categories).order_by(
+                        f'{direction}{ordering}')
 
-        if 'q' in self.request.GET:
-            self.query = self.request.GET['q']
-            if not self.query:
-                messages.error(
-                    self.request, "You didn't enter any search criteria!")
-                return redirect(reverse('products'))
+            if 'subcategory' in self.request.GET:
+                self.subcategories = self.request.GET['subcategory'].split(',')
+                products = products.filter(
+                    sub_category__name__in=self.subcategories).order_by(
+                        f'{direction}{ordering}')
 
-            queries = Q(
-                name__icontains=self.query) | Q(
-                description__icontains=self.query)
+            if 'q' in self.request.GET:
+                self.query = self.request.GET['q']
+                if not self.query:
+                    messages.error(
+                        self.request, "You didn't enter any search criteria!")
+                    return redirect(reverse('products'))
 
-            products = qs.filter(queries)
+                queries = Q(
+                    name__icontains=self.query) | Q(
+                    description__icontains=self.query)
+
+                products = products.filter(queries).order_by(
+                    f'{direction}{ordering}')
+                # return products
+            # ordering = self.get_ordering(self)
+            # ordered_products = products.order_by(ordering)
             return products
         else:
-            return qs
+            return products
 
-    def get_context_object_name(self, object_list):
-        """"
-        Changes the name of the object that passes the products to the template
-        """
+    # def get_context_object_name(self, object_list):
+    #     """"
+    #     Changes the name of the object that passes the products to the template
+    #     """
 
-        return 'products'
+    #     return 'products'
 
 
 class ProductDetails(View):
