@@ -1,0 +1,8 @@
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb small">
+        <li class="breadcrumb-item"><a href="{% url 'home' %}">Home</a></li>
+        <li class="breadcrumb-item"><a href="{% url 'products' %}?category={{ product.category.name }}">{{ product.category.friendly_name }}</a></li>
+        <li class="breadcrumb-item"><a href="{% url 'products' %}?subcategory={{ product.sub_category.name }}">{{ product.sub_category.friendly_name }}</a></li>
+        <li class="breadcrumb-item active" aria-current="page">{{ product.name}}</li>
+    </ol>
+</nav>

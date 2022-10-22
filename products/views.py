@@ -41,7 +41,7 @@ class AllProductsView(generic.ListView):
     model = AllProducts
     template_name = 'products/products.html'
     context_object_name = 'products'
-    # paginate_by = 4
+    paginate_by = 4
     sort = None
     current_ordering = None
     query = None
@@ -66,23 +66,23 @@ class AllProductsView(generic.ListView):
             sort_by = 'id'
         return sort_by
 
-    def get_direction(self, *args, **kwargs):
-        if self.request.GET.get('direction'):
-            direction = self.request.GET['direction']
-            if direction == 'desc':
-                direction = '-'
-            else:
-                direction = ''
-        else:
-            direction = ''
-        return direction
+    # def get_direction(self, *args, **kwargs):
+    #     if self.request.GET.get('direction'):
+    #         direction = self.request.GET['direction']
+    #         if direction == 'desc':
+    #             direction = '-'
+    #         else:
+    #             direction = ''
+    #     else:
+    #         direction = ''
+    #     return direction
 
     def get_queryset(self, *args, **kwargs):
         products = super(AllProductsView, self).get_queryset(*args, **kwargs)
         if self.request.GET:
             ordering = self.get_ordering(self)
-            direction = self.get_direction(self)
-            self.current_ordering = f'{direction}{ordering}'
+            # direction = self.get_direction(self)
+            self.current_ordering = ordering
 
             if 'category' in self.request.GET:
                 self.categories = self.request.GET['category'].split(',')
@@ -120,6 +120,7 @@ class AllProductsView(generic.ListView):
         context['search_query'] = self.query
         context['current_categories'] = self.categories
         context['current_subcategories'] = self.subcategories
+        print(type(context['current_subcategories']))
         return context
 
 

@@ -4,9 +4,13 @@
 
     <main class="container-fluid no-gutters mx-auto">
             {{ current_ordering}}
-            {{  current_categories }}
+            {{ current_categories}}
+            {{ current_subcategories}}
+            {% for value in current_subcategories %}
+            {{value}}
+            {% endfor %}
             {{ search_query }}
-            {{current_subcategories}}
+           
         <div class="row">
             <div class="col-12">
                 <h2 class="text-center">Shop Our Products</h2>
@@ -14,15 +18,7 @@
         </div>
         <div class="row">
             <div class="col-12 col-md-6 my-auto order-md-last d-flex justify-content-center justify-content-md-end">
-                <select id="sorting-menu" class="custom-select custom-select-sm w-50">
-                    <option value="default" {% if current_ordering == 'None_None' %}selected{% endif %}>Sort by...</option>
-                    <option value="name|asc" {% if current_ordering == 'name' %}selected{% endif %}>Name (A to Z)</option>
-                    <option value="name|desc" {% if current_ordering == '-name' %}selected{% endif %}>Name (Z to A)</option>
-                    <option value="price|asc" {% if current_ordering == 'price' %}selected{% endif %}>Price (low to high)</option>
-                    <option value="price|desc" {% if current_ordering == '-price' %}selected{% endif %}>Price (high to low)</option>
-                    <option value="current_rating|asc" {% if current_ordering == 'current_rating' %}selected{% endif %}>Rating (low to high)</option>
-                    <option value="current_rating|desc" {% if current_ordering == '-current_rating' %}selected{% endif %}>Rating (high to low)</option>
-                </select>
+                {% include "./includes/components/odering-selector-menu.html" %}
             </div>
             <div class="col-12 col-md-6 order-md-first">
                 <p class="text-muted mt-3 text-center text-md-left">
@@ -30,7 +26,6 @@
                         <span class="small"><a href="{% url 'products' %}">Back to All Products</a> | </span>
                     {% endif %}
                     Showing {{ products|length }} Product{%if products|length > 1 %}s{%endif%}{% if search_results %} related to <strong>"{{ search_results }}"</strong>{% endif %}
-                    
                 </p>
             </div>
         </div>
@@ -38,7 +33,7 @@
             <div class="card-deck">
                 {% for product in products %}
                     <div class="col-sm-6 col-md-6 col-lg-4 col-xl-3 my-3">
-                        {% include "./includes/components/productcard.html" %} 
+                        {% include "./includes/components/product-card.html" %} 
                     </div>
                 {% endfor %}
             </div>
@@ -64,12 +59,12 @@
 
             if(menuChoiceValue != 'default') {
                 // split the value into an array
-                let ordering = menuChoiceValue.split('|')[0];
-                let direction = menuChoiceValue.split('|')[1];
+                let ordering = menuChoiceValue;
+                //let direction = menuChoiceValue.split('|')[1];
 
                 // set the ordering and direction query parameters in the URL
                 pageUrl.searchParams.set('ordering', ordering);
-                pageUrl.searchParams.set('direction', direction);
+                //pageUrl.searchParams.set('direction', direction);
 
                 // redirect to the new URL which includes the above parameters
                 window.location.replace(pageUrl);
@@ -78,7 +73,7 @@
 
                 // remove the ordering and direction query parameters from the URL
                 pageUrl.searchParams.delete('ordering');
-                pageUrl.searchParams.delete('direction');
+                //pageUrl.searchParams.delete('direction');
 
                 window.location.replace(pageUrl);
             }
