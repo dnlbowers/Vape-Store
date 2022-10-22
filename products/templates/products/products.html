@@ -3,77 +3,85 @@
 {% block content %}
 
     <main class="container-fluid no-gutters mx-auto">
-            {{ current_ordering}}
-            {{ current_categories}}
-            {{ current_subcategories}}
-            {% for value in current_subcategories %}
-            {{value}}
-            {% endfor %}
-            {{ search_query }}
-           
+        <h2>To be deleted</h2>
+        {{ current_ordering}}
+        {{ current_categories}}
+        {% for value in current_subcategories %}
+        {{value}}
+        {% endfor %}
+        {{ search_query }}
+
         <div class="row">
+
             <div class="col-12">
                 <h2 class="text-center">Shop Our Products</h2>
             </div>
+
         </div>
+
         <div class="row">
+            
             <div class="col-12 col-md-6 my-auto order-md-last d-flex justify-content-center justify-content-md-end">
                 {% include "./includes/components/odering-selector-menu.html" %}
             </div>
+            
             <div class="col-12 col-md-6 order-md-first">
+                
                 <p class="text-muted mt-3 text-center text-md-left">
+                    
                     {% if search_results or current_categories or current_ordering or current_subcategories == 'None' %}
                         <span class="small"><a href="{% url 'products' %}">Back to All Products</a> | </span>
                     {% endif %}
+                    
                     Showing {{ products|length }} Product{%if products|length > 1 %}s{%endif%}{% if search_results %} related to <strong>"{{ search_results }}"</strong>{% endif %}
+                
                 </p>
             </div>
+
         </div>
+
         <div class="row my-3 no-gutters">
             <div class="card-deck">
+                
                 {% for product in products %}
+                
                     <div class="col-sm-6 col-md-6 col-lg-4 col-xl-3 my-3">
                         {% include "./includes/components/product-card.html" %} 
                     </div>
-                {% endfor %}
-            </div>
+                
+                    {% endfor %}
+            
+                </div>
         </div>
         {% include "./includes/components/pagination.html" %}    
     </main>
     
 {% endblock %}
+
 {% block postloadjs %}
     {{ block.super }}
-
     <script type="text/javascript">
         // get the selector element from the dom
+
         $('#sorting-menu').change(function() {
-            
-            const selected = $(this);
+            // get the selected menu option value
+            const menuChoiceValue = $(this).val();
 
             // Get the current URL
             const pageUrl = new URL(window.location);
             
-            // get the selected menu option value
-            let menuChoiceValue = selected.val();
-
             if(menuChoiceValue != 'default') {
-                // split the value into an array
-                let ordering = menuChoiceValue;
-                //let direction = menuChoiceValue.split('|')[1];
+                                
+                // set the ordering parameters in the URL
+                pageUrl.searchParams.set('ordering', menuChoiceValue);
 
-                // set the ordering and direction query parameters in the URL
-                pageUrl.searchParams.set('ordering', ordering);
-                //pageUrl.searchParams.set('direction', direction);
-
-                // redirect to the new URL which includes the above parameters
+                // redirect to the new URL which includes the above parameter
                 window.location.replace(pageUrl);
 
             } else {
 
-                // remove the ordering and direction query parameters from the URL
+                // remove the orderingquery parameters from the URL
                 pageUrl.searchParams.delete('ordering');
-                //pageUrl.searchParams.delete('direction');
 
                 window.location.replace(pageUrl);
             }

@@ -48,3 +48,4 @@ This sprint is aimed at sorting products and starting the shopping cart.
 
 * This sprint began on 20/10/2022 at 10:47 and was due to finish at 28/10/2022 by 00:00.
 * 45 story points in total organized to be 60% must haves, 20% nice to haves, and 20% should haves.
+* Added a bug ticket [PVS-47](https://dnlbowers.atlassian.net/browse/PVS-47) part way through. Initially I was going to leave for a later sprint however the fix became apparent as I was working on the product sorting and therefore I added it to this sprint.
