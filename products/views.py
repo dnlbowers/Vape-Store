@@ -3,7 +3,7 @@ from django.shortcuts import get_object_or_404, render, reverse, redirect
 from django.views import generic, View  # noqa
 from django.contrib import messages
 from django.db.models import Q
-from .models import AllProducts
+from .models import AllProducts, CategoryGroupings, SubCategory
 from django.db.models.functions import Lower
 # from .models import Accessories, AllProducts, BaseLiquids, Batteries
 # from .models import DisposableVapes, FlavorConcentrates, Mods, NicotineShots
@@ -43,6 +43,10 @@ class AllProductsView(generic.ListView):
     context_object_name = 'products'
     # paginate_by = 4
     sort = None
+    current_ordering = None
+    query = None
+    categories = None
+    subcategories = None
 
     def get_ordering(self, *args, **kwargs):
 
@@ -59,7 +63,7 @@ class AllProductsView(generic.ListView):
             elif sort_by == 'current_rating':
                 sort_by = self.request.GET.get('ordering', 'current_rating')
         else:
-            sort_by = 'name'
+            sort_by = 'id'
         return sort_by
 
     def get_direction(self, *args, **kwargs):
@@ -75,22 +79,22 @@ class AllProductsView(generic.ListView):
 
     def get_queryset(self, *args, **kwargs):
         products = super(AllProductsView, self).get_queryset(*args, **kwargs)
-
         if self.request.GET:
             ordering = self.get_ordering(self)
             direction = self.get_direction(self)
+            self.current_ordering = f'{direction}{ordering}'
 
             if 'category' in self.request.GET:
                 self.categories = self.request.GET['category'].split(',')
                 products = products.filter(
                     category__name__in=self.categories).order_by(
-                        f'{direction}{ordering}')
+                        self.current_ordering)
 
             if 'subcategory' in self.request.GET:
                 self.subcategories = self.request.GET['subcategory'].split(',')
                 products = products.filter(
                     sub_category__name__in=self.subcategories).order_by(
-                        f'{direction}{ordering}')
+                        self.current_ordering)
 
             if 'q' in self.request.GET:
                 self.query = self.request.GET['q']
@@ -104,20 +108,19 @@ class AllProductsView(generic.ListView):
                     description__icontains=self.query)
 
                 products = products.filter(queries).order_by(
-                    f'{direction}{ordering}')
-                # return products
-            # ordering = self.get_ordering(self)
-            # ordered_products = products.order_by(ordering)
-            return products
+                    self.current_ordering)
+
+            return products.order_by(self.current_ordering)
         else:
             return products
 
-    # def get_context_object_name(self, object_list):
-    #     """"
-    #     Changes the name of the object that passes the products to the template
-    #     """
-
-    #     return 'products'
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['current_ordering'] = self.current_ordering
+        context['search_query'] = self.query
+        context['current_categories'] = self.categories
+        context['current_subcategories'] = self.subcategories
+        return context
 
 
 class ProductDetails(View):

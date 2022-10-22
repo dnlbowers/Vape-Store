@@ -2,7 +2,7 @@
 
 ## Bugs and Fixes During the Development Process
 
-Below is a list of bugs and fixes found while creating a feature. You can find other bugs as bug tickets in [JIRA]()**Link to issues to be added**. The Jira tickets are bugs found after I concluded the sprint including this feature because during the feature creation I missed the bugs.
+Below is a list of bugs and fixes found while creating a feature. You can find other bugs as bug tickets in [JIRA](https://dnlbowers.atlassian.net/browse/PVS-47?filter=-2&jql=project%20%3D%20PVS%20AND%20issuetype%20%3D%20Bug%20AND%20reporter%20in%20(currentUser())%20order%20by%20created%20DESC). The Jira tickets are bugs found after I concluded the sprint including this feature because during the feature creation I missed the bugs.
 
 * Issue - When installing dj_database_url via pip install command django automatically upgraded to version 4.1.1
 * Cause - Only had Django 3.2 installed. The latest version of this library requires Django a higher version of 3.2 to be installed.

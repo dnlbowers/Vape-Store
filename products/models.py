@@ -35,29 +35,20 @@ class SubCategory(models.Model):
         Alters the name of the category in the admin panel
         """
 
-        verbose_name_plural = 'Sub Category'
+        verbose_name_plural = 'Sub Categories'
 
-    PRODUCT_TYPE = (
-        ('tobedefined', 'To be defined'),
-        ('disposable', 'Disposable'),
-        ('mod', 'Mod'),
-        ('tank', 'Tank'),
-        ('coil', 'Coil'),
-        ('battery', 'Battery'),
-        ('vapejuice', 'Vape Juice'),
-        ('baseliquid', 'Base Liquid'),
-        ('nicotine', 'Nicotine'),
-        ('concentrate', 'Flavor Concentrate'),
-        ('accessory', 'Accessory'),
-    )
-
-    name = models.CharField(
-        max_length=30,
-        choices=PRODUCT_TYPE,
-        default='tobedefined')
+    name = models.CharField(max_length=254)
+    friendly_name = models.CharField(max_length=254, null=True, blank=True)
 
     def __str__(self):
         return self.name
+
+    def get_friendly_name(self):
+        """
+        Passes the friendly name to the template/admin panel
+        """
+
+        return self.friendly_name
 
 
 class AllProducts(PolymorphicModel):
