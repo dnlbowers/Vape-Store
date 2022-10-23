@@ -25,7 +25,13 @@
                     <div class="text-center">
                         <i class="fa-solid fa-cart-shopping fa-lg"></i>
                     </div>
-                    <p class="my-0">0.00</p>
+                    <p class="my-0">
+                        {% if cart_total %}
+                            €{{ cart_total|floatformat:2 }}
+                        {% else %}
+                        €0.00
+                        {% endif %}
+                    </p>
                 </a>
                 <div class="dropdown-menu">
                     <a class="dropdown-item" href="#">Products</a>
@@ -70,7 +76,13 @@
                         <div class="text-center">
                             <i class="fa-solid fa-cart-shopping fa-lg"></i>
                         </div>
-                        <p class="my-0">0.00</p>
+                        <p class="my-0">
+                            {% if cart_total %}
+                                €{{ cart_total|floatformat:2 }}
+                            {% else %}
+                                €0.00
+                            {% endif %}
+                        </p>
                     </a>
                     <div class="dropdown-menu">
                         <a class="dropdown-item" href="#">Action</a>

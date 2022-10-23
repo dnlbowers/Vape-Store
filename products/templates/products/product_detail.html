@@ -7,21 +7,25 @@
         {% include "./includes/components/product-breadcrumb.html" %}
         
         <div class="row mt-5 mx-5 mb-3">
-            <div class="col-12 col-sm-6">
-                <h2 class="text-center d-sm-none">{{ product.name }}</h2>
-                <p class="small text-center d-sm-none text-muted">SKU: {{ product.sku }}</p>
+            <div class="col-12 col-md-6">
+                <div class="bg-black text-light">
+                    <h2 class="text-center d-md-none pt-5">{{ product.name }}</h2>
+                    <p class="small text-right d-md-none text-muted mt-2 mb-0 pb-3 pr-3"><i class="fas fa-tag mr-1"></i> {{ product.sub_category.friendly_name }}</p>
+                </div>
                 <a href="{{ product.image.url }}" target="_blank" aria-label="opens product image in a new tab">
-                    <img src="{{ product.image.url }}" alt="{{ product.name }}" class="img-fluid">
+                    <img src="{{ product.image.url }}" alt="{{ product.name }}" class="img-fluid mt-0">
                 </a>
             </div>
         
-            <div class="col-12 col-sm-6">
-                <h2 class="text-center d-none d-sm-block">{{ product.name }}</h2>
-                <p class="small text-right d-none d-sm-block text-muted mb-3">SKU: {{ product.sku }}</p>
-                <p class="text-center text-sm-left mt-5 {% if product.current_rating == 0 %}mb-2{% else %}mb-5{% endif %}"> Customer Rating = <i class="fa-solid fa-star"></i>{% if product.current_rating == 0 %} 0 / 5 </p><p class="text-left mt-0">Be the first to rate this product </p>{% else %} {{ product.current_rating }} / 5{% endif %}</p>
+            <div class="col-12 col-md-6">
+                <div class="bg-black text-light">
+                    <h2 class="text-center d-none d-md-block pt-5 bg-black text-light">{{ product.name }}</h2>
+                    <p class="small text-right d-none d-md-block text-muted text-capitalize mt-2 pb-3 pr-3"><i class="fas fa-tag mr-1"></i> {{ product.sub_category.friendly_name }}</p>
+                </div>
+                <p class="text-center mt-5 {% if product.current_rating == 0 %}mb-2{% else %}mb-3{% endif %}"> Customer Rating = <i class="fa-solid fa-star"></i>{% if product.current_rating == 0 %} 0 / 5 </p><p class="text-left mt-0">Be the first to rate this product </p>{% else %} {{ product.current_rating }} / 5{% endif %}</p>
                 <div class="bg-black text-light text-center p-3 font-weight-bold mt-5">&euro; {{ product.price }}</div>
-                <p class="text-center mt-1 mb-5">Remaining in stock: {{product.stock_level}} </p>
-                <form class="mt-5"  action="" method="POST">
+                <p class="small text-center text-muted mb-5">sku: {{ product.sku }}</p>
+                <form class="mt-5"  action="{% url 'add_to_cart' product.id %}" method="POST">
                     {% csrf_token %}
                     <div class="form-row">
                         <div class="col-12">
@@ -38,7 +42,7 @@
                                             </span>
                                         </button>
                                     </div>
-                                    <input type="number" name="quantity" id="quantity" class="form-control border border-dark" value="1" min="1" max="{{ product.stock_level }}">
+                                    <input type="number" name="quantity" id="quantity" class="form-control border border-dark" value="1" min="1" max="{{ product.stock_level }}" data-product_id="{{ product.id }}">
                                     <div class="input-group-append">
                                         <button class="btn btn-success rounded-right border border-dark">
                                             <span>
@@ -47,7 +51,10 @@
                                         </button>
                                     </div>
                                 </div>
+                                
+
                             </div>
+                            <p class="text-center m-1">Remaining in stock: {{product.stock_level}} </p>
                         </div>
                         <div class="col d-flex justify-content-center">
                             <a href="{% url 'products' %}" class="btn border border-dark rounded-0 mt-5">

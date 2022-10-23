@@ -80,7 +80,6 @@ class AllProductsView(generic.ListView):
         context['search_query'] = self.query
         context['current_categories'] = self.categories
         context['current_subcategories'] = self.subcategories
-        print(type(context['current_subcategories']))
         return context
 
 
