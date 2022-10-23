@@ -17,10 +17,51 @@
         
             <div class="col-12 col-sm-6">
                 <h2 class="text-center d-none d-sm-block">{{ product.name }}</h2>
-                <p class="small text-right d-none d-sm-block text-muted">SKU: {{ product.sku }}</p>
-                <p class="text-center text-sm-left {% if product.current_rating == 0 %}mb-1{% endif %}"> Customer Rating = <i class="fa-solid fa-star"></i>{% if product.current_rating == 0 %} 0 / 5 </p><p class="text-left mt-0">Be the first to rate this product </p>{% else %} {{ product.current_rating }} / 5{% endif %}</p>
-                <div class="bg-black text-light text-center p-3 font-weight-bold">&euro; {{ product.price }}</div>
-                <p class="text-center mt-1">Remaining in stock: {{product.stock_level}} </p>
+                <p class="small text-right d-none d-sm-block text-muted mb-3">SKU: {{ product.sku }}</p>
+                <p class="text-center text-sm-left mt-5 {% if product.current_rating == 0 %}mb-2{% else %}mb-5{% endif %}"> Customer Rating = <i class="fa-solid fa-star"></i>{% if product.current_rating == 0 %} 0 / 5 </p><p class="text-left mt-0">Be the first to rate this product </p>{% else %} {{ product.current_rating }} / 5{% endif %}</p>
+                <div class="bg-black text-light text-center p-3 font-weight-bold mt-5">&euro; {{ product.price }}</div>
+                <p class="text-center mt-1 mb-5">Remaining in stock: {{product.stock_level}} </p>
+                <form class="mt-5"  action="" method="POST">
+                    {% csrf_token %}
+                    <div class="form-row">
+                        <div class="col-12">
+                            <!-- write logic for product with options and add drop down -->
+                        </div>
+                        <div class="col-12">
+                            <label class="d-flex justify-content-start w-50 mx-auto" for="quantity"><strong>Select Quantity:</strong></label>
+                            <div class="form-group d-flex justify-content-center">
+                                <div class="input-group w-50">
+                                    <div class="input-group-prepend">
+                                        <button class="btn btn-danger rounded-left border border-dark">
+                                            <span>
+                                                <i class="fas fa-minus"></i>
+                                            </span>
+                                        </button>
+                                    </div>
+                                    <input type="number" name="quantity" id="quantity" class="form-control border border-dark" value="1" min="1" max="{{ product.stock_level }}">
+                                    <div class="input-group-append">
+                                        <button class="btn btn-success rounded-right border border-dark">
+                                            <span>
+                                                <i class="fas fa-plus"></i>
+                                            </span>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col d-flex justify-content-center">
+                            <a href="{% url 'products' %}" class="btn border border-dark rounded-0 mt-5">
+                                <span class="icon">
+                                    <i class="fas fa-chevron-left"></i>
+                                </span>
+                                <span class="text-uppercase">All Products</span>
+                            </a>
+                            <input type="submit" class="btn bg-black text-light rounded-0 text-uppercase ml-1 mt-5" value="Add to Bag">
+                        </div>
+                        <input type="hidden" name="redirect_url" value="{{ request.path }}">
+                    </div>
+                </form>
+
             </div>
         </div>
         
