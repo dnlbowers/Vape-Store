@@ -7,7 +7,11 @@
     <body class="d-flex flex-column">
         <header class="container-fluid px-0">
             {% include 'includes//components/navbar.html' %}
+            <div class="bg-black border-bottom border-danger text-light text-center">
+                Free International Delivery on all orders over €{{free_shipping_qualifier}}
+            </div>
         </header>
+        
 
         {% block page_header %}
         {% endblock  %}

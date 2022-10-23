@@ -72,6 +72,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'shopping_cart.contexts.cart_contents'
             ],
         },
     },
@@ -218,3 +219,10 @@ if 'USE_AWS' in os.environ:
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# delivery costs
+STANDARD_SHIPPING_PERCENTAGE = 10
+STANDARD_SHIPPING_MINIMUM = 7.99
+RECORDED_SHIPPING_PERCENTAGE = 15
+RECORDED_SHIPPING_MINIMUM = 19.99
+FREE_SHIPPING_QUALIFIER = 100
