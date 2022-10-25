@@ -7,6 +7,7 @@
     <div class="row">
         <div class="col">
             <h2 class="text-left mt-3">Current Cart Items</h2>
+            <p><small>Please review your cart before proceeding to the <a href="#checkout-access" aria-label="Skip to cart totals and section from where you can proceed to check out page">checkout page</a><small></p>
             <hr>
         </div>
     </div>
@@ -45,22 +46,24 @@
                                         <form action="" class="form pt-3 mx-auto">
                                             {% csrf_token %}
                                             <div class="input-group input-group-{{item.product.id}}">
-                                                    <div class="input-group-prepend">
-                                                        <button class="btn btn-danger rounded-left border border-dark py-1 px-2">
-                                                            <span>
-                                                                <i class="fas fa-minus fa-sm"></i>
-                                                            </span>
-                                                        </button>
-                                                    </div>
-                                                    <input type="number" name="quantity" id="quantity" class="form-control border border-dark" value="{{item.quantity}}" min="1" max="{{ item.product.stock_level }}" data-product_id="{{ item.product.id }}">
-                                                    <div class="input-group-append">
-                                                        <button class="btn btn-success rounded-right border border-dark py-1 px-2">
-                                                            <span>
-                                                                <i class="fas fa-plus fa-sm"></i>
-                                                            </span>
-                                                        </button>
-                                                    </div>
-                                                
+                                                <div class="input-group-prepend">
+                                                    <button class="btn btn-danger rounded-left border border-dark py-1 px-2 decrease-qty_{{ product.id }}" data-product_id="{{ product.id}}">
+                                                        <span>
+                                                            <i class="fas fa-minus fa-sm"></i>
+                                                        </span>
+                                                    </button>
+                                                </div>
+                                                <input type="number" name="quantity" class="form-control border border-dark qty_select id_qty_{{ product.id }}" value="{{item.quantity}}" min="1" max="{{ item.product.stock_level }}" data-product_id="{{ item.product.id }}">
+                                                <div class="input-group-append">
+                                                    <button class="btn btn-success rounded-right border border-dark py-1 px-2 increase-qty_{{ product.id }}" data-product_id="{{ product.id}}">
+                                                        <span>
+                                                            <i class="fas fa-plus fa-sm"></i>
+                                                        </span>
+                                                    </button>
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <button type="submit" class="btn btn-outline-primary btn-sm btn-block mt-2">Update</button>
                                             </div>
                                         </form>
                                     </td>
@@ -72,32 +75,35 @@
                                     </td>
                                 </tr>
                                 <tr class="d-md-none">
-                                    <td colspan="8" class="py-3">
+                                    <td colspan="6" class="py-3">
                                         <form action="" class="form">
                                             {% csrf_token %}
+                                            <div class="text-center"><label for="input-group-{{item.product.id}}">Qty:</label></div>
                                             <div class="input-group input-group-{{item.product.id}}">
-                                                <div class="input-group mx-auto">
-                                                    <label for="input-group-{{item.product.id}}">Qty:</label>
-                                                    <div class="input-group-prepend ml-3">
-                                                        <button class="btn btn-danger rounded-left border border-dark">
-                                                            <span>
-                                                                <i class="fas fa-minus fa-sm"></i>
-                                                            </span>
-                                                        </button>
-                                                    </div>
-                                                    <input type="number" name="quantity" id="quantity" class="form-control border border-dark" value="{{ item.quantity }}" min="1" max="{{ product.stock_level }}" data-product_id="{{ product.id }}">
-                                                    <div class="input-group-append">
-                                                        <button class="btn btn-success rounded-right border border-dark">
-                                                            <span>
-                                                                <i class="fas fa-plus fa-sm"></i>
-                                                            </span>
-                                                        </button>
-                                                    </div>
+
+                                                <div class="input-group-prepend">
+                                                    <button class="btn btn-danger rounded-left border border-dark decrease-qty_{{ product.id }}" data-product_id="{{ product.id}}">
+                                                        <span>
+                                                            <i class="fas fa-minus fa-sm"></i>
+                                                        </span>
+                                                    </button>
                                                 </div>
+                                                <input type="number" name="quantity" class="form-control border border-dark qty_select id_qty_{{ product.id }}" value="{{ item.quantity }}" min="1" max="{{ product.stock_level }}" data-product_id="{{ product.id }}">
+                                                <div class="input-group-append">
+                                                    <button class="btn btn-success rounded-right border border-dark increase-qty_{{ product.id }}" data-product_id="{{ product.id}}">
+                                                        <span>
+                                                            <i class="fas fa-plus fa-sm"></i>
+                                                        </span>
+                                                    </button>
+                                                </div>
+                                                
+                                            </div>
+                                            <div>
+                                                <button type="submit" class="btn btn-outline-primary btn-sm btn-block mt-2">Update</button>
                                             </div>
                                         </form>
                                     </td>
-                                    <td colspan="4" class="text-center py-3">update</td>
+                                   
                                 </tr>
                                 <tr class="d-md-none w-100">
                                     <td colspan="12">
@@ -119,7 +125,7 @@
                                 </td>
                             </tr>
                             <tr>
-                                <td colspan="5" class="text-right">
+                                <td colspan="5" id="checkout-access" class="text-right">
                                     {% comment %} {% include "bag/checkout-buttons.html" %} {% endcomment %}
                                     check out buttons
                                 </td>
