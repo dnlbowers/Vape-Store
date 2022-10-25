@@ -13,17 +13,17 @@
     <div class="row">
         <div class="col">
             {% if cart_contents %}
-                <div class="table-responsive rounded">
+                <div class="table-responsive rounded p-0">
                     <table class="table table-sm table-borderless">
                         <caption class="sr-only">Current items in your cart</caption>
                         <thead class="text-center bg-black text-light  w-100">
-                            <tr class="d-none d-md-table-row ">
+                            <tr class="d-none d-md-table-row">
                                 <th scope="col">Product Info</th>
                                 <th scope="col"></th>
                                 <th scope="col">Price</th>
                                 <th scope="col">Qty</th>
                                 <th scope="col">Subtotal</th>
-                                <th scope="col">Remove</th>
+                                <th scope="col"></th>
                             </tr>
                         </thead>
                         <tbody>
@@ -38,15 +38,15 @@
                                         <p class="my-0"><strong>Options will be here:</strong></p>
                                         <p class="my-0 small text-muted d-none d-md-block">SKU: {{ item.product.sku|upper }}</p>
                                     </td>
-                                    <td class="py-3">
+                                    <td class="py-3 text-center">
                                         <p class="my-0">€{{ item.product.price }}</p>
                                     </td>
-                                    <td class="py-3 w-25  d-none d-md-inline">
-                                        <form action="" class="form">
+                                    <td class="d-none d-md-table-row">
+                                        <form action="" class="form pt-3 mx-auto">
+                                            {% csrf_token %}
                                             <div class="input-group input-group-{{item.product.id}}">
-                                                <div class="input-group px-3">
                                                     <div class="input-group-prepend">
-                                                        <button class="btn btn-danger rounded-left border border-dark">
+                                                        <button class="btn btn-danger rounded-left border border-dark py-1 px-2">
                                                             <span>
                                                                 <i class="fas fa-minus fa-sm"></i>
                                                             </span>
@@ -54,27 +54,27 @@
                                                     </div>
                                                     <input type="number" name="quantity" id="quantity" class="form-control border border-dark" value="{{item.quantity}}" min="1" max="{{ item.product.stock_level }}" data-product_id="{{ item.product.id }}">
                                                     <div class="input-group-append">
-                                                        <button class="btn btn-success rounded-right border border-dark">
+                                                        <button class="btn btn-success rounded-right border border-dark py-1 px-2">
                                                             <span>
                                                                 <i class="fas fa-plus fa-sm"></i>
                                                             </span>
                                                         </button>
                                                     </div>
-                                                </div>
+                                                
                                             </div>
                                         </form>
                                     </td>
-                                    <td class="py-3">
-                                        <p class="my-0">€{{ item.cart_total }}</p>
+                                    <td class="py-3 text-center">
+                                        <p class="my-0">€{{ item.product.price }}</p>
                                     </td>
-                                    <td class="py-3">
+                                    <td class="py-3 text-center">
                                         <i class="fa-solid fa-trash-can"></i>
                                     </td>
                                 </tr>
                                 <tr class="d-md-none">
-                                    <td colspan="12" class="py-3">
+                                    <td colspan="8" class="py-3">
                                         <form action="" class="form">
-                                            
+                                            {% csrf_token %}
                                             <div class="input-group input-group-{{item.product.id}}">
                                                 <div class="input-group mx-auto">
                                                     <label for="input-group-{{item.product.id}}">Qty:</label>
@@ -85,7 +85,7 @@
                                                             </span>
                                                         </button>
                                                     </div>
-                                                    <input type="number" name="quantity" id="quantity" class="form-control border border-dark" value="1" min="1" max="{{ product.stock_level }}" data-product_id="{{ product.id }}">
+                                                    <input type="number" name="quantity" id="quantity" class="form-control border border-dark" value="{{ item.quantity }}" min="1" max="{{ product.stock_level }}" data-product_id="{{ product.id }}">
                                                     <div class="input-group-append">
                                                         <button class="btn btn-success rounded-right border border-dark">
                                                             <span>
@@ -97,12 +97,13 @@
                                             </div>
                                         </form>
                                     </td>
+                                    <td colspan="4" class="text-center py-3">update</td>
                                 </tr>
                                 <tr class="d-md-none w-100">
                                     <td colspan="12">
                                         <hr class="w-100">
                                     </td>
-                                </tr>
+                                </tr>                            
 
                             {% endfor %}
                             <tr>
