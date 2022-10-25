@@ -2,27 +2,28 @@
 
 {% block content %}
 <main class="container">
+    {{cart_contents}}
+    {{cart_total}}
     <div class="row">
         <div class="col">
-            <hr>
-            <h2 class="text-left">Current Cart Items</h2>
+            <h2 class="text-left mt-3">Current Cart Items</h2>
             <hr>
         </div>
     </div>
     <div class="row">
         <div class="col">
             {% if cart_contents %}
-                <div class="table-responsive rounded d-none d-md-block">
-                    <table class="table table-sm table-borderless table-striped">
+                <div class="table-responsive rounded">
+                    <table class="table table-sm table-borderless">
                         <caption class="sr-only">Current items in your cart</caption>
-                        <thead class="text-center bg-black text-light">
-                            <tr>
+                        <thead class="text-center bg-black text-light  w-100">
+                            <tr class="d-none d-md-table-row ">
                                 <th scope="col">Product Info</th>
                                 <th scope="col"></th>
                                 <th scope="col">Price</th>
                                 <th scope="col">Qty</th>
                                 <th scope="col">Subtotal</th>
-                                <th scope="col">Delete</th>
+                                <th scope="col">Remove</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -33,30 +34,82 @@
                                         <img class="img-fluid rounded" src="{{ item.product.image.url }}" alt="{{ item.product.name }}">
                                     </td>
                                     <td class="py-3">
-                                        <p class="my-0"><strong>{{ item.product.name }}</strong></p>
+                                        <p class="my-0"><a href="{% url 'product_detail' item.product.id %}"><strong>{{ item.product.name }}</strong></a></p>
                                         <p class="my-0"><strong>Options will be here:</strong></p>
-                                        <p class="my-0 small text-muted">SKU: {{ item.product.sku|upper }}</p>
+                                        <p class="my-0 small text-muted d-none d-md-block">SKU: {{ item.product.sku|upper }}</p>
                                     </td>
                                     <td class="py-3">
                                         <p class="my-0">€{{ item.product.price }}</p>
                                     </td>
-                                    <td class="py-3 w-25">
-                                        form for quantity
+                                    <td class="py-3 w-25  d-none d-md-inline">
+                                        <form action="" class="form">
+                                            <div class="input-group input-group-{{item.product.id}}">
+                                                <div class="input-group px-3">
+                                                    <div class="input-group-prepend">
+                                                        <button class="btn btn-danger rounded-left border border-dark">
+                                                            <span>
+                                                                <i class="fas fa-minus fa-sm"></i>
+                                                            </span>
+                                                        </button>
+                                                    </div>
+                                                    <input type="number" name="quantity" id="quantity" class="form-control border border-dark" value="{{item.quantity}}" min="1" max="{{ item.product.stock_level }}" data-product_id="{{ item.product.id }}">
+                                                    <div class="input-group-append">
+                                                        <button class="btn btn-success rounded-right border border-dark">
+                                                            <span>
+                                                                <i class="fas fa-plus fa-sm"></i>
+                                                            </span>
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </form>
                                     </td>
                                     <td class="py-3">
-                                        <p class="my-0">€{{ item.product.price }}</p>
+                                        <p class="my-0">€{{ item.cart_total }}</p>
                                     </td>
                                     <td class="py-3">
                                         <i class="fa-solid fa-trash-can"></i>
+                                    </td>
+                                </tr>
+                                <tr class="d-md-none">
+                                    <td colspan="12" class="py-3">
+                                        <form action="" class="form">
+                                            
+                                            <div class="input-group input-group-{{item.product.id}}">
+                                                <div class="input-group mx-auto">
+                                                    <label for="input-group-{{item.product.id}}">Qty:</label>
+                                                    <div class="input-group-prepend ml-3">
+                                                        <button class="btn btn-danger rounded-left border border-dark">
+                                                            <span>
+                                                                <i class="fas fa-minus fa-sm"></i>
+                                                            </span>
+                                                        </button>
+                                                    </div>
+                                                    <input type="number" name="quantity" id="quantity" class="form-control border border-dark" value="1" min="1" max="{{ product.stock_level }}" data-product_id="{{ product.id }}">
+                                                    <div class="input-group-append">
+                                                        <button class="btn btn-success rounded-right border border-dark">
+                                                            <span>
+                                                                <i class="fas fa-plus fa-sm"></i>
+                                                            </span>
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </td>
+                                </tr>
+                                <tr class="d-md-none w-100">
+                                    <td colspan="12">
+                                        <hr class="w-100">
                                     </td>
                                 </tr>
 
                             {% endfor %}
                             <tr>
                                 <td colspan="5" class="pt-5 text-right">
-                                    <h6><strong>Total: €{{ total|floatformat:2 }}</strong></h6>
+                                    <h6><strong>Total: €{{ cart_total|floatformat:2 }}</strong></h6>
                                     <h6>Shipping: €{{ shipping|floatformat:2 }}</h6>
-                                    <h4 class="mt-4"><strong>Grand Total: ${{ cart_total|floatformat:2 }}</strong></h4>
+                                    <h4 class="mt-4"><strong>Grand Total: ${{ grand_total|floatformat:2 }}</strong></h4>
                                     {% if free_shipping_delta > 0 %}
                                         <p class="mb-1 text-danger">
                                             Spend just <strong>€{{ free_shipping_delta }}</strong> more for free delievery!

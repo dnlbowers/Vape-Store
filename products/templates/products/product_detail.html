@@ -57,13 +57,13 @@
                             <p class="text-center m-1">Remaining in stock: {{product.stock_level}} </p>
                         </div>
                         <div class="col d-flex justify-content-around bg-black p-5">
-                            <a href="{% url 'products' %}" class="btn btn-danger border text-light border-dark rounded-0 p-3">
+                            <a href="{% url 'products' %}" class="btn btn-danger border text-light border-dark p-3">
                                 <span class="icon">
                                     <i class="fas fa-chevron-left"></i>
                                 </span>
                                 <span class="text-uppercase">All Products</span>
                             </a>
-                            <input type="submit" class="btn btn-success text-light rounded-0 text-uppercase ml-1 p-3" value="Add to Bag">
+                            <input type="submit" class="btn btn-success text-light text-uppercase ml-1 p-3" value="Add to Bag">
                         </div>
                         <input type="hidden" name="redirect_url" value="{{ request.path }}">
                     </div>
