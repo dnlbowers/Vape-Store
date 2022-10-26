@@ -21,3 +21,7 @@ Below is a list of bugs and fixes found while creating a feature. You can find o
 * Solution - Adding a min-width to the card class resolved the issue.
 
 ## to fix later
+
+* Issue - There are two qty selectors on the cart and they are not synced. this means if the screen changes size the second qty selector will not reflect the intial one
+* Cause - There is no link between the two yes.
+* Solution - Adding a min-width to the card class resolved the issue.

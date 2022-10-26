@@ -47,15 +47,15 @@
                                             {% csrf_token %}
                                             <div class="input-group input-group-{{item.product.id}}">
                                                 <div class="input-group-prepend">
-                                                    <button class="btn btn-danger rounded-left border border-dark py-1 px-2 decrease-qty_{{ product.id }}" data-product_id="{{ product.id}}">
+                                                    <button class="btn btn-danger rounded-left border border-dark py-1 px-2 decrease-qty decrease-qty-{{ item.product.id }}" data-product-id="{{ item.product.id}}">
                                                         <span>
                                                             <i class="fas fa-minus fa-sm"></i>
                                                         </span>
                                                     </button>
                                                 </div>
-                                                <input type="number" name="quantity" class="form-control border border-dark qty_select id_qty_{{ product.id }}" value="{{item.quantity}}" min="1" max="{{ item.product.stock_level }}" data-product_id="{{ item.product.id }}">
+                                                <input type="number" name="quantity" class="form-control border border-dark qty-input current-qty-pid-{{ item.product.id }}" value="{{item.quantity}}" min="1" max="{{ item.product.stock_level }}" data-product-id="{{ item.product.id }}">
                                                 <div class="input-group-append">
-                                                    <button class="btn btn-success rounded-right border border-dark py-1 px-2 increase-qty_{{ product.id }}" data-product_id="{{ product.id}}">
+                                                    <button class="btn btn-success rounded-right border border-dark py-1 px-2 increase-qty increase-qty-{{ item.product.id }}" data-product-id="{{ item.product.id}}">
                                                         <span>
                                                             <i class="fas fa-plus fa-sm"></i>
                                                         </span>
@@ -82,15 +82,15 @@
                                             <div class="input-group input-group-{{item.product.id}}">
 
                                                 <div class="input-group-prepend">
-                                                    <button class="btn btn-danger rounded-left border border-dark decrease-qty_{{ product.id }}" data-product_id="{{ product.id}}">
+                                                    <button class="btn btn-danger rounded-left border border-dark decrease-qty decrease-qty-{{ item.product.id }}" data-product-id="{{ product.id}}">
                                                         <span>
                                                             <i class="fas fa-minus fa-sm"></i>
                                                         </span>
                                                     </button>
                                                 </div>
-                                                <input type="number" name="quantity" class="form-control border border-dark qty_select id_qty_{{ product.id }}" value="{{ item.quantity }}" min="1" max="{{ product.stock_level }}" data-product_id="{{ product.id }}">
+                                                <input type="number" name="quantity" class="form-control border border-dark qty-input current-qty-pid-{{ item.product.id }}" value="{{ item.quantity }}" min="1" max="{{ item.product.stock_level }}" data-product-id="{{ item.product.id }}">
                                                 <div class="input-group-append">
-                                                    <button class="btn btn-success rounded-right border border-dark increase-qty_{{ product.id }}" data-product_id="{{ product.id }}">
+                                                    <button class="btn btn-success rounded-right border border-dark increase-qty increase-qty-{{ item.product.id }}" data-product-id="{{ item.product.id }}">
                                                         <span>
                                                             <i class="fas fa-plus fa-sm"></i>
                                                         </span>
@@ -146,4 +146,8 @@
     </div>
 </main>
 
+{% endblock %}
+{% block postloadjs %}
+    {{ block.super }}
+    {% include 'products/includes/scripts/qty-selector-btn-scripts.html' %}
 {% endblock %}
