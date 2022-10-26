@@ -2,11 +2,11 @@
 
 {% block content %}
 
-    <main class="mx-auto">
+    <main class="mx-auto container">
 
         {% include "./includes/components/product-breadcrumb.html" %}
         
-        <div class="row mt-5 mx-5 mb-3">
+        <div class="row mt-5 mb-3">
             <div class="col-12 col-md-6">
                 <div class="bg-black text-light">
                     <h2 class="text-center d-md-none pt-5">{{ product.name }}</h2>
@@ -73,7 +73,7 @@
         </div>
         
         <hr>
-        <div class="row container-fluid mx-auto">
+        <div class="row mx-auto no-gutters">
             <div class="col">
                 <nav>
                     <div class="nav nav-pills d-flex justify-content-center bg-black border border-dark" id="nav-tab" role="tablist">
