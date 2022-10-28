@@ -20,8 +20,12 @@ Below is a list of bugs and fixes found while creating a feature. You can find o
 * Cause - I am not sure why this is happening. I think it has something to do with the way the product card is being rendered using the bootstrap class.
 * Solution - Adding a min-width to the card class resolved the issue.
 
+* Issue - There are two qty selectors on the cart and they are not synced. this means if the screen changes size the second qty selector will not reflect the initial one
+* Cause - There is no link between the two qty selectors on the cart page.
+* Solution - Adding a variable to the increase/decrease click event to group all qty inputs for the same product together
+
 ## to fix later
 
-* Issue - There are two qty selectors on the cart and they are not synced. this means if the screen changes size the second qty selector will not reflect the intial one
-* Cause - There is no link between the two yes.
-* Solution - Adding a min-width to the card class resolved the issue.
+* Issue - 
+* Cause - 
+* Solution - 

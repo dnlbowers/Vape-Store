@@ -20,10 +20,11 @@ def cart_contents(request):
             'product_id': product_id,
             'quantity': quantity,
             'product': product
-            })
+        })
 
     if cart_total < settings.FREE_SHIPPING_QUALIFIER:
-        shipping = cart_total * Decimal(settings.STANDARD_SHIPPING_PERCENTAGE / 100)
+        shipping = cart_total * \
+            Decimal(settings.STANDARD_SHIPPING_PERCENTAGE / 100)
         free_shipping_delta = settings.FREE_SHIPPING_QUALIFIER - cart_total
     else:
         shipping = 0

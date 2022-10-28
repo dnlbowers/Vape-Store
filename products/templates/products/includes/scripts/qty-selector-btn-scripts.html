@@ -8,10 +8,12 @@
             * sets value to stock limit if keyboard used to enter value greater than stock limit
         */
         const qtyInput = $(`.current-qty-pid-${productID}`);
-
+        console.log(qtyInput);
         const qtyInputValue = parseInt(qtyInput.val());
+        console.log(qtyInputValue);
         const qtyDisableMinus = qtyInputValue < 2;
         const qtyInputMax = parseInt(qtyInput.attr('max'));
+        console.log("max" + qtyInputMax);
         const qtyDisablePlus = qtyInputValue >= qtyInputMax;
         const qtyBtnMinus = $(`.decrease-qty-${productID}`);
         const qtyBtnPlus = $(`.increase-qty-${productID}`);
@@ -27,9 +29,10 @@
     const allQtyInputs = $('.qty-input');
     allQtyInputs.each((index, input) => {
         const productID = $(input).data('product-id');
+        console.log(index, input)
+        console.log('procutID ' + productID)
         qtyInputRangeHandler(productID);
     });
-
 
 
     $('.decrease-qty').click(function(e){
@@ -38,10 +41,11 @@
             * on the qty selector forms and prevents its default action
         */
         e.preventDefault();
-        let quantyInput = $(this).closest(".input-group").find('.qty-input')[0];
-        let quanty = parseInt(quantyInput.value);
-        quantyInput.value = quanty - 1;
-        productId = $(this).data('product-id');
+        let quantyInput = $(this).closest('.input-group').find('.qty-input')[0];
+        let quantity = parseInt(quantyInput.value);
+        let productId = $(this).data('product-id')
+        let allQtyInputs = $(`.input-group-${productId} input[name='quantity']`);
+        $(allQtyInputs).val(quantity - 1);
         qtyInputRangeHandler(productId);
     });
 
@@ -51,10 +55,11 @@
         /* on the qty selector forms and prevents its default action
         */
         e.preventDefault();
-        let quantyInput = $(this).closest(".input-group").find('.qty-input')[0];
-        let quanty = parseInt(quantyInput.value);
-        quantyInput.value = quanty + 1;
-        productId = $(this).data('product-id');
+        let quantyInput = $(this).closest('.input-group').find('.qty-input')[0];
+        let quantity = parseInt(quantyInput.value);
+        let productId = $(this).data('product-id')
+        let allQtyInputs = $(`.input-group-${productId} input[name='quantity']`);
+        $(allQtyInputs).val(quantity + 1);
         qtyInputRangeHandler(productId);
     });
 

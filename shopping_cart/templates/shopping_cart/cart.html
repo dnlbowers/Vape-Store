@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% load cart_subtotal_tool %}
 
 {% block content %}
 <main class="container">
@@ -42,20 +43,20 @@
                                     <td class="py-3 text-center">
                                         <p class="my-0">€{{ item.product.price }}</p>
                                     </td>
-                                    <td class="d-none d-md-table-row">
-                                        <form action="" class="form pt-3 mx-auto">
+                                    <td class="d-none d-md-table-cell">
+                                        <form action="{% url 'edit_cart' item.product.id %}" class="form update-qty-form pt-3 mx-auto" method="POST">
                                             {% csrf_token %}
                                             <div class="input-group input-group-{{item.product.id}}">
                                                 <div class="input-group-prepend">
-                                                    <button class="btn btn-danger rounded-left border border-dark py-1 px-2 decrease-qty decrease-qty-{{ item.product.id }}" data-product-id="{{ item.product.id}}">
+                                                    <button class="btn btn-danger btn-sm rounded-left border border-dark py-1 px-2 decrease-qty decrease-qty-{{ item.product.id }}" data-product-id="{{ item.product.id}}">
                                                         <span>
                                                             <i class="fas fa-minus fa-sm"></i>
                                                         </span>
                                                     </button>
                                                 </div>
-                                                <input type="number" name="quantity" class="form-control border border-dark qty-input current-qty-pid-{{ item.product.id }}" value="{{item.quantity}}" min="1" max="{{ item.product.stock_level }}" data-product-id="{{ item.product.id }}">
+                                                <input type="number" name="quantity" class="form-control form-control-sm border border-dark qty-input current-qty-pid-{{ item.product.id }}" value="{{item.quantity}}" min="1" max="{{ item.product.stock_level }}" data-product-id="{{ item.product.id }}">
                                                 <div class="input-group-append">
-                                                    <button class="btn btn-success rounded-right border border-dark py-1 px-2 increase-qty increase-qty-{{ item.product.id }}" data-product-id="{{ item.product.id}}">
+                                                    <button class="btn btn-success btn-sm rounded-right border border-dark py-1 px-2 increase-qty increase-qty-{{ item.product.id }}" data-product-id="{{ item.product.id}}">
                                                         <span>
                                                             <i class="fas fa-plus fa-sm"></i>
                                                         </span>
@@ -68,21 +69,20 @@
                                         </form>
                                     </td>
                                     <td class="py-3 text-center">
-                                        <p class="my-0">€{{ item.product.price }}</p>
+                                        <p class="my-0">€{{ item.product.price | calc_subtotal:item.quantity }}</p>
                                     </td>
-                                    <td class="py-3 text-center">
-                                        <i class="fa-solid fa-trash-can"></i>
+                                    <td class="py-3 text-right d-flex align-items-center">
+                                        <a data-remove-id="{{ item.product.id }}" class="delete-btn btn-sm btn-danger"><i class="fa-solid fa-trash-can fa-lg"></i></a>
                                     </td>
                                 </tr>
                                 <tr class="d-md-none">
                                     <td colspan="6" class="py-3">
-                                        <form action="" class="form">
+                                        <form action="{% url 'edit_cart' item.product.id %}" class="form update-qty-form" method="POST">
                                             {% csrf_token %}
                                             <div class="text-center"><label for="input-group-{{item.product.id}}">Qty:</label></div>
                                             <div class="input-group input-group-{{item.product.id}}">
-
                                                 <div class="input-group-prepend">
-                                                    <button class="btn btn-danger rounded-left border border-dark decrease-qty decrease-qty-{{ item.product.id }}" data-product-id="{{ product.id}}">
+                                                    <button class="btn btn-danger btn-sm rounded-left border border-dark decrease-qty decrease-qty-{{ item.product.id }}" data-product-id="{{ item.product.id}}">
                                                         <span>
                                                             <i class="fas fa-minus fa-sm"></i>
                                                         </span>
@@ -90,7 +90,7 @@
                                                 </div>
                                                 <input type="number" name="quantity" class="form-control border border-dark qty-input current-qty-pid-{{ item.product.id }}" value="{{ item.quantity }}" min="1" max="{{ item.product.stock_level }}" data-product-id="{{ item.product.id }}">
                                                 <div class="input-group-append">
-                                                    <button class="btn btn-success rounded-right border border-dark increase-qty increase-qty-{{ item.product.id }}" data-product-id="{{ item.product.id }}">
+                                                    <button class="btn btn-sm btn-success rounded-right border border-dark increase-qty increase-qty-{{ item.product.id }}" data-product-id="{{ item.product.id }}">
                                                         <span>
                                                             <i class="fas fa-plus fa-sm"></i>
                                                         </span>
@@ -99,13 +99,13 @@
                                                 
                                             </div>
                                             <div>
-                                                <button type="submit" class="btn btn-outline-primary btn-sm btn-block mt-2">Update</button>
+                                                <a class="btn btn-sm btn-outline-primary btn-sm btn-block mt-2 update-btn">Update</a>
                                             </div>
                                         </form>
                                     </td>
 
                                 </tr>
-                                <tr class="d-md-none w-100">
+                                <tr class="w-100">
                                     <td colspan="12">
                                         <hr class="w-100">
                                     </td>
@@ -150,4 +150,37 @@
 {% block postloadjs %}
     {{ block.super }}
     {% include 'products/includes/scripts/qty-selector-btn-scripts.html' %}
+    <script type="text/javascript">
+        
+        $('.update-btn').click(e => {
+            /**
+            * This function is used to update the quantity of a product in the bag.
+            */
+            e.preventDefault();
+            $(e.target).closest('qty-update-form').submit();
+        });
+
+        $('.delete-btn').click(e => {
+            /**
+            * This function is used to delete a product from the bag.
+            */
+            const crsfToken = "{{ csrf_token }}";
+            const productId = $('.delete-btn').data('remove-id');
+            console.log(productId);
+            const url = `/shoppingcart/deleteitem/${productId}/`;
+            $.ajax({
+                url: url,
+                type: 'POST',
+                data: {
+                    'csrfmiddlewaretoken': crsfToken,
+                },
+                success: function (data) {
+                    location.reload();
+                },
+                error: function (data) {
+                    console.log(data);
+                }
+            });
+        });
+    </script>
 {% endblock %}
