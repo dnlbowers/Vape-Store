@@ -12,6 +12,7 @@
             </div>
         </header>
         
+        {% include 'includes/toasts/toast-initiator.html' %}
 
         {% block page_header %}
         {% endblock  %}
@@ -24,7 +25,11 @@
         {% endblock  %}
 
         {% include 'includes/components/footer.html'%}
+
         {% block postloadjs %}
+            <script type="text/javascript">
+                $('.toast').toast('show');
+            </script>
         {% endblock  %}
 
     </body>

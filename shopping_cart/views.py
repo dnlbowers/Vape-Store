@@ -2,6 +2,8 @@ from django.http import HttpResponse
 from django.views.generic.base import TemplateView
 from django.views import View  # noqa
 from django.shortcuts import redirect, reverse
+from django.contrib import messages
+from products.models import AllProducts
 
 
 class ViewShoppingCart(TemplateView):
@@ -17,7 +19,7 @@ class AddToCart(View):
     """
 
     def post(self, request, product_id, *args, **kwargs):
-
+        product = AllProducts.objects.get(id=product_id)
         quantity = int(request.POST.get('quantity'))
         redirect_url = request.POST.get('redirect_url')
         cart = request.session.get('cart', {})
@@ -26,6 +28,7 @@ class AddToCart(View):
             cart[product_id] += quantity
         else:
             cart[product_id] = quantity
+            messages.success(request, f'You\'ve added {quantity} x {product.name} to your cart')
 
         request.session['cart'] = cart
         print(request.session['cart'])
