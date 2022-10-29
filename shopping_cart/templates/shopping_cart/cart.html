@@ -128,8 +128,18 @@
                             </tr>
                             <tr>
                                 <td colspan="5" id="checkout-access" class="text-right">
-                                    {% comment %} {% include "bag/checkout-buttons.html" %} {% endcomment %}
-                                    check out buttons
+                                    <a href="{% url 'products' %}" class="btn btn-success border text-light border-dark rounded-0">
+                                        <span class="icon">
+                                            <i class="fas fa-chevron-left"></i>
+                                        </span>
+                                        <span class="text-uppercase">Shop for more</span>
+                                    </a>
+                                    <a href="{% url 'view_cart' %}" class="btn btn-outline-dark rounded-0">
+                                        <span class="text-uppercase">Secure Checkout</span>
+                                        <span class="icon">
+                                            <i class="fas fa-lock"></i>
+                                        </span>
+                                    </a>
                                 </td>
                             </tr>
                         <tbody>

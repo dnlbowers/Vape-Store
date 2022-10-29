@@ -11,7 +11,7 @@
 
 /* -------------------------------------------------------------- bootstrap toasts taken from boutique ado */
 
-.message-container {
+.cart-preview-container {
     position: fixed;
     top: 72px;
     right: 15px;
@@ -56,8 +56,8 @@
     border-bottom-color: #17a2b8 !important;
 }
 
-.cart-notification-wrapper {
-    height: 100px;
+.cart-preview-wrapper {
+    height: 200px;
     overflow-x: hidden;
     overflow-y: auto;
 }

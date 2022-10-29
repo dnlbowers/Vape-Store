@@ -61,7 +61,6 @@ class AllProductsView(generic.ListView):
                 if not self.query:
                     messages.error(
                         self.request, "You didn't enter any search criteria!")
-                    return redirect(reverse('products'))
 
                 queries = Q(
                     name__icontains=self.query) | Q(

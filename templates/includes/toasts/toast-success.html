@@ -1,12 +1,58 @@
-<div class="toast" role="alert" aria-live="assertive" aria-atomic="true" data-autohide="false">
+<div class="toast border-3 border-dark" role="alert" aria-live="assertive" aria-atomic="true" data-autohide="false">
     <div class="arrow-up arrow-success"></div>
-    <div class="toast-header bg-success text-light">
-        <strong class="mr-auto">Success</strong>
+    <div class="toast-header bg-success text-light border-3 border-dark">
+        <span class="mr-auto font-weight-bold">Success</span>
         <button type="button" class="ml-2 mb-1 close" data-dismiss="toast" aria-label="Close">
             <span aria-hidden="true">&times;</span>
         </button>
     </div>
-    <div class="toast-body">
+    <div class="toast-body bg-black text-success font-weight-bold">
         {{ message }}
     </div>
+    {% if grand_total %}
+    <div class="bg-black text-warning py-2">
+        <p class="px-3 font-weight-bold">Current Cart Items ({{ product_count }})</p>
+    </div>
+    
+
+    <div class="cart-preview-wrapper px-3">
+        {% for item in cart_contents %}
+            <div class="row pb-0">
+                <div class="col-3">
+                    <img class="w-100" src="{{ item.product.image.url }}" alt="{{ item.product.name }}">
+                </div>
+                <div class="col-9">
+                    <p class="font-weight-bold">
+                        {{ item.product.name }}
+                    </p>
+                    <p class="">
+                        €{{ item.product.price }}
+                    </p>
+                    <p class="text-muted small">
+                        Qty: {{ item.quantity }}
+                    </p>
+                </div>
+            </div>
+            <hr class="my-1">
+        {% endfor %}
+    </div>
+    <div class="row no-gutters">
+        <div class="col  bg-black">
+            <p class="text-warning text-right pt-2 px-3">
+                <span class="font-weight-bold">Cart Total:</span> €{{ cart_total|floatformat:2 }}</span> {% if free_shipping_delta > 0 %}<span class="small">(Exc. delivery) </span>{% endif %}
+            </p>
+            {% if free_shipping_delta > 0 %}
+                <p class="mb-0 p-2 bg-danger shadow-sm text-light text-center">
+                    You're just <span class="font-weight-bold">€{{ free_shipping_delta }}</span> away from free international shipping!
+                </p>
+            {% endif %}
+            <a href="{% url 'view_cart' %}" class="btn btn-black btn-block text-white rounded-0">
+                <span class="text-uppercase">Secure Checkout</span>
+                <span class="icon">
+                    <i class="fas fa-lock"></i>
+                </span>
+            </a>
+        </div>
+    </div>
+    {% endif %}
 </div>
