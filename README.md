@@ -182,6 +182,8 @@ The only user story in this Epic is related to the initial deployment, this is a
   * ...**View an order confirmation after checkout** so that I can **verify that I haven’t made any mistakes.**
   * ...**Receive an email confirmation after checking out** so that I can **keep a record of my order.**
   * ...**View my order history** so that I can **see the orders I have made previously.**
+  * ...**Access the checkout page** so that I can **review my order whilst entering my payment/shipping details**
+  * ...**securely submit my payment details** so that I can **rest assured my financial information is safe**
 
 ##### **EPIC 6 - Admin and Store Management:**
 

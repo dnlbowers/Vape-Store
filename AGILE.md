@@ -49,3 +49,15 @@ This sprint is aimed at sorting products and starting the shopping cart.
 * This sprint began on 20/10/2022 at 10:47 and was due to finish at 28/10/2022 by 00:00.
 * 45 story points in total organized to be 60% must haves, 20% nice to haves, and 20% should haves.
 * Added a bug ticket [PVS-47](https://dnlbowers.atlassian.net/browse/PVS-47) part way through. Initially I was going to leave for a later sprint however the fix became apparent as I was working on the product sorting and therefore I added it to this sprint.
+* Sprint finished on day late again due to not having time to contribute on several of the sprints days. I was able to complete all the tasks in the sprint however technically I should have concluded with one story remaining.
+* Deciding to take a more relax approach for this project for my sprint ending dates. I will aim to finish the sprint on the due date however if I am unable to I will not be too concerned as long as I have completed all the tasks in the sprint. That said I will also not drag out the sprint for more than one day(give or take a hour or 2 if working into the night) if I am unable to complete all the tasks.
+* I realized several time during this sprint I need to just focus on a MVP and get it working. Then at the end I can focus on the styling and other features.
+
+### Sprint 5 Notes
+
+![Sprint 4](/docs/agile/sprintscreenshots/sprint5.jpg)
+
+This sprit is aimed primary at the check out process and setting up the ability to make payments. 
+
+* This sprint began on 30/10/2022 at 12:40 and was due to finish at 07/11/2022 by 00:00.
+* Since The first two stories are such large stroy point values and are dependant upon one being done before I can realistically set up and test the other I have not used Moscow by story points but rather by the order of importance each task has. I shall return to using story points to organize by the moscow method once this sprint is complete.
