@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     # other
     'storages',
     'django_summernote',
+    'django_countries',
 ]
 
 MIDDLEWARE = [
@@ -72,6 +73,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'django.template.context_processors.media',
                 'shopping_cart.contexts.cart_contents'
             ],
         },

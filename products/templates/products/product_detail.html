@@ -12,9 +12,15 @@
                     <h2 class="text-center d-md-none pt-5">{{ product.name }}</h2>
                     <p class="small text-right d-md-none text-muted mt-2 mb-0 pb-3 pr-3"><i class="fas fa-tag mr-1"></i> {{ product.sub_category.friendly_name }}</p>
                 </div>
-                <a href="{{ product.image.url }}" target="_blank" aria-label="opens product image in a new tab">
-                    <img src="{{ product.image.url }}" alt="{{ product.name }}" class="img-fluid mt-0">
-                </a>
+                {% if product.image %}
+                    <a href="{{ product.image.url }}" target="_blank" aria-label="opens product image in a new tab">
+                        <img src="{{ product.image.url }}" alt="{{ product.name }}" class="img-fluid mt-0">
+                    </a>
+                {% else %}
+                    <a href="">
+                        <img src="{{ MEDIA_URL }}noimage.png" alt="No image available for {{ product.name }}" class="img-fluid mt-0">
+                    </a>
+                {% endif %}
             </div>
         
             <div class="col-12 col-md-6">
