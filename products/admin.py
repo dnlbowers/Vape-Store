@@ -31,7 +31,7 @@ class ModelAChildAdmin(PolymorphicChildModelAdmin, SummernoteModelAdmin):
 
 
 @admin.register(DisposableVapes)
-class ProductAdmin(ModelAChildAdmin):
+class DisposableVapesAdmin(ModelAChildAdmin):
     """ Admin registration and configuration for the Disposable Vapes model"""
     base_model = DisposableVapes
     show_in_index = True
@@ -56,7 +56,7 @@ class ProductAdmin(ModelAChildAdmin):
 
 
 @admin.register(Mods)
-class ProductAdmin(ModelAChildAdmin):
+class ModsAdmin(ModelAChildAdmin):
     """ Admin registration and configuration for the Mods model"""
     base_model = Mods
     show_in_index = True
@@ -81,7 +81,7 @@ class ProductAdmin(ModelAChildAdmin):
 
 
 @admin.register(Tanks)
-class ProductAdmin(ModelAChildAdmin):
+class Tanks(ModelAChildAdmin):
     """ Admin registration and configuration for the Tanks model"""
     base_model = Tanks
     show_in_index = True
@@ -106,7 +106,7 @@ class ProductAdmin(ModelAChildAdmin):
 
 
 @admin.register(PreBuiltCoils)
-class ProductAdmin(ModelAChildAdmin):
+class PreBuiltCoils(ModelAChildAdmin):
     """ Admin registration and configuration for the PreBuiltCoils model"""
     base_model = PreBuiltCoils
     show_in_index = True
@@ -131,7 +131,7 @@ class ProductAdmin(ModelAChildAdmin):
 
 
 @admin.register(Batteries)
-class ProductAdmin(ModelAChildAdmin):
+class BatteriesAdmin(ModelAChildAdmin):
     """ Admin registration and configuration for the Batteries model"""
     base_model = Batteries
     show_in_index = True
@@ -156,7 +156,7 @@ class ProductAdmin(ModelAChildAdmin):
 
 
 @admin.register(VapeJuice)
-class ProductAdmin(ModelAChildAdmin):
+class VapeJuiceAdmin(ModelAChildAdmin):
     """ Admin registration and configuration for the VapeJuice model"""
     base_model = VapeJuice
     show_in_index = True
@@ -181,7 +181,7 @@ class ProductAdmin(ModelAChildAdmin):
 
 
 @admin.register(BaseLiquids)
-class ProductAdmin(ModelAChildAdmin):
+class BaseLiquidsAdmin(ModelAChildAdmin):
     """ Admin registration and configuration for the BaseLiquids model"""
     base_model = BaseLiquids
     show_in_index = True
@@ -206,7 +206,7 @@ class ProductAdmin(ModelAChildAdmin):
 
 
 @admin.register(NicotineShots)
-class ProductAdmin(ModelAChildAdmin):
+class NicotineShots(ModelAChildAdmin):
     """ Admin registration and configuration for the BaseLiquids model"""
     base_model = NicotineShots
     show_in_index = True
@@ -231,7 +231,7 @@ class ProductAdmin(ModelAChildAdmin):
 
 
 @admin.register(FlavorConcentrates)
-class ProductAdmin(ModelAChildAdmin):
+class FlavorConcentrates(ModelAChildAdmin):
     """ Admin registration and configuration for the BaseLiquids model"""
     base_model = FlavorConcentrates
     show_in_index = True
@@ -256,8 +256,10 @@ class ProductAdmin(ModelAChildAdmin):
 
 
 @admin.register(Accessories)
-class ProductAdmin(ModelAChildAdmin):
-    """ Admin registration and configuration for the Accessories model"""
+class AccessoriesAdmin(ModelAChildAdmin):
+    """
+    Admin registration and configuration for the Accessories model
+    """
     base_model = Accessories
     show_in_index = True
     list_display = (
@@ -281,7 +283,7 @@ class ProductAdmin(ModelAChildAdmin):
 
 
 @admin.register(AllProducts)
-class ProductAdmin(PolymorphicParentModelAdmin):
+class AllProductsAdmin(PolymorphicParentModelAdmin):
     """ Admin registration and configuration for the Product model"""
     base_model = AllProducts
     child_models = (
@@ -317,7 +319,10 @@ class ProductAdmin(PolymorphicParentModelAdmin):
 
 @admin.register(CategoryGroupings)
 class CategoryAdmin(admin.ModelAdmin):
-    """ Admin registration and configuration for the Category groupings model"""
+    """
+    Admin registration and configuration for
+    the Category groupings model
+    """
     list_display = (
         'friendly_name',
         'name',
@@ -326,7 +331,10 @@ class CategoryAdmin(admin.ModelAdmin):
 
 @admin.register(SubCategory)
 class SubCategoryAdmin(admin.ModelAdmin):
-    """ Admin registration and configuration for the Category groupings model"""
+    """
+    Admin registration and configuration
+    for the Category groupings model
+    """
     list_display = (
         'name',
     )

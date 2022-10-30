@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'home',
     'products',
     'shopping_cart',
+    'checkout',
 
     # other
     'storages',
@@ -225,8 +226,8 @@ if 'USE_AWS' in os.environ:
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # delivery costs
-STANDARD_SHIPPING_PERCENTAGE = 10
+STANDARD_SHIPPING_PERCENTAGE = 15
 STANDARD_SHIPPING_MINIMUM = 4.50
 RECORDED_SHIPPING_PERCENTAGE = 20
-RECORDED_SHIPPING_MINIMUM = 19.99
-FREE_SHIPPING_QUALIFIER = 150
+RECORDED_SHIPPING_MINIMUM = 14.99
+FREE_SHIPPING_QUALIFIER = 100
