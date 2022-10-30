@@ -27,6 +27,8 @@
       "allauth",
       "dotenv",
       "Kanthal",
+      "lineitem",
+      "lineitems",
       "MEDIAFILES",
       "RDTA",
       "socialaccount",

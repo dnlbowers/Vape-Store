@@ -29,13 +29,13 @@ class AddToCart(View):
             messages.success(
                 request,
                 f'Added additional {quantity} {product.name} to your cart'
-                )
+            )
         else:
             cart[product_id] = quantity
             messages.success(
                 request,
                 f'You\'ve added {quantity} x {product.name} to your cart'
-                )
+            )
 
         request.session['cart'] = cart
         print(request.session['cart'])
@@ -57,13 +57,13 @@ class EditCartQty(View):
             messages.success(
                 request,
                 f'Updated {product.name} quantity to {cart[product_id]}'
-                )
+            )
         else:
             cart.pop(product_id)
             messages.success(
                 request,
                 f'Removed {quantity} {product.name} from your cart'
-                )
+            )
 
         request.session['cart'] = cart
         print(request.session['cart'])
@@ -85,7 +85,7 @@ class RemoveFromCart(View):
             messages.success(
                 request,
                 f'Removed all {product.name} from your cart'
-                )
+            )
             return HttpResponse(status=200)
 
         except Exception as e:
