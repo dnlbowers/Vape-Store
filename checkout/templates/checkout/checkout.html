@@ -1,0 +1,71 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load cart_subtotal_tool %}
+
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'checkout/css/checkout.css' %}">
+{% endblock %}
+
+
+{% block content %}
+<main class="container">
+
+    <div class="row">
+        <div class="col">
+            <h2 class="text-left mt-3">Checkout</h2>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12 col-lg-6">
+            <p>Please fill out your payment details to complete your order.</p>
+            <form id="payment-form" action="{% url 'checkout' %}" method="POST">
+                {% csrf_token %}
+                <fieldset>
+                    <legend class="fieldset-label">Details</legend>
+                    {{ order_form.full_name|as_crispy_field }}
+                    {{ order_form.email|as_crispy_field }}
+                    
+                </fieldset>
+                <fieldset>
+                    <legend class="fieldset-label">Shipping Address</legend>
+                    {{ order_form.street_address1|as_crispy_field }}
+                    {{ order_form.street_address2|as_crispy_field }}
+                    {{ order_form.town_or_city|as_crispy_field }}
+                    {{ order_form.county|as_crispy_field }}
+                    {{ order_form.postcode|as_crispy_field }}
+                    {{ order_form.country|as_crispy_field }}
+                    {{ order_form.phone_number|as_crispy_field }}
+                </fieldset>
+                <fieldset>
+                    <legend class="fieldset-label">Card Detals</legend>
+                    <div id="card-element"></div>
+                    <div id="card-errors"></div>
+                </fieldset> 
+                <div class="submit-button text-right mt-5 mb-2">                    
+                    <a href="" class="btn">
+                        <span class="icon">
+                            <i class="fas fa-chevron-left"></i>
+                        </span>
+                        <span class="font-weight-bold">Edit Purchase</span>
+                    </a>
+                    <button id="submit-button" class="btn">
+                        <span class="font-weight-bold">Pay Now</span>
+                        <span class="icon">
+                            <i class="fas fa-lock"></i>
+                        </span>
+                    </button>
+                    <p class="small text-danger my-0">
+                        <span class="icon">
+                            <i class="fas fa-exclamation-circle"></i>
+                        </span>
+                        <span>Your card will be charged <strong>${{ grand_total|floatformat:2 }}</strong></span>
+                    </p>
+                </div>
+            </form>
+           
+        </div>
+    </div>
+</main>
+
+{% endblock %}
