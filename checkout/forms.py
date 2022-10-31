@@ -2,7 +2,7 @@ from django import forms
 from .models import Order
 
 
-class OrderForm(forms.ModelForm):
+class PaymentForm(forms.ModelForm):
     """
     Form to take in payment details
     and complete an order
