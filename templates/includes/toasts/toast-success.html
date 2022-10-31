@@ -1,4 +1,4 @@
-<div class="toast border-3 border-dark" role="alert" aria-live="assertive" aria-atomic="true" data-autohide="false">
+<div class="toast border-3 border-dark bg-light" role="alert" aria-live="assertive" aria-atomic="true" data-autohide="false">
     <div class="arrow-up arrow-success"></div>
     <div class="toast-header bg-success text-light border-3 border-dark">
         <span class="mr-auto font-weight-bold">Success</span>
@@ -10,7 +10,7 @@
         {{ message }}
     </div>
     {% if grand_total %}
-    <div class="bg-black text-warning py-2">
+    <div class="bg-black text-light py-2">
         <p class="px-3 font-weight-bold">Current Cart Items ({{ product_count }})</p>
     </div>
     
@@ -42,20 +42,24 @@
     </div>
     <div class="row no-gutters">
         <div class="col  bg-black">
-            <p class="text-warning text-right pt-2 px-3">
+            <p class="text-light text-right pt-2 px-3">
                 <span class="font-weight-bold">Cart Total:</span> €{{ cart_total|floatformat:2 }}</span> {% if free_shipping_delta > 0 %}<span class="small">(Exc. delivery) </span>{% endif %}
             </p>
+            <div class="text-right m-2">
+                <a href="{% url 'view_cart' %}" class="btn btn-warning rounded-0">
+                    <span class="text-uppercase">Secure Checkout</span>
+                    <span class="icon">
+                        <i class="fas fa-lock"></i>
+                    </span>
+                </a>
+            </div>
             {% if free_shipping_delta > 0 %}
                 <p class="mb-0 p-2 bg-danger shadow-sm text-light text-center">
                     You're just <span class="font-weight-bold">€{{ free_shipping_delta }}</span> away from free international shipping!
                 </p>
             {% endif %}
-            <a href="{% url 'view_cart' %}" class="btn btn-black btn-block text-white rounded-0">
-                <span class="text-uppercase">Secure Checkout</span>
-                <span class="icon">
-                    <i class="fas fa-lock"></i>
-                </span>
-            </a>
+
+            
         </div>
     </div>
     {% endif %}
