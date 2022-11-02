@@ -1,0 +1,19 @@
+input, select {
+    border-radius: 0px!important;
+    margin-bottom: 6px!important;
+    padding: 10px!important;
+    border: 1px solid rgb(0, 0, 0)!important;
+    height: 44px!important;
+    font-size: 16px!important;
+    width: 100%!important;
+    background: white!important;
+}
+
+#card-element {
+    border-radius: 0;
+    padding: 12px;
+    border: 1px solid rgb(0, 0, 0);
+    height: 44px;
+    width: 100%;
+    background: white;
+}

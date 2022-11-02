@@ -120,7 +120,7 @@
                                 <td colspan="5" class="pt-5 text-right">
                                     <h6><strong>Total: €{{ cart_total|floatformat:2 }}</strong></h6>
                                     <h6>Shipping: €{{ shipping|floatformat:2 }}</h6>
-                                    <h4 class="mt-4"><strong>Grand Total: ${{ grand_total|floatformat:2 }}</strong></h4>
+                                    <h4 class="mt-4"><strong>Grand Total: €{{ grand_total|floatformat:2 }}</strong></h4>
                                     {% if free_shipping_delta > 0 %}
                                         <p class="mb-1 text-danger">
                                             Spend just <strong>€{{ free_shipping_delta }}</strong> more for free delievery!

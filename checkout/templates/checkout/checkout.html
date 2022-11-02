@@ -96,6 +96,7 @@
                         <span class="font-weight-bold">Edit Purchase</span>
                     </a>
                     <button id="submit-button" class="btn btn-warning">
+                        <div class="spinner hidden" id="spinner"></div>
                         <span class="font-weight-bold">Pay Now</span>
                         <span class="icon">
                             <i class="fas fa-lock"></i>
@@ -113,4 +114,11 @@
     </div>
 </main>
 
+{% endblock %}
+
+{% block postloadjs %}
+    {{ block.super }}
+    {{ stripe_public_key|json_script:"id_stripe_public_key" }}
+    {{ client_secret|json_script:"id_client_secret" }}
+    {% static 'checkout/js/stripe-elements.js' %}
 {% endblock %}

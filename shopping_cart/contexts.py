@@ -25,6 +25,8 @@ def cart_contents(request):
     if cart_total < settings.FREE_SHIPPING_QUALIFIER:
         shipping = cart_total * \
             Decimal(settings.STANDARD_SHIPPING_PERCENTAGE / 100)
+        if shipping < settings.STANDARD_SHIPPING_MINIMUM:
+            shipping = Decimal(settings.STANDARD_SHIPPING_MINIMUM)
         free_shipping_delta = settings.FREE_SHIPPING_QUALIFIER - cart_total
     else:
         shipping = 0
