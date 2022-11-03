@@ -10,7 +10,6 @@
 
 {% block content %}
 <main class="container">
-
     <div class="row">
         <div class="col">
             <h2 class="text-left py-3 border-bottom">Checkout</h2>
@@ -88,14 +87,14 @@
                     <div id="card-element"></div>
                     <div id="card-errors"></div>
                 </fieldset> 
-                <div class="submit-button text-right mt-5 mb-2">                    
+                <div class="text-right mt-5 mb-2">                    
                     <a href="{% url 'view_cart' %}" class="btn btn-success">
                         <span class="icon">
                             <i class="fas fa-chevron-left"></i>
                         </span>
                         <span class="font-weight-bold">Edit Purchase</span>
                     </a>
-                    <button id="submit-button" class="btn btn-warning">
+                    <button id="pay-now-btn" class="btn btn-warning">
                         <div class="spinner hidden" id="spinner"></div>
                         <span class="font-weight-bold">Pay Now</span>
                         <span class="icon">

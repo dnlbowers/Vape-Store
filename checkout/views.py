@@ -3,6 +3,7 @@ from django.views import View
 from django.contrib import messages
 from django.conf import settings
 
+from shopping_cart.contexts import cart_contents
 from .forms import PaymentForm
 
 import stripe
@@ -16,15 +17,19 @@ class Checkout(View):
     payment_form = PaymentForm()
     template = 'checkout/checkout.html'
 
+
     def get(self, request, *args, **kwargs):
         cart = request.session.get('cart', {})
         if not cart:
             messages.error(request, "Your cart is currently empty")
             return redirect(reverse('products'))
 
+        to_be_charged = round(cart_contents(request)['grand_total']*100)
+
         context = {
             'payment_form': self.payment_form,
             'stripe_public_key': self.stripe_public_key,
             'client_secret': 'TBD',
+            'to_be_charged': to_be_charged,
         }
         return render(request, self.template, context)

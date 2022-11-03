@@ -29,6 +29,28 @@ const card = elements.create("card", { style: style });
 // Stripe injects an iframe into the DOM
 card.mount("#card-element");
 
+// handle realtime validation errors on the card element
+card.on('change', (event) => {
+    const errorDiv = $("#card-errors");
+             
+    if (event.error) {
+        const html = `
+            <span role="alert">
+            <i class="fa-solid fa-triangle-exclamation fa-sm"></i>
+            </span>
+            <span>${event.error.message}</span>
+            `;
+        $(errorDiv).html(html);
+    } else {
+        errorDiv.textContent = '';
+    }
+    // card.on("change", function (event) {
+        //       // Disable the Pay button if there are no card details in the Element
+        //       document.querySelector("button").disabled = event.empty;
+        //       document.querySelector("#card-error").textContent = event.error ? event.error.message : "";
+        //     });
+        
+});
 
 // // The items the customer wants to buy
 // var purchase = {
@@ -47,28 +69,7 @@ card.mount("#card-element");
 //   .then(function(result) {
 //     return result.json();
 //   })
-//   .then(function(data) {
-//     var elements = stripe.elements();
-//     var style = {
-//       base: {
-//         color: "#32325d",
-//         fontFamily: 'Arial, sans-serif',
-//         fontSmoothing: "antialiased",
-//         fontSize: "16px",
-//         "::placeholder": {
-//           color: "#32325d"
-//         }
-//       },
-//       invalid: {
-//         fontFamily: 'Arial, sans-serif',
-//         color: "#fa755a",
-//         iconColor: "#fa755a"
-//       }
-//     };
 
-//     var card = elements.create("card", { style: style });
-//     // Stripe injects an iframe into the DOM
-//     card.mount("#card-element");
 
 //     card.on("change", function (event) {
 //       // Disable the Pay button if there are no card details in the Element

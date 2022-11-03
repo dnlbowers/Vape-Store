@@ -11,7 +11,7 @@ input, select {
 
 select option {
     color: #000;
-  }
+}
 
 #card-element {
     border-radius: 0;
@@ -35,8 +35,8 @@ select option {
     transition: box-shadow 1000ms ease;
 }
 
-#card-error {
-    color: rgb(105, 115, 134);
+#card-errors {
+    color: #dc3545;
     text-align: left;
     font-size: 13px;
     line-height: 17px;
