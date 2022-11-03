@@ -17,7 +17,6 @@ class Checkout(View):
     payment_form = PaymentForm()
     template = 'checkout/checkout.html'
 
-
     def get(self, request, *args, **kwargs):
         cart = request.session.get('cart', {})
         if not cart:
@@ -26,10 +25,17 @@ class Checkout(View):
 
         to_be_charged = round(cart_contents(request)['grand_total']*100)
 
+        stripe.api_key = self.stripe_secret_key
+
+        intent = stripe.PaymentIntent.create(
+            amount=to_be_charged,
+            currency=settings.STRIPE_CURRENCY,
+        )
+
         context = {
             'payment_form': self.payment_form,
             'stripe_public_key': self.stripe_public_key,
-            'client_secret': 'TBD',
+            'client_secret': intent.client_secret,
             'to_be_charged': to_be_charged,
         }
         return render(request, self.template, context)
