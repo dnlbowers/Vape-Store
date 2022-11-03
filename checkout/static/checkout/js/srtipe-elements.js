@@ -2,8 +2,11 @@
 // https://stripe.com/docs/payments/accept-card-payments using the boutique ado project as a guide to combiine them
 const stripe_public_key = $('#id_stripe_public_key').text().slice(1, -1);
 const client_secret = $('#id_client_secret').text().slice(1, -1);
+
 const stripe = Stripe(stripe_public_key);
+
 const elements = stripe.elements();
+
 const style = {
     base: {
     color: "#000",
@@ -22,6 +25,7 @@ const style = {
 };
 
 const card = elements.create("card", { style: style });
+
 // Stripe injects an iframe into the DOM
 card.mount("#card-element");
 

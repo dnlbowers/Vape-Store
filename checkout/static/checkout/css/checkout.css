@@ -9,6 +9,10 @@ input, select {
     background: white!important;
 }
 
+select option {
+    color: #000;
+  }
+
 #card-element {
     border-radius: 0;
     padding: 12px;
@@ -16,6 +20,19 @@ input, select {
     height: 44px;
     width: 100%;
     /* background: white; */
+}
+
+.stripe-style-input::placeholder {
+    color: #aab7c4;
+}
+
+
+.StripeElement--focus,
+.stripe-style-input:focus,
+.stripe-style-input:active  {
+    box-shadow: 0 1px 3px 0 #000;
+    -webkit-transition: box-shadow 1000ms ease;
+    transition: box-shadow 1000ms ease;
 }
 
 #card-error {

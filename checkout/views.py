@@ -25,6 +25,6 @@ class Checkout(View):
         context = {
             'payment_form': self.payment_form,
             'stripe_public_key': self.stripe_public_key,
-            
+            'client_secret': 'TBD',
         }
         return render(request, self.template, context)
