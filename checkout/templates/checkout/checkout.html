@@ -117,8 +117,8 @@
 {% endblock %}
 
 {% block postloadjs %}
-    {{ block.super }}
+    {{block.super }}
     {{ stripe_public_key|json_script:"id_stripe_public_key" }}
     {{ client_secret|json_script:"id_client_secret" }}
-    {% static 'checkout/js/stripe-elements.js' %}
+    <script src={% static 'checkout/js/srtipe-elements.js' %}></script>
 {% endblock %}

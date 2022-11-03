@@ -1,7 +1,7 @@
 input, select {
     border-radius: 0px!important;
     margin-bottom: 6px!important;
-    padding: 10px!important;
+    /* padding: 10px!important; */
     border: 1px solid rgb(0, 0, 0)!important;
     height: 44px!important;
     font-size: 16px!important;
@@ -15,5 +15,15 @@ input, select {
     border: 1px solid rgb(0, 0, 0);
     height: 44px;
     width: 100%;
-    background: white;
+    /* background: white; */
 }
+
+#card-error {
+    color: rgb(105, 115, 134);
+    text-align: left;
+    font-size: 13px;
+    line-height: 17px;
+    margin-top: 12px;
+}
+
+
