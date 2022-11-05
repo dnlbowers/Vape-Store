@@ -12,7 +12,8 @@
 <main class="container">
     <div class="row">
         <div class="col">
-            <h2 class="text-left py-3 border-bottom">Checkout</h2>
+            <p>Thank you for shopping with us, the below confirmation will be sent to {{order.email}}.</p>
+            <h2 class="text-left py-3 border-bottom">Order Confirmation</h2>
         </div>
         
     </div>
@@ -95,6 +96,7 @@
                         <span class="font-weight-bold">Edit Purchase</span>
                     </a>
                     <button id="pay-now-btn" class="btn btn-warning">
+                        <div class="spinner hidden" id="spinner"></div>
                         <span class="font-weight-bold">Pay Now</span>
                         <span class="icon">
                             <i class="fas fa-lock"></i>

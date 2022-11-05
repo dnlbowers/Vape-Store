@@ -1,5 +1,6 @@
 // Adapted from stripe card element docs https://stripe.com/docs/payments/card-element?client=html and
-// https://stripe.com/docs/payments/accept-card-payments using the boutique ado project as a guide to combiine them
+// https://stripe.com/docs/payments/accept-card-payments?platform=web&ui=elements using the boutique ado
+// project as a guide to combine them
 
 // Stripe related references
 const stripePublicKeyRef = $('#id_stripe_public_key').text().slice(1, -1);
@@ -114,7 +115,7 @@ let payWithCard = (stripe, card, clientSecret) => {
 
             if (result.paymentIntent.status === "succeeded") {
 
-                paymentFormRef.submit()
+                // paymentFormRef.submit()
 
             }
         };

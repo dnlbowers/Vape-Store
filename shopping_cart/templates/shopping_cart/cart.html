@@ -180,7 +180,6 @@
             */
             const crsfToken = "{{ csrf_token }}";
             const productId = $('.delete-btn').data('remove-id');
-            console.log(productId);
             const url = `/shoppingcart/deleteitem/${productId}/`;
             $.ajax({
                 url: url,
