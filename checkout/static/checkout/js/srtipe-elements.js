@@ -1,12 +1,17 @@
 // Adapted from stripe card element docs https://stripe.com/docs/payments/card-element?client=html and
 // https://stripe.com/docs/payments/accept-card-payments using the boutique ado project as a guide to combiine them
-const stripePublicKey = $('#id_stripe_public_key').text().slice(1, -1);
 
-const clientSecret = $('#id_client_secret').text().slice(1, -1);
-
-const stripe = Stripe(stripePublicKey);
-
+// Stripe related references
+const stripePublicKeyRef = $('#id_stripe_public_key').text().slice(1, -1);
+const clientSecretRef = $('#id_client_secret').text().slice(1, -1);
+const stripe = Stripe(stripePublicKeyRef);
 const elements = stripe.elements();
+
+// Payment form references
+const paymentFormRef = $("#payment-form");
+const errorDivRef = $("#card-errors");
+const payNowBtnRef = $("#pay-now-btn");
+
 
 const style = {
     base: {
@@ -32,20 +37,15 @@ card.mount("#card-element");
 
 // handle realtime validation errors on the card element
 card.on('change', (event) => {
-    const errorDiv = $("#card-errors");
     
     if (event.error) {
-        const html = `
-            <span role="alert">
-            <i class="fa-solid fa-triangle-exclamation fa-sm"></i>
-            </span>
-            <span>${event.error.message}</span>
-            `;
-        $(errorDiv).html(html);
+
+        errorContent = getErrorMessageHtml(event)
+        $(errorDivRef).html(errorContent);
 
     } else {
 
-        errorDiv.textContent = '';
+        errorDivRef.textContent = '';
 
     }
     // card.on("change", function (event) {
@@ -56,43 +56,66 @@ card.on('change', (event) => {
         
 });
 
-const form = $("#payment-form");
 
-$(form).submit( event => {
+const getErrorMessageHtml = (event) => {
+    /**
+     * Returns the HTML for an error message
+     * with error message text from event.error.message
+     */
+    return `
+    <span role="alert">
+    <i class="fa-solid fa-triangle-exclamation fa-sm"></i>
+    </span>
+    <span>${event.error.message}</span>
+    `;
+};
+
+
+$(paymentFormRef).submit( event => {
+    /**
+    *Prevent default form submission, disables the pay now button
+    * and calls payWithCard function to handle the payment request
+    */
     event.preventDefault();
+
     card.update({ "disabled": true });
-    $("#submit-button").attr("disabled", true);
-    console.log(stripe, card, clientSecret);
-    // Complete payment when the submit button is clicked
-    payWithCard(stripe, card, clientSecret);
+    payNowBtnRef.attr("disabled", true);
+
+    payWithCard(stripe, card, clientSecretRef);
 });
 
 
 // Calls stripe.confirmCardPayment
-// If the card requires authentication Stripe shows a pop-up modal to
-// prompt the user to enter authentication details without leaving your page.
-var payWithCard = (stripe, card, clientSecret) => {
+
+let payWithCard = (stripe, card, clientSecret) => {
+    /**
+     * Calls stripe.confirmCardPayment to complete the payment
+     * If the card requires authentication Stripe shows a modal to
+     * prompt the user to enter authentication details without leaving the page
+     */
     
     stripe.confirmCardPayment(clientSecret, {
+
         payment_method: {
             card: card
         }
+
     })
     .then( result => {
         if (result.error) {
-            const errorDiv = $("#card-errors");
-            const html = `
-                <span role="alert">
-                <i class="fa-solid fa-triangle-exclamation fa-sm"></i>
-                </span>
-                <span>${result.error.message}</span>
-                `;
-            $(errorDiv).html(html);
+
+            errorContent = getErrorMessageHtml(result)
+            $(errorDivRef).html(errorContent);
+
             card.update({ "disabled": false });
-            $("#submit-button").attr("disabled", false);
+            payNowBtnRef.attr("disabled", false);
+
         } else {
+
             if (result.paymentIntent.status === "succeeded") {
-                form.submit()
+
+                paymentFormRef.submit()
+
             }
         };
     })
