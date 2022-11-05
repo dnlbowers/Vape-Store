@@ -1,9 +1,10 @@
 // Adapted from stripe card element docs https://stripe.com/docs/payments/card-element?client=html and
 // https://stripe.com/docs/payments/accept-card-payments using the boutique ado project as a guide to combiine them
-const stripe_public_key = $('#id_stripe_public_key').text().slice(1, -1);
-const client_secret = $('#id_client_secret').text().slice(1, -1);
+const stripePublicKey = $('#id_stripe_public_key').text().slice(1, -1);
 
-const stripe = Stripe(stripe_public_key);
+const clientSecret = $('#id_client_secret').text().slice(1, -1);
+
+const stripe = Stripe(stripePublicKey);
 
 const elements = stripe.elements();
 
@@ -32,7 +33,7 @@ card.mount("#card-element");
 // handle realtime validation errors on the card element
 card.on('change', (event) => {
     const errorDiv = $("#card-errors");
-             
+    
     if (event.error) {
         const html = `
             <span role="alert">
@@ -41,8 +42,11 @@ card.on('change', (event) => {
             <span>${event.error.message}</span>
             `;
         $(errorDiv).html(html);
+
     } else {
+
         errorDiv.textContent = '';
+
     }
     // card.on("change", function (event) {
         //       // Disable the Pay button if there are no card details in the Element
@@ -52,60 +56,49 @@ card.on('change', (event) => {
         
 });
 
-// // The items the customer wants to buy
-// var purchase = {
-//   items: [{ id: "xl-tshirt" }]
-// };
+const form = $("#payment-form");
 
-// // Disable the button until we have Stripe set up on the page
-// document.querySelector("button").disabled = true;
-// fetch("/create-payment-intent", {
-//   method: "POST",
-//   headers: {
-//     "Content-Type": "application/json"
-//   },
-//   body: JSON.stringify(purchase)
-// })
-//   .then(function(result) {
-//     return result.json();
-//   })
+$(form).submit( event => {
+    event.preventDefault();
+    card.update({ "disabled": true });
+    $("#submit-button").attr("disabled", true);
+    console.log(stripe, card, clientSecret);
+    // Complete payment when the submit button is clicked
+    payWithCard(stripe, card, clientSecret);
+});
 
 
-//     card.on("change", function (event) {
-//       // Disable the Pay button if there are no card details in the Element
-//       document.querySelector("button").disabled = event.empty;
-//       document.querySelector("#card-error").textContent = event.error ? event.error.message : "";
-//     });
+// Calls stripe.confirmCardPayment
+// If the card requires authentication Stripe shows a pop-up modal to
+// prompt the user to enter authentication details without leaving your page.
+var payWithCard = (stripe, card, clientSecret) => {
+    
+    stripe.confirmCardPayment(clientSecret, {
+        payment_method: {
+            card: card
+        }
+    })
+    .then( result => {
+        if (result.error) {
+            const errorDiv = $("#card-errors");
+            const html = `
+                <span role="alert">
+                <i class="fa-solid fa-triangle-exclamation fa-sm"></i>
+                </span>
+                <span>${result.error.message}</span>
+                `;
+            $(errorDiv).html(html);
+            card.update({ "disabled": false });
+            $("#submit-button").attr("disabled", false);
+        } else {
+            if (result.paymentIntent.status === "succeeded") {
+                form.submit()
+            }
+        };
+    })
+};
 
-//     var form = document.getElementById("payment-form");
-//     form.addEventListener("submit", function(event) {
-//       event.preventDefault();
-//       // Complete payment when the submit button is clicked
-//       payWithCard(stripe, card, data.clientSecret);
-//     });
-//   });
 
-// // Calls stripe.confirmCardPayment
-// // If the card requires authentication Stripe shows a pop-up modal to
-// // prompt the user to enter authentication details without leaving your page.
-// var payWithCard = function(stripe, card, clientSecret) {
-//   loading(true);
-//   stripe
-//     .confirmCardPayment(clientSecret, {
-//       payment_method: {
-//         card: card
-//       }
-//     })
-//     .then(function(result) {
-//       if (result.error) {
-//         // Show error to your customer
-//         showError(result.error.message);
-//       } else {
-//         // The payment succeeded!
-//         orderComplete(result.paymentIntent.id);
-//       }
-//     });
-// };
 
 // /* ------- UI helpers ------- */
 
