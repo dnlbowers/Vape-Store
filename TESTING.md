@@ -35,3 +35,5 @@ Below is a list of bugs and fixes found while creating a feature. You can find o
 * Solution -
 
 * issue - Floating footer when content not enough to push it down
+
+* issue - basket icon always blue(should only be blue when there is something in the basket) and also add the product count to tool tip

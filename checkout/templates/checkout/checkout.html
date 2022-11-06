@@ -34,7 +34,7 @@
                             {% if cart_item.product.image %}
                                 <img class="w-100" src="{{ cart_item.product.image.url }}" alt="{{ cart_item.product.name }}">
                             {% else %}
-                                <img class="w-100" src="{{ MEDIA_URL }}noimage.png" alt="{{ cart_item.product.name }}">
+                                <img class="w-100" src="{{ MEDIA_URL }}noimage.png" alt="No image available for {{ cart_item.product.name }}">
                             {% endif %}
                         </a>
                     </div>

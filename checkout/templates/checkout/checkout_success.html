@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 {% load static %}
+{% load cart_subtotal_tool %}
 
 
 {% block extra_css %}
@@ -11,19 +12,100 @@
 <main class="container">
     <div class="row">
         <div class="col">
-            <p class="border-bottom mt-3 pb-3">Thank you for shopping with us, the below confirmation will be sent to {{ order.email }}.</p>
-            <h2 class="text-left border-bottom mt-0 pb-3">Order Confirmation</h2>
+            <p class="my-5">Thank you for shopping with us, the below confirmation will be sent to {{ order.email }}.</p>
+            <h2 class="text-left border-bottom border-top mt-0 py-3">Order Confirmation</h2>
         </div>
     </div>
-    <div class="row border-bottom mb-3 pb-3">
-        <div class="col-6">
-            <p class="text-left">Order Reference:</p>
+    <div class="row">
+        <div class="col-12 col-sm-6 text-left">
+            <p class="mb-1">Order Reference:</p>
         </div>
-        <div class="col-6 text-center">{{ order.order_number }}</div>
+        <div class="col-12 col-sm-6 text-center text-sm-right">
+            <p class="mb-1">{{ order.order_number }}</p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12 col-sm-6 text-left">
+            <p class="mb-1">Time of Purchase:</p>
+        </div>
+        <div class="col-12 col-sm-6 text-center text-sm-right">
+            <p class="mb-1">{{ order.date }}</p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12 col-sm-6 text-left">
+            <p class="mb-1">Curent status:</p>
+        </div>
+        <div class="col-12 col-sm-6 text-center text-sm-right">
+            <p class="mb-1">{{ order.order_status }}</p>
+        </div>
+    </div>
+    <div class="row border-top  mt-2">
+        <div class="col-12">
+            <h3 class="text-left mt-2 pb-3">Order Summary:</h3>
+        </div>
+    </div>
+    {% for ordered_product in order.lineitems.all %}
+        <div class="row">
+            <div class="col-2 my-2">
+                <a href="{% url 'product_detail' ordered_product.product.id %}">
+                    {% if ordered_product.product.image %}
+                        <img class="w-100" src="{{ ordered_product.product.image.url }}" alt="{{ ordered_product.product.name }}">
+                    {% else %}
+                        <img class="w-100" src="{{ MEDIA_URL }}noimage.png" alt="No image available for {{ ordered_product.product.name }}">
+                    {% endif %}
+                </a>
+            </div>
+            <div class="col-7">
+                <p class="my-2 font-weight-bold">{{ ordered_product.product.name }}</p>
+                <p class="my-2 small text-muted">Qty: {{ ordered_product.quantity }}</p>
+            </div>
+            <div class="col-3 text-right">
+                <p class="my-2 small">€{{ ordered_product.product.price | calc_subtotal:ordered_product.quantity }}</p>
+            </div>
+        </div>
+    {% endfor %}
+    <div class="row text-right border-top pt-3">
+        <div class="col-8">Order Total:</div>
+        <div class="col-4">€{{ order.order_total }}</div>
+    </div>
+    <div class="row text-right">
+        <div class="col-8">Shipping Method:</div>
+        <div class="col-4">{{ order.shipping_method }}</div>
+    </div>
+    <div class="row text-right">
+        <div class="col-8">Shipping Charge:</div>
+        <div class="col-4">€{{ order.shipping_cost }}</div>
+    </div>
+    <div class="row text-right border-bottom pb-3">
+        <div class="col-8">Grand Total:</div>
+        <div class="col-4">€{{ order.grand_total }}</div>
+    </div>
+    <div class="row mt-3">
+        <div class="col-12">
+            <h3 class="text-left mt-2 pb-3">Shipping Details:</h3>
+        </div>
     </div>
     <div class="row">
         <div class="col-12">
-            <h3 class="text-left mt-0 pb-3">Order Summary</h3>
+            <p class="mb-1">{{ order.full_name }}</p>
+            <p class="mb-1">{{ order.street_address1 }}</p>
+            <p class="mb-1">{{ order.street_address2 }}</p>
+            <p class="mb-1">{{ order.town_or_city }}</p>
+            <p class="mb-1">{{ order.county }}</p>
+            <p class="mb-1">{{ order.postcode }}</p>
+            <p class="mb-1">{{ order.country }}</p>
+            <p class="mb-1">{{ order.phone_number }}</p>
+        </div>
+    </div>
+    <div class="row text-right my-3">
+        <div class="col-12">
+            <a href="{% url 'products' %}" class="btn btn-success border border-dark">
+                <span class="icon">
+                    <i class="fas fa-chevron-left"></i>
+                </span>
+                <span class="font-weight-bold">Back to all Products</span>
+            </a>
         </div>
     </div>
 </main>
