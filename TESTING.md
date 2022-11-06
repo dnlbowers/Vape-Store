@@ -24,8 +24,12 @@ Below is a list of bugs and fixes found while creating a feature. You can find o
 * Cause - There is no link between the two qty selectors on the cart page.
 * Solution - Adding a variable to the increase/decrease click event to group all qty inputs for the same product together
 
+* Issue - checkout form was not submitted (clearing to a new form), and a error was present saying the payment could not be processed even though stripe was registering the payment as successful
+* Cause - I could see in the browser console that the payment intent was successful but there was a second request to the server that was failing. The stripe logs showed that the payment intend had already been processed and this second attempt was preventing the form submission from completing. From console logging the relevant part of the code I could see that using the query submit() was actually submitting the form despite having the preventDefault() function in place.
+* Solution - Changing the query submit() to vanilla JS using "addEventListener" for "submit" resolved the issue.
+
 ## to fix later
 
 * Issue - When deleting something from the cart, the first item in the list get deleted and not the item selected
 * Cause - check the JS
-* Solution - 
+* Solution -

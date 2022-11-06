@@ -69,19 +69,12 @@
                 {% csrf_token %}
                 <fieldset>
                     <legend>Details</legend>
-                    {{ payment_form.full_name|as_crispy_field }}
-                    {{ payment_form.email|as_crispy_field }}
+                    
                     
                 </fieldset>
                 <fieldset>
                     <legend>Shipping Address</legend>
-                    {{ payment_form.street_address1|as_crispy_field }}
-                    {{ payment_form.street_address2|as_crispy_field }}
-                    {{ payment_form.town_or_city|as_crispy_field }}
-                    {{ payment_form.county|as_crispy_field }}
-                    {{ payment_form.postcode|as_crispy_field }}
-                    {{ payment_form.country|as_crispy_field }}
-                    {{ payment_form.phone_number|as_crispy_field }}
+                    
                 </fieldset>
                 <fieldset>
                     <legend>Card Detals</legend>
@@ -116,9 +109,4 @@
 
 {% endblock %}
 
-{% block postloadjs %}
-    {{block.super }}
-    {{ stripe_public_key|json_script:"id_stripe_public_key" }}
-    {{ client_secret|json_script:"id_client_secret" }}
-    <script src={% static 'checkout/js/srtipe-elements.js' %}></script>
-{% endblock %}
+

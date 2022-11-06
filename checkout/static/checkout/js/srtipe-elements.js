@@ -72,7 +72,7 @@ const getErrorMessageHtml = (event) => {
 };
 
 
-$(paymentFormRef).submit( event => {
+paymentFormRef.addEventListener('submit', function(event) {
     /**
     *Prevent default form submission, disables the pay now button
     * and calls payWithCard function to handle the payment request
@@ -115,7 +115,7 @@ let payWithCard = (stripe, card, clientSecret) => {
 
             if (result.paymentIntent.status === "succeeded") {
 
-                // paymentFormRef.submit()
+                paymentFormRef.submit()
 
             }
         };

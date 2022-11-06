@@ -57,10 +57,7 @@ class Checkout(View):
             'phone_number': request.POST['phone_number'],
         }
 
-        payment_form = PaymentForm()
-        payment_form(shipping_details)
-
-        print(payment_form)
+        payment_form = PaymentForm(shipping_details)
 
         if payment_form.is_valid():
             order = payment_form.save()
