@@ -107,7 +107,8 @@ class Order(models.Model):
             self.shipping_cost = self.order_total * \
                 Decimal(settings.STANDARD_SHIPPING_PERCENTAGE / 100)
             if self.shipping_cost < settings.STANDARD_SHIPPING_MINIMUM:
-                self.shipping_cost = Decimal(settings.STANDARD_SHIPPING_MINIMUM)
+                self.shipping_cost = Decimal(
+                    settings.STANDARD_SHIPPING_MINIMUM)
             # elif self.shipping_method == 'registered':
             #     self.shipping_cost = self.order_total * \
             #         settings.REGISTERED_SHIPPING_PERCENTAGE / 100

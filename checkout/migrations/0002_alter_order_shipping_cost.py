@@ -13,6 +13,9 @@ class Migration(migrations.Migration):
         migrations.AlterField(
             model_name='order',
             name='shipping_cost',
-            field=models.DecimalField(decimal_places=2, default=0, max_digits=10),
+            field=models.DecimalField(
+                decimal_places=2,
+                default=0,
+                max_digits=10),
         ),
     ]

@@ -33,3 +33,5 @@ Below is a list of bugs and fixes found while creating a feature. You can find o
 * Issue - When deleting something from the cart, the first item in the list get deleted and not the item selected
 * Cause - check the JS
 * Solution -
+
+* issue - Floating footer when content not enough to push it down

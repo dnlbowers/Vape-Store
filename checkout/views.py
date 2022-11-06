@@ -66,6 +66,11 @@ class Checkout(View):
                 try:
                     product = AllProducts.objects.get(id=product_id)
 
+                    # start of stock management, need to add similiar to update line item model method
+                    # product.stock_level -= product_details
+                    # product.save()
+                    # end of stock management
+
                     order_line_item = OrderLineItem(
                         order=order,
                         product=product,
