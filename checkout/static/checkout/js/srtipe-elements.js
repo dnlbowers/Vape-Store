@@ -13,6 +13,11 @@ const paymentFormRef = $("#payment-form");
 const errorDivRef = $("#card-errors");
 const payNowBtnRef = $("#pay-now-btn");
 
+// Loading indicator references
+const loadingSpinnerRef = $("#spinner");
+const loadingOverlayRef = $("#loading-overlay");
+const payNowBtnTxtRef = $("#pay-now-btn-txt");
+
 
 const style = {
     base: {
@@ -72,21 +77,16 @@ const getErrorMessageHtml = (event) => {
 };
 
 
-paymentFormRef.addEventListener('submit', function(event) {
+payNowBtnRef.click(function(event) {
     /**
     *Prevent default form submission, disables the pay now button
     * and calls payWithCard function to handle the payment request
     */
     event.preventDefault();
-
-    card.update({ "disabled": true });
-    payNowBtnRef.attr("disabled", true);
-
+    
     payWithCard(stripe, card, clientSecretRef);
 });
 
-
-// Calls stripe.confirmCardPayment
 
 let payWithCard = (stripe, card, clientSecret) => {
     /**
@@ -95,8 +95,10 @@ let payWithCard = (stripe, card, clientSecret) => {
      * prompt the user to enter authentication details without leaving the page
      */
     
+    loading(true); 
+    console.log("confirming card payment");   
     stripe.confirmCardPayment(clientSecret, {
-
+        
         payment_method: {
             card: card
         }
@@ -105,14 +107,12 @@ let payWithCard = (stripe, card, clientSecret) => {
     .then( result => {
         if (result.error) {
 
+            loading(false)
             errorContent = getErrorMessageHtml(result)
             $(errorDivRef).html(errorContent);
 
-            card.update({ "disabled": false });
-            payNowBtnRef.attr("disabled", false);
-
         } else {
-
+            
             if (result.paymentIntent.status === "succeeded") {
 
                 paymentFormRef.submit()
@@ -122,6 +122,29 @@ let payWithCard = (stripe, card, clientSecret) => {
     })
 };
 
+
+let loading = isLoading => {
+    /**
+     * Shows or hides the loading overlay with a loading spinner
+    */
+    if (isLoading) {
+        
+        payNowBtnRef.attr("disabled", true);
+        loadingOverlayRef.removeClass("d-none");
+        card.update({ "disabled": true });
+        payNowBtnTxtRef.addClass("d-none");
+        loadingSpinnerRef.removeClass("d-none");
+
+    } else {
+
+        loadingSpinnerRef.addClass("d-none");
+        payNowBtnTxtRef.removeClass("d-none");
+        card.update({ "disabled": false });
+        payNowBtnRef.attr("disabled", false);
+        loadingOverlayRef.addClass("d-none");
+        
+    }
+};
 
 
 // /* ------- UI helpers ------- */
