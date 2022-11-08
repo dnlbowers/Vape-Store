@@ -81,7 +81,7 @@ class ModsAdmin(ModelAChildAdmin):
 
 
 @admin.register(Tanks)
-class Tanks(ModelAChildAdmin):
+class TanksAdmin(ModelAChildAdmin):
     """ Admin registration and configuration for the Tanks model"""
     base_model = Tanks
     show_in_index = True
@@ -94,7 +94,7 @@ class Tanks(ModelAChildAdmin):
         'current_rating',
         'has_sale',
         'image')
-    search_fields = ('name', 'brand', 'description', 'category__name')
+    search_fields = ('name', 'brand', 'description',)
     prepopulated_fields = {'slug': ('name',)}
     actions = ['add_sale', 'remove_sale']
 
@@ -106,7 +106,7 @@ class Tanks(ModelAChildAdmin):
 
 
 @admin.register(PreBuiltCoils)
-class PreBuiltCoils(ModelAChildAdmin):
+class PreBuiltCoilsAdmin(ModelAChildAdmin):
     """ Admin registration and configuration for the PreBuiltCoils model"""
     base_model = PreBuiltCoils
     show_in_index = True
