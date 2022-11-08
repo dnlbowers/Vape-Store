@@ -57,7 +57,8 @@ This sprint is aimed at sorting products and starting the shopping cart.
 
 ![Sprint 4](/docs/agile/sprintscreenshots/sprint5.jpg)
 
-This sprit is aimed primary at the check out process and setting up the ability to make payments. 
+This sprit is aimed primary at the check out process and setting up the ability to make payments.
 
 * This sprint began on 30/10/2022 at 12:40 and was due to finish at 07/11/2022 by 00:00.
 * Since The first two stories are such large stroy point values and are dependant upon one being done before I can realistically set up and test the other I have not used Moscow by story points but rather by the order of importance each task has. I shall return to using story points to organize by the moscow method once this sprint is complete.
+* Realised I added [PVS-36](https://dnlbowers.atlassian.net/browse/PVS-36) to the sprint to early since this requires a user profile which is yet to be worked on.
