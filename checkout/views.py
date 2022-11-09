@@ -16,14 +16,20 @@ import json
 @require_POST
 def cache_checkout_data(request):
     try:
-        pid = request.POST.get('client_secret').split('_secret')[0]
+
+        payment_id = request.POST.get('client_secret').split('_secret')[0]
         stripe.api_key = settings.STRIPE_SECRET_KEY
-        stripe.PaymentIntent.modify(pid, metadata={
-            'bag': json.dumps(request.session.get('bag', {})),
+
+        stripe.PaymentIntent.modify(payment_id, metadata={
+
+            'cart': json.dumps(request.session.get('cart', {})),
             'save_info': request.POST.get('save_info'),
-            'username': request.user,
+            # 'username': request.user,
+
         })
+
         return HttpResponse(status=200)
+
     except Exception as e:
         messages.error(request, 'Sorry, your payment cannot be \
             processed right now. Please try again later.')
@@ -78,7 +84,11 @@ class Checkout(View):
         payment_form = PaymentForm(shipping_details)
 
         if payment_form.is_valid():
-            order = payment_form.save()
+            order = payment_form.save(commit=False)
+            payment_id = request.POST.get('client_secret').split('_secret')[0]
+            order.stripe_payment_id = payment_id
+            order.original_cart = json.dumps(cart)
+            order.save()
 
             for product_id, product_details in cart.items():
                 try:
