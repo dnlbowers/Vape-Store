@@ -101,30 +101,30 @@ let payWithCard = (stripe, card, clientSecret) => {
         
         payment_method: {
             card: card,
-            billing_details: {
-                name: $.trim(paymentFormRef.full_name.value),
-                phone: $.trim(paymentFormRef.phone_number.value),
-                email: $.trim(paymentFormRef.email.value),
-                address: {
-                    line1: $.trim(paymentFormRef.street_address1.value),
-                    line2: $.trim(paymentFormRef.street_address2.value),
-                    city: $.trim(paymentFormRef.town_or_city.value),
-                    country: $.trim(paymentFormRef.country.value),
-                    state: $.trim(paymentFormRef.county.value),
-                }
-            },
-            shipping: {
-                name: $.trim(paymentFormRef.full_name.value),
-                phone: $.trim(paymentFormRef.phone_number.value),
-                address: {
-                    line1: $.trim(paymentFormRef.street_address1.value),
-                    line2: $.trim(paymentFormRef.street_address2.value),
-                    city: $.trim(paymentFormRef.town_or_city.value),
-                    country: $.trim(paymentFormRef.country.value),
-                    postal_code: $.trim(paymentFormRef.postcode.value),
-                    state: $.trim(paymentFormRef.county.value),
-                }
-            }
+            // billing_details: {
+            //     name: $.trim(paymentFormRef.full_name.value),
+            //     phone: $.trim(paymentFormRef.phone_number.value),
+            //     email: $.trim(paymentFormRef.email.value),
+            //     address: {
+            //         line1: $.trim(paymentFormRef.street_address1.value),
+            //         line2: $.trim(paymentFormRef.street_address2.value),
+            //         city: $.trim(paymentFormRef.town_or_city.value),
+            //         country: $.trim(paymentFormRef.country.value),
+            //         state: $.trim(paymentFormRef.county.value),
+            //     }
+            // },
+            // shipping: {
+            //     name: $.trim(paymentFormRef.full_name.value),
+            //     phone: $.trim(paymentFormRef.phone_number.value),
+            //     address: {
+            //         line1: $.trim(paymentFormRef.street_address1.value),
+            //         line2: $.trim(paymentFormRef.street_address2.value),
+            //         city: $.trim(paymentFormRef.town_or_city.value),
+            //         country: $.trim(paymentFormRef.country.value),
+            //         postal_code: $.trim(paymentFormRef.postcode.value),
+            //         state: $.trim(paymentFormRef.county.value),
+            //     }
+            // }
 
             
         }
