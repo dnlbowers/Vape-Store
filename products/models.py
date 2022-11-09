@@ -175,12 +175,12 @@ class Tanks(AllProducts):
     Model for tanks
     """
 
-    # class Meta:
-    #     """"
-    #     Alters the name of the product in the admin panel
-    #     """
+    class Meta:
+        """"
+        Alters the name of the product in the admin panel
+        """
 
-    #     verbose_name_plural = 'Tanks'
+        verbose_name_plural = 'Tanks'
 
     TANK_TYPE = (
         ('Sub-Ohm', 'Sub-Ohm'),
