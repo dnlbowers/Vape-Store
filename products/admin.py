@@ -44,7 +44,7 @@ class DisposableVapesAdmin(ModelAChildAdmin):
         'current_rating',
         'has_sale',
         'image')
-    search_fields = ('name', 'brand', 'description')
+    search_fields = ('name', 'brand', 'description', 'category__name')
     prepopulated_fields = {'slug': ('name',)}
     actions = ['add_sale', 'remove_sale']
 
@@ -69,7 +69,7 @@ class ModsAdmin(ModelAChildAdmin):
         'current_rating',
         'has_sale',
         'image')
-    search_fields = ('name', 'brand', 'description')
+    search_fields = ('name', 'brand', 'description', 'category__name')
     prepopulated_fields = {'slug': ('name',)}
     actions = ['add_sale', 'remove_sale']
 
@@ -119,7 +119,7 @@ class PreBuiltCoilsAdmin(ModelAChildAdmin):
         'current_rating',
         'has_sale',
         'image')
-    search_fields = ('name', 'brand', 'description')
+    search_fields = ('name', 'brand', 'description', 'category__name')
     prepopulated_fields = {'slug': ('name',)}
     actions = ['add_sale', 'remove_sale']
 
@@ -144,7 +144,7 @@ class BatteriesAdmin(ModelAChildAdmin):
         'current_rating',
         'has_sale',
         'image')
-    search_fields = ('name', 'brand', 'description')
+    search_fields = ('name', 'brand', 'description', 'category__name')
     prepopulated_fields = {'slug': ('name',)}
     actions = ['add_sale', 'remove_sale']
 
@@ -194,7 +194,7 @@ class BaseLiquidsAdmin(ModelAChildAdmin):
         'current_rating',
         'has_sale',
         'image')
-    search_fields = ('name', 'brand', 'description')
+    search_fields = ('name', 'brand', 'description', 'category__name')
     prepopulated_fields = {'slug': ('name',)}
     actions = ['add_sale', 'remove_sale']
 
@@ -219,7 +219,7 @@ class NicotineShots(ModelAChildAdmin):
         'current_rating',
         'has_sale',
         'image')
-    search_fields = ('name', 'brand', 'description')
+    search_fields = ('name', 'brand', 'description', 'category__name')
     prepopulated_fields = {'slug': ('name',)}
     actions = ['add_sale', 'remove_sale']
 
@@ -244,7 +244,7 @@ class FlavorConcentrates(ModelAChildAdmin):
         'current_rating',
         'has_sale',
         'image')
-    search_fields = ('name', 'brand', 'description')
+    search_fields = ('name', 'brand', 'description', 'category__name')
     prepopulated_fields = {'slug': ('name',)}
     actions = ['add_sale', 'remove_sale']
 
@@ -306,7 +306,7 @@ class AllProductsAdmin(PolymorphicParentModelAdmin):
         'current_rating',
         'has_sale',
         'image')
-    search_fields = ('name', 'brand', 'description')
+    search_fields = ('name', 'brand', 'description', 'category__name')
     prepopulated_fields = {'slug': ('name',)}
     actions = ['add_sale', 'remove_sale']
 
