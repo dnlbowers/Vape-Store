@@ -1,4 +1,6 @@
-from django.shortcuts import render, redirect, reverse, get_object_or_404, HttpResponse
+from django.shortcuts import (render,
+                              redirect, reverse, get_object_or_404,
+                              HttpResponse)
 from django.views import View
 from django.views.decorators.http import require_POST
 from django.contrib import messages
@@ -92,7 +94,8 @@ class Checkout(View):
                 try:
                     product = AllProducts.objects.get(id=product_id)
 
-                    # start of stock management, need to add similiar to update line item model method
+                    # start of stock management, need to add similar to update
+                    # line item model method
                     # product.stock_level -= product_details
                     # product.save()
                     # end of stock management

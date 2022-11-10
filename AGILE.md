@@ -55,10 +55,19 @@ This sprint is aimed at sorting products and starting the shopping cart.
 
 ### Sprint 5 Notes
 
-![Sprint 4](/docs/agile/sprintscreenshots/sprint5.jpg)
+![Sprint 5](/docs/agile/sprintscreenshots/sprint5.jpg)
 
 This sprit is aimed primary at the check out process and setting up the ability to make payments.
 
 * This sprint began on 30/10/2022 at 12:40 and was due to finish at 07/11/2022 by 00:00.
 * Since The first two stories are such large stroy point values and are dependant upon one being done before I can realistically set up and test the other I have not used Moscow by story points but rather by the order of importance each task has. I shall return to using story points to organize by the moscow method once this sprint is complete.
-* Realised I added [PVS-36](https://dnlbowers.atlassian.net/browse/PVS-36) to the sprint to early since this requires a user profile which is yet to be worked on.
+* Realized I added [PVS-36](https://dnlbowers.atlassian.net/browse/PVS-36) to the sprint to early since this requires a user profile which is yet to be worked on.
+* Finished a day late due to not having time to contribute on several of the sprints days and the stripe portion of the project taking longer than imagined. I was able to complete the stripe task in the sprint however technically I should have concluded with it remaining and added it to the next sprint. I am able to do this due to being a team of one, however in the real world I would not be so flexible on this.
+
+### Sprint 6 Notes
+
+![Sprint 6](/docs/agile/sprintscreenshots/sprint6.jpg)
+
+This sprint is aimed at getting the user profile up and running and then adding the ability to save the users address to be reused.
+
+* This sprint began on 09/11/2022 at 18:38 and was due to finish at 18/11/2022 by 00:00.
