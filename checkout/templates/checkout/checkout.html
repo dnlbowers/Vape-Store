@@ -64,7 +64,7 @@
 
         <div class="col-12 col-lg-6">
             <p>Please fill out your payment details to complete your order.</p>
-            <form id="payment-form" action="{% url 'checkout' %}" method="POST">
+            <form id="payment-form" class="mx-auto" action="{% url 'checkout' %}" method="POST">
                 {% csrf_token %}
                 <fieldset>
                     <legend>Details</legend>
@@ -89,13 +89,13 @@
                     <input type="hidden" value="{{ client_secret}}" name="client_secret">
                 </fieldset> 
                 <div class="text-right mt-5 mb-2">                    
-                    <a href="{% url 'view_cart' %}" class="btn btn-success">
+                    <a href="{% url 'view_cart' %}" class="btn btn-success mt-1">
                         <span class="icon">
                             <i class="fas fa-chevron-left"></i>
                         </span>
                         <span class="font-weight-bold">Edit Purchase</span>
                     </a>
-                    <button id="pay-now-btn" class="btn btn-warning">
+                    <button id="pay-now-btn" class="btn btn-warning mt-1">
                         <div class="spinner d-none" id="spinner"></div>
                         <span id="pay-now-btn-txt">
                             <span class="font-weight-bold">Pay Now</span>
@@ -104,7 +104,7 @@
                             </span>
                         </span>
                     </button>
-                    <p class="small text-danger my-0">
+                    <p class="small text-danger my-2">
                         <span class="icon">
                             <i class="fas fa-exclamation-circle"></i>
                         </span>

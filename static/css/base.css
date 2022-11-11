@@ -9,6 +9,15 @@
     background-color: #000;
 }
 
+input {
+    border-radius: 0!important;
+    border: 1px solid #000!important;
+}
+
+.btn {
+    border-radius: 0!important;
+}
+
 /* -------------------------------------------------------------- bootstrap toasts taken from boutique ado */
 
 .cart-preview-container {
