@@ -14,7 +14,39 @@
             <h2 class="text-left py-3 border-bottom">My Account</h2>
         </div>
     </div>
-    {{profile}}
+    <div class="row mx-auto no-gutters">
+        <div class="col">
+            <nav>
+                <div class="nav nav-pills d-flex justify-content-center bg-black border border-dark" id="nav-tab" role="tablist">
+                    <button class="nav-link active btn-danger rounded-0" id="nav-personal-info-tab" data-toggle="tab" data-target="#nav-personal-info" type="button" role="tab" aria-controls="nav-personal-info" aria-selected="true">Personal Info</button>
+                    <button class="nav-link btn-danger rounded-0" id="nav-order-history-tab" data-toggle="tab" data-target="#nav-order-history" type="button" role="tab" aria-controls="nav-order-history" aria-selected="false">Order History</button>
+                </div>
+            </nav>
+            <div class="tab-content p-5 border border-dark mb-3" id="nav-tabContent">
+                <div class="tab-pane fade show active" id="nav-personal-info" role="tabpanel" aria-labelledby="nav-personal-info-tab">
+                    <p>Default Delivery Address:</p>
+                    <form action="{%url 'profile'%}" method="post">
+                        
+                        {% csrf_token %}
+                        {{form|crispy}}
+                        <div class="text-center">
+                            <button type="submit" class="btn btn-success">Update details</button>
+                        </div>
+                        <p class="small text-danger my-2 text-center">
+                            <span class="icon">
+                                <i class="fas fa-exclamation-circle"></i>
+                            </span>
+                            <span>Warning by clicking "Update Details" your informartion will be over written</span>
+                        </p>
+                        
+                    </form>
+                </div>
+                <div class="tab-pane fade" id="nav-order-history" role="tabpanel" aria-labelledby="nav-order-history-tab">
+                    {{ completed_orders }}
+                </div>
+            </div>
+        </div>
+    </div>
     
 </main>
 

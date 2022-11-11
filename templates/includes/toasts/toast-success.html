@@ -9,7 +9,7 @@
     <div class="toast-body bg-black text-success font-weight-bold">
         {{ message }}
     </div>
-    {% if grand_total and product_count %}
+    {% if grand_total and product_count and not on_profile_page %}
         <div class="bg-black text-light py-2">
             <p class="px-3 font-weight-bold">Current Cart Items ({{ product_count }})</p>
         </div>

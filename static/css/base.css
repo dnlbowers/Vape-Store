@@ -9,7 +9,7 @@
     background-color: #000;
 }
 
-input {
+input, select {
     border-radius: 0!important;
     border: 1px solid #000!important;
 }
