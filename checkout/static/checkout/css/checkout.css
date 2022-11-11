@@ -1,7 +1,6 @@
 .stripe-style-input, select {
     border-radius: 0px!important;
     margin-bottom: 6px!important;
-    /* padding: 10px!important; */
     border: 1px solid rgb(0, 0, 0)!important;
     height: 44px!important;
     font-size: 16px!important;
@@ -19,21 +18,8 @@ select option {
     border: 1px solid rgb(0, 0, 0);
     height: 44px;
     width: 100%;
-    /* background: white; */
 }
 
-.stripe-style-input::placeholder {
-    color: #aab7c4;
-}
-
-
-.StripeElement--focus,
-.stripe-style-input:focus,
-.stripe-style-input:active  {
-    box-shadow: 0 1px 3px 0 #000;
-    -webkit-transition: box-shadow 1000ms ease;
-    transition: box-shadow 1000ms ease;
-}
 
 #card-errors {
     color: #dc3545;

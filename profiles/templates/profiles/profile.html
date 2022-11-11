@@ -24,7 +24,7 @@
             </nav>
             <div class="tab-content p-5 border border-dark mb-3" id="nav-tabContent">
                 <div class="tab-pane fade show active" id="nav-personal-info" role="tabpanel" aria-labelledby="nav-personal-info-tab">
-                    <p>Default Delivery Address:</p>
+                    <p class="font-weight-bold">Default Delivery Address:</p>
                     <form action="{%url 'profile'%}" method="post">
                         
                         {% csrf_token %}
@@ -49,6 +49,13 @@
     </div>
     
 </main>
+
+{% block postloadjs %}
+    {{ block.super }}
+    <script src="{% static 'profiles/js/countryfield.js' %}"></script>
+{% endblock %}
+
+
 
 {% endblock %}
 

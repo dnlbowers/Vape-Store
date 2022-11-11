@@ -1,12 +1,10 @@
 from django.shortcuts import render, get_object_or_404, redirect, reverse
 from django.views import View
 from django.contrib import messages
-# from django.contrib.auth.decorators import login_required
 from .models import UserProfile
 from .forms import UserProfileForm
 
 
-# @login_required
 class Profile(View):
 
     def get(self, *args, **kwargs):

@@ -9,15 +9,6 @@
     background-color: #000;
 }
 
-input, select {
-    border-radius: 0!important;
-    border: 1px solid #000!important;
-}
-
-.btn {
-    border-radius: 0!important;
-}
-
 /* -------------------------------------------------------------- bootstrap toasts taken from boutique ado */
 
 .cart-preview-container {
@@ -108,6 +99,43 @@ input, select {
 
 .card {
     min-width: 250px !important;
+}
+
+/* -------------------------------------------------------------- General form styling */
+
+input {
+    color: #000!important;
+}
+
+input, select {
+    
+    border-radius: 0!important;
+    border: 1px solid #000!important;
+}
+
+input::placeholder,
+select::placeholder {
+    color: #aab7c4!important;
+}
+
+input:focus, input:active,
+select:focus, select:active {
+    box-shadow: 0 1px 3px 0 #000!important;
+    -webkit-transition: box-shadow 1000ms ease!important;
+    transition: box-shadow 500ms ease!important;
+}
+
+
+.btn {
+    border-radius: 0!important;
+    border: 1px solid #000!important;
+    box-shadow: 0 1px 3px 0 #000;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+.btn-success, .btn-danger {
+    text-shadow: 1px 1px #000;
 }
 
 /* -------------------------------------------------------------- footer styling */
