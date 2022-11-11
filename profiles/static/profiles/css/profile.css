@@ -6,3 +6,8 @@
 #id_default_country option:first-child {
     color: #aab7c4;
 }
+
+.completed-order {
+    max-height: 600px;
+    overflow-y: auto;
+}

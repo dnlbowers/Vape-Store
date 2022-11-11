@@ -10,6 +10,8 @@ from shopping_cart.contexts import cart_contents
 from .forms import PaymentForm
 from .models import Order, OrderLineItem
 from products.models import AllProducts
+from profiles.models import UserProfile
+from profiles.forms import UserProfileForm
 
 import stripe
 import json
@@ -25,7 +27,7 @@ def cache_checkout_data(request):
         stripe.PaymentIntent.modify(payment_id, metadata={
             'cart': json.dumps(request.session.get('cart', {})),
             'save_info': request.POST.get('save_info'),
-            # 'username': request.user,
+            'username': request.user,
         })
 
         return HttpResponse(status=200)
@@ -57,7 +59,26 @@ class Checkout(View):
             currency=settings.STRIPE_CURRENCY,
         )
 
-        payment_form = PaymentForm()
+        if request.user.is_authenticated:
+            try:
+                profile = UserProfile.objects.get(user=request.user)
+                payment_form = PaymentForm(initial={
+                    'full_name': profile.default_delivery_name,
+                    'email': profile.default_email,
+                    'phone_number': profile.default_phone_number,
+                    'country': profile.default_country,
+                    'postcode': profile.default_postcode,
+                    'town_or_city': profile.default_town_or_city,
+                    'street_address1': profile.default_street_address1,
+                    'street_address2': profile.default_street_address2,
+                    'county': profile.default_county,
+                })
+            except UserProfile.DoesNotExist:
+
+                payment_form = PaymentForm()
+        else:
+
+            payment_form = PaymentForm()
 
         context = {
             'payment_form': payment_form,
@@ -84,6 +105,7 @@ class Checkout(View):
         payment_form = PaymentForm(shipping_details)
 
         if payment_form.is_valid():
+
             order = payment_form.save(commit=False)
             payment_id = request.POST.get('client_secret').split('_secret')[0]
             order.stripe_payment_id = payment_id
@@ -106,15 +128,19 @@ class Checkout(View):
                         quantity=product_details,
                     )
                     order_line_item.save()
+
                 except AllProducts.DoesNotExist:
+
                     messages.error(request, (
                         "One of your products seems to no longer exist \
                             in our system."
                         "Please reach out to us for assistance")
                     )
+
                     order.delete()
                     return redirect(reverse('view_cart'))
 
+            request.session['save_info'] = 'save-info' in request.POST
             return redirect(reverse(
                 'checkout_success',
                 args=[order.order_number]
@@ -130,7 +156,30 @@ class CheckoutSuccess(View):
     template = 'checkout/checkout_success.html'
 
     def get(self, request, order_number, *args, **kwargs):
+        save_info = request.session.get('save_info')
         order = get_object_or_404(Order, order_number=order_number)
+
+        if request.user.is_authenticated:
+            profile = UserProfile.objects.get(user=request.user)
+            # Attach the user's profile to the order
+            order.user_profile = profile
+            order.save()
+
+            # Save the user's info
+            if save_info:
+                profile_data = {
+                    'default_phone_number': order.phone_number,
+                    'default_country': order.country,
+                    'default_postcode': order.postcode,
+                    'default_town_or_city': order.town_or_city,
+                    'default_street_address1': order.street_address1,
+                    'default_street_address2': order.street_address2,
+                    'default_county': order.county,
+                }
+                user_profile_form = UserProfileForm(
+                    profile_data, instance=profile)
+                if user_profile_form.is_valid():
+                    user_profile_form.save()
 
         messages.success(request, f"We've successfully received your order. \
             Your order reference number is {order_number}, and a confirmation \

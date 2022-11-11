@@ -106,12 +106,16 @@
     </div>
     <div class="row text-right my-3">
         <div class="col-12">
-            <a href="{% url 'products' %}" class="btn btn-success border border-dark">
-                <span class="icon">
-                    <i class="fas fa-chevron-left"></i>
-                </span>
-                <span class="font-weight-bold">Back to all Products</span>
-            </a>
+            {% if from_profile %}
+                <a href="{% url 'profile' %}" class="btn btn-success">Back to Profile</a>
+            {% else %}
+                <a href="{% url 'home' %}" class="btn btn-success">
+                    <span class="icon">
+                        <i class="fas fa-chevron-left"></i>
+                    </span>
+                    <span class="font-weight-bold">Back to Home</span>
+                </a>
+            {% endif %}
         </div>
     </div>
 </main>

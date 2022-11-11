@@ -2,6 +2,7 @@ from django.shortcuts import render, get_object_or_404, redirect, reverse
 from django.views import View
 from django.contrib import messages
 from .models import UserProfile
+from checkout.models import Order
 from .forms import UserProfileForm
 
 
@@ -42,3 +43,23 @@ class Profile(View):
             }
 
             return render(self.request, 'profiles/profile.html', context)
+
+
+class CompletedOrders(View):
+
+    def get(self, *args, **kwargs):
+        order_number = self.kwargs.get('order_number')
+        order = get_object_or_404(Order, order_number=order_number)
+
+        messages.info(
+            self.request,
+            f'This is a past confirmation for order no. {order_number}.'
+            'A confirmation email was sent at the time of purchase.')
+
+        template = 'checkout/checkout_success.html'
+        context = {
+            'order': order,
+            'from_profile': True
+        }
+
+        return render(self.request, template, context)

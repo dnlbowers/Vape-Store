@@ -93,11 +93,13 @@ let payWithCard = (stripe, card, clientSecret) => {
     
     loading(true); 
     
+    let saveInfo = Boolean($('#id_save_info').attr('checked'));
     const crsfToken = $("input[name='csrfmiddlewaretoken']").val();
 
     const postCacheData = {
         "csrfmiddlewaretoken": crsfToken,
         "client_secret": clientSecret,
+        "save_info": saveInfo,
     };
 
     const url = "/checkout/cache_checkout_data/";
