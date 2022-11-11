@@ -39,7 +39,7 @@
         {% block extra_js %}
         {% endblock %}
 
-        <title>Vapor Town {% block extra_title %}{% endblock %}</title>
+        <title>Vapor Town {% block head_title %}{% endblock %}</title>
     </head>
     <body class="d-flex flex-column">
         <header class="container-fluid px-0">
@@ -68,6 +68,10 @@
                 $('.toast').toast('show');
             </script>
         {% endblock  %}
+        
+        <!-- Included solely for Allauths js blocks when required -->
+        {% block extra_body %}
+        {% endblock %}
 
     </body>
 </html>
