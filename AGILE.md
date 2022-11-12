@@ -71,3 +71,4 @@ This sprit is aimed primary at the check out process and setting up the ability 
 This sprint is aimed at getting the user profile up and running and then adding the ability to save the users address to be reused.
 
 * This sprint began on 09/11/2022 at 18:38 and was due to finish at 18/11/2022 by 00:00.
+* Added [bug fix ticket PVS-53](https://dnlbowers.atlassian.net/browse/PVS-53) to this sprint mid sprint as it was a quick fix and I stumbled across it while working on the reviews..

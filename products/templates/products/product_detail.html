@@ -92,6 +92,7 @@
                     </div>
                     <div class="tab-pane fade" id="nav-reviews" role="tabpanel" aria-labelledby="nav-reviews-tab">
                         {% if reviews %}
+                        
                             {% for review in reviews %}
                                 {{review.title}}
                                 {{review.content}}
@@ -100,22 +101,14 @@
                                 {{review.product.id}}
                                 {{review.date}}
                             {% endfor %}
-                        {% else %}
-                            {% if user.is_authenticated %}
-                                <p class="text-center font-weight-bold">Be the first to review this product</p>
-                                <form id="review-form" class="mx-auto" action="{% url 'add_review' product.id %}" method="POST">
-                                    {% csrf_token %}
-                                    {{ review_form.title|as_crispy_field }}
-                                    {{ review_form.content|as_crispy_field }}
-                                    {{ review_form.rating|as_crispy_field }}
-                                    <input type="hidden" name="product_id" value="{{ product.id }}">
-                                    <input type="hidden" name="user_id" value="{{ user.id }}">
 
-                                    <div class="text-right">
-                                        <button type="submit" class="btn btn-success text-light text-uppercase">Submit Review</button>
-                                    </div>
-                                    <input type="hidden" name="redirect_url" value="{{ request.path }}">                                   
-                                </form>
+                        {% else %}
+
+                            {% if user.is_authenticated %}
+                                
+                                <p class="text-center font-weight-bold">Be the first to review this product</p>
+                                {% include './includes/components/review_form.html' %}
+
                             {% else %}
                                 <p class="text-center font-weight-bold">Sign in and be the first to review this product</p>
                                 <div class="text-right">
