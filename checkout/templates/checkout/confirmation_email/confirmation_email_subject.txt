@@ -1,0 +1,1 @@
+Thanks for shopping at Vapor Town - Order reference {{ order.order_number }}

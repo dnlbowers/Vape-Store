@@ -151,7 +151,7 @@ let payWithCard = (stripe, card, clientSecret) => {
     
                 }
             };
-        })
+        });
     }).fail(() => {
 
         // just reload the page, the error will be in django messages
