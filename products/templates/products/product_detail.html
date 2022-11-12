@@ -28,7 +28,7 @@
                     <h2 class="text-center d-none d-md-block pt-5 bg-black text-light">{{ product.name }}</h2>
                     <p class="small text-right d-none d-md-block text-muted text-capitalize mt-2 pb-3 pr-3"><i class="fas fa-tag mr-1"></i> {{ product.sub_category.friendly_name }}</p>
                 </div>
-                <p class="text-center mt-5 {% if product.current_rating == 0 %}mb-2{% else %}mb-3{% endif %}"> Customer Rating = <i class="fa-solid fa-star"></i>{% if product.current_rating == 0 %} 0 / 5 </p><p class="text-left mt-0">Be the first to rate this product </p>{% else %} {{ product.current_rating }} / 5{% endif %}</p>
+                <p class="text-center mt-5 {% if product.current_rating == 0 %}mb-2{% else %}mb-3{% endif %}"> Customer Rating = <i class="fa-solid fa-star"></i>{% if product.current_rating == 0 %} 0 / 5 </p><p class="text-center mt-0">Be the first to rate this product </p>{% else %} {{ product.current_rating }} / 5{% endif %}</p>
                 <div class="bg-black text-light text-center p-3 font-weight-bold mt-5">&euro; {{ product.price }}</div>
                 <p class="small text-center text-muted mb-5">sku: {{ product.sku }}</p>
                 <form class="mt-5"  action="{% url 'add_to_cart' product.id %}" method="POST">
@@ -48,7 +48,7 @@
                                             </span>
                                         </button>
                                     </div>
-                                    <input type="number" name="quantity" class="form-control border border-dark qty-input current-qty-pid-{{ product.id }}" value="1" min="1" max="{{ product.stock_level }}" data-product-id="{{ product.id }}">
+                                    <input type="number" name="quantity" class=" text-center form-control border border-dark qty-input current-qty-pid-{{ product.id }}" value="1" min="1" max="{{ product.stock_level }}" data-product-id="{{ product.id }}">
                                     <div class="input-group-append">
                                         <button class="btn btn-success rounded-right border border-dark increase-qty increase-qty-{{ product.id }}" data-product-id="{{ product.id}}">
                                             <span>
@@ -97,11 +97,13 @@
                                 {{review.content}}
                                 {{review.rating}}
                                 {{review.user}}
+                                {{review.product.id}}
+                                {{review.date}}
                             {% endfor %}
                         {% else %}
                             {% if user.is_authenticated %}
                                 <p class="text-center font-weight-bold">Be the first to review this product</p>
-                                <form id="review-form" class="mx-auto" action="" method="POST">
+                                <form id="review-form" class="mx-auto" action="{% url 'add_review' product.id %}" method="POST">
                                     {% csrf_token %}
                                     {{ review_form.title|as_crispy_field }}
                                     {{ review_form.content|as_crispy_field }}
@@ -111,7 +113,8 @@
 
                                     <div class="text-right">
                                         <button type="submit" class="btn btn-success text-light text-uppercase">Submit Review</button>
-                                    </div>                                    
+                                    </div>
+                                    <input type="hidden" name="redirect_url" value="{{ request.path }}">                                   
                                 </form>
                             {% else %}
                                 <p class="text-center font-weight-bold">Sign in and be the first to review this product</p>

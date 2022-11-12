@@ -31,13 +31,13 @@ class ProductReviews(models.Model):
         blank=False,
         editable=False,
         default=0
-        )
+    )
     previous_rating = models.IntegerField(
         null=True,
         blank=True,
         editable=False,
         default=0
-        )
+    )
 
     def __str__(self):
         return self.title
