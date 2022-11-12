@@ -38,7 +38,6 @@ class AddToCart(View):
             )
 
         request.session['cart'] = cart
-        print(request.session['cart'])
         return redirect(redirect_url)
 
 
@@ -66,7 +65,7 @@ class EditCartQty(View):
             )
 
         request.session['cart'] = cart
-        print(request.session['cart'])
+
         return redirect(reverse('view_cart'))
 
 
@@ -77,9 +76,10 @@ class RemoveFromCart(View):
 
     def post(self, request, product_id, *args, **kwargs):
 
-        cart = request.session.get('cart', {})
         try:
             product = get_object_or_404(AllProducts, id=product_id)
+
+            cart = request.session.get('cart', {})
             cart.pop(product_id)
             request.session['cart'] = cart
             messages.success(

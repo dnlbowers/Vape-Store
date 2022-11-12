@@ -8,12 +8,9 @@
             * sets value to stock limit if keyboard used to enter value greater than stock limit
         */
         const qtyInput = $(`.current-qty-pid-${productID}`);
-        console.log(qtyInput);
         const qtyInputValue = parseInt(qtyInput.val());
-        console.log(qtyInputValue);
         const qtyDisableMinus = qtyInputValue < 2;
         const qtyInputMax = parseInt(qtyInput.attr('max'));
-        console.log("max" + qtyInputMax);
         const qtyDisablePlus = qtyInputValue >= qtyInputMax;
         const qtyBtnMinus = $(`.decrease-qty-${productID}`);
         const qtyBtnPlus = $(`.increase-qty-${productID}`);
@@ -29,8 +26,6 @@
     const allQtyInputs = $('.qty-input');
     allQtyInputs.each((index, input) => {
         const productID = $(input).data('product-id');
-        console.log(index, input)
-        console.log('procutID ' + productID)
         qtyInputRangeHandler(productID);
     });
 

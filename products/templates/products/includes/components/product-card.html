@@ -4,7 +4,7 @@
             <img src="{{ product.image.url }}" class="card-img-top img-fluid mx-auto my-3 w-75" alt="{{ product.name }}">
         </a>
     {% else %}
-        <a href="">
+        <a href="{% url 'product_detail' product.id %}">
             <img src="{{ MEDIA_URL }}noimage.png" alt="No image available for {{ product.name }}" class="card-img-top img-fluid mx-auto my-3 w-75">
         </a>
     {% endif %}

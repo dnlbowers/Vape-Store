@@ -28,12 +28,4 @@ Below is a list of bugs and fixes found while creating a feature. You can find o
 * Cause - I could see in the browser console that the payment intent was successful but there was a second request to the server that was failing. The stripe logs showed that the payment intend had already been processed and this second attempt was preventing the form submission from completing. From console logging the relevant part of the code I could see that using the query submit() was actually submitting the form despite having the preventDefault() function in place.
 * Solution - Changing the query submit() to vanilla JS using "addEventListener" for "submit" resolved the issue. Although I later found this was causing further issues with the form submission when testing the loading indicator via a 3ds test payment. I then decide to use a click event and discovered that trying to combine JS and jquery in a single line was n't working as it should so I decided to write only Jquery with a reference to the button and the click() function.
 
-## to fix later
-
-* Issue - When deleting something from the cart, the first item in the list get deleted and not the item selected
-* Cause - check the JS
-* Solution -
-
-* issue - Floating footer when content not enough to push it down
-
-* issue - basket icon always blue(should only be blue when there is something in the basket) and also add the product count to tool tip
+Instead of documenting here from here out I decided it was better to solely raise a bug ticket in [JIRA](https://dnlbowers.atlassian.net/browse/PVS-47?filter=10005). I was finding myself getting fixated on bugs which were preventing my completing the over all purpose of the sprint in a timely manner. I decided to raise the bugs and move on to the next feature only to return in the same iteration later if there was excess time.
