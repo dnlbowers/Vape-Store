@@ -103,11 +103,11 @@
 
 /* -------------------------------------------------------------- General form styling */
 
-input {
+input, textarea {
     color: #000!important;
 }
 
-input, select {
+input, select, textarea {
     
     border-radius: 0!important;
     border: 1px solid #000!important;
@@ -119,7 +119,8 @@ select::placeholder {
 }
 
 input:focus, input:active,
-select:focus, select:active {
+select:focus, select:active
+textarea:focus, textarea:active {
     box-shadow: 0 1px 3px 0 #000!important;
     -webkit-transition: box-shadow 1000ms ease!important;
     transition: box-shadow 500ms ease!important;

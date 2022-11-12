@@ -3,6 +3,8 @@ from django.views import generic, View  # noqa
 from django.contrib import messages
 from django.db.models import Q
 from .models import AllProducts
+from reviews.models import ProductReviews
+from reviews.forms import ProductReviewForm
 
 
 class AllProductsView(generic.ListView):
@@ -94,8 +96,14 @@ class ProductDetails(View):
 
         individual_product = get_object_or_404(AllProducts, id=id)
 
+        form = ProductReviewForm()
+
+        reviews = ProductReviews.objects.filter(product=id)
+
         context = {
-            'product': individual_product
+            'product': individual_product,
+            'form': form,
+            'reviews': reviews,
         }
         return render(
             request,
