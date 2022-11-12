@@ -12,7 +12,7 @@ class ProductReviewForm(ModelForm):
         placeholders = {
             'title': 'Your review in a sentence',
             'content': 'Tell us some more about your experience',
-            'rating': 'Select a rating out of 5',
+            'rating': 'Enter a rating out of 5',
         }
 
         self.fields['title'].widget.attrs['autofocus'] = True
@@ -22,12 +22,6 @@ class ProductReviewForm(ModelForm):
             else:
                 placeholder = placeholders[field]
             self.fields[field].widget.attrs['placeholder'] = placeholder
-
-            if field == 'rating':
-                self.fields[field].widget.attrs[
-                    'aria-label'] = 'Select a rating out of 5 (required)'
-                self.fields[field].label = 'Select a rating out of 5 '
-            else:
-                self.fields[field].widget.attrs[
-                    'aria-label'] = self.fields[field].label
-                self.fields[field].label = False
+            self.fields[field].widget.attrs[
+                    'aria-label'] = placeholder
+            self.fields[field].label = False

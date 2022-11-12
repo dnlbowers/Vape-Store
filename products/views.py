@@ -102,7 +102,7 @@ class ProductDetails(View):
 
         context = {
             'product': individual_product,
-            'form': form,
+            'review_form': form,
             'reviews': reviews,
         }
         return render(

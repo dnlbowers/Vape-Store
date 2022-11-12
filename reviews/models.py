@@ -16,7 +16,7 @@ class ProductReviews(models.Model):
         on_delete=models.CASCADE,
         # editable=False,
         related_name='product_reviewed')
-    user = models.ForeignKey(
+    author = models.ForeignKey(
         User,
         null=True,
         blank=True,
@@ -24,7 +24,7 @@ class ProductReviews(models.Model):
         related_name='review_author')
     title = models.CharField(max_length=254, null=False, blank=False)
     content = models.TextField(null=True, blank=True)
-    rating = models.IntegerField(null=False, blank=False, default=0)
+    rating = models.IntegerField(null=False, blank=False)
     date = models.DateTimeField(auto_now_add=True)
     times_updated = models.IntegerField(
         null=False,

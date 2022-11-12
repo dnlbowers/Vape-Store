@@ -99,8 +99,28 @@
                                 {{review.user}}
                             {% endfor %}
                         {% else %}
-                            <p class="text-center">Be the first to review this product</p>
-                            {{form|crispy}}
+                            {% if user.is_authenticated %}
+                                <p class="text-center font-weight-bold">Be the first to review this product</p>
+                                <form id="review-form" class="mx-auto" action="" method="POST">
+                                    {% csrf_token %}
+                                    {{ review_form.title|as_crispy_field }}
+                                    {{ review_form.content|as_crispy_field }}
+                                    {{ review_form.rating|as_crispy_field }}
+                                    <input type="hidden" name="product_id" value="{{ product.id }}">
+                                    <input type="hidden" name="user_id" value="{{ user.id }}">
+
+                                    <div class="text-right">
+                                        <button type="submit" class="btn btn-success text-light text-uppercase">Submit Review</button>
+                                    </div>                                    
+                                </form>
+                            {% else %}
+                                <p class="text-center font-weight-bold">Sign in and be the first to review this product</p>
+                                <div class="text-right">
+                                    <a class="btn btn-info m-2" href="{% url 'account_signup' %}">Create an account</a> or 
+                                    <a class="btn btn-sucess m-2" href="{% url 'account_login' %}">login</a> 
+                                </div>
+                            {% endif %}
+                            
                         {% endif %}
                     </div>
                 </div>

@@ -7,7 +7,7 @@ class ProductReviewsAdmin(admin.ModelAdmin):
     baseModel = ProductReviews
     list_display = (
         'product',
-        'user',
+        'author',
         'title',
         'content',
         'rating',
