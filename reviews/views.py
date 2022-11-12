@@ -11,6 +11,7 @@ class CreateReview(View):
     """"
     View to create a review from the product details page
     """
+
     def get(self, request, product_id):
         product = get_object_or_404(AllProducts, id=product_id)
         form = ProductReviewForm()

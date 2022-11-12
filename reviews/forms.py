@@ -23,5 +23,5 @@ class ProductReviewForm(ModelForm):
                 placeholder = placeholders[field]
             self.fields[field].widget.attrs['placeholder'] = placeholder
             self.fields[field].widget.attrs[
-                    'aria-label'] = placeholder
+                'aria-label'] = placeholder
             self.fields[field].label = False

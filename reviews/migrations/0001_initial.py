@@ -18,15 +18,51 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='ProductReviews',
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('title', models.CharField(max_length=254)),
-                ('content', models.TextField(blank=True, null=True)),
-                ('rating', models.IntegerField(default=0)),
-                ('date', models.DateTimeField(auto_now_add=True)),
-                ('times_updated', models.IntegerField(default=0, editable=False)),
-                ('previous_rating', models.IntegerField(blank=True, default=0, editable=False, null=True)),
-                ('product', models.ForeignKey(blank=True, editable=False, null=True, on_delete=django.db.models.deletion.CASCADE, related_name='product_reviewed', to='products.allproducts')),
-                ('user', models.ForeignKey(blank=True, editable=False, null=True, on_delete=django.db.models.deletion.SET_NULL, related_name='review_author', to=settings.AUTH_USER_MODEL)),
+                ('id',
+                 models.BigAutoField(
+                     auto_created=True,
+                     primary_key=True,
+                     serialize=False,
+                     verbose_name='ID')),
+                ('title',
+                 models.CharField(
+                     max_length=254)),
+                ('content',
+                 models.TextField(
+                     blank=True,
+                     null=True)),
+                ('rating',
+                 models.IntegerField(
+                     default=0)),
+                ('date',
+                 models.DateTimeField(
+                     auto_now_add=True)),
+                ('times_updated',
+                 models.IntegerField(
+                     default=0,
+                     editable=False)),
+                ('previous_rating',
+                 models.IntegerField(
+                     blank=True,
+                     default=0,
+                     editable=False,
+                     null=True)),
+                ('product',
+                 models.ForeignKey(
+                     blank=True,
+                     editable=False,
+                     null=True,
+                     on_delete=django.db.models.deletion.CASCADE,
+                     related_name='product_reviewed',
+                     to='products.allproducts')),
+                ('user',
+                 models.ForeignKey(
+                     blank=True,
+                     editable=False,
+                     null=True,
+                     on_delete=django.db.models.deletion.SET_NULL,
+                     related_name='review_author',
+                     to=settings.AUTH_USER_MODEL)),
             ],
             options={
                 'verbose_name_plural': 'Reviews',

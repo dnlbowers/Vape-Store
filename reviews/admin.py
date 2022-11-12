@@ -1,7 +1,7 @@
 from django.contrib import admin
 from .models import ProductReviews
 
-# Register your models here.
+
 @admin.register(ProductReviews)
 class ProductReviewsAdmin(admin.ModelAdmin):
     baseModel = ProductReviews

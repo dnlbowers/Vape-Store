@@ -2,7 +2,7 @@
    "python.linting.pylintEnabled": false,
    "python.linting.enabled": true,
    "python.linting.pep8Enabled": true,
-   "python.linting.flake8Enabled": true,
+   "python.linting.flake8Enabled": false,
    "python.terminal.activateEnvironment": false,
    "python.formatting.autopep8Path": "autopep8",
    "python.linting.flake8Path": "flake8",
@@ -39,5 +39,6 @@
       "django-html": "html"
    },
    "python.linting.banditEnabled": false,
+   "python.linting.pycodestyleEnabled": true,
 
 }
