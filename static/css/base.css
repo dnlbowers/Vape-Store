@@ -4,9 +4,27 @@
     box-sizing: border-box;
 }
 
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
 /* -------------------------------------------------------------- General CSS rules */
 .bg-black {
     background-color: #000;
+}
+
+.border-red {
+    border: 2px solid #dc3545;
+}
+
+.border-top-red {
+    border-top: 2px solid #dc3545;
+}
+
+.border-bottom-red {
+    border-bottom: 2px solid #dc3545;
 }
 
 /* -------------------------------------------------------------- bootstrap toasts taken from boutique ado */
@@ -130,6 +148,7 @@ textarea:focus, textarea:active {
     cursor: pointer;
 }
 
+/* -------------------------------------------------------------- General button styling */
 
 .btn {
     border-radius: 0!important;
@@ -149,13 +168,7 @@ textarea:focus, textarea:active {
 /* -------------------------------------------------------------- footer styling */
 
 footer {
-    margin-top: -175px;
-
-}
-
-
-.footer-section {
-    min-height: 175px;
+    margin-top: auto;
 }
 
 /* -------------------------------------------------------------- Media Queries */
@@ -176,6 +189,10 @@ footer {
     .hero-image-container {
         height: 210px;
     }
+}
+
+@media (min-width: 576px) {
+    /* for footer */
 }
 
 @media (min-width: 600px) {

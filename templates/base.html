@@ -1,6 +1,6 @@
 {% load static %}
 <!doctype html>
-<html lang="en" class="h-100">
+<html lang="en">
     <head>
         {% comment %} {% include 'includes/page/head.html' %} {% endcomment %}
         {% block meta %}
@@ -44,8 +44,8 @@
     <body class="d-flex flex-column">
         <header class="container-fluid px-0">
             {% include 'includes//components/navbar.html' %}
-            <div class="bg-black border-bottom border-danger text-warning text-center py-3 font-weight-bold">
-                Free International Delivery on all orders over €{{free_shipping_qualifier}}
+            <div class="bg-black border-top-red border-bottom-red">
+                <p class=" text-warning text-center py-3 font-weight-bold m-0"> Free International Delivery on all orders over €{{free_shipping_qualifier}}</p>
             </div>
         </header>
         
