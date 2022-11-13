@@ -59,6 +59,7 @@
             <div class="col-7">
                 <p class="my-2 font-weight-bold">{{ ordered_product.product.name }}</p>
                 <p class="my-2 small text-muted">Qty: {{ ordered_product.quantity }}</p>
+                <p class="small text-muted">@ €{{ ordered_product.product.price }} each</p>
             </div>
             <div class="col-3 text-right">
                 <p class="my-2 small">€{{ ordered_product.product.price | calc_subtotal:ordered_product.quantity }}</p>

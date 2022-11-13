@@ -15,7 +15,7 @@ class Profile(View):
         completed_orders = profile.orders.all()
 
         context = {
-            'form': form,
+            'details_form': form,
             'completed_orders': completed_orders,
             'on_profile_page': True,
         }
@@ -37,7 +37,7 @@ class Profile(View):
         else:
             messages.error(self.request, 'Update failed. Please try again.')
             context = {
-                'form': form,
+                'details_form': form,
                 'completed_orders': completed_orders,
                 'on_profile_page': True,
             }

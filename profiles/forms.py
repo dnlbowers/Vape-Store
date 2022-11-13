@@ -30,7 +30,7 @@ class UserProfileForm(forms.ModelForm):
         placeholders = {
             'default_delivery_name': 'Full Name',
             'default_email': 'Email Address',
-            'default_phone_number': 'Phone Number',
+            'default_phone_number': '(int. code) Phone Number',
             'default_postcode': 'Postal Code',
             'default_town_or_city': 'Town or City',
             'default_street_address1': 'Street Address 1',
