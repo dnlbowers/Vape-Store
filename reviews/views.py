@@ -16,7 +16,7 @@ class CreateReview(View):
         product = get_object_or_404(AllProducts, id=product_id)
         form = ProductReviewForm()
         context = {
-            'form': form,
+            'review_form': form,
             'product': product,
         }
         return render(request, 'products/product_detail.html', context)

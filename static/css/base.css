@@ -126,13 +126,20 @@ textarea:focus, textarea:active {
     transition: box-shadow 500ms ease!important;
 }
 
+.pointer {
+    cursor: pointer;
+}
+
 
 .btn {
     border-radius: 0!important;
-    border: 1px solid #000!important;
-    box-shadow: 0 1px 3px 0 #000;
     text-transform: uppercase;
     font-weight: bold;
+}
+
+.btn-boarder {
+    border: 1px solid #000!important;
+    box-shadow: 0 1px 3px 0 #000;
 }
 
 .btn-success, .btn-danger {

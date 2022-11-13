@@ -1,0 +1,23 @@
+<div class="accordion list-group" id="reviewAccordion">
+    {% for review in reviews %}
+        <div class="card rounded-0">
+            <a class="list-group-item list-group-item-action card-header pointer bg-black text-light collapsed" data-toggle="collapse" data-target="#collapse{{ review.id }}" aria-expanded="false" aria-controls="collapse{{ review.id }}">
+                <div class="d-flex w-100 justify-content-between" id="reviewTitle-{{ review.id }}">
+                    <h3 class="mb-1">
+                            {{review.title}}                                          
+                    </h3>
+                    <span class="justify-content-end text-warning font-weight-bold"><i class="fa-solid fa-star"></i> {{ review.rating }}/5</span>
+                </div>
+                <p class="mb-1">{{ review.content|truncatewords:15 }}....</p>
+                <small class="text-muted">Reviewed by {{ review.author }}</small>
+                <small class="float-right text-muted">{{ review.date }}</small>                                            
+            </a>
+            <div id="collapse{{ review.id }}" class="collapse" aria-labelledby="reviewTitle-{{ review.id }}" data-parent="#reviewAccordion">
+                <div class="card-body">
+                    {{ review.content }}
+                </div>
+            </div>
+        </div>
+    
+    {% endfor %}
+</div>
