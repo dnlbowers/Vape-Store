@@ -19,11 +19,13 @@ class CreateReview(View):
             'review_form': form,
             'product': product,
         }
-        return render(request, 'products/product_detail.html', context)
+        return render(request, 'reviews/create-review-page.html', context)
 
     def post(self, request, product_id):
         product = get_object_or_404(AllProducts, id=product_id)
         redirect_url = request.POST.get('redirect_url')
+        if redirect_url != f'/products/{product_id}/':
+            redirect_url = f'/products/{product_id}/'
         form = ProductReviewForm(request.POST)
         if form.is_valid():
             review = form.save(commit=False)

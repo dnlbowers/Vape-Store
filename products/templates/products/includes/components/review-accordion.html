@@ -8,7 +8,7 @@
                     </h3>
                     <span class="justify-content-end text-warning font-weight-bold"><i class="fa-solid fa-star"></i> {{ review.rating }}/5</span>
                 </div>
-                <p class="mb-1">{{ review.content|truncatewords:15 }}....</p>
+                <p class="mb-1">{{ review.content|truncatewords:7 }}....</p>
                 <small class="text-muted">Reviewed by {{ review.author }}</small>
                 <small class="float-right text-muted">{{ review.date }}</small>                                            
             </a>
