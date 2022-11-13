@@ -1,6 +1,6 @@
-# **Vapor Deli** (review after project and add where needed)
+# **Vapor Town** (review after project and add where needed)
 
-Vapor deli is a fictional B2C vape supply store design and implemented with Django, Python, HTML and CSS. IIt aims to provide and easy to use interface where customers can browse all items at once or sort into specified categories. The site provides search functionality as well as an inbuilt stock system to ensure users cannot buy items which are not currently in stock, and once signed in allows the user to save an address to their profile for easy and convenient checkout.
+Vapor Town is a fictional B2C vape supply store design and implemented with Django, Python, HTML and CSS. IIt aims to provide and easy to use interface where customers can browse all items at once or sort into specified categories. The site provides search functionality as well as an inbuilt stock system to ensure users cannot buy items which are not currently in stock, and once signed in allows the user to save an address to their profile for easy and convenient checkout.
 
 **RESPONSIVE SCREENSHOT TO GO HERE**
 
@@ -26,7 +26,7 @@ The minimum must have product categories for a shops in the genre are: -
 * Batteries.
 * Chargers.
 
-### ***Opportunities:***
+### ***Opportunities***
 
 To provide a fully functioning E-commerce platform the following opportunities are available: -
 
@@ -68,7 +68,7 @@ Ability to edit order until status set to processing | 1 | 5
 ---------------------- | --- | ---  
 Totals | 138 | 139
 
-### ***Scope:***
+### ***Scope***
 
 Due to the time given for this project and the required grade criteria There will definitely need to be some trade offs in design/development process. Using the agile methodology I will be reviewing my progress weekly and adding, adapting or removing features as applicable to the project at the review portion after each sprint in order to ensure a MVP is delivered by the deadline.
 
@@ -115,7 +115,7 @@ To avoid scope creep I have used the MoSCoW method to divided the above opportun
   * Multiple currencies.
   * Generate sales reports.
 
-### ***Structure:***
+### ***Structure***
 
 Using the the above as a guide I have created a flow diagram to help me visualize how the user will navigate through the core functionality of the web store. During the Agile process there may be some minor tweaks to this pre planned user journey but the overall structure will remain the same. **TO ADD MAILING LIST TO FLOW CHART and give each path a final check**
 
@@ -197,8 +197,14 @@ The only user story in this Epic is related to the initial deployment, this is a
   * ...**Add a promotion** so that I can **add new promotions to the store.**
   * ...**manually manage the stock levels** so that I can **input received purchase orders and ensure that the stock levels are accurate in case of discrepancies or damages.**
 
-### **Skeleton:**
+##### **EPIC 7 - Product Reviews:**
+
+* As a **Shopper** I want to be able to...
+  * ...**Leave a review** so that I can **share my opinion of a product and leave a star rating.**
+  * ...**View reviews of a product** so that I can **see what other people think of a product.**
+
+### **Skeleton**
 
 #### **Wireframes:**
 
-#### **Database Schema**:
+#### **Database Schema:**
