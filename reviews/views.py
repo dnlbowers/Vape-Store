@@ -35,6 +35,9 @@ class CreateReview(View):
             messages.success(request, 'Review successfully added!')
             return redirect(redirect_url)
         else:
-            messages.error(request, 'Failed to add review. Please ensure the \
-                form is valid.')
-            return redirect(redirect_url)
+
+            messages.error(request, 'Failed to add review. Please ensure \
+                the form title is valid and you have entered a rating \
+                    between 1 and 5.')
+
+            return redirect('add_review', product_id)

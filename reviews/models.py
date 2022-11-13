@@ -1,4 +1,5 @@
 from django.db import models
+from django.core.validators import MaxValueValidator, MinValueValidator
 from django.contrib.auth.models import User
 from products.models import AllProducts
 
@@ -24,7 +25,9 @@ class ProductReviews(models.Model):
         related_name='review_author')
     title = models.CharField(max_length=254, null=False, blank=False)
     content = models.TextField(null=True, blank=True)
-    rating = models.IntegerField(null=False, blank=False)
+    rating = models.PositiveIntegerField(
+        null=False, blank=False, validators=[
+            MinValueValidator(1), MaxValueValidator(5)])
     date = models.DateTimeField(auto_now_add=True)
     times_updated = models.IntegerField(
         null=False,

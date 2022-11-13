@@ -33,5 +33,13 @@
         </div>
         <input type="hidden" name="redirect_url" value="{{ request.path }}">                                   
     </form>
+    <div class="text-center mt-2 p-3">
+        <a href="{% url 'product_detail' product.id %}">
+            <span>
+                <i class="fas fa-chevron-left fa-sm"></i>
+            </span>
+            Back to product details
+        </a>
+    </div>
 </main>
 {% endblock  %}
