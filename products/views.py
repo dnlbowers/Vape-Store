@@ -14,7 +14,7 @@ class AllProductsView(generic.ListView):
     model = AllProducts
     template_name = 'products/products.html'
     context_object_name = 'products'
-    paginate_by = 4
+    paginate_by = 6
     sort = None
     current_ordering = None
     query = None

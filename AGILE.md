@@ -74,3 +74,13 @@ This sprint is aimed at getting the user profile up and running and then adding 
 * Added [bug fix ticket PVS-53](https://dnlbowers.atlassian.net/browse/PVS-53) to this sprint mid sprint as it was a quick fix and I stumbled across it while working on the reviews.
 * Added [bug fix ticket PVS-52](https://dnlbowers.atlassian.net/browse/PVS-52) to this sprint mid sprint because it was blocking the completion of [PVS-20](https://dnlbowers.atlassian.net/browse/PVS-20).
 * Changed review related stories into their own [epic](https://dnlbowers.atlassian.net/browse/PVS-54) as I am planning to add edit and delete features to them.
+* Finished sprint 4 days early. I over estimated the story points and was able to complete the tasks ahead if time. This could also be attributed to having more time this week to spend on the project.
+
+### Sprint 7 Notes
+
+![Sprint 7](/docs/agile/sprintscreenshots/sprint7.jpg)
+
+With the deadline fast approaching, th aim for this sprint is to focus on the remaining features and bug fixes. I may have over stretched the amount of stories however I have prioritized them and will focus on the most important ones first. the remaining will going in the next sprint. I may also have over stated my confidence in how quickly I will work some of these stories and given them a user point value which is too low. I will have to see how I go and adjust in the new sprint if required.
+
+* This sprint began on 13/11/2022 at 19:38 and is due to finish at 20/11/2022 by the same time.
+* 

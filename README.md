@@ -151,6 +151,7 @@ The only user story in this Epic is related to the initial deployment, this is a
   * ...**Leave a review** so that I can **share my opinion of a product and leave a star rating.**
   * ...**View reviews of a product** so that I can **see what other people think of a product.**
   * ...**Identify any promotions that are available** so that I can **take advantage of them and obtain the best value for money possible.**
+  * ...**See clearly when something goes wrong on the site** so that I can **correct any errors and continue with my purchase.**
 
 ##### **EPIC 3 - Registration and User Accounts:**
 
@@ -200,8 +201,17 @@ The only user story in this Epic is related to the initial deployment, this is a
 ##### **EPIC 7 - Product Reviews:**
 
 * As a **Shopper** I want to be able to...
-  * ...**Leave a review** so that I can **share my opinion of a product and leave a star rating.**
+  * ...**Leave a review** so that I can **share my opinion of a product and leave a rating.**
   * ...**View reviews of a product** so that I can **see what other people think of a product.**
+  * ...**Edit my reviews of a product** so that I can **update my public opinion should it ever change**
+  * ...**delete my reviews of a product** so that I can **remove previous reviews should I see fit**.
+
+##### **EPIC 8 - Marketing:**
+
+* As a **business owner** I want to be able to...
+  * ...**Send promotional emails** so that I can **promote new products and offers to my customers.**
+  * ...**Set up a social media page** so that I can **promote my business and products to the global market.**
+  * ...**Increase my search engine ranking** so that I can **increase the number of visitors to my site.**
 
 ### **Skeleton**
 
