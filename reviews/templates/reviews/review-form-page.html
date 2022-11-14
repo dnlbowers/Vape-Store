@@ -7,7 +7,7 @@
 
 {% block content %}
 <main class="container mx-auto my-5">
-    <h2 class="text-center text-capitalize my-3">review {{ product.name }}</h2>
+    <h2 class="text-center text-capitalize my-3">{% if edit_review %}Edit your review of {% endif %}review {{ product.name }}</h2>
     <div class="mx-auto text-center my-3">
         {% if product.image %}
             <a href="{% url 'product_detail' product.id %}" class="text-center mx-auto">
@@ -29,7 +29,7 @@
         <input type="hidden" name="user_id" value="{{ user.id }}">
 
         <div class="text-right">
-            <button type="submit" class="btn btn-success text-light text-uppercase">Submit Review</button>
+            <button type="submit" class="btn btn-success text-light text-uppercase">{% if edit_review%}Edit{% else %}Submit{% endif %} Review</button>
         </div>
         <input type="hidden" name="redirect_url" value="{{ request.path }}">                                   
     </form>

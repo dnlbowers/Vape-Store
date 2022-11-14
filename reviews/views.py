@@ -51,6 +51,7 @@ class EditReview(View):
     """
 
     def get(self, request, product_id, review_id):
+        user = request.user
         review = get_object_or_404(ProductReviews, id=review_id)
         product = get_object_or_404(AllProducts, id=product_id)
         form = ProductReviewForm(instance=review)
@@ -60,19 +61,19 @@ class EditReview(View):
             'review': review,
             'product': product,
             'edit_review': edit_review,
+            'user': user,
         }
         return render(request, 'reviews/review-form-page.html', context)
 
     def post(self, request, product_id, review_id):
         review = get_object_or_404(ProductReviews, id=review_id)
-        product = get_object_or_404(AllProducts, id=product_id)
         updated_review = ProductReviewForm(request.POST, instance=review)
         redirect_url = request.POST.get('redirect_url')
         if redirect_url != f'/products/{review.product.id}/':
             redirect_url = f'/products/{review.product.id}/'
         form = ProductReviewForm(instance=review)
         if updated_review.is_valid():
-            
+
             review.save()
             messages.success(request, 'Review successfully updated!')
             return redirect(redirect_url)
