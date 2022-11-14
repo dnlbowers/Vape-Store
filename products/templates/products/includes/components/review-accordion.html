@@ -16,6 +16,9 @@
                 <div class="card-body">
                     {{ review.content }}
                 </div>
+                <div>
+                    <a href="{% url 'edit_review' review.id %}">Edit</a>
+                </div>
             </div>
         </div>
     

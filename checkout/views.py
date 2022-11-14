@@ -153,7 +153,7 @@ class Checkout(View):
 
 class CheckoutSuccess(View):
 
-    template = 'checkout/checkout_success.html'
+    template = 'checkout/checkout-success.html'
 
     def get(self, request, order_number, *args, **kwargs):
         save_info = request.session.get('save_info')

@@ -77,7 +77,7 @@ class CompletedOrders(View):
             f'This is a past confirmation for order no. {order_number}.'
             'A confirmation email was sent at the time of purchase.')
 
-        template = 'checkout/checkout_success.html'
+        template = 'checkout/checkout-success.html'
         context = {
             'order': order,
             'from_profile': True

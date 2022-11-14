@@ -107,4 +107,4 @@ class ProductDetails(View):
         }
         return render(
             request,
-            'products/product_detail.html', context)
+            'products/product-detail.html', context)

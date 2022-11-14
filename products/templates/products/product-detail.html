@@ -96,10 +96,10 @@
                             {% if user.is_authenticated %}
                                 <p class="text-center"><a href="{% url 'add_review' product.id %}">Leave your own review</a></p>
                             {% else %}
-                                <p class="text-center font-weight-bold">Sign up/in to review this product</p>
+                                <p class="text-center font-weight-bold">Sign in to review this product</p>
                                 <div class="text-center">
                                     <a class="btn btn-info m-2" href="{% url 'account_signup' %}">Create an account</a> or 
-                                    <a class="btn btn-sucess m-2" href="{% url 'account_login' %}">login</a> 
+                                    <a class="btn btn-success m-2" href="{% url 'account_login' %}">login</a> 
                                 </div>
                             {% endif %}
 
@@ -116,7 +116,7 @@
                                 <p class="text-center font-weight-bold">Sign in and be the first to review this product</p>
                                 <div class="text-right">
                                     <a class="btn btn-info m-2" href="{% url 'account_signup' %}">Create an account</a> or 
-                                    <a class="btn btn-sucess m-2" href="{% url 'account_login' %}">login</a> 
+                                    <a class="btn btn-success m-2" href="{% url 'account_login' %}">login</a> 
                                 </div>
                             {% endif %}
                             

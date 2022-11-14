@@ -15,7 +15,7 @@ class ProductReviews(models.Model):
         null=True,
         blank=True,
         on_delete=models.CASCADE,
-        # editable=False,
+        editable=False,
         related_name='product_reviewed')
     author = models.ForeignKey(
         User,
@@ -58,15 +58,17 @@ class ProductReviews(models.Model):
         Override the original save method to increase the
         products accumulated rating and number of reviews
         """
-        self.times_updated += 1
-        if self.times_updated <= 1:
+
+        if self.times_updated < 1:
             self.product.number_of_ratings += 1
             self.product.accumulative_rating += self.rating
-            self.previous_rating = self.rating
+
         else:
             self.product.accumulative_rating -= self.previous_rating
             self.product.accumulative_rating += self.rating
-            self.previous_rating = self.rating
+
+        self.previous_rating = self.rating
+        self.times_updated += 1
 
         self.product.save()
         super().save(*args, **kwargs)
