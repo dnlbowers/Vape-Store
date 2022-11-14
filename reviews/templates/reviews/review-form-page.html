@@ -20,7 +20,7 @@
         {% endif %}
     </div>
 
-    <form id="review-form" class="mx-auto" action="{% url 'add_review' product.id %}" method="POST">
+    <form id="review-form" class="mx-auto" action="{% if edit_review %}{% url 'edit_review' product.id review.id %}{% else %}{% url 'add_review' product.id %}{% endif %}" method="POST">
         {% csrf_token %}
         {{ review_form.title|as_crispy_field }}
         {{ review_form.content|as_crispy_field }}

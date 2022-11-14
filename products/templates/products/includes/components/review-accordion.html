@@ -17,7 +17,7 @@
                     {{ review.content }}
                 </div>
                 <div>
-                    <a href="{% url 'edit_review' review.id %}">Edit</a>
+                    <a href="{% url 'edit_review' product.id review.id %}">Edit</a>
                 </div>
             </div>
         </div>

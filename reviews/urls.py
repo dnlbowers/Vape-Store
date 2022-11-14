@@ -7,7 +7,7 @@ urlpatterns = [
         views.CreateReview.as_view(),
         name='add_review'),
     path(
-        'edit/<int:pk>/',
+        'product/<product_id>/edit-review/<review_id>/',
         views.EditReview.as_view(),
         name='edit_review'),
 ]
