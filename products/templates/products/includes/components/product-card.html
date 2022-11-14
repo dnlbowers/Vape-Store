@@ -1,10 +1,11 @@
-<div class="card h-100">
+<!-- Border danger temp-->
+<div class="card border border-danger h-100 m-0 p-3">
     {% if product.image %}
         <a href="{% url 'product_detail' product.id %}" class="text-center">
             <img src="{{ product.image.url }}" class="card-img-top img-fluid mx-auto my-3 w-75" alt="{{ product.name }}">
         </a>
     {% else %}
-        <a href="{% url 'product_detail' product.id %}">
+        <a href="{% url 'product_detail' product.id %}" class="text-center">
             <img src="{{ MEDIA_URL }}noimage.png" alt="No image available for {{ product.name }}" class="card-img-top img-fluid mx-auto my-3 w-75">
         </a>
     {% endif %}
