@@ -83,3 +83,31 @@ class EditReview(View):
                     as a whole number between 1 and 5 (no decimals).')
             return redirect('edit_review', review_id)
 
+
+class DeleteReview(View):
+    """"
+    View to delete a review from the product details page
+    """
+
+    # def get(self, request, product_id, review_id):
+    #     review = get_object_or_404(ProductReviews, id=review_id)
+    #     product = get_object_or_404(AllProducts, id=product_id)
+    #     redirect_url = request.POST.get('redirect_url')
+    #     if redirect_url != f'/products/{review.product.id}/':
+    #         redirect_url = f'/products/{review.product.id}/'
+    #     user = request.user
+    #     context = {
+    #         'review': review,
+    #         'product': product,
+    #         'user': user,
+    #     }
+    #     return redirect(redirect_url)
+
+    def post(self, request, product_id, review_id):
+        review = get_object_or_404(ProductReviews, id=review_id)
+        redirect_url = request.POST.get('redirect_url')
+        if redirect_url != f'/products/{review.product.id}/':
+            redirect_url = f'/products/{review.product.id}/'
+        review.delete()
+        messages.success(request, 'Review successfully deleted!')
+        return redirect(redirect_url)

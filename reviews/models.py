@@ -72,3 +72,15 @@ class ProductReviews(models.Model):
 
         self.product.save()
         super().save(*args, **kwargs)
+
+    def delete(self, *args, **kwargs):
+        """"
+        Override the original delete method to decrease the
+        products accumulated rating and number of reviews
+        """
+
+        self.product.current_rating -= self.rating
+        self.product.number_of_ratings -= 1
+        self.product.accumulative_rating -= self.rating
+        self.product.save()
+        super().delete(*args, **kwargs)

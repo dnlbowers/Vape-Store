@@ -18,8 +18,11 @@
                 </div>
                 {% if user == review.author or user.is_superuser %}
                     <div class="text-right">
-                        <a class="m-3" href="{% url 'edit_review' product.id review.id %}">Edit</a>  |  
-                        <a class="text-danger m-3" href="">Delete</a>
+                        <a class="m-3 btn btn-link" href="{% url 'edit_review' product.id review.id %}">Edit</a>  |  
+                        <form class="d-inline" action="{% url 'delete_review' product.id review.id %}" method="post">
+                            {% csrf_token %}
+                            <button class="btn btn-link text-danger m-3" type="submit" href="">Delete</button>
+                        </form>
                     </div>
                 {% endif %}
             </div>
