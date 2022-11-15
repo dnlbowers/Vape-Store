@@ -1,19 +1,75 @@
-<!-- Border danger temp-->
-<div class="card border border-danger h-100 m-2 p-1">
-    {% if product.image %}
-        <a href="{% url 'product_detail' product.id %}" class="text-center">
-            <img src="{{ product.image.url }}" class="card-img-top img-fluid mx-auto my-3 w-75" alt="{{ product.name }}">
-        </a>
-    {% else %}
-        <a href="{% url 'product_detail' product.id %}" class="text-center">
-            <img src="{{ MEDIA_URL }}noimage.png" alt="No image available for {{ product.name }}" class="card-img-top img-fluid mx-auto my-3 w-75">
-        </a>
-    {% endif %}
-    <div class="card-body">
-        <h5 class="card-title">{{ product.name }}</h5>
+<div class="card border h-100 m-2 p-1">
+
+    <div class="h-50 card-img-top text-center">
+
+        {% if product.image %}
+
+            <a href="{% url 'product_detail' product.id %}">
+                <img class="img-fluid h-100"  src="{{ product.image.url }}" alt="{{ product.name }}">
+            </a>
+
+        {% else %}
+
+            <a href="{% url 'product_detail' product.id %}" >
+                <img class="img-fluid h-100" src="{{ MEDIA_URL }}noimage.png" alt="No image available for {{ product.name }}">
+            </a>
+
+        {% endif %}
+
     </div>
-    <div class="card-text">
-        <p>&euro;{{ product.price }}</p>
-        {{ product.current_rating }}
+
+    <div class="card-body h-50">
+
+        <h3 class="card-title">{{ product.name }}</h3>
+
+        <p class="card-text font-weight-bold">
+
+            &euro;{{ product.price }}
+
+            <span class="card-text float-right">
+
+                <i class="fa-solid fa-star fa-sm text-warning font-weight-bold"></i> 
+                {{ product.current_rating }}/5
+
+            </span>
+        </p>
+        <p class="text-right m-1">{{product.stock_level}} in stock</p>
+        <div class="row">
+            <div class="col">
+                <form class="mt-5"  action="{% url 'add_to_cart' product.id %}" method="POST">
+                    {% csrf_token %}
+                    <div class="form-row">
+                        <div class="col-12">
+                            <!-- write logic for product with options and add drop down -->
+                        </div>
+                        <div class="col-12">
+                            <div class="form-group d-flex justify-content-start">
+                                <div class="input-group w-50 input-group-{{ product.id }}">
+                                    <div class="input-group-prepend">
+                                        <button class="btn btn-danger rounded-left border border-dark decrease-qty decrease-qty-{{ product.id }}" data-product-id="{{ product.id}}">
+                                            <span>
+                                                <i class="fas fa-minus fa-sm"></i>
+                                            </span>
+                                        </button>
+                                    </div>
+                                    <input type="number" name="quantity" class=" text-center form-control border border-dark qty-input current-qty-pid-{{ product.id }}" value="1" min="1" max="{{ product.stock_level }}" data-product-id="{{ product.id }}">
+                                    <div class="input-group-append">
+                                        <button class="btn btn-success rounded-right border border-dark increase-qty increase-qty-{{ product.id }}" data-product-id="{{ product.id}}">
+                                            <span>
+                                                <i class="fas fa-plus fa-sm"></i>
+                                            </span>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                        </div>
+                        
+                        <input type="hidden" name="redirect_url" value="{{ request.path }}">
+                    </div>
+                </form>
+            </div>
+        </div>
+        
     </div>
 </div> 

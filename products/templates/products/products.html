@@ -3,7 +3,7 @@
 
 {% block content %}
 
-    <main class="container no-gutters mx-auto px-2">
+    <main class="container-fluid no-gutters mx-auto px-2">
 
         <div class="row no-gutters">
 
@@ -23,11 +23,11 @@
                 
                 <p class="text-muted mt-3 text-center text-md-left">
                     
-                    {% if search_results or current_categories or current_ordering or current_subcategories == 'None' %}
+                    {% if search_query or current_categories or current_ordering or current_subcategories == 'None_None' %}
                         <span class="small"><a href="{% url 'products' %}">Back to All Products</a> | </span>
                     {% endif %}
                     
-                    Showing {{ products|length }} Product{%if products|length > 1 %}s{%endif%}{% if search_results %} related to <strong>"{{ search_results }}"</strong>{% endif %}
+                    Showing {{ products|length }} Product{%if products|length > 1 %}s{%endif%}{% if search_query %} related to <strong>"{{ search_query }}"</strong>{% else %} of {{ product_count }}{% endif %}
                 
                 </p>
             </div>
@@ -82,4 +82,5 @@
 
         })
     </script>
+    {% include 'products/includes/scripts/qty-selector-btn-scripts.html' %}
 {% endblock %}
