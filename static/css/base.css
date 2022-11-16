@@ -113,12 +113,6 @@ body {
     }
 }
 
-/* -------------------------------------------------------------- product card styling */
-
-/* .card {
-    min-width: 250px !important;
-} */
-
 /* -------------------------------------------------------------- General form styling */
 
 input, textarea {
@@ -220,27 +214,34 @@ footer {
 }
 
 @media (min-width: 980px) {
+
     .hero-image-container {
         height: 390px;
     }
 }
 
 @media (min-width: 1150px) {
+
     .hero-image-container {
         height: 440px;
     }
+
 }
 
 @media (min-width: 1290px) {
+
     .hero-image-container {
         height: 500px;
     }
+
 }
 
 @media (min-width: 1290px) {
+
     .hero-image-container {
         height: 500px;
     }
+
 }
 
 @media (min-width: 1500px) {
@@ -250,6 +251,10 @@ footer {
     }
     .hero-animation {
         max-width: 1841px;
+    }
+
+    .container{
+        max-width: 1400px!important;
     }
 }
 
