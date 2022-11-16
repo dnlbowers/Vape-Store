@@ -3,7 +3,7 @@
 
 {% block content %}
 
-    <main class="container no-gutters mx-auto px-2">
+    <main class="container-fluid no-gutters mx-auto px-2">
 
         <div class="row no-gutters">
 
@@ -34,18 +34,31 @@
 
         </div>
 
-        <div class="row my-3 no-gutters">
-            <div class="card-deck">
-                
+        <div class="row w-100 my-3 no-gutters">
+            <div class="col-sm-1"></div>
+            <div class="col-sm-10">
+                <div class="row w-100 card-deck m-0 no-gutters">
                 {% for product in products %}
-                
-                    <div class="col-sm-6 col-md-6 col-lg-4 col-xl-3 p-0 my-2">
+                    {% if forloop.counter|divisibleby:5 %}
+                    <div class="col-sm-1"></div>
+                        <div class="row w-100 card-deck m-0 no-gutters">
+                            <div class="col-sm-1"></div>
+                    {% endif %}
+
+                    <div class="col-sm-6 col-lg-4 col-xl-3 mt-1 ">
+                        
                         {% include "./includes/components/product-card.html" %} 
+                        
                     </div>
-                
-                    {% endfor %}
+                    {% if forloop.counter|divisibleby:4 %}
+                </div>   
+            </div>
+                {% endif %}
+
+            {% endfor %}
+            <div class="col-sm-1"></div>      
+            </div>
             
-                </div>
         </div>
         {% include "./includes/components/pagination.html" %}    
     </main>
