@@ -1,4 +1,4 @@
-<div class="card border-red h-100 m-2 p-1 bg-black text-light rounded-lg">
+<div class="card border-red m-2 p-1 bg-black text-light rounded-lg">
 
     <div class="h-50 card-img-top text-center pt-3 px-2">
 
@@ -18,7 +18,7 @@
 
     </div>
 
-    <div class="card-body h-50 d-flex flex-column justify-content-between pt-3">
+    <div class="card-body h-25 d-flex flex-column justify-content-between pt-3">
 
         <h3 class="card-title text-center text-warning font-weight-bold text-capitalize">{{ product.name }}</h3>
 
@@ -29,44 +29,41 @@
 
         </p>
         <p class="text-center font-weight-bold">&euro;{{ product.price }}</p>
-        <div class="row card-footer">
-            <div class="col">
-                <form class=""  action="{% url 'add_to_cart' product.id %}" method="POST">
-                    {% csrf_token %}
-                    <div class="form-row">
-                        <div class="col-12">
-                            <!-- write logic for product with options and add drop down -->
-                        </div>
-                        <div class="col-12">
-                            <p class="text-center mb-1"><label>Qty:</label></p>
-                            <div class="form-group d-flex justify-content-center">
-                                <div class="input-group w-50 input-group-{{ product.id }}">
-                                    <div class="input-group-prepend">
-                                        <button class="btn btn-danger rounded-left border border-dark decrease-qty decrease-qty-{{ product.id }}" data-product-id="{{ product.id}}">
-                                            <span>
-                                                <i class="fas fa-minus fa-sm"></i>
-                                            </span>
-                                        </button>
-                                    </div>
-                                    <input type="number" name="quantity" class=" text-center form-control border border-dark qty-input current-qty-pid-{{ product.id }}" value="1" min="1" max="{{ product.stock_level }}" data-product-id="{{ product.id }}">
-                                    <div class="input-group-append">
-                                        <button class="btn btn-success rounded-right border border-dark increase-qty increase-qty-{{ product.id }}" data-product-id="{{ product.id}}">
-                                            <span>
-                                                <i class="fas fa-plus fa-sm"></i>
-                                            </span>
-                                        </button>
-                                    </div>
+        <p class="m-1"><span class="small text-muted"><i class="fas fa-tag mr-1"></i> {{ product.sub_category.friendly_name }}</span><span class="float-right"><i class="fa-regular fa-square-check fa-sm text-success"></i> {{product.stock_level}} in stock</span></p>
+    </div>
+    <div class="row card-footer">
+        <div class="col">
+            <form class=""  action="{% url 'add_to_cart' product.id %}" method="POST">
+                {% csrf_token %}
+                <div class="form-row">
+                    <div class="col-12">
+                        <div class="d-inline float-left form-group d-flex justify-content-start">
+                            <div class="input-group input-group-{{ product.id }}">
+                                <div class="input-group-prepend">
+                                    <button class="btn btn-danger rounded-left border border-dark decrease-qty decrease-qty-{{ product.id }}" data-product-id="{{ product.id}}">
+                                        <span>
+                                            <i class="fas fa-minus fa-sm"></i>
+                                        </span>
+                                    </button>
+                                </div>
+                                <input type="number" name="quantity" class=" text-center form-control border border-dark qty-input current-qty-pid-{{ product.id }}" value="1" min="1" max="{{ product.stock_level }}" data-product-id="{{ product.id }}">
+                                <div class="input-group-append">
+                                    <button class="btn btn-success rounded-right border border-dark increase-qty increase-qty-{{ product.id }}" data-product-id="{{ product.id}}">
+                                        <span>
+                                            <i class="fas fa-plus fa-sm"></i>
+                                        </span>
+                                    </button>
                                 </div>
                             </div>
-                            <p class="text-center m-1"><i class="fa-regular fa-square-check fa-sm text-success"></i> {{product.stock_level}} in stock</p>
-                            <div class="text-center"><button class="btn btn-success" type="submit">Add to Cart</button></div>
                         </div>
-                        
-                        <input type="hidden" name="redirect_url" value="{{ request.path }}">
+                        <button class="float-right btn btn-success" type="submit">Add to Cart</button>
                     </div>
-                </form>
-            </div>
+                    
+                    <input type="hidden" name="redirect_url" value="{{ request.path }}">
+                </div>
+            </form>
         </div>
-        
     </div>
+        
+    
 </div> 
