@@ -10,13 +10,13 @@
     <nav class="col-12 col-lg-4">
         <ul class="list-inline list-unstyled text-right my-auto">
             <li class="dropdown list-inline-item">
-                <a class="nav-link text-reset" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <a class="nav-link text-reset" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" aria-label="user account options">
                     <div class="text-center">
                         <i class="fas fa-user fa-lg"></i>
                     </div>
                     <p class="my-0">Account</p>
                 </a>
-                <div class="dropdown-menu border-0" aria-labelledby="user-options">
+                <div class="dropdown-menu border-0">
                     {% include 'includes/components/account-dropdown.html'%}
                 </div>
             </li>
@@ -43,7 +43,7 @@
     <div class="row mx-auto w-100">
         <div class="col-4 col-lg-0 my-auto d-flex justify-content-start">
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="fa-solid fa-bars fa-lg text-light"</span>
+                <span class="fa-solid fa-bars fa-lg text-light"></span>
             </button>
         </div>
         <div class="col-4 col-lg-0 my-auto">
@@ -56,13 +56,13 @@
         <div class="col-4 col-lg-0 my-auto p-0">
             <ul class="list-inline list-unstyled my-auto d-flex d-lg-none my-auto justify-content-end">
                 <li class="dropdown list-inline-item">
-                    <a class="nav-link px-1 py-3 text-reset" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <a class="nav-link px-1 py-3 text-reset" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"  aria-label="user account options">
                         <div class="text-center">
                             <i class="fas fa-user fa-lg"></i>
                         </div>
                         <p class="my-0">Account</p>
                     </a>
-                    <div class="dropdown-menu border-0" aria-labelledby="user-options">
+                    <div class="dropdown-menu border-0">
                         {% include 'includes/components/account-dropdown.html'%}
                     </div>
                 </li>
@@ -83,6 +83,7 @@
                 </li>
             </ul>
         </div>
+    </div>
     
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mx-auto text-centre text-light">
@@ -90,10 +91,10 @@
                 <a class="nav-link text-reset" href="{% url 'products' %}">All Products<span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle text-reset" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <a class="nav-link dropdown-toggle text-reset" href="#" id="hardwareDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     Hardware
                 </a>
-                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <div class="dropdown-menu" aria-labelledby="hardwareDropdown">
                     <a class="dropdown-item" href="{% url 'products' %}?subcategory=mod">Mods</a>
                     <div class="dropdown-divider"></div>
                     <a class="dropdown-item" href="{% url 'products' %}?subcategory=disposable">Disposables</a>
@@ -104,10 +105,10 @@
                 </div>
             </li>
             <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle text-reset" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <a class="nav-link dropdown-toggle text-reset" href="#" id="VapeJuiceDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     VapeJuice
                 </a>
-                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <div class="dropdown-menu" aria-labelledby="VapeJuiceDropdown">
                     <a class="dropdown-item" href="{% url 'products' %}?subcategory=vapejuice">Pre-mixed</a>
                     <div class="dropdown-divider"></div>
                     <a class="dropdown-item" href="{% url 'products' %}?subcategory=baseliquid">Base Liquids</a>
@@ -120,8 +121,6 @@
             <li class="nav-item">
                 <a class="nav-link text-reset" href="{% url 'products' %}?subcategory=battery,accessory">Accessories</a>
             </li>
-
         </ul>
-        
     </div>
 </nav>

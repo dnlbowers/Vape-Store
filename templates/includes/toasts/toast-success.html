@@ -43,7 +43,7 @@
         <div class="row no-gutters">
             <div class="col  bg-black">
                 <p class="text-light text-right pt-2 px-3">
-                    <span class="font-weight-bold">Cart Total:</span> €{{ cart_total|floatformat:2 }}</span> {% if free_shipping_delta > 0 %}<span class="small">(Exc. delivery) </span>{% endif %}
+                    <span class="font-weight-bold">Cart Total: €{{ cart_total|floatformat:2 }}</span> {% if free_shipping_delta > 0 %}<span class="small">(Exc. delivery) </span>{% endif %}
                 </p>
                 <div class="text-right m-2">
                     <a href="{% url 'view_cart' %}" class="btn btn-warning rounded-0">

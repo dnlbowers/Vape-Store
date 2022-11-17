@@ -113,6 +113,11 @@ body {
     }
 }
 
+/* -------------------------------------------------------------- product card styling */
+.card {
+    width: 300px!important;
+}
+
 /* -------------------------------------------------------------- General form styling */
 
 input, textarea {

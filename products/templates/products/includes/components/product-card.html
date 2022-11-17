@@ -29,7 +29,7 @@
 
         </p>
         <p class="text-center font-weight-bold">&euro;{{ product.price }}</p>
-        <div class="row">
+        <div class="row card-footer">
             <div class="col">
                 <form class=""  action="{% url 'add_to_cart' product.id %}" method="POST">
                     {% csrf_token %}
