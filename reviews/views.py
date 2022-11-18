@@ -26,8 +26,8 @@ class CreateReview(View):
     def post(self, request, product_id):
         product = get_object_or_404(AllProducts, id=product_id)
         redirect_url = request.POST.get('redirect_url')
-        if redirect_url != f'/products/{product_id}/':
-            redirect_url = f'/products/{product_id}/'
+        if redirect_url != f'/products/{product.slug}/':
+            redirect_url = f'/products/{product.slug}/'
         form = ProductReviewForm(request.POST)
         if form.is_valid():
             review = form.save(commit=False)
@@ -69,8 +69,8 @@ class EditReview(View):
         review = get_object_or_404(ProductReviews, id=review_id)
         updated_review = ProductReviewForm(request.POST, instance=review)
         redirect_url = request.POST.get('redirect_url')
-        if redirect_url != f'/products/{review.product.id}/':
-            redirect_url = f'/products/{review.product.id}/'
+        if redirect_url != f'/products/{review.product.slug}/':
+            redirect_url = f'/products/{review.product.slug}/'
         form = ProductReviewForm(instance=review)
         if updated_review.is_valid():
 
@@ -106,8 +106,8 @@ class DeleteReview(View):
     def post(self, request, product_id, review_id):
         review = get_object_or_404(ProductReviews, id=review_id)
         redirect_url = request.POST.get('redirect_url')
-        if redirect_url != f'/products/{review.product.id}/':
-            redirect_url = f'/products/{review.product.id}/'
+        if redirect_url != f'/products/{review.product.slug}/':
+            redirect_url = f'/products/{review.product.slug}/'
         review.delete()
         messages.success(request, 'Review successfully deleted!')
         return redirect(redirect_url)

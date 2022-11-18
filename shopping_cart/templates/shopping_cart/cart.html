@@ -33,11 +33,11 @@
                                 <tr>
                                     <td class="p-3 w-25">
                                         {% if item.product.image %}
-                                            <a  href="{% url 'product_detail' item.product.id %}">
+                                            <a  href="{% url 'product_detail' item.product.slug %}">
                                                 <img class="img-fluid rounded" href="{% url 'product_detail' item.product.id %}" src="{{ item.product.image.url }}" alt="{{ item.product.name }}">
                                             </a>
                                         {% else %}
-                                            <a  href="{% url 'product_detail' item.product.id %}">
+                                            <a  href="{% url 'product_detail' item.product.slug %}">
                                                 <img src="{{ MEDIA_URL }}noimage.png" alt="No image available for {{ item.product.name }}" class="img-fluid mt-0">
                                             </a>
                                         {% endif %}

@@ -48,7 +48,7 @@
     {% for ordered_product in order.lineitems.all %}
         <div class="row">
             <div class="col-2 my-2">
-                <a href="{% url 'product_detail' ordered_product.product.id %}">
+                <a href="{% url 'product_detail' ordered_product.product.slug %}">
                     {% if ordered_product.product.image %}
                         <img class="w-100" src="{{ ordered_product.product.image.url }}" alt="{{ ordered_product.product.name }}">
                     {% else %}

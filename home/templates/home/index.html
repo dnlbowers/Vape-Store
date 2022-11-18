@@ -1,45 +1,49 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <section class="hero-image-container bg-black  border-bottom border-danger">
+    <div class="hero-image-container bg-black border-bottom-red">
         <div class="hero-animation index-hero-image mx-auto">
         </div>
         
-    </section>
+    </div>
     <main class="container-fluid no-gutters mx-auto">
 
         <div class="row mx-auto mt-3">
-            <div class="col-sm-6">
+            <div class="col-lg-1"></div>
+            <div class="col-sm-6 col-lg-5">
                 <a href="{% url 'products' %}?category=vaping_devices" class="card shadow p-3 mx-auto my-3 rounded w-100">
                     <div class="card-body">
                         Vaping Devices
                     </div>
                 </a>
             </div>
-            <div class="col-sm-6">
+            <div class="col-sm-6 col-lg-5">
                 <a href="{% url 'products' %}?category=e_liquids" class="card shadow p-3 mx-auto my-3 rounded w-100">
                     <div class="card-body">
                         E-liquids
                     </div>
                 </a>
             </div>
+            <div class="col-lg-1"></div>
         </div>
 
-        <div class="row mx-auto mb-3 mt-sm-2">
-            <div class="col-sm-6">
+        <div class="row mx-auto mb-3">
+            <div class="col-lg-1"></div>
+            <div class="col-sm-6 col-lg-5">
                 <a href="{% url 'products' %}?category=tanks_and_coils" class="card shadow p-3 mx-auto my-3 rounded w-100">
                     <div class="card-body">
                         Tanks and coils
                     </div>
                 </a>
             </div>
-            <div class="col-sm-6">
+            <div class="col-sm-6 col-lg-5">
                 <a href="{% url 'products' %}?category=batteries_and_accessories" class="card shadow p-3 mx-auto my-3 rounded w-100">
                     <div class="card-body">
                         Batteries and Accessories
                     </div>
                 </a>
             </div>
+            <div class="col-lg-1"></div>
         </div>
     </main>
 {% endblock %}

@@ -4,13 +4,13 @@
 
         {% if product.image %}
 
-            <a href="{% url 'product_detail' product.id %}">
+            <a href="{% url 'product_detail' product.slug %}">
                 <img class="img-fluid h-100 rounded"  src="{{ product.image.url }}" alt="{{ product.name }}">
             </a>
 
         {% else %}
 
-            <a href="{% url 'product_detail' product.id %}" >
+            <a href="{% url 'product_detail' product.slug %}" >
                 <img class="img-fluid h-100" src="{{ MEDIA_URL }}noimage.png" alt="No image available for {{ product.name }}">
             </a>
 
@@ -37,7 +37,7 @@
                 {% csrf_token %}
                 <div class="form-row">
                     <div class="col-12">
-                        <div class="d-inline float-left form-group d-flex justify-content-start">
+                        <div class="d-inline float-left form-group">
                             <div class="input-group input-group-{{ product.id }}">
                                 <div class="input-group-prepend">
                                     <button class="btn btn-danger rounded-left border border-dark decrease-qty decrease-qty-{{ product.id }}" data-product-id="{{ product.id}}">
