@@ -21,6 +21,7 @@ class AllProductsView(generic.ListView):
     categories = None
     subcategories = None
     product_count = 0
+    clearnace = None
 
     def get_ordering(self, *args, **kwargs):
 
@@ -46,6 +47,9 @@ class AllProductsView(generic.ListView):
             ordering = self.get_ordering(self)
             # direction = self.get_direction(self)
             self.current_ordering = ordering
+
+            if 'clearance' in self.request.GET:
+                products = products.filter(has_sale=True)
 
             if 'category' in self.request.GET:
                 self.categories = self.request.GET['category'].split(',')
@@ -83,6 +87,7 @@ class AllProductsView(generic.ListView):
         context['search_query'] = self.query
         context['current_categories'] = self.categories
         context['current_subcategories'] = self.subcategories
+        context['clearnace'] = self.clearnace
         return context
 
 

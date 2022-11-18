@@ -74,7 +74,7 @@ class AllProducts(PolymorphicModel):
         on_delete=models.SET_NULL)
     sku = models.CharField(max_length=254, null=True, blank=True, unique=True)
     name = models.CharField(max_length=254)
-    slug = models.SlugField(max_length=254, null=True, blank=True)
+    slug = models.SlugField(max_length=254, null=True, blank=True, unique=True)
     brand = models.CharField(max_length=254, null=True, blank=True)
     description = models.TextField()
     current_rating = models.DecimalField(
