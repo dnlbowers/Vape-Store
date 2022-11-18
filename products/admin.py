@@ -1,28 +1,109 @@
 from django.contrib import admin
-from polymorphic.admin import PolymorphicParentModelAdmin, PolymorphicChildModelAdmin, PolymorphicChildModelFilter
+from polymorphic.admin import (
+    PolymorphicParentModelAdmin,
+    PolymorphicChildModelAdmin,
+    PolymorphicChildModelFilter)
 from django_summernote.admin import SummernoteModelAdmin
-from .models import CategoryGroupings, SubCategory, Mods, PreBuiltCoils, AllProducts, DisposableVapes, Tanks, VapeJuice, BaseLiquids, NicotineShots, FlavorConcentrates, Batteries, Accessories, BaseLiquids
+from .models import (
+    CategoryGroupings,
+    SubCategory,
+    Mods,
+    PreBuiltCoils,
+    AllProducts,
+    DisposableVapes,
+    Tanks,
+    VapeJuice,
+    BaseLiquids,
+    NicotineShots,
+    FlavorConcentrates,
+    Batteries,
+    Accessories,
+    BaseLiquids)
 
-# if time come back and create promo sale functions i,e 10% off all products
 
-
-def start_sale(self, request, queryset):
+def start_sale(self, request, selected_products):
     """"
     Call back function to start a sale in when called from the admin panel
-    created to avoid having to manually change the price of each product
+    created to avoid having to manually change the has_sale boolean of
+    each product
     """
 
-    queryset.update(has_sale=True)
-    for obj in queryset:
-        obj.price = obj.discounted_price
-        obj.save()
+    selected_products.update(has_sale=True)
+    for product in selected_products:
+        product.price = product.discounted_price
+        product.save()
 
 
-def end_sale(self, request, queryset):
-    queryset.update(has_sale=False)
-    for obj in queryset:
-        obj.price = obj.rrp
-        obj.save()
+def end_sale(self, request, selected_products):
+    """"
+    Call back function to end a sale in when called from the admin panel
+    created to avoid having to manually change the has_sale boolean of
+    each product
+    """
+
+    selected_products.update(has_sale=False)
+    for product in selected_products:
+        product.price = product.rrp
+        product.save()
+
+
+def reduce_price_by_10_percent(self, request, selected_products):
+    """"
+    Call back function to reucred the selected products sale by 10%
+    of the RRP so mass sales can be done
+    """
+
+    selected_products.update(has_sale=True)
+    for product in selected_products:
+        product.disounted_price = product.rrp * 0.9
+        product.save()
+
+
+def reduce_price_by_20_percent(self, request, selected_products):
+    """"
+    Call back function to reucred the selected products sale by 20%
+    of the RRP so mass sales can be done
+    """
+
+    selected_products.update(has_sale=True)
+    for product in selected_products:
+        product.price = product.rrp * 0.8
+        product.save()
+
+
+def reduce_price_by_30_percent(self, request, selected_products):
+    """"
+    Call back function to reucred the selected products sale by 30%
+    of the RRP so mass sales can be done
+    """
+    selected_products.update(has_sale=True)
+    for product in selected_products:
+        product.price = product.rrp * 0.7
+        product.save()
+
+
+def reduce_price_by_40_percent(self, request, selected_products):
+    """"
+    Call back function to reucred the selected products sale by 40%
+    of the RRP so mass sales can be done
+    """
+
+    selected_products.update(has_sale=True)
+    for product in selected_products:
+        product.price = product.rrp * 0.6
+        product.save()
+
+
+def reduce_price_by_50_percent(self, request, selected_products):
+    """"
+    Call back function to reucred the selected products sale by 40%
+    of the RRP so mass sales can be done
+    """
+
+    selected_products.update(has_sale=True)
+    for product in selected_products:
+        product.price = product.rrp * 0.5
+        product.save()
 
 
 class ModelAChildAdmin(PolymorphicChildModelAdmin, SummernoteModelAdmin):
@@ -46,13 +127,35 @@ class DisposableVapesAdmin(ModelAChildAdmin):
         'image')
     search_fields = ('name', 'brand', 'description', 'category__name')
     prepopulated_fields = {'slug': ('name',)}
-    actions = ['add_sale', 'remove_sale']
+    actions = [
+        'add_sale',
+        'remove_sale',
+        'reduce_by_10_percent',
+        'reduce_by_20_percent',
+        'reduce_by_30_percent',
+        'reduce_by_40_percent',
+        'reduce_by_50_percent']
 
     def add_sale(self, request, queryset):
         start_sale(self, request, queryset)
 
     def remove_sale(self, request, queryset):
         end_sale(self, request, queryset)
+
+    def reduce_by_10_percent(self, request, queryset):
+        reduce_price_by_10_percent(self, request, queryset)
+
+    def reduce_by_20_percent(self, request, queryset):
+        reduce_price_by_20_percent(self, request, queryset)
+
+    def reduce_by_30_percent(self, request, queryset):
+        reduce_price_by_30_percent(self, request, queryset)
+
+    def reduce_by_40_percent(self, request, queryset):
+        reduce_price_by_40_percent(self, request, queryset)
+
+    def reduce_by_50_percent(self, request, queryset):
+        reduce_price_by_50_percent(self, request, queryset)
 
 
 @admin.register(Mods)
@@ -71,13 +174,35 @@ class ModsAdmin(ModelAChildAdmin):
         'image')
     search_fields = ('name', 'brand', 'description', 'category__name')
     prepopulated_fields = {'slug': ('name',)}
-    actions = ['add_sale', 'remove_sale']
+    actions = [
+        'add_sale',
+        'remove_sale',
+        'reduce_by_10_percent',
+        'reduce_by_20_percent',
+        'reduce_by_30_percent',
+        'reduce_by_40_percent',
+        'reduce_by_50_percent']
 
     def add_sale(self, request, queryset):
         start_sale(self, request, queryset)
 
     def remove_sale(self, request, queryset):
         end_sale(self, request, queryset)
+
+    def reduce_by_10_percent(self, request, queryset):
+        reduce_price_by_10_percent(self, request, queryset)
+
+    def reduce_by_20_percent(self, request, queryset):
+        reduce_price_by_20_percent(self, request, queryset)
+
+    def reduce_by_30_percent(self, request, queryset):
+        reduce_price_by_30_percent(self, request, queryset)
+
+    def reduce_by_40_percent(self, request, queryset):
+        reduce_price_by_40_percent(self, request, queryset)
+
+    def reduce_by_50_percent(self, request, queryset):
+        reduce_price_by_50_percent(self, request, queryset)
 
 
 @admin.register(Tanks)
@@ -96,13 +221,35 @@ class TanksAdmin(ModelAChildAdmin):
         'image')
     search_fields = ('name', 'brand', 'description',)
     prepopulated_fields = {'slug': ('name',)}
-    actions = ['add_sale', 'remove_sale']
+    actions = [
+        'add_sale',
+        'remove_sale',
+        'reduce_by_10_percent',
+        'reduce_by_20_percent',
+        'reduce_by_30_percent',
+        'reduce_by_40_percent',
+        'reduce_by_50_percent']
 
     def add_sale(self, request, queryset):
         start_sale(self, request, queryset)
 
     def remove_sale(self, request, queryset):
         end_sale(self, request, queryset)
+
+    def reduce_by_10_percent(self, request, queryset):
+        reduce_price_by_10_percent(self, request, queryset)
+
+    def reduce_by_20_percent(self, request, queryset):
+        reduce_price_by_20_percent(self, request, queryset)
+
+    def reduce_by_30_percent(self, request, queryset):
+        reduce_price_by_30_percent(self, request, queryset)
+
+    def reduce_by_40_percent(self, request, queryset):
+        reduce_price_by_40_percent(self, request, queryset)
+
+    def reduce_by_50_percent(self, request, queryset):
+        reduce_price_by_50_percent(self, request, queryset)
 
 
 @admin.register(PreBuiltCoils)
@@ -121,13 +268,35 @@ class PreBuiltCoilsAdmin(ModelAChildAdmin):
         'image')
     search_fields = ('name', 'brand', 'description', 'category__name')
     prepopulated_fields = {'slug': ('name',)}
-    actions = ['add_sale', 'remove_sale']
+    actions = [
+        'add_sale',
+        'remove_sale',
+        'reduce_by_10_percent',
+        'reduce_by_20_percent',
+        'reduce_by_30_percent',
+        'reduce_by_40_percent',
+        'reduce_by_50_percent']
 
     def add_sale(self, request, queryset):
         start_sale(self, request, queryset)
 
     def remove_sale(self, request, queryset):
         end_sale(self, request, queryset)
+
+    def reduce_by_10_percent(self, request, queryset):
+        reduce_price_by_10_percent(self, request, queryset)
+
+    def reduce_by_20_percent(self, request, queryset):
+        reduce_price_by_20_percent(self, request, queryset)
+
+    def reduce_by_30_percent(self, request, queryset):
+        reduce_price_by_30_percent(self, request, queryset)
+
+    def reduce_by_40_percent(self, request, queryset):
+        reduce_price_by_40_percent(self, request, queryset)
+
+    def reduce_by_50_percent(self, request, queryset):
+        reduce_price_by_50_percent(self, request, queryset)
 
 
 @admin.register(Batteries)
@@ -146,13 +315,35 @@ class BatteriesAdmin(ModelAChildAdmin):
         'image')
     search_fields = ('name', 'brand', 'description', 'category__name')
     prepopulated_fields = {'slug': ('name',)}
-    actions = ['add_sale', 'remove_sale']
+    actions = [
+        'add_sale',
+        'remove_sale',
+        'reduce_by_10_percent',
+        'reduce_by_20_percent',
+        'reduce_by_30_percent',
+        'reduce_by_40_percent',
+        'reduce_by_50_percent']
 
     def add_sale(self, request, queryset):
         start_sale(self, request, queryset)
 
     def remove_sale(self, request, queryset):
         end_sale(self, request, queryset)
+
+    def reduce_by_10_percent(self, request, queryset):
+        reduce_price_by_10_percent(self, request, queryset)
+
+    def reduce_by_20_percent(self, request, queryset):
+        reduce_price_by_20_percent(self, request, queryset)
+
+    def reduce_by_30_percent(self, request, queryset):
+        reduce_price_by_30_percent(self, request, queryset)
+
+    def reduce_by_40_percent(self, request, queryset):
+        reduce_price_by_40_percent(self, request, queryset)
+
+    def reduce_by_50_percent(self, request, queryset):
+        reduce_price_by_50_percent(self, request, queryset)
 
 
 @admin.register(VapeJuice)
@@ -171,13 +362,35 @@ class VapeJuiceAdmin(ModelAChildAdmin):
         'image')
     search_fields = ('name', 'brand', 'description', 'category__name')
     prepopulated_fields = {'slug': ('name',)}
-    actions = ['add_sale', 'remove_sale']
+    actions = [
+        'add_sale',
+        'remove_sale',
+        'reduce_by_10_percent',
+        'reduce_by_20_percent',
+        'reduce_by_30_percent',
+        'reduce_by_40_percent',
+        'reduce_by_50_percent']
 
     def add_sale(self, request, queryset):
         start_sale(self, request, queryset)
 
     def remove_sale(self, request, queryset):
         end_sale(self, request, queryset)
+
+    def reduce_by_10_percent(self, request, queryset):
+        reduce_price_by_10_percent(self, request, queryset)
+
+    def reduce_by_20_percent(self, request, queryset):
+        reduce_price_by_20_percent(self, request, queryset)
+
+    def reduce_by_30_percent(self, request, queryset):
+        reduce_price_by_30_percent(self, request, queryset)
+
+    def reduce_by_40_percent(self, request, queryset):
+        reduce_price_by_40_percent(self, request, queryset)
+
+    def reduce_by_50_percent(self, request, queryset):
+        reduce_price_by_50_percent(self, request, queryset)
 
 
 @admin.register(BaseLiquids)
@@ -196,13 +409,35 @@ class BaseLiquidsAdmin(ModelAChildAdmin):
         'image')
     search_fields = ('name', 'brand', 'description', 'category__name')
     prepopulated_fields = {'slug': ('name',)}
-    actions = ['add_sale', 'remove_sale']
+    actions = [
+        'add_sale',
+        'remove_sale',
+        'reduce_by_10_percent',
+        'reduce_by_20_percent',
+        'reduce_by_30_percent',
+        'reduce_by_40_percent',
+        'reduce_by_50_percent']
 
     def add_sale(self, request, queryset):
         start_sale(self, request, queryset)
 
     def remove_sale(self, request, queryset):
         end_sale(self, request, queryset)
+
+    def reduce_by_10_percent(self, request, queryset):
+        reduce_price_by_10_percent(self, request, queryset)
+
+    def reduce_by_20_percent(self, request, queryset):
+        reduce_price_by_20_percent(self, request, queryset)
+
+    def reduce_by_30_percent(self, request, queryset):
+        reduce_price_by_30_percent(self, request, queryset)
+
+    def reduce_by_40_percent(self, request, queryset):
+        reduce_price_by_40_percent(self, request, queryset)
+
+    def reduce_by_50_percent(self, request, queryset):
+        reduce_price_by_50_percent(self, request, queryset)
 
 
 @admin.register(NicotineShots)
@@ -221,13 +456,35 @@ class NicotineShots(ModelAChildAdmin):
         'image')
     search_fields = ('name', 'brand', 'description', 'category__name')
     prepopulated_fields = {'slug': ('name',)}
-    actions = ['add_sale', 'remove_sale']
+    actions = [
+        'add_sale',
+        'remove_sale',
+        'reduce_by_10_percent',
+        'reduce_by_20_percent',
+        'reduce_by_30_percent',
+        'reduce_by_40_percent',
+        'reduce_by_50_percent']
 
     def add_sale(self, request, queryset):
         start_sale(self, request, queryset)
 
     def remove_sale(self, request, queryset):
         end_sale(self, request, queryset)
+
+    def reduce_by_10_percent(self, request, queryset):
+        reduce_price_by_10_percent(self, request, queryset)
+
+    def reduce_by_20_percent(self, request, queryset):
+        reduce_price_by_20_percent(self, request, queryset)
+
+    def reduce_by_30_percent(self, request, queryset):
+        reduce_price_by_30_percent(self, request, queryset)
+
+    def reduce_by_40_percent(self, request, queryset):
+        reduce_price_by_40_percent(self, request, queryset)
+
+    def reduce_by_50_percent(self, request, queryset):
+        reduce_price_by_50_percent(self, request, queryset)
 
 
 @admin.register(FlavorConcentrates)
@@ -246,13 +503,35 @@ class FlavorConcentrates(ModelAChildAdmin):
         'image')
     search_fields = ('name', 'brand', 'description', 'category__name')
     prepopulated_fields = {'slug': ('name',)}
-    actions = ['add_sale', 'remove_sale']
+    actions = [
+        'add_sale',
+        'remove_sale',
+        'reduce_by_10_percent',
+        'reduce_by_20_percent',
+        'reduce_by_30_percent',
+        'reduce_by_40_percent',
+        'reduce_by_50_percent']
 
     def add_sale(self, request, queryset):
         start_sale(self, request, queryset)
 
     def remove_sale(self, request, queryset):
         end_sale(self, request, queryset)
+
+    def reduce_by_10_percent(self, request, queryset):
+        reduce_price_by_10_percent(self, request, queryset)
+
+    def reduce_by_20_percent(self, request, queryset):
+        reduce_price_by_20_percent(self, request, queryset)
+
+    def reduce_by_30_percent(self, request, queryset):
+        reduce_price_by_30_percent(self, request, queryset)
+
+    def reduce_by_40_percent(self, request, queryset):
+        reduce_price_by_40_percent(self, request, queryset)
+
+    def reduce_by_50_percent(self, request, queryset):
+        reduce_price_by_50_percent(self, request, queryset)
 
 
 @admin.register(Accessories)
@@ -273,13 +552,35 @@ class AccessoriesAdmin(ModelAChildAdmin):
         'image')
     search_fields = ('name', 'brand', 'description', 'category__name')
     prepopulated_fields = {'slug': ('name',)}
-    actions = ['add_sale', 'remove_sale']
+    actions = [
+        'add_sale',
+        'remove_sale',
+        'reduce_by_10_percent',
+        'reduce_by_20_percent',
+        'reduce_by_30_percent',
+        'reduce_by_40_percent',
+        'reduce_by_50_percent']
 
     def add_sale(self, request, queryset):
         start_sale(self, request, queryset)
 
     def remove_sale(self, request, queryset):
         end_sale(self, request, queryset)
+
+    def reduce_by_10_percent(self, request, queryset):
+        reduce_price_by_10_percent(self, request, queryset)
+
+    def reduce_by_20_percent(self, request, queryset):
+        reduce_price_by_20_percent(self, request, queryset)
+
+    def reduce_by_30_percent(self, request, queryset):
+        reduce_price_by_30_percent(self, request, queryset)
+
+    def reduce_by_40_percent(self, request, queryset):
+        reduce_price_by_40_percent(self, request, queryset)
+
+    def reduce_by_50_percent(self, request, queryset):
+        reduce_price_by_50_percent(self, request, queryset)
 
 
 @admin.register(AllProducts)
@@ -308,13 +609,35 @@ class AllProductsAdmin(PolymorphicParentModelAdmin):
         'image')
     search_fields = ('name', 'brand', 'description', 'category__name')
     prepopulated_fields = {'slug': ('name',)}
-    actions = ['add_sale', 'remove_sale']
+    actions = [
+        'add_sale',
+        'remove_sale',
+        'reduce_by_10_percent',
+        'reduce_by_20_percent',
+        'reduce_by_30_percent',
+        'reduce_by_40_percent',
+        'reduce_by_50_percent']
 
     def add_sale(self, request, queryset):
         start_sale(self, request, queryset)
 
     def remove_sale(self, request, queryset):
         end_sale(self, request, queryset)
+
+    def reduce_by_10_percent(self, request, queryset):
+        reduce_price_by_10_percent(self, request, queryset)
+
+    def reduce_by_20_percent(self, request, queryset):
+        reduce_price_by_20_percent(self, request, queryset)
+
+    def reduce_by_30_percent(self, request, queryset):
+        reduce_price_by_30_percent(self, request, queryset)
+
+    def reduce_by_40_percent(self, request, queryset):
+        reduce_price_by_40_percent(self, request, queryset)
+
+    def reduce_by_50_percent(self, request, queryset):
+        reduce_price_by_50_percent(self, request, queryset)
 
 
 @admin.register(CategoryGroupings)
