@@ -95,7 +95,7 @@ class AllProducts(PolymorphicModel):
         null=True,
         blank=True)
     discounted_price = models.DecimalField(
-        max_digits=6, decimal_places=2, null=True, blank=True)
+        max_digits=6, decimal_places=2, null=False, blank=False)
 
     def __str__(self):
         return self.name
@@ -122,6 +122,8 @@ class AllProducts(PolymorphicModel):
 
         if self.stock_level <= 0:
             self.in_stock = False
+        else:
+            self.in_stock = True
 
         self.slug = slugify(self.name)
 
