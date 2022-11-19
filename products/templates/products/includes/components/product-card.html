@@ -35,7 +35,7 @@
             <p class="text-center font-weight-bold">&euro;{{ product.price }}</p>
         </div>
     </div>
-    <div class="row card-footer">
+    <div class="row card-footer no-gutters">
         <div class="col">
             <p class="mx-1 mb-lg-5"><span class="small text-muted"><i class="fas fa-tag mr-1"></i> {{ product.sub_category.friendly_name }}</span><span class="float-right">{% if product.in_stock %}<i class="fa-regular fa-square-check fa-sm text-success"></i> {{product.stock_level}} in stock{% else %}<i class="fa-regular fa-rectangle-xmark fa-sm text-danger"></i> Out of Stock</span>{% endif %}</p>
 
@@ -62,7 +62,7 @@
                                 </div>
                             </div>
                         </div>
-                        <button class="float-right btn btn-success" type="submit">Add to Cart</button>
+                        <button class="float-right btn btn-success" type="submit" {% if not product.in_stock %}disabled{% endif %}>Add to Cart</button>
                     </div>
                     
                     <input type="hidden" name="redirect_url" value="{{ request.path }}">

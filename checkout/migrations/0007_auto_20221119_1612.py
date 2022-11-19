@@ -14,14 +14,34 @@ class Migration(migrations.Migration):
         migrations.AlterField(
             model_name='order',
             name='order_status',
-            field=models.CharField(choices=[('Received', 'Order Received'), ('Processing', 'Order Processing'), ('Dispatched', 'Order Dispatched'), ('On Hold', 'On Hold')], default='Received', max_length=20),
+            field=models.CharField(
+                choices=[
+                    ('Received',
+                     'Order Received'),
+                    ('Processing',
+                     'Order Processing'),
+                    ('Dispatched',
+                     'Order Dispatched'),
+                    ('On Hold',
+                     'On Hold')],
+                default='Received',
+                max_length=20),
         ),
         migrations.CreateModel(
             name='InternalOrderNotes',
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('notes', models.TextField()),
-                ('order', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='checkout.order')),
+                ('id',
+                 models.BigAutoField(
+                     auto_created=True,
+                     primary_key=True,
+                     serialize=False,
+                     verbose_name='ID')),
+                ('notes',
+                 models.TextField()),
+                ('order',
+                 models.ForeignKey(
+                     on_delete=django.db.models.deletion.CASCADE,
+                     to='checkout.order')),
             ],
         ),
     ]

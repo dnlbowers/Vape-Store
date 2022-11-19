@@ -5,6 +5,7 @@ from .models import Order, OrderLineItem, InternalOrderNotes
 class OrderLineItemAdminInline(admin.TabularInline):
     model = OrderLineItem
     readonly_fields = ('lineitem_total',)
+    exclude = ('previous_quantity',)
 
 
 class InternalNotesAdmin(admin.StackedInline):

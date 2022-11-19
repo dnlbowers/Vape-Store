@@ -122,7 +122,7 @@ class Checkout(View):
                         product.save()
                     else:
                         messages.error(request, (
-                            "Sorry, we are currently out of stock for {0}."
+                            "Sorry, we are currently out of stock of {0}."
                             "Please remove this item from your cart and try "
                             "again later.").format(product.name))
                         order.delete()

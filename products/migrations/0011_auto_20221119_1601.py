@@ -13,12 +13,19 @@ class Migration(migrations.Migration):
         migrations.AlterField(
             model_name='allproducts',
             name='discounted_price',
-            field=models.DecimalField(decimal_places=2, default=10.0, max_digits=6),
+            field=models.DecimalField(
+                decimal_places=2,
+                default=10.0,
+                max_digits=6),
             preserve_default=False,
         ),
         migrations.AlterField(
             model_name='allproducts',
             name='slug',
-            field=models.SlugField(blank=True, max_length=254, null=True, unique=True),
+            field=models.SlugField(
+                blank=True,
+                max_length=254,
+                null=True,
+                unique=True),
         ),
     ]

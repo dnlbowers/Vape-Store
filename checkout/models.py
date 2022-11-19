@@ -1,8 +1,9 @@
 import uuid
-
 from django.db import models
 from django.db.models import Sum
 from decimal import Decimal
+from django.contrib import messages
+
 from django.conf import settings
 from django_countries.fields import CountryField
 
@@ -21,7 +22,10 @@ class Order(models.Model):
         ('Processing', 'Order Processing'),
         ('Dispatched', 'Order Dispatched'),
         ('On Hold', 'On Hold'),
-
+        ('Extra Due', 'Extra to be Paid'),
+        ('Pending Partial Refund', 'Pending Partial Refund'),
+        ('Cancelled Pending Refund', 'Cancelled Pending Refund'),
+        ('Cancelled', 'Cancelled'),
     )
 
     SHIPPING_METHOD = (
@@ -84,7 +88,7 @@ class Order(models.Model):
         default='Standard'
     )
     order_status = models.CharField(
-        max_length=20,
+        max_length=50,
         null=False,
         blank=False,
         choices=ORDER_STATUS,
@@ -136,8 +140,22 @@ class Order(models.Model):
             self.order_number = self._generate_order_number()
         super().save(*args, **kwargs)
 
+    def delete(self):
+        """
+        If order gets deleted all lineitems are deleted first
+        and order stock get added back to the product
+        """
+        for lineitem in self.lineitems.all():
+            product = AllProducts.objects.get(id=lineitem.product.id)
+            product.stock_level += lineitem.quantity
+            product.save()
+        super().delete()
+
 
 class InternalOrderNotes(models.Model):
+    """
+    Model to store internal notes for orders
+    """
     order = models.ForeignKey(Order, on_delete=models.CASCADE)
     date = models.DateTimeField(auto_now_add=True)
     notes = models.TextField()
@@ -172,13 +190,46 @@ class OrderLineItem(models.Model):
         Override the original save method to set the line item total
         and update the order total.
         """
-        # if self.previous_quantity != self.quantity:
-        #     self.lineitem_total = self.product.price * self.quantity
-        #     self.previous_quantity = self.quantity
-        #     self.order.update_total()
-        self.lineitem_total = self.product.price * self.quantity
-        # self.previous_quantity = self.quantity
-        super().save(*args, **kwargs)
+        updated_product = AllProducts.objects.get(id=self.product_id)
+        if self.previous_quantity != self.quantity:
+            difference = self.quantity - self.previous_quantity
+
+            if difference > 0:
+                check_stock = updated_product.stock_level - difference
+
+                if check_stock < 0:
+                    # display error in django admin ???
+                    pass
+                else:
+                    updated_product.stock_level -= difference
+                    updated_product.save()
+                    self.lineitem_total = self.product.price * self.quantity
+                    self.order.update_total()
+                    self.previous_quantity = self.quantity
+                    super().save(*args, **kwargs)
+            elif difference < 0:
+                updated_product.stock_level += abs(difference)
+                updated_product.save()
+                self.lineitem_total = self.product.price * self.quantity
+                self.order.update_total()
+                self.previous_quantity = self.quantity
+                super().save(*args, **kwargs)
+        else:
+            self.lineitem_total = self.product.price * self.quantity
+            self.order.update_total()
+            self.previous_quantity = self.quantity
+            super().save(*args, **kwargs)
 
     def __str__(self):
         return f'SKU {self.product.sku} on order {self.order.order_number}'
+
+    def delete(self):
+        """
+        Override the original delete method to update the order total
+        and the product stock level.
+        """
+        updated_product = AllProducts.objects.get(id=self.product_id)
+        updated_product.stock_level += self.quantity
+        updated_product.save()
+        self.order.update_total()
+        super().delete()
