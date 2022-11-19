@@ -116,10 +116,17 @@ class Checkout(View):
                 try:
                     product = AllProducts.objects.get(id=product_id)
 
-                    # start of stock management, need to add similar to update
-                    # line item model method
-                    # product.stock_level -= product_details
-                    # product.save()
+                    # reduces the stock level by the quantity ordered
+                    if product.stock_level > 0:
+                        product.stock_level -= product_details
+                        product.save()
+                    else:
+                        messages.error(request, (
+                            "Sorry, we are currently out of stock for {0}."
+                            "Please remove this item from your cart and try "
+                            "again later.").format(product.name))
+                        order.delete()
+                        return redirect(reverse('view_cart'))
                     # end of stock management
 
                     order_line_item = OrderLineItem(

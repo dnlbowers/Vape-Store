@@ -20,6 +20,8 @@ class Order(models.Model):
         ('Received', 'Order Received'),
         ('Processing', 'Order Processing'),
         ('Dispatched', 'Order Dispatched'),
+        ('On Hold', 'On Hold'),
+
     )
 
     SHIPPING_METHOD = (
@@ -135,6 +137,15 @@ class Order(models.Model):
         super().save(*args, **kwargs)
 
 
+class InternalOrderNotes(models.Model):
+    order = models.ForeignKey(Order, on_delete=models.CASCADE)
+    date = models.DateTimeField(auto_now_add=True)
+    notes = models.TextField()
+
+    def __str__(self):
+        return f'Internal notes for order {self.order.order_number}'
+
+
 class OrderLineItem(models.Model):
     order = models.ForeignKey(
         Order,
@@ -148,6 +159,7 @@ class OrderLineItem(models.Model):
         blank=False,
         on_delete=models.CASCADE)
     quantity = models.IntegerField(null=False, blank=False, default=0)
+    previous_quantity = models.IntegerField(null=True, blank=True, default=0)
     lineitem_total = models.DecimalField(
         max_digits=6,
         decimal_places=2,
@@ -160,7 +172,12 @@ class OrderLineItem(models.Model):
         Override the original save method to set the line item total
         and update the order total.
         """
+        # if self.previous_quantity != self.quantity:
+        #     self.lineitem_total = self.product.price * self.quantity
+        #     self.previous_quantity = self.quantity
+        #     self.order.update_total()
         self.lineitem_total = self.product.price * self.quantity
+        # self.previous_quantity = self.quantity
         super().save(*args, **kwargs)
 
     def __str__(self):
