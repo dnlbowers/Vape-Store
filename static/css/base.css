@@ -163,12 +163,19 @@ textarea:focus, textarea:active {
 
 .btn-success, .btn-danger {
     text-shadow: 1px 1px #000;
+    color: #f8f9fa !important;
 }
 
 /* -------------------------------------------------------------- footer styling */
 
 footer {
     margin-top: auto;
+}
+
+/* -----------------------------------Mailchimp signup form styling */
+#mc_embed_signup{
+    clear:left; 
+    font:14px Helvetica,Arial,sans-serif;
 }
 
 /* -------------------------------------------------------------- Media Queries */
