@@ -93,3 +93,4 @@ With the deadline fast approaching, th aim for this sprint is to focus on the re
 This sprint is aimed at finishing the final features and marketing requirements. The last task in the sprint is the tidy up and refactor with out story points since this is a developer task and not a user story.
 
 * This sprint began on 20/11/2022 at 16:00 and is due to finish at 28711/2022 by the same time.
+* Added [bug fix ticket PVS-66](https://dnlbowers.atlassian.net/browse/PVS-66) to this sprint mid sprint as it was major bug and needed to be resolved quickly.

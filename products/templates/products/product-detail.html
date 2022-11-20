@@ -38,7 +38,7 @@
                             <!-- write logic for product with options and add drop down -->
                         </div>
                         <div class="col-12">
-                            <label class="d-flex justify-content-start w-50 mx-auto" for="quantity"><strong>Select Quantity:</strong></label>
+                            <label class="d-flex justify-content-center w-50 mx-auto font-weight-bold" for="quantity">Select Quantity:</label>
                             <div class="form-group d-flex justify-content-center">
                                 <div class="input-group w-50 input-group-{{ product.id }}">
                                     <div class="input-group-prepend">
@@ -58,8 +58,23 @@
                                     </div>
                                 </div>
                             </div>
-                            <p class="text-center m-1">Remaining in stock: {{product.stock_level}} </p>
+                            <p class="text-center m-1">
+                                {% if product.in_stock %}
+                                    <i class="fa-regular fa-square-check fa-sm text-success"></i> {{product.stock_level}} in stock
+                                {% else %}
+                                    <i class="fa-regular fa-rectangle-xmark fa-sm text-danger"></i> Out of Stock
+                                {% endif %}
+                            </p>
                         </div>
+                        {% if user.is_superuser %}
+                            <div class="text-right w-100">
+                                <a class="m-3 btn btn-link" href="#">Edit</a>  |  
+                                <form class="d-inline" action="#" method="post">
+                                    {% csrf_token %}
+                                    <button class="btn btn-link text-danger m-3" type="submit" href="">Delete</button>
+                                </form>
+                            </div>
+                        {% endif %}
                         <div class="col d-flex justify-content-around bg-black p-5">
                             <a href="{% url 'products' %}" class="btn btn-danger border text-light border-dark p-3">
                                 <span>
