@@ -5,6 +5,7 @@ from django.db.models import Q
 from .models import AllProducts
 from reviews.models import ProductReviews
 from reviews.forms import ProductReviewForm
+from .forms import ProductForm
 
 
 class AllProductsView(generic.ListView):
@@ -115,3 +116,52 @@ class ProductDetails(View):
         return render(
             request,
             'products/product-detail.html', context)
+
+
+class EditExistingProduct(View):
+    """"
+    View to edit an existing product via a form
+    """
+
+    def get(self, request, slug, *args, **kwargs):
+        """"
+        Returns a single product and it details
+        """
+
+        if not request.user.is_superuser:
+            messages.error(request, 'Sorry, only store owners can do that.')
+            return redirect(reverse('home'))
+
+        individual_product = get_object_or_404(AllProducts, slug=slug)
+        slug = individual_product.slug
+        form = ProductForm(instance=individual_product)
+
+        context = {
+            'product': individual_product,
+            'form': form,
+        }
+        return render(
+            request,
+            'products/edit-product.html', context)
+
+    def post(self, request, slug, *args, **kwargs):
+        """"
+        Returns a single product and it details
+        """
+
+        individual_product = get_object_or_404(AllProducts, slug=slug)
+        slug = individual_product.slug
+        form = ProductForm(request.POST, request.FILES,
+                           instance=individual_product)
+
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'Product Updated Successfully!')
+            return redirect(reverse('product_detail', args=[slug]))
+        else:
+            messages.error(
+                request,
+                'Failed to update product. Please ensure the form is valid.')
+            return render(
+                request,
+                'products/edit-product.html', {'form': form})

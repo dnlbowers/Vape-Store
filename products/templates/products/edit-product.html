@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'products/css/products.css' %}">
+{% endblock %}
+
+{% block content %}
+<main class="container mx-auto my-3">
+    <h2 class="text-center text-uppercase mb-4">Edit {{product.name}}</h2>
+
+    <form class="mx-auto" action="{% url 'edit_product' product.slug %}" method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{form|crispy}}
+
+        <div class="text-right">
+            <button type="submit" class="btn btn-success text-light text-uppercase">Send</button>
+        </div>
+    </form>
+    <div class="text-center mt-2 p-3">
+        <a href="{% url 'product_detail' product.slug %}">
+            <span>
+                <i class="fas fa-chevron-left fa-sm"></i>
+            </span>
+            Back to {{product.name}} details product detials page
+        </a>
+    </div>
+</main>
+{% endblock  %}
+
+{% block extra_js %}
+    <script src="{% static 'products/js/editProduct.js' %}"></script>
+{% endblock %}

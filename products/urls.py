@@ -5,7 +5,16 @@ urlpatterns = [
     path(
         '',
         views.AllProductsView.as_view(),
-        name='products'),
+        name='products'
+    ),
     path(
-        '<slug>/', views.ProductDetails.as_view(), name='product_detail'),
+        '<slug>/',
+        views.ProductDetails.as_view(),
+        name='product_detail'
+    ),
+    path(
+        'edit/<slug>/',
+        views.EditExistingProduct.as_view(),
+        name='edit_product'
+    ),
 ]

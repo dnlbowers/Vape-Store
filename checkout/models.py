@@ -199,8 +199,8 @@ class OrderLineItem(models.Model):
                 if difference > 0:
                     check_stock = updated_product.stock_level - difference
                     if check_stock < 0:
-                        #done to ensure a staff member does not add more
-                        #stock than is available to an amended order.
+                        # done to ensure a staff member does not add more
+                        # stock than is available to an amended order.
                         pass
                     else:
                         updated_product.stock_level -= difference
