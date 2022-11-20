@@ -51,5 +51,4 @@ class UserProfileForm(forms.ModelForm):
             else:
                 self.fields[field].widget.attrs[
                     'aria-label'] = 'select a country'
-            # self.fields[field].widget.attrs['class'] = 'stripe-style-input'
             self.fields[field].label = False
