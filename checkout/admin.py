@@ -36,10 +36,30 @@ class OrderAdmin(admin.ModelAdmin):
         'stripe_payment_id', 'user_profile',
     )
 
+    list_filter = (
+        'order_status', 'date', 'shipping_method',
+    )
+
     list_display = (
         'order_number', 'date', 'full_name',
         'order_total', 'shipping_cost',
         'grand_total', 'order_status',
     )
 
+    search_fields = (
+        'order_number', 'date', 'full_name',
+        'email', 'phone_number', 'country',
+        'postcode', 'town_or_city', 'street_address1',
+        'street_address2', 'county', 'shipping_cost',
+        'order_total', 'grand_total', 'original_cart',
+        'order_status', 'shipping_method',
+        'stripe_payment_id', 'user_profile',
+    )
+
     ordering = ('-date',)
+
+    def get_actions(self, request):
+        actions = super().get_actions(request)
+        if 'delete_selected' in actions:
+            del actions['delete_selected']
+        return actions

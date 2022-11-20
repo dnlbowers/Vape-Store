@@ -84,3 +84,4 @@ With the deadline fast approaching, th aim for this sprint is to focus on the re
 
 * This sprint began on 13/11/2022 at 19:38 and is due to finish at 20/11/2022 by the same time.
 * I decided that the stories relating to stock management for the admin on the front end are not essential to the project, as this is the purpose of the built in admin panel. instead I wil be looking to best utilize the built in admin panel to make it as easy as possible for the admin to manage the site.
+* I accidentally finished this sprint 19 hours early thinking I was running late. I was left with three user stories, but all must haves were concluded. I will not move the reaming 3 into the next sprint and start a new.
