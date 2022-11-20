@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'checkout',
     'profiles',
     'reviews',
+    'contact_form',
 
     # other
     'storages',
