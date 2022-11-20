@@ -8,13 +8,18 @@ urlpatterns = [
         name='products'
     ),
     path(
-        '<slug>/',
+        '<slug:slug>/',
         views.ProductDetails.as_view(),
         name='product_detail'
     ),
     path(
-        'edit/<slug>/',
+        'edit/<slug:slug>/',
         views.EditExistingProduct.as_view(),
         name='edit_product'
+    ),
+    path(
+        'delete/<int:product_id>/',
+        views.DeleteProduct.as_view(),
+        name='delete_product'
     ),
 ]

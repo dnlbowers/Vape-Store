@@ -165,3 +165,23 @@ class EditExistingProduct(View):
             return render(
                 request,
                 'products/edit-product.html', {'form': form})
+
+
+class DeleteProduct(View):
+    """"
+    View to delete a product
+    """
+    @staticmethod
+    def get(request, *args, **kwargs):
+        """"
+        Returns a single product and it details
+        """
+
+        if not request.user.is_superuser:
+            messages.error(request, 'Sorry, only store owners can do that.')
+            return redirect(reverse('home'))
+
+        individual_product = get_object_or_404(AllProducts, id=kwargs['product_id'])
+        individual_product.delete()
+        messages.success(request, 'Product Deleted Successfully!')
+        return redirect(reverse('products'))

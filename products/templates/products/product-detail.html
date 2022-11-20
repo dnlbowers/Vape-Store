@@ -69,10 +69,7 @@
                         {% if user.is_superuser %}
                             <div class="text-right w-100">
                                 <a class="m-3 btn btn-link" href="{% url 'edit_product' product.slug %}">Edit</a>  |  
-                                <form class="d-inline" action="#" method="post">
-                                    {% csrf_token %}
-                                    <button class="btn btn-link text-danger m-3" type="submit" href="">Delete</button>
-                                </form>
+                                <a class="btn btn-link text-danger m-3" type="submit" href="{% url 'delete_product' product.id %}">Delete</a>
                             </div>
                         {% endif %}
                         <div class="col d-flex justify-content-around bg-black p-5">
