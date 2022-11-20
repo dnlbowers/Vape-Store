@@ -11,7 +11,7 @@ class ContactUs(SuccessMessageMixin, CreateView):
     """
     form_class = ContactForm
     template_name = './contact_form/contact_us.html'
-    success_url = reverse_lazy('home')
+    success_url = reverse_lazy('contact_us')
     success_message = 'Your message has been received.\
          We will get back to you as soon as possible via the provided email.'
 

@@ -10,9 +10,6 @@ class ContactForm(ModelForm):
     class Meta:
         model = CustomerMessages
         fields = ('name', 'email', 'subject', 'message')
-        widgets = {
-            'message': SummernoteWidget(),
-        }
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)

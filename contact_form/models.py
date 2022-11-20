@@ -15,6 +15,9 @@ class CustomerMessages(models.Model):
     def __str__(self):
         return f" message from {self.email}"
 
+    class Meta:
+        verbose_name_plural = "Customer Messages"
+
 
 class InternalCommunicationNotes(models.Model):
     """

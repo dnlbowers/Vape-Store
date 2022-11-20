@@ -121,46 +121,6 @@ class DisposableVapesAdmin(ModelAChildAdmin):
 
     def has_module_permission(self, request):
         return False
-    # list_display = (
-    #     'sku',
-    #     'name',
-    #     'category',
-    #     'rrp',
-    #     'price',
-    #     'current_rating',
-    #     'has_sale',
-    #     'image')
-        
-    # prepopulated_fields = {'slug': ('name',)}
-    # actions = [
-    #     'start_sale',
-    #     'remove_sale',
-    #     'reduce_by_10_percent',
-    #     'reduce_by_20_percent',
-    #     'reduce_by_30_percent',
-    #     'reduce_by_40_percent',
-    #     'reduce_by_50_percent']
-
-    # def start_sale(self, request, queryset):
-    #     start_sale(self, request, queryset)
-
-    # def remove_sale(self, request, queryset):
-    #     end_sale(self, request, queryset)
-
-    # def reduce_by_10_percent(self, request, queryset):
-    #     reduce_price_by_10_percent(self, request, queryset)
-
-    # def reduce_by_20_percent(self, request, queryset):
-    #     reduce_price_by_20_percent(self, request, queryset)
-
-    # def reduce_by_30_percent(self, request, queryset):
-    #     reduce_price_by_30_percent(self, request, queryset)
-
-    # def reduce_by_40_percent(self, request, queryset):
-    #     reduce_price_by_40_percent(self, request, queryset)
-
-    # def reduce_by_50_percent(self, request, queryset):
-    #     reduce_price_by_50_percent(self, request, queryset)
 
 
 @admin.register(Mods)
@@ -172,47 +132,6 @@ class ModsAdmin(ModelAChildAdmin):
     def has_module_permission(self, request):
         return False
 
-    # list_display = (
-    #     'sku',
-    #     'name',
-    #     'category',
-    #     'rrp',
-    #     'price',
-    #     'current_rating',
-    #     'has_sale',
-    #     'image')
-    # search_fields = ('name', 'brand', 'description', 'category__name')
-    # prepopulated_fields = {'slug': ('name',)}
-    # actions = [
-    #     'start_sale',
-    #     'remove_sale',
-    #     'reduce_by_10_percent',
-    #     'reduce_by_20_percent',
-    #     'reduce_by_30_percent',
-    #     'reduce_by_40_percent',
-    #     'reduce_by_50_percent']
-
-    # def start_sale(self, request, queryset):
-    #     start_sale(self, request, queryset)
-
-    # def remove_sale(self, request, queryset):
-    #     end_sale(self, request, queryset)
-
-    # def reduce_by_10_percent(self, request, queryset):
-    #     reduce_price_by_10_percent(self, request, queryset)
-
-    # def reduce_by_20_percent(self, request, queryset):
-    #     reduce_price_by_20_percent(self, request, queryset)
-
-    # def reduce_by_30_percent(self, request, queryset):
-    #     reduce_price_by_30_percent(self, request, queryset)
-
-    # def reduce_by_40_percent(self, request, queryset):
-    #     reduce_price_by_40_percent(self, request, queryset)
-
-    # def reduce_by_50_percent(self, request, queryset):
-    #     reduce_price_by_50_percent(self, request, queryset)
-
 
 @admin.register(Tanks)
 class TanksAdmin(ModelAChildAdmin):
@@ -223,47 +142,6 @@ class TanksAdmin(ModelAChildAdmin):
     def has_module_permission(self, request):
         return False
 
-    # list_display = (
-    #     'sku',
-    #     'name',
-    #     'category',
-    #     'rrp',
-    #     'price',
-    #     'current_rating',
-    #     'has_sale',
-    #     'image')
-    # search_fields = ('name', 'brand', 'description',)
-    # prepopulated_fields = {'slug': ('name',)}
-    # actions = [
-    #     'start_sale',
-    #     'remove_sale',
-    #     'reduce_by_10_percent',
-    #     'reduce_by_20_percent',
-    #     'reduce_by_30_percent',
-    #     'reduce_by_40_percent',
-    #     'reduce_by_50_percent']
-
-    # def start_sale(self, request, queryset):
-    #     start_sale(self, request, queryset)
-
-    # def remove_sale(self, request, queryset):
-    #     end_sale(self, request, queryset)
-
-    # def reduce_by_10_percent(self, request, queryset):
-    #     reduce_price_by_10_percent(self, request, queryset)
-
-    # def reduce_by_20_percent(self, request, queryset):
-    #     reduce_price_by_20_percent(self, request, queryset)
-
-    # def reduce_by_30_percent(self, request, queryset):
-    #     reduce_price_by_30_percent(self, request, queryset)
-
-    # def reduce_by_40_percent(self, request, queryset):
-    #     reduce_price_by_40_percent(self, request, queryset)
-
-    # def reduce_by_50_percent(self, request, queryset):
-    #     reduce_price_by_50_percent(self, request, queryset)
-
 
 @admin.register(PreBuiltCoils)
 class PreBuiltCoilsAdmin(ModelAChildAdmin):
@@ -273,46 +151,6 @@ class PreBuiltCoilsAdmin(ModelAChildAdmin):
 
     def has_module_permission(self, request):
         return False
-    # list_display = (
-    #     'sku',
-    #     'name',
-    #     'category',
-    #     'rrp',
-    #     'price',
-    #     'current_rating',
-    #     'has_sale',
-    #     'image')
-    # search_fields = ('name', 'brand', 'description', 'category__name')
-    # prepopulated_fields = {'slug': ('name',)}
-    # actions = [
-    #     'start_sale',
-    #     'remove_sale',
-    #     'reduce_by_10_percent',
-    #     'reduce_by_20_percent',
-    #     'reduce_by_30_percent',
-    #     'reduce_by_40_percent',
-    #     'reduce_by_50_percent']
-
-    # def start_sale(self, request, queryset):
-    #     start_sale(self, request, queryset)
-
-    # def remove_sale(self, request, queryset):
-    #     end_sale(self, request, queryset)
-
-    # def reduce_by_10_percent(self, request, queryset):
-    #     reduce_price_by_10_percent(self, request, queryset)
-
-    # def reduce_by_20_percent(self, request, queryset):
-    #     reduce_price_by_20_percent(self, request, queryset)
-
-    # def reduce_by_30_percent(self, request, queryset):
-    #     reduce_price_by_30_percent(self, request, queryset)
-
-    # def reduce_by_40_percent(self, request, queryset):
-    #     reduce_price_by_40_percent(self, request, queryset)
-
-    # def reduce_by_50_percent(self, request, queryset):
-    #     reduce_price_by_50_percent(self, request, queryset)
 
 
 @admin.register(Batteries)
@@ -324,47 +162,6 @@ class BatteriesAdmin(ModelAChildAdmin):
     def has_module_permission(self, request):
         return False
 
-    # list_display = (
-    #     'sku',
-    #     'name',
-    #     'category',
-    #     'rrp',
-    #     'price',
-    #     'current_rating',
-    #     'has_sale',
-    #     'image')
-    # search_fields = ('name', 'brand', 'description', 'category__name')
-    # prepopulated_fields = {'slug': ('name',)}
-    # actions = [
-    #     'start_sale',
-    #     'remove_sale',
-    #     'reduce_by_10_percent',
-    #     'reduce_by_20_percent',
-    #     'reduce_by_30_percent',
-    #     'reduce_by_40_percent',
-    #     'reduce_by_50_percent']
-
-    # def start_sale(self, request, queryset):
-    #     start_sale(self, request, queryset)
-
-    # def remove_sale(self, request, queryset):
-    #     end_sale(self, request, queryset)
-
-    # def reduce_by_10_percent(self, request, queryset):
-    #     reduce_price_by_10_percent(self, request, queryset)
-
-    # def reduce_by_20_percent(self, request, queryset):
-    #     reduce_price_by_20_percent(self, request, queryset)
-
-    # def reduce_by_30_percent(self, request, queryset):
-    #     reduce_price_by_30_percent(self, request, queryset)
-
-    # def reduce_by_40_percent(self, request, queryset):
-    #     reduce_price_by_40_percent(self, request, queryset)
-
-    # def reduce_by_50_percent(self, request, queryset):
-    #     reduce_price_by_50_percent(self, request, queryset)
-
 
 @admin.register(VapeJuice)
 class VapeJuiceAdmin(ModelAChildAdmin):
@@ -374,47 +171,6 @@ class VapeJuiceAdmin(ModelAChildAdmin):
 
     def has_module_permission(self, request):
         return False
-
-    # list_display = (
-    #     'sku',
-    #     'name',
-    #     'category',
-    #     'rrp',
-    #     'price',
-    #     'current_rating',
-    #     'has_sale',
-    #     'image')
-    # search_fields = ('name', 'brand', 'description', 'category__name')
-    # prepopulated_fields = {'slug': ('name',)}
-    # actions = [
-    #     'start_sale',
-    #     'remove_sale',
-    #     'reduce_by_10_percent',
-    #     'reduce_by_20_percent',
-    #     'reduce_by_30_percent',
-    #     'reduce_by_40_percent',
-    #     'reduce_by_50_percent']
-
-    # def start_sale(self, request, queryset):
-    #     start_sale(self, request, queryset)
-
-    # def remove_sale(self, request, queryset):
-    #     end_sale(self, request, queryset)
-
-    # def reduce_by_10_percent(self, request, queryset):
-    #     reduce_price_by_10_percent(self, request, queryset)
-
-    # def reduce_by_20_percent(self, request, queryset):
-    #     reduce_price_by_20_percent(self, request, queryset)
-
-    # def reduce_by_30_percent(self, request, queryset):
-    #     reduce_price_by_30_percent(self, request, queryset)
-
-    # def reduce_by_40_percent(self, request, queryset):
-    #     reduce_price_by_40_percent(self, request, queryset)
-
-    # def reduce_by_50_percent(self, request, queryset):
-    #     reduce_price_by_50_percent(self, request, queryset)
 
 
 @admin.register(BaseLiquids)
@@ -426,47 +182,6 @@ class BaseLiquidsAdmin(ModelAChildAdmin):
     def has_module_permission(self, request):
         return False
 
-    # list_display = (
-    #     'sku',
-    #     'name',
-    #     'category',
-    #     'rrp',
-    #     'price',
-    #     'current_rating',
-    #     'has_sale',
-    #     'image')
-    # search_fields = ('name', 'brand', 'description', 'category__name')
-    # prepopulated_fields = {'slug': ('name',)}
-    # actions = [
-    #     'start_sale',
-    #     'remove_sale',
-    #     'reduce_by_10_percent',
-    #     'reduce_by_20_percent',
-    #     'reduce_by_30_percent',
-    #     'reduce_by_40_percent',
-    #     'reduce_by_50_percent']
-
-    # def start_sale(self, request, queryset):
-    #     start_sale(self, request, queryset)
-
-    # def remove_sale(self, request, queryset):
-    #     end_sale(self, request, queryset)
-
-    # def reduce_by_10_percent(self, request, queryset):
-    #     reduce_price_by_10_percent(self, request, queryset)
-
-    # def reduce_by_20_percent(self, request, queryset):
-    #     reduce_price_by_20_percent(self, request, queryset)
-
-    # def reduce_by_30_percent(self, request, queryset):
-    #     reduce_price_by_30_percent(self, request, queryset)
-
-    # def reduce_by_40_percent(self, request, queryset):
-    #     reduce_price_by_40_percent(self, request, queryset)
-
-    # def reduce_by_50_percent(self, request, queryset):
-    #     reduce_price_by_50_percent(self, request, queryset)
-
 
 @admin.register(NicotineShots)
 class NicotineShots(ModelAChildAdmin):
@@ -477,47 +192,6 @@ class NicotineShots(ModelAChildAdmin):
     def has_module_permission(self, request):
         return False
 
-    # list_display = (
-    #     'sku',
-    #     'name',
-    #     'category',
-    #     'rrp',
-    #     'price',
-    #     'current_rating',
-    #     'has_sale',
-    #     'image')
-    # search_fields = ('name', 'brand', 'description', 'category__name')
-    # prepopulated_fields = {'slug': ('name',)}
-    # actions = [
-    #     'start_sale',
-    #     'remove_sale',
-    #     'reduce_by_10_percent',
-    #     'reduce_by_20_percent',
-    #     'reduce_by_30_percent',
-    #     'reduce_by_40_percent',
-    #     'reduce_by_50_percent']
-
-    # def start_sale(self, request, queryset):
-    #     start_sale(self, request, queryset)
-
-    # def remove_sale(self, request, queryset):
-    #     end_sale(self, request, queryset)
-
-    # def reduce_by_10_percent(self, request, queryset):
-    #     reduce_price_by_10_percent(self, request, queryset)
-
-    # def reduce_by_20_percent(self, request, queryset):
-    #     reduce_price_by_20_percent(self, request, queryset)
-
-    # def reduce_by_30_percent(self, request, queryset):
-    #     reduce_price_by_30_percent(self, request, queryset)
-
-    # def reduce_by_40_percent(self, request, queryset):
-    #     reduce_price_by_40_percent(self, request, queryset)
-
-    # def reduce_by_50_percent(self, request, queryset):
-    #     reduce_price_by_50_percent(self, request, queryset)
-
 
 @admin.register(FlavorConcentrates)
 class FlavorConcentrates(ModelAChildAdmin):
@@ -527,47 +201,6 @@ class FlavorConcentrates(ModelAChildAdmin):
 
     def has_module_permission(self, request):
         return False
-
-    # list_display = (
-    #     'sku',
-    #     'name',
-    #     'category',
-    #     'rrp',
-    #     'price',
-    #     'current_rating',
-    #     'has_sale',
-    #     'image')
-    # search_fields = ('name', 'brand', 'description', 'category__name')
-    # prepopulated_fields = {'slug': ('name',)}
-    # actions = [
-    #     'start_sale',
-    #     'remove_sale',
-    #     'reduce_by_10_percent',
-    #     'reduce_by_20_percent',
-    #     'reduce_by_30_percent',
-    #     'reduce_by_40_percent',
-    #     'reduce_by_50_percent']
-
-    # def start_sale(self, request, queryset):
-    #     start_sale(self, request, queryset)
-
-    # def remove_sale(self, request, queryset):
-    #     end_sale(self, request, queryset)
-
-    # def reduce_by_10_percent(self, request, queryset):
-    #     reduce_price_by_10_percent(self, request, queryset)
-
-    # def reduce_by_20_percent(self, request, queryset):
-    #     reduce_price_by_20_percent(self, request, queryset)
-
-    # def reduce_by_30_percent(self, request, queryset):
-    #     reduce_price_by_30_percent(self, request, queryset)
-
-    # def reduce_by_40_percent(self, request, queryset):
-    #     reduce_price_by_40_percent(self, request, queryset)
-
-    # def reduce_by_50_percent(self, request, queryset):
-    #     reduce_price_by_50_percent(self, request, queryset)
 
 
 @admin.register(Accessories)
@@ -580,47 +213,6 @@ class AccessoriesAdmin(ModelAChildAdmin):
 
     def has_module_permission(self, request):
         return False
-
-    # list_display = (
-    #     'sku',
-    #     'name',
-    #     'category',
-    #     'rrp',
-    #     'price',
-    #     'current_rating',
-    #     'has_sale',
-    #     'image')
-    # search_fields = ('name', 'brand', 'description', 'category__name')
-    # prepopulated_fields = {'slug': ('name',)}
-    # actions = [
-    #     'start_sale',
-    #     'remove_sale',
-    #     'reduce_by_10_percent',
-    #     'reduce_by_20_percent',
-    #     'reduce_by_30_percent',
-    #     'reduce_by_40_percent',
-    #     'reduce_by_50_percent']
-
-    # def start_sale(self, request, queryset):
-    #     start_sale(self, request, queryset)
-
-    # def remove_sale(self, request, queryset):
-    #     end_sale(self, request, queryset)
-
-    # def reduce_by_10_percent(self, request, queryset):
-    #     reduce_price_by_10_percent(self, request, queryset)
-
-    # def reduce_by_20_percent(self, request, queryset):
-    #     reduce_price_by_20_percent(self, request, queryset)
-
-    # def reduce_by_30_percent(self, request, queryset):
-    #     reduce_price_by_30_percent(self, request, queryset)
-
-    # def reduce_by_40_percent(self, request, queryset):
-    #     reduce_price_by_40_percent(self, request, queryset)
-
-    # def reduce_by_50_percent(self, request, queryset):
-    #     reduce_price_by_50_percent(self, request, queryset)
 
 
 @admin.register(AllProducts)

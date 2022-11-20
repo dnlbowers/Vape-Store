@@ -2,8 +2,8 @@
 {% load static %}
 
 {% block content %}
-<main class="container mx-auto my-5">
-    <h2 class="text-center text-capitalize my-3">Contact Us</h2>
+<main class="container mx-auto my-3">
+    <h2 class="text-center text-uppercase mb-4">Contact Us</h2>
 
     <form id="review-form" class="mx-auto" action="{% url 'contact_us' %}" method="POST">
         {% csrf_token %}
