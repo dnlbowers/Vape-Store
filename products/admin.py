@@ -239,6 +239,7 @@ class AllProductsAdmin(PolymorphicParentModelAdmin):
         'price',
         'current_rating',
         'has_sale',
+        'in_stock',
         'image')
 
     search_fields = (
@@ -249,7 +250,7 @@ class AllProductsAdmin(PolymorphicParentModelAdmin):
         'sub_category__name',
         'category_groupings__name',
         'category__name',
-        )
+    )
 
     list_filter = (
         'category',
@@ -257,7 +258,8 @@ class AllProductsAdmin(PolymorphicParentModelAdmin):
         'has_sale',
         'current_rating',
         'brand',
-        )
+        'in_stock',
+    )
 
     prepopulated_fields = {'slug': ('name',)}
 

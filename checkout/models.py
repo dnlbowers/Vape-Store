@@ -22,7 +22,7 @@ class Order(models.Model):
         ('Processing', 'Order Processing'),
         ('Dispatched', 'Order Dispatched'),
         ('On Hold', 'On Hold'),
-        ('Extra Due', 'Extra to be Paid'),
+        ('Extra to be paid', 'Extra to be Paid'),
         ('Pending Partial Refund', 'Pending Partial Refund'),
         ('Cancelled Pending Refund', 'Cancelled Pending Refund'),
         ('Cancelled', 'Cancelled'),
@@ -190,33 +190,40 @@ class OrderLineItem(models.Model):
         Override the original save method to set the line item total
         and update the order total.
         """
+
         updated_product = AllProducts.objects.get(id=self.product_id)
-        if self.previous_quantity != self.quantity:
-            difference = self.quantity - self.previous_quantity
+        if self.previous_quantity:
+            if self.previous_quantity != self.quantity:
+                difference = self.quantity - self.previous_quantity
 
-            if difference > 0:
-                check_stock = updated_product.stock_level - difference
-
-                if check_stock < 0:
-                    # display error in django admin ???
-                    pass
-                else:
-                    updated_product.stock_level -= difference
+                if difference > 0:
+                    check_stock = updated_product.stock_level - difference
+                    if check_stock < 0:
+                        #done to ensure a staff member does not add more
+                        #stock than is available to an amended order.
+                        pass
+                    else:
+                        updated_product.stock_level -= difference
+                        updated_product.save()
+                        self.lineitem_total = self.product.price * \
+                            self.quantity
+                        self.order.update_total()
+                        self.previous_quantity = self.quantity
+                        super().save(*args, **kwargs)
+                elif difference < 0:
+                    updated_product.stock_level += abs(difference)
                     updated_product.save()
                     self.lineitem_total = self.product.price * self.quantity
                     self.order.update_total()
                     self.previous_quantity = self.quantity
                     super().save(*args, **kwargs)
-            elif difference < 0:
-                updated_product.stock_level += abs(difference)
-                updated_product.save()
+            else:
                 self.lineitem_total = self.product.price * self.quantity
                 self.order.update_total()
                 self.previous_quantity = self.quantity
                 super().save(*args, **kwargs)
         else:
             self.lineitem_total = self.product.price * self.quantity
-            self.order.update_total()
             self.previous_quantity = self.quantity
             super().save(*args, **kwargs)
 
