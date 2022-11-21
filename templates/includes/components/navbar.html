@@ -24,6 +24,9 @@
                 <a href="{% url 'view_cart' %}" class="nav-link {% if cart_contents %}text-primary font-weight-bold{%else%} text-light{% endif %}" aria-label="View your cart and review your order before purchase">
                     <div class="text-center">
                         <i class="fa-solid fa-cart-shopping fa-lg"></i>
+                        {% if product_count > 0 %}
+                                <span class="cart-counter badge badge-warning badge-pill text-dark">{{product_count}}</span>
+                        {% endif %}
                     </div>
                     <p class="my-0">
                         {% if cart_total %}
@@ -41,13 +44,13 @@
 <!-- Nav bar with mobile verison inluded -->
 <nav class="navbar navbar-expand-lg bg-black text-light px-0">
     <div class="row mx-auto w-100 d-lg-none">
-        <div class="col-4 col-lg-0 my-auto d-flex justify-content-start">
+        <div class="col-4 col-lg-0 my-auto d-flex justify-content-start  padding-top">
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="fa-solid fa-bars fa-lg text-light"></span>
             </button>
         </div>
         <div class="col-4 col-lg-0 my-auto">
-            <div class="d-flex d-lg-none my-auto justify-content-center">
+            <div class="d-flex d-lg-none my-auto justify-content-center padding-top">
                 <a class="navbar-brand" href="{% url 'home' %}">
                     {% include 'includes/layout/logo.html'%}
                 </a>
@@ -57,7 +60,7 @@
             <ul class="list-inline list-unstyled my-auto d-flex d-lg-none my-auto justify-content-end">
                 <li class="dropdown list-inline-item">
                     <a class="nav-link px-1 py-3 text-reset" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"  aria-label="user account options">
-                        <div class="text-center">
+                        <div class="text-center padding-top">
                             <i class="fas fa-user fa-lg"></i>
                         </div>
                         <p class="my-0">Account</p>
@@ -68,9 +71,11 @@
                 </li>
                 <li class="list-inline-item">
                     <a href="{% url 'view_cart' %}" class="nav-link px-1 py-3 {% if cart_contents %}text-primary font-weight-bold {%else%}text-light{% endif %}" aria-label="View your cart and review your order before purchase">
-                        <div class="text-center">
+                        <div class="counter-container text-center">
                             <i class="fa-solid fa-cart-shopping fa-lg"></i>
-                            {% comment %} <span class="badge badge-primary badge-pill">{{product_count}}</span> {% endcomment %}
+                            {% if product_count > 0 %}
+                                <span class="cart-counter badge badge-warning badge-pill text-dark">{{product_count}}</span>
+                            {% endif %}
                         </div>
                         <p class="my-0">
                             {% if cart_total %}

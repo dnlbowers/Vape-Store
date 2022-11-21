@@ -28,7 +28,7 @@
                 <p class="text-muted mt-3 text-center text-md-left">
                     
                     {% if search_query or current_categories or current_ordering or current_subcategories == 'None_None' %}
-                        <span class="small"><a href="{% url 'products' %}">Back to All Products</a> | </span>
+                        <span class="small"><a href="{% url 'products' %}">All Products</a> | </span>
                     {% endif %}
                     
                     Showing {{ products|length }} Product{%if products|length > 1 %}s{%endif%}{% if search_query %} related to <strong>"{{ search_query }}"</strong>{% endif %}

@@ -83,7 +83,7 @@ class AllProductsView(generic.ListView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['product_count'] = AllProducts.objects.count()
+        # context['number_of_products'] = AllProducts.objects.count()
         context['current_ordering'] = self.current_ordering
         context['search_query'] = self.query
         context['current_categories'] = self.categories
