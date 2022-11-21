@@ -1,12 +1,13 @@
-<script>
+document.addEventListener("DOMContentLoaded", function () {
     
+    /**
+    * Check current value of quantity input
+    * sets min and max values
+    * disables buttons when exceeded
+    * sets value to stock limit if keyboard used to enter value greater than stock limit
+    */
     qtyInputRangeHandler = productID => {
-        /**
-            * Check current value of quantity input
-            * sets min and max values
-            * disables buttons when exceeded
-            * sets value to stock limit if keyboard used to enter value greater than stock limit
-        */
+        
         const qtyInput = $(`.current-qty-pid-${productID}`);
         const qtyInputValue = parseInt(qtyInput.val());
         const qtyDisableMinus = qtyInputValue < 2;
@@ -30,11 +31,12 @@
     });
 
 
+    /**
+    * Gives functionality to the '-' button
+    * on the qty selector forms and prevents its default action
+    */
     $('.decrease-qty').click(function(e){
-        /**
-            * Gives functionality to the '-' button
-            * on the qty selector forms and prevents its default action
-        */
+        
         e.preventDefault();
         let quantyInput = $(this).closest('.input-group').find('.qty-input')[0];
         let quantity = parseInt(quantyInput.value);
@@ -44,11 +46,12 @@
         qtyInputRangeHandler(productId);
     });
 
+    /**
+    /* Gives functionality to the '+' button
+    /* on the qty selector forms and prevents its default action
+    */
     $('.increase-qty').click(function(e){
-        /**
-        /* Gives functionality to the '+' button
-        /* on the qty selector forms and prevents its default action
-        */
+        
         e.preventDefault();
         let quantyInput = $(this).closest('.input-group').find('.qty-input')[0];
         let quantity = parseInt(quantyInput.value);
@@ -58,5 +61,4 @@
         qtyInputRangeHandler(productId);
     });
 
-
-</script>
+});

@@ -20,7 +20,9 @@
         <div class="row no-gutters px-2">
             
             <div class="col-12 col-md-6 my-auto order-md-last d-flex justify-content-center justify-content-md-end">
+                
                 {% include "./includes/components/odering-selector-menu.html" %}
+            
             </div>
             
             <div class="col-12 col-md-6 order-md-first">
@@ -28,7 +30,9 @@
                 <p class="text-muted mt-3 text-center text-md-left">
                     
                     {% if search_query or current_categories or current_ordering or current_subcategories == 'None_None' %}
+                        
                         <span class="small"><a href="{% url 'products' %}">All Products</a> | </span>
+                    
                     {% endif %}
                     
                     Showing {{ products|length }} Product{%if products|length > 1 %}s{%endif%}{% if search_query %} related to <strong>"{{ search_query }}"</strong>{% endif %}
@@ -37,26 +41,34 @@
             </div>
 
         </div>
+
+        <!-- to reduce white space when no procuts in filters -->
         {% if products|length == 0 %}
-        <div class="row no-gutters card-deck mx-auto">
-            
-            <div class="col text-center">
-                <h3 class="text-uppercase">no products available</h3>
-                <p class="px-3">Our sincere apologies but it appears there are no products currently meeting you needs in the area.</p>
-                <p class="px-3">That said we are continously updating our catolouge, if you have a special request please reach out to us via the <a href="{% url 'contact_us' %}">contact form</a> and we will do out best to assist you.</p>
-            </div> 
-            
-        </div>
+        
+            <div class="row no-gutters card-deck mx-auto">
+                
+                <div class="col text-center">
+
+                    <h3 class="text-uppercase">no products available</h3>
+                    <p class="px-3">Our sincere apologies but it appears there are no products currently meeting you needs in the area.</p>
+                    <p class="px-3">That said we are continously updating our catolouge, if you have a special request please reach out to us via the <a href="{% url 'contact_us' %}">contact form</a> and we will do out best to assist you.</p>
+                
+                </div> 
+                
+            </div>
         
         {% else %}
-        <div class="row no-gutters card-deck mx-auto">
-            
-            {% for product in products %}
-            <div class="col">
-                {% include "./includes/components/product-card.html" %}
-            </div> 
-            {% endfor %}
-        </div>
+
+            <!--  render all relevant products -->
+            <div class="row no-gutters card-deck mx-auto">
+                
+                {% for product in products %}
+                <div class="col">
+                    {% include "./includes/components/product-card.html" %}
+                </div> 
+                {% endfor %}
+            </div>
+
         {% endif %}
 
         {% include "./includes/components/pagination.html" %}    
@@ -66,33 +78,7 @@
 
 {% block postloadjs %}
     {{ block.super }}
-    <script>
-        // get the selector element from the dom
-
-        $('#sorting-menu').change(function() {
-            // get the selected menu option value
-            const menuChoiceValue = $(this).val();
-
-            // Get the current URL
-            const pageUrl = new URL(window.location);
-            
-            if(menuChoiceValue != 'default') {
-                                
-                // set the ordering parameters in the URL
-                pageUrl.searchParams.set('ordering', menuChoiceValue);
-
-                // redirect to the new URL which includes the above parameter
-                window.location.replace(pageUrl);
-
-            } else {
-
-                // remove the orderingquery parameters from the URL
-                pageUrl.searchParams.delete('ordering');
-
-                window.location.replace(pageUrl);
-            }
-
-        })
-    </script>
-    {% include 'products/includes/scripts/qty-selector-btn-scripts.html' %}
+    <script src="{% static 'products/js/filterBy.js' %}"></script>
+    <script src="{% static 'products/js/qtySelectorBtns.js' %}"></script>
+    {% comment %} {% include 'products/includes/scripts/qty-selector-btn-scripts.html' %} {% endcomment %}
 {% endblock %}

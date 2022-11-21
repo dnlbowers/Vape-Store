@@ -15,14 +15,14 @@ class AllProductsView(generic.ListView):
     model = AllProducts
     template_name = 'products/products.html'
     context_object_name = 'products'
-    paginate_by = 8
+    paginate_by = 6
     sort = None
     current_ordering = None
     query = None
     categories = None
     subcategories = None
     product_count = 0
-    clearnace = None
+    clearance = None
 
     def get_ordering(self, *args, **kwargs):
 
@@ -88,7 +88,7 @@ class AllProductsView(generic.ListView):
         context['search_query'] = self.query
         context['current_categories'] = self.categories
         context['current_subcategories'] = self.subcategories
-        context['clearnace'] = self.clearnace
+        context['clearance'] = self.clearance
         return context
 
 

@@ -1,32 +1,51 @@
 <div class="accordion list-group" id="reviewAccordion">
+
     {% for review in reviews %}
+
         <div class="card rounded-0">
+            <!-- Review details and preview -->
             <a class="list-group-item list-group-item-action card-header pointer bg-black text-light collapsed" data-toggle="collapse" data-target="#collapse{{ review.id }}" aria-expanded="false" aria-controls="collapse{{ review.id }}">
+                
                 <div class="d-flex w-100 justify-content-between" id="reviewTitle-{{ review.id }}">
+                
                     <h3 class="mb-1">
                             {{review.title}}                                          
                     </h3>
                     <span class="justify-content-end text-warning font-weight-bold"><i class="fa-solid fa-star"></i> {{ review.rating }}/5</span>
+                
                 </div>
+                
                 <p class="mb-1">{{ review.content|truncatewords:7 }}....</p>
                 <small class="text-muted">Reviewed by {{ review.author }}</small>
                 <small class="float-right text-muted">{{ review.date }}</small>                                            
+            
             </a>
+
+            <!-- Review content -->
             <div id="collapse{{ review.id }}" class="collapse p-3" aria-labelledby="reviewTitle-{{ review.id }}" data-parent="#reviewAccordion">
+            
                 <div class="card-body">
                     {{ review.content }}
                 </div>
+            
                 {% if user == review.author or user.is_superuser %}
+
                     <div class="text-right">
+
                         <a class="m-3 btn btn-link" href="{% url 'edit_review' product.id review.id %}">Edit</a>  |  
                         <form class="d-inline" action="{% url 'delete_review' product.id review.id %}" method="post">
                             {% csrf_token %}
                             <button class="btn btn-link text-danger m-3" type="submit" href="">Delete</button>
                         </form>
+
                     </div>
+
                 {% endif %}
+            
             </div>
+        
         </div>
     
     {% endfor %}
+
 </div>

@@ -1,19 +1,29 @@
+<!-- Pagination taken from django docs -->
 {% if is_paginated %}
     <nav class="pagination mt-3 justify-content-center">
+
         <span class="step-links">
+
             {% if page_obj.has_previous %}
+
                 <a href="?{% if current_ordering != None %}ordering={{current_ordering}}&{% endif %}page=1">&laquo; first</a>
                 <a href="?{% if current_subcategories != None %}subcategory={% for value in current_subcategories %}{{ value }}{% endfor %}&{% endif %}{% if current_ordering != None %}ordering={{current_ordering}}&{% endif %}page={{ page_obj.previous_page_number }}">| previous |</a>
-            {% endif %}
+            
+                {% endif %}
 
             <span class="current">
+
                 Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}
+            
             </span>
 
             {% if page_obj.has_next %}
+
                 <a href="?{% if current_subcategories != None%}subcategory={% for value in current_subcategories %}{{ value }}{% endfor %}&{% endif %}{% if current_ordering != None %}ordering={{current_ordering}}&{% endif %}page={{ page_obj.next_page_number }}">| next | </a>
                 <a href="?{% if current_ordering != None %}ordering={{ current_ordering }}&{% endif %}page={{ page_obj.paginator.num_pages }}">last &raquo;</a>
+            
             {% endif %}
+            
         </span>
     </nav>
 {% endif %}

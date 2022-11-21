@@ -1,13 +1,23 @@
 <form id="review-form" class="mx-auto" action="{% url 'add_review' product.id %}" method="POST">
+    
     {% csrf_token %}
+    
     {{ review_form.title|as_crispy_field }}
     {{ review_form.content|as_crispy_field }}
     {{ review_form.rating|as_crispy_field }}
+    
     <input type="hidden" name="product_id" value="{{ product.id }}">
+    
     <input type="hidden" name="user_id" value="{{ user.id }}">
 
     <div class="text-right">
-        <button type="submit" class="btn btn-success text-light text-uppercase">Submit Review</button>
+
+        <button type="submit" class="btn btn-success text-light text-uppercase">
+            Submit Review
+        </button>
+
     </div>
-    <input type="hidden" name="redirect_url" value="{{ request.path }}">                                   
+
+    <input type="hidden" name="redirect_url" value="{{ request.path }}">
+                                    
 </form>

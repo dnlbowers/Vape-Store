@@ -167,7 +167,8 @@
 {% endblock %}
 {% block postloadjs %}
     {{ block.super }}
-    {% include 'products/includes/scripts/qty-selector-btn-scripts.html' %}
+    <script src="{% static 'products/js/qtySelectorBtns.js' %}"></script>
+    {% comment %} {% include 'products/includes/scripts/qty-selector-btn-scripts.html' %} {% endcomment %}
     <script type="text/javascript">
         
         $('.update-btn').click(e => {
