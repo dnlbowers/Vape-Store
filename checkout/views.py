@@ -189,11 +189,11 @@ class CheckoutSuccess(View):
                 if user_profile_form.is_valid():
                     user_profile_form.save()
 
-        messages.success(request, f"We've successfully received your order. \
+        messages.success(request, f'We\'ve successfully received your order. \
             Your order reference number is {order_number}, and a confirmation \
                 email will be sent to {order.email} shortly. Any questions \
                     can be directed to our customer service team via the \
-                        contact page.")
+                        "contact us" page.')
 
         if 'cart' in request.session:
             del request.session['cart']

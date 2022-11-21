@@ -9,11 +9,11 @@
 
 
 {% block content %}
-<main class="container">
+<main class="container my-3">
     <div class="row">
         <div class="col">
-            <p class="my-5">Thank you for shopping with us, the below confirmation will be sent to {{ order.email }}.</p>
-            <h2 class="text-left border-bottom border-top mt-0 py-3">Order Confirmation</h2>
+            <p>Thank you for shopping with us, the below confirmation will be sent to {{ order.email }}.</p>
+            <h2 class="text-left border-bottom border-top mt-0 py-3 text-uppercase">Order Confirmation</h2>
         </div>
     </div>
     <div class="row">
@@ -110,11 +110,14 @@
             {% if from_profile %}
                 <a href="{% url 'profile' %}" class="btn btn-success">Back to Profile</a>
             {% else %}
-                <a href="{% url 'home' %}" class="btn btn-success">
+                <a href="{% url 'home' %}" class="btn btn-secondary my-1">
                     <span>
                         <i class="fas fa-chevron-left fa-sm"></i>
                     </span>
                     <span class="font-weight-bold">Back to Home</span>
+                </a>
+                <a href="{% url 'home' %}" class="btn btn-success my-1">
+                    <span class="font-weight-bold">Special Offers</span>
                 </a>
             {% endif %}
         </div>

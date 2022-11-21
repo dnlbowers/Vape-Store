@@ -37,7 +37,18 @@
             </div>
 
         </div>
-
+        {% if product|length == 0 %}
+        <div class="row no-gutters card-deck mx-auto">
+            
+            <div class="col text-center">
+                <h3 class="text-uppercase">no products available</h3>
+                <p class="px-3">Our sincere apologies but it appears there are no products currently meeting you needs in the area.</p>
+                <p class="px-3">That said we are continously updating our catolouge, if you have a special request please reach out to us via the <a href="{% url 'contact_us' %}">contact form</a> and we will do out best to assist you.</p>
+            </div> 
+            
+        </div>
+        
+        {% else %}
         <div class="row no-gutters card-deck mx-auto">
             
             {% for product in products %}
@@ -46,6 +57,7 @@
             </div> 
             {% endfor %}
         </div>
+        {% endif %}
 
         {% include "./includes/components/pagination.html" %}    
     </main>
