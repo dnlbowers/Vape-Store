@@ -70,7 +70,7 @@
                     <a href="{% url 'view_cart' %}" class="nav-link px-1 py-3 {% if cart_contents %}text-primary font-weight-bold {%else%}text-light{% endif %}" aria-label="View your cart and review your order before purchase">
                         <div class="text-center">
                             <i class="fa-solid fa-cart-shopping fa-lg"></i>
-                            {% comment %} <span class="badge badge-primary badge-pill">14</span> {% endcomment %}
+                            {% comment %} <span class="badge badge-primary badge-pill">{{product_count}}</span> {% endcomment %}
                         </div>
                         <p class="my-0">
                             {% if cart_total %}
