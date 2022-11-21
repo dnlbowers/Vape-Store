@@ -181,7 +181,8 @@ class DeleteProduct(View):
             messages.error(request, 'Sorry, only store owners can do that.')
             return redirect(reverse('home'))
 
-        individual_product = get_object_or_404(AllProducts, id=kwargs['product_id'])
+        individual_product = get_object_or_404(
+            AllProducts, id=kwargs['product_id'])
         individual_product.delete()
         messages.success(request, 'Product Deleted Successfully!')
         return redirect(reverse('products'))

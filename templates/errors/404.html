@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+    <main class="container no-gutters mx-auto my-3">
+
+        <div class="row mx-auto my-3">
+            
+            <div class="col-12 text-center">
+                <h2 class="text-uppercase pb-2">Page Not Found (404)</h2>
+                <p>
+                    The page you were looking for doesn't exist. You may have mistyped the address or the page may have moved.
+                </p>
+            </div>
+        </div>
+        <div class="row mx-auto mb-3">
+            <div class="col-sm-3"></div>
+            <div class="col-sm-6 text-center px-2">
+                <p>Click the below image and Head back to </p>
+                <a class="navbar-brand" href="{% url 'home' %}">
+                    <h3 class="rounded-circle border-red bg-warning text-danger mx-auto p-2">
+                        <span>
+                            <strong>V</strong>apor
+                        </span> 
+                            <i class="fa-solid fa-city fa-lg text-dark"></i> 
+                        <span>
+                            <strong>T</strong>own
+                        </span>
+                    </h3>
+                </a>
+                <p>The party has started, so what you waiting for?</p>
+            </div>
+            <div class="col-sm-3"></div>
+        </div>
+
+    </main>
+{% endblock %}
