@@ -50,7 +50,7 @@ body {
 }
 
 
-/* -------------------------------------------------------------- bootstrap toasts taken from boutique ado */
+/* -------------------------------------------------------------- bootstrap toasts/cart preview taken from boutique ado */
 
 .cart-preview-container {
     position: fixed;
@@ -67,73 +67,10 @@ body {
     height: 2px;
 }
 
-/* from CSS-tricks.com: https://css-tricks.com/snippets/css/css-triangle/ */
-.arrow-up {
-    width: 0; 
-    height: 0; 
-    border-left: 4px solid transparent;
-    border-right: 4px solid transparent; 
-    border-bottom: 10px solid black;
-    position: absolute;
-    top: -10px;
-    right: 36px;
-}
-
-/* Convenience classes - colors copied from Bootstrap */
-
-.arrow-success {
-    border-bottom-color: #28a745 !important;
-}
-
-.arrow-danger {
-    border-bottom-color: #dc3545 !important;
-}
-
-.arrow-warning {
-    border-bottom-color: #ffc107 !important;
-}
-
-.arrow-info {
-    border-bottom-color: #17a2b8 !important;
-}
-
 .cart-preview-wrapper {
     max-height: 200px;
     overflow-x: hidden;
     overflow-y: auto;
-}
-
-/* -------------------------------------------------------------- Hero image relate styling */
-
-.hero-image-container {
-    height: 130px;
-    width: 100%;
-    overflow: hidden;
-    position: relative;
-}
-
-.index-hero-image {
-    background: url('/media/landingbanner.jpg') no-repeat center center;
-}
-
-/*sets the rules for all hero images and links the keyframe rules to them*/
-.hero-animation {
-    height: 100%;
-    width: 100%;
-    background-size: cover;
-    animation-name: hero-image-zoom;
-    animation-duration: 3s;
-    animation-fill-mode: forwards;    
-}
-
-/* creates the level of zoom for hero image */
-@keyframes hero-image-zoom {
-    from{
-        transform: scale(0.8);
-    }
-    to{
-        transform: scale(1.0);
-    }
 }
 
 /* -------------------------------------------------------------- General form styling */
@@ -197,58 +134,6 @@ footer {
 
 /* -------------------------------------------------------------- Media Queries */
 
-@media (min-width: 375px) {
-    .hero-image-container {
-        height: 160px;
-    }
-}
-
-@media (min-width: 450px) {
-    .hero-image-container {
-        height: 190px;
-    }
-}
-
-@media (min-width: 560px) {
-    .hero-image-container {
-        height: 210px;
-    }
-}
-
-@media (min-width: 576px) {
-    /* for footer */
-}
-
-@media (min-width: 600px) {
-    .hero-image-container {
-        height: 240px;
-    }
-}
-
-@media (min-width: 690px) {
-    .hero-image-container {
-        height: 270px;
-    }
-}
-
-@media (min-width: 800px) {
-    .hero-image-container {
-        height: 300px;
-    }
-}
-
-@media (min-width: 840px) {
-    .hero-image-container {
-        height: 350px;
-    }
-}
-
-@media (min-width: 980px) {
-
-    .hero-image-container {
-        height: 390px;
-    }
-}
 
 @media (min-width: 992px) {
     .cart-counter {
@@ -257,41 +142,4 @@ footer {
     }
 }
 
-@media (min-width: 1150px) {
-
-    .hero-image-container {
-        height: 440px;
-    }
-
-}
-
-@media (min-width: 1290px) {
-
-    .hero-image-container {
-        height: 500px;
-    }
-
-}
-
-@media (min-width: 1290px) {
-
-    .hero-image-container {
-        height: 500px;
-    }
-
-}
-
-@media (min-width: 1500px) {
-    .hero-image-container {
-        height: 600px;
-        
-    }
-    .hero-animation {
-        max-width: 1841px;
-    }
-
-    .container{
-        max-width: 1400px!important;
-    }
-}
 

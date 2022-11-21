@@ -1,4 +1,10 @@
 {% extends 'base.html' %}
+{% load static %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'home/css/home.css' %}">
+{% endblock %}
+
 
 {% block content %}
     <div class="hero-image-container bg-black border-bottom-red">
@@ -11,16 +17,20 @@
         <div class="row mx-auto mt-3">
             <div class="col-lg-1"></div>
             <div class="col-sm-6 col-lg-5">
-                <a href="{% url 'products' %}?category=vaping_devices" class="card shadow p-3 mx-auto my-3 rounded w-100">
-                    <div class="card-body">
-                        Vaping Devices
+                <a href="{% url 'products' %}?category=vaping_devices" class="card shadow mx-auto my-3 rounded w-100">
+                    <div id="devices" class="home-card card-body rounded-0">
+                        <div class="overlay d-flex align-items-center justify-content-center">
+                            <h3 class="text-light">Vaping Devices</h3>
+                        </div>
                     </div>
                 </a>
             </div>
             <div class="col-sm-6 col-lg-5">
-                <a href="{% url 'products' %}?category=e_liquids" class="card shadow p-3 mx-auto my-3 rounded w-100">
-                    <div class="card-body">
-                        E-liquids
+                <a href="{% url 'products' %}?category=e_liquids" class="card shadow mx-auto my-3 rounded w-100">
+                    <div id="vape-juice" class="home-card card-body rounded-0">
+                        <div class="overlay d-flex align-items-center justify-content-center">
+                            <h3 class="text-light">E-liquids</h3>
+                        </div>
                     </div>
                 </a>
             </div>
@@ -30,16 +40,20 @@
         <div class="row mx-auto mb-3">
             <div class="col-lg-1"></div>
             <div class="col-sm-6 col-lg-5">
-                <a href="{% url 'products' %}?category=tanks_and_coils" class="card shadow p-3 mx-auto my-3 rounded w-100">
-                    <div class="card-body">
-                        Tanks and coils
+                <a href="{% url 'products' %}?category=tanks_and_coils" class="card shadow mx-auto my-3 rounded w-100">
+                    <div id="tanks-and-coils" class="home-card card-body rounded-0">
+                        <div class="overlay d-flex align-items-center justify-content-center">
+                            <h3 class="text-light">Tanks and Coils</h3>
+                        </div>
                     </div>
                 </a>
             </div>
             <div class="col-sm-6 col-lg-5">
-                <a href="{% url 'products' %}?category=batteries_and_accessories" class="card shadow p-3 mx-auto my-3 rounded w-100">
-                    <div class="card-body">
-                        Batteries and Accessories
+                <a href="{% url 'products' %}?category=batteries_and_accessories" class="card shadow mx-auto my-3 rounded w-100">
+                    <div id="bats-and-assessories" class="home-card card-body rounded-0">
+                        <div class="overlay d-flex align-items-center justify-content-center">
+                            <h3 class="text-light">Batteries and Accessories</h3>
+                        </div>
                     </div>
                 </a>
             </div>

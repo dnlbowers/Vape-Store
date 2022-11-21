@@ -2,11 +2,11 @@
 {% load static %}
 {% block content %}
 
-    <main class="mx-auto container">
+    <main class="mx-auto p-0 container">
 
         {% include "./includes/components/product-breadcrumb.html" %}
         
-        <div class="row mt-5 mb-3">
+        <div class="row no-gutters mb-3">
             <div class="col-12 col-md-6">
                 <div class="bg-black text-light">
                     <h2 class="text-center d-md-none pt-5">{{ product.name }}</h2>
@@ -33,11 +33,11 @@
                 <p class="small text-center text-muted mb-5">sku: {{ product.sku }}</p>
                 <form class="mt-5"  action="{% url 'add_to_cart' product.id %}" method="POST">
                     {% csrf_token %}
-                    <div class="form-row">
-                        <div class="col-12">
+                    <div>
+                        <div>
                             <!-- write logic for product with options and add drop down -->
                         </div>
-                        <div class="col-12">
+                        <div>
                             <label class="d-flex justify-content-center w-50 mx-auto font-weight-bold" for="quantity">Select Quantity:</label>
                             <div class="form-group d-flex justify-content-center">
                                 <div class="input-group w-50 input-group-{{ product.id }}">
@@ -67,12 +67,12 @@
                             </p>
                         </div>
                         {% if user.is_superuser %}
-                            <div class="text-right w-100">
+                            <div class="text-right">
                                 <a class="m-3 btn btn-link" href="{% url 'edit_product' product.slug %}">Edit</a>  |  
                                 <a class="btn btn-link text-danger m-3" type="submit" href="{% url 'delete_product' product.id %}">Delete</a>
                             </div>
                         {% endif %}
-                        <div class="col d-flex justify-content-around bg-black p-5">
+                        <div class="d-flex justify-content-sm-around bg-black p-5">
                             <a href="{% url 'products' %}" class="btn btn-danger border text-light border-dark p-3">
                                 <span>
                                     <i class="fas fa-chevron-left fa-sm"></i>

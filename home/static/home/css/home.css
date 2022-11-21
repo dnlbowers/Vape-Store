@@ -1,0 +1,157 @@
+/* -------------------------------------------------------------- Hero image relate styling */
+
+.hero-image-container {
+    height: 130px;
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+}
+
+.index-hero-image {
+    background: url('/media/landingbanner.jpg') no-repeat center center;
+}
+
+/*sets the rules for all hero images and links the keyframe rules to them*/
+.hero-animation {
+    height: 100%;
+    width: 100%;
+    background-size: cover;
+    animation-name: hero-image-zoom;
+    animation-duration: 3s;
+    animation-fill-mode: forwards;    
+}
+
+/* creates the level of zoom for hero image */
+@keyframes hero-image-zoom {
+    from{
+        transform: scale(0.8);
+    }
+    to{
+        transform: scale(1.0);
+    }
+}
+
+#devices{
+    background: url('/media/devices.jpg') no-repeat center center;
+}
+
+#vape-juice {
+    background: url('/media/vape-juice.jpg') no-repeat center center;
+}
+
+#tanks-and-coils {
+    background: url('/media/tanks-and-coils.jpg') no-repeat center center;
+}
+
+#bats-and-assessories {
+    background: url('/media/bats-and-assessories.jpg') no-repeat center center;
+}
+
+.home-card {
+    background-size: cover;
+    height: 300px;
+    position: relative;
+    width: 100%;
+}
+
+.overlay{
+    background-color: rgba(0,0,0,0.5);
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+}
+
+/* -------------------------------------------------------------- Media Queries */
+
+@media (min-width: 375px) {
+    .hero-image-container {
+        height: 160px;
+    }
+}
+
+@media (min-width: 450px) {
+    .hero-image-container {
+        height: 190px;
+    }
+}
+
+@media (min-width: 560px) {
+    .hero-image-container {
+        height: 210px;
+    }
+}
+
+@media (min-width: 576px) {
+    /* for footer */
+}
+
+@media (min-width: 600px) {
+    .hero-image-container {
+        height: 240px;
+    }
+}
+
+@media (min-width: 690px) {
+    .hero-image-container {
+        height: 270px;
+    }
+}
+
+@media (min-width: 800px) {
+    .hero-image-container {
+        height: 300px;
+    }
+}
+
+@media (min-width: 840px) {
+    .hero-image-container {
+        height: 350px;
+    }
+}
+
+@media (min-width: 980px) {
+
+    .hero-image-container {
+        height: 390px;
+    }
+}
+
+@media (min-width: 1150px) {
+
+    .hero-image-container {
+        height: 440px;
+    }
+
+}
+
+@media (min-width: 1290px) {
+
+    .hero-image-container {
+        height: 500px;
+    }
+
+}
+
+@media (min-width: 1290px) {
+
+    .hero-image-container {
+        height: 500px;
+    }
+
+}
+
+@media (min-width: 1500px) {
+    .hero-image-container {
+        height: 600px;
+        
+    }
+    .hero-animation {
+        max-width: 1841px;
+    }
+
+    .container{
+        max-width: 1400px!important;
+    }
+}
