@@ -1,14 +1,18 @@
 {% extends 'base.html' %}
 {% load static %}
 
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'products/css/products.css' %}">
+{% endblock %}
+
 {% block content %}
 
-    <main class="container-fluid no-gutters mx-auto px-5">
+    <main class="container-fluid no-gutters my-4 mx-auto p-0 px-md-5">
 
         <div class="row no-gutters">
 
             <div class="col-12">
-                <h2 class="text-center">Shop Our Products</h2>
+                <h2 class="text-center text-uppercase">Shop Our Products</h2>
             </div>
 
         </div>
@@ -27,7 +31,7 @@
                         <span class="small"><a href="{% url 'products' %}">Back to All Products</a> | </span>
                     {% endif %}
                     
-                    Showing {{ products|length }} Product{%if products|length > 1 %}s{%endif%}{% if search_query %} related to <strong>"{{ search_query }}"</strong>{% else %} of {{ product_count }}{% endif %}
+                    Showing {{ products|length }} Product{%if products|length > 1 %}s{%endif%}{% if search_query %} related to <strong>"{{ search_query }}"</strong>{% endif %}
                 
                 </p>
             </div>
@@ -37,7 +41,7 @@
         <div class="row no-gutters card-deck mx-auto">
             
             {% for product in products %}
-            <div class="d-flex col-sm-6 col-lg-4 col-xl-3">
+            <div class="col">
                 {% include "./includes/components/product-card.html" %}
             </div> 
             {% endfor %}

@@ -24,3 +24,9 @@
     color: #dc3545;
     border-radius: 0;
 }
+
+/* ------------------------------------------------------- Product card styling */
+.card {
+    width: 315px !important;
+    height: 724px !important;
+}

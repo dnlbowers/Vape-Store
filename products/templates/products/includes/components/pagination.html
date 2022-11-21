@@ -1,5 +1,5 @@
 {% if is_paginated %}
-    <nav class="pagination  justify-content-center">
+    <nav class="pagination mt-3 justify-content-center">
         <span class="step-links">
             {% if page_obj.has_previous %}
                 <a href="?{% if current_ordering != None %}ordering={{current_ordering}}&{% endif %}page=1">&laquo; first</a>
