@@ -153,6 +153,14 @@ footer {
         top: 2px;
         right: 9px;
     }
+
+    .border-top-red {
+        border-top: 4px solid #dc3545;
+    }
+
+    .border-bottom-red {
+        border-bottom: 4px solid #dc3545;
+    }
 }
 
 

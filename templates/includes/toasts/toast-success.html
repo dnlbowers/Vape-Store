@@ -1,5 +1,5 @@
 <!-- Longer delay time set to allow time for the user to review the card items -->
-<div class="toast border-3 border-dark bg-light" role="alert" aria-live="assertive" aria-atomic="true" data-delay="10000">
+<div class="toast border-3 border-dark bg-light" role="alert" aria-live="assertive" aria-atomic="true" data-delay="{% if product_count %}10000{% else %}5000{% endif %}">
     
     <div class="toast-header bg-success text-light border-3 border-dark">
         <span class="mr-auto font-weight-bold">Success</span>

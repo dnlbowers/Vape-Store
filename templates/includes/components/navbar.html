@@ -50,7 +50,7 @@
                         {% endif %}
 
                     </div>
-                    <p class="my-0">
+                    <p class="my-0{% if cart_total %} font-wieght-bold{% endif %}">
 
                         {% if cart_total %}
                             €{{ cart_total|floatformat:2 }}
@@ -126,7 +126,7 @@
 
                         </div>
 
-                        <p class="my-0">
+                        <p class="my-0{% if cart_total %} font-wieght-bold{% endif %}">
 
                             {% if cart_total %}
 

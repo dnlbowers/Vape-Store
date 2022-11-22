@@ -1,4 +1,4 @@
-<div class="card my-1 my-md-2 mx-auto p-3 bg-black text-light rounded-0">
+<div class="card my-1 my-md-2 mx-auto p-3 bg-black border-red text-light rounded-0">
 
     <div class="h-50 card-img-top text-center">
 
@@ -87,7 +87,7 @@
 
                                 <div class="input-group-prepend">
 
-                                    <button class="btn btn-danger border border-dark decrease-qty decrease-qty-{{ product.id }}" data-product-id="{{ product.id}}">
+                                    <button class="btn btn-danger border border-dark decrease-qty decrease-qty-{{ product.id }}" data-product-id="{{ product.id}}" aria-label="decrease quantity">
 
                                         <span>
                                             <i class="fas fa-minus fa-sm"></i>
@@ -96,11 +96,11 @@
                                     </button>
                                 </div>
 
-                                <input type="number" name="quantity" class="text-center form-control border border-dark qty-input current-qty-pid-{{ product.id }}" value="1" min="1" max="{{ product.stock_level }}" data-product-id="{{ product.id }}">
+                                <input type="number" name="quantity" class="text-center form-control border border-dark qty-input current-qty-pid-{{ product.id }}" value="1" min="1" max="{{ product.stock_level }}" data-product-id="{{ product.id }}" aria-label="quantity">
                                 
                                 <div class="input-group-append">
 
-                                    <button class="btn btn-success py-1 border border-dark increase-qty increase-qty-{{ product.id }}" data-product-id="{{ product.id}}">
+                                    <button class="btn btn-success py-1 border border-dark increase-qty increase-qty-{{ product.id }}" data-product-id="{{ product.id}}" aria-label="increase quantity">
                                         
                                         <span>
                                             <i class="fas fa-plus fa-sm"></i>
@@ -114,7 +114,7 @@
 
                         </div>
 
-                        <button class="btn btn-success" type="submit" {% if not product.in_stock %}disabled{% endif %}>
+                        <button class="btn btn-success font-weight-bold" type="submit" {% if not product.in_stock %}disabled{% endif %}>
                             Add <i class="fa-solid fa-cart-shopping fa-sm"></i>
                         </button>
                     
