@@ -16,5 +16,10 @@ class ContactUs(SuccessMessageMixin, CreateView):
          We will get back to you as soon as possible via the provided email.'
 
     def form_valid(self, form):
+        """
+        Validates form data
+
+        """
+
         form.save()
         return super().form_valid(form)

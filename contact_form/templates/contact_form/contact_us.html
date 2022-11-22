@@ -2,24 +2,32 @@
 {% load static %}
 
 {% block content %}
+
 <main class="container mx-auto my-3">
+
     <h2 class="text-center text-uppercase mb-4">Contact Us</h2>
 
     <form class="mx-auto" action="{% url 'contact_us' %}" method="POST">
+
         {% csrf_token %}
         {{form|crispy}}
 
         <div class="text-right">
             <button type="submit" class="btn btn-success text-light text-uppercase">Send</button>
         </div>
+
     </form>
+
     <div class="text-center mt-2 p-3">
+
         <a href="{% url 'home' %}">
             <span>
                 <i class="fas fa-chevron-left fa-sm"></i>
             </span>
             Back to Home
         </a>
+
     </div>
+
 </main>
 {% endblock  %}
