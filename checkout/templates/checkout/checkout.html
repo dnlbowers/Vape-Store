@@ -7,70 +7,122 @@
 {% endblock %}
 
 {% block content %}
-<main class="container">
+
+<main class="container my-3">
+
     <div class="row">
+
         <div class="col">
-            <h2 class="text-left py-3 border-bottom">Checkout</h2>
+
+            <h2 class="text-left py-3 border-bottom text-uppercase mb-4">Checkout</h2>
+
         </div>
         
     </div>
+
     <div class="row">
+
         <div class="col-12 col-lg-6 order-lg-last">
+
             <p class="text-muted">Summary ({{ product_count }} Item{% if product_count > 1%}s{% endif %})</p>
+
             <div class="row border-bottom">
+
                 <div class="col-7 ">
+
                     <p class="mb-1 mt-0 small font-weight-bold">Cart Item</p>
+
                 </div>
+
                 <div class="col-5 text-right">
+
                     <p class="mb-1 mt-0 small font-weight-bold">Subtotal</p>
+
                 </div>
+
             </div>
+
+            <!-- Cart Items -->
             {% for cart_item in cart_contents %}
+
                 <div class="row border-bottom">
+
                     <div class="col-2 my-2">
+
+                        <!-- Product Image or placeholder -->
                         <a href="{% url 'product_detail' cart_item.product.id %}">
+
                             {% if cart_item.product.image %}
+
                                 <img class="w-100" src="{{ cart_item.product.image.url }}" alt="{{ cart_item.product.name }}">
+
                             {% else %}
+
                                 <img class="w-100" src="{{ MEDIA_URL }}noimage.png" alt="No image available for {{ cart_item.product.name }}">
+
                             {% endif %}
                         </a>
+
                     </div>
+
                     <div class="col-7">
+
                         <p class="my-2 font-weight-bold">{{ cart_item.product.name }}</p>
                         <p class="my-2 small text-muted">Qty: {{ cart_item.quantity }}</p>
+
                     </div>
+
                     <div class="col-3 text-right">
+
                         <p class="my-2 small">€{{ cart_item.product.price | calc_subtotal:cart_item.quantity }}</p>
+
                     </div>
+
                 </div>
+
             {% endfor %}
+
             <hr class="my-0">
+
+            <!-- Cart Totals -->
             <div class="row text-black text-right">
+
                 <div class="col-7 offset-2">
+                    
                     <p class="my-1">Order Total:</p>
                     <p class="my-1">Delivery:</p>
                     <p class="my-1 font-weight-bold">Grand Total:</p>
+
                 </div>
+
                 <div class="col-3">
+
                     <p class="my-1">€{{ cart_total | floatformat:2 }}</p>
                     <p class="my-1">{% if shipping <= 0 %}Free{%else%}€{{ shipping | floatformat:2 }}{% endif %}</p>
                     <p class="my-1 border-top"><span class="font-weight-bold">€{{ grand_total | floatformat:2 }}</span></p>
+
                 </div>
             </div>
         </div>
 
         <div class="col-12 col-lg-6">
+
             <p>Please fill out your payment details to complete your order.</p>
+
             <form id="payment-form" class="mx-auto" action="{% url 'checkout' %}" method="POST">
+                
                 {% csrf_token %}
+                
                 <fieldset>
+
                     <legend class="font-weight-bold">Details:</legend>
                     {{ payment_form.full_name|as_crispy_field }}
                     {{ payment_form.email|as_crispy_field }}
                     
                 </fieldset>
+                
                 <fieldset>
+
                     <legend class="font-weight-bold">Shipping Address:</legend>
                     {{ payment_form.street_address1|as_crispy_field }}
                     {{ payment_form.street_address2|as_crispy_field }}
@@ -79,50 +131,77 @@
                     {{ payment_form.postcode|as_crispy_field }}
                     {{ payment_form.country|as_crispy_field }}
                     {{ payment_form.phone_number|as_crispy_field }}
+
                     <div class="form-check form-check-inline float-right mr-0">
+
+                        <!-- Save Details to profile if user logged in-->
                         {% if user.is_authenticated %}
+
                             <label class="form-check-label" for="id-save-info">Save this as my default delivery address.</label>
                             <input class="form-check-input ml-2 mr-0" type="checkbox" id="id-save-info" name="save-info" checked>
+
                         {% else %}
+
                             <label class="form-check-label" for="id-save-info">
                                 <a class="text-info" href="{% url 'account_signup' %}">Create an account</a> or 
                                 <a class="text-info" href="{% url 'account_login' %}">login</a> to save this information
                             </label>
+
                         {% endif %}
+
                     </div>
+
                 </fieldset>
+
                 <fieldset>
+
+                    <!-- contianers for stripe injected element -->
                     <legend class="font-weight-bold">Card Detals:</legend>
                     <div id="card-element" aria-label="card details"></div>
                     <div id="card-errors"></div>
                     <input type="hidden" value="{{ client_secret}}" name="client_secret">
+
                 </fieldset> 
-                <div class="text-right mt-5 mb-2">                    
+
+                <div class="text-right mt-5 mb-2">   
+
                     <a href="{% url 'view_cart' %}" class="btn btn-success mt-1">
+
                         <span>
                             <i class="fas fa-chevron-left fa-sm"></i>
                         </span>
                         <span class="font-weight-bold">Edit Purchase</span>
+
                     </a>
+
                     <button id="pay-now-btn" class="btn btn-warning mt-1">
+
                         <div class="spinner d-none" id="spinner"></div>
+
                         <span id="pay-now-btn-txt">
                             <span class="font-weight-bold">Pay Now</span>
                             <span>
                                 <i class="fas fa-lock fa-sm"></i>
                             </span>
                         </span>
+
                     </button>
+
                     <p class="small text-danger my-2">
+
                         <span class="icon">
                             <i class="fas fa-exclamation-circle"></i>
                         </span>
                         <span>Your card will be charged <span class="font-weight-bold">€{{ grand_total|floatformat:2 }}</span></span>
+
                     </p>
+
                 </div>
+
             </form>
         </div>
     </div>
+
     <div id="loading-overlay" class="d-none">
         
     </div>
@@ -132,7 +211,10 @@
 
 {% block postloadjs %}
     {{block.super }}
+
     {{ stripe_public_key|json_script:"id_stripe_public_key" }}
     {{ client_secret|json_script:"id_client_secret" }}
+
     <script src={% static 'checkout/js/stripe-elements.js' %}></script>
+
 {% endblock %}

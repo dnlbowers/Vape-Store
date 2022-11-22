@@ -69,8 +69,13 @@ class StripeWH_Handler:
         username = intent.metadata.username
 
         if username != 'AnonymousUser':
+
             profile = UserProfile.objects.get(user__username=username)
+
             if save_info:
+
+                profile.default_shipping_name = \
+                    shipping_details.full_name
                 profile.default_phone_number = \
                     shipping_details.phone
                 profile.default_country = \
@@ -85,13 +90,18 @@ class StripeWH_Handler:
                     shipping_details.address.line2
                 profile.default_county = \
                     shipping_details.address.state
+
                 profile.save()
 
         order_exists = False
+
         attempt = 1
+
         while attempt <= 5:
+
             try:
                 order = Order.objects.get(
+
                     full_name__iexact=shipping_details.name,
                     email__iexact=billing_details.email,
                     phone_number__iexact=shipping_details.phone,
@@ -105,8 +115,10 @@ class StripeWH_Handler:
                     original_cart=cart,
                     stripe_payment_id=payment_id,
                 )
+
                 order_exists = True
                 break
+
             except Order.DoesNotExist:
                 attempt += 1
                 time.sleep(1)
@@ -117,10 +129,14 @@ class StripeWH_Handler:
             return HttpResponse(
                 content=f'Webhook received: {event["type"]} | SUCCESS: Verified order already in database',  # noqa
                 status=200)
+
         else:
+
             order = None
+
             try:
                 order = Order.objects.create(
+
                     full_name=shipping_details.name,
                     user_profile=profile,
                     email=billing_details.email,
@@ -133,10 +149,15 @@ class StripeWH_Handler:
                     county=shipping_details.address.state,
                     original_cart=cart,
                     stripe_payment_id=payment_id,
+
                 )
+
                 for item_id, item_data in json.loads(cart).items():
+
                     product = AllProducts.objects.get(id=item_id)
+
                     if isinstance(item_data, int):
+
                         order_line_item = OrderLineItem(
                             order=order,
                             product=product,
@@ -154,6 +175,7 @@ class StripeWH_Handler:
                     status=500)
 
         self._send_confirmation_email(order)
+
         return HttpResponse(
             content=f'Webhook received: {event["type"]} | SUCCESS: Created order in webhook',  # noqa
             status=200)

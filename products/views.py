@@ -125,7 +125,7 @@ class EditExistingProduct(View):
 
     def get(self, request, slug, *args, **kwargs):
         """"
-        Returns a single product and it details
+        Returns a single product and it details in a form for editing
         """
 
         if not request.user.is_superuser:
@@ -146,7 +146,7 @@ class EditExistingProduct(View):
 
     def post(self, request, slug, *args, **kwargs):
         """"
-        Returns a single product and it details
+        Posts the edited details to the database
         """
 
         individual_product = get_object_or_404(AllProducts, slug=slug)

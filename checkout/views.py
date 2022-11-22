@@ -19,6 +19,11 @@ import json
 
 @require_POST
 def cache_checkout_data(request):
+    """
+    A view that takes in the checkout data and
+    stores it in the user's session
+    """
+
     try:
 
         payment_id = request.POST.get('client_secret').split('_secret')[0]
@@ -39,15 +44,28 @@ def cache_checkout_data(request):
 
 
 class Checkout(View):
+    """
+    A view that renders the checkout page and gets the
+    payment form data from the profile if one is present
+    """
 
     stripe_public_key = settings.STRIPE_PUBLIC_KEY
     stripe_secret_key = settings.STRIPE_SECRET_KEY
     template = 'checkout/checkout.html'
 
     def get(self, request, *args, **kwargs):
+        """
+        Handles the GET request for the checkout page
+        and renders the form with any previous information prefilled.
+
+        """
+
         cart = request.session.get('cart', {})
+
         if not cart:
+
             messages.error(request, "Your cart is currently empty")
+
             return redirect(reverse('products'))
 
         charge_amount = round(cart_contents(request)['grand_total'] * 100)
@@ -55,13 +73,17 @@ class Checkout(View):
         stripe.api_key = self.stripe_secret_key
 
         payment_intent = stripe.PaymentIntent.create(
+
             amount=charge_amount,
             currency=settings.STRIPE_CURRENCY,
+
         )
 
         if request.user.is_authenticated:
+
             try:
                 profile = UserProfile.objects.get(user=request.user)
+
                 payment_form = PaymentForm(initial={
                     'full_name': profile.default_delivery_name,
                     'email': profile.default_email,
@@ -73,6 +95,7 @@ class Checkout(View):
                     'street_address2': profile.default_street_address2,
                     'county': profile.default_county,
                 })
+
             except UserProfile.DoesNotExist:
 
                 payment_form = PaymentForm()
@@ -86,11 +109,20 @@ class Checkout(View):
             'client_secret': payment_intent.client_secret,
             'charge_amount': charge_amount,
         }
+
         return render(request, self.template, context)
 
     def post(self, request, *args, **kwargs):
+        """
+        Handles the POST request for the checkout page
+        and processes the form data, creates the order
+        and adjusts the stock level
+        """
+
         cart = request.session.get('cart', {})
+
         shipping_details = {
+
             'full_name': request.POST['full_name'],
             'email': request.POST['email'],
             'street_address1': request.POST['street_address1'],
@@ -113,21 +145,25 @@ class Checkout(View):
             order.save()
 
             for product_id, product_details in cart.items():
+
                 try:
                     product = AllProducts.objects.get(id=product_id)
 
                     # reduces the stock level by the quantity ordered
                     if product.stock_level > 0:
+
                         product.stock_level -= product_details
                         product.save()
+
                     else:
+
                         messages.error(request, (
                             "Sorry, we are currently out of stock of {0}."
                             "Please remove this item from your cart and try "
                             "again later.").format(product.name))
+
                         order.delete()
                         return redirect(reverse('view_cart'))
-                    # end of stock management
 
                     order_line_item = OrderLineItem(
                         order=order,
@@ -148,25 +184,35 @@ class Checkout(View):
                     return redirect(reverse('view_cart'))
 
             request.session['save_info'] = 'save-info' in request.POST
+
             return redirect(reverse(
                 'checkout_success',
                 args=[order.order_number]
             ))
+
         else:
+
             messages.error(request, "Unable to process your order. \
                 Please check the details you have entered before \
                    resubmitting the order")
 
 
 class CheckoutSuccess(View):
+    """
+    A view that renders the checkout success page
+    and saves shipping details to the profile if the
+    user ticks the save info box
+    """
 
     template = 'checkout/checkout-success.html'
 
     def get(self, request, order_number, *args, **kwargs):
+
         save_info = request.session.get('save_info')
         order = get_object_or_404(Order, order_number=order_number)
 
         if request.user.is_authenticated:
+
             profile = UserProfile.objects.get(user=request.user)
             # Attach the user's profile to the order
             order.user_profile = profile
@@ -174,7 +220,10 @@ class CheckoutSuccess(View):
 
             # Save the user's info
             if save_info:
+
                 profile_data = {
+
+                    'default_delivery_name': order.full_name,
                     'default_phone_number': order.phone_number,
                     'default_country': order.country,
                     'default_postcode': order.postcode,
@@ -182,11 +231,14 @@ class CheckoutSuccess(View):
                     'default_street_address1': order.street_address1,
                     'default_street_address2': order.street_address2,
                     'default_county': order.county,
+
                 }
 
                 user_profile_form = UserProfileForm(
                     profile_data, instance=profile)
+
                 if user_profile_form.is_valid():
+
                     user_profile_form.save()
 
         messages.success(request, f'We\'ve successfully received your order. \
@@ -196,6 +248,7 @@ class CheckoutSuccess(View):
                         "contact us" page.')
 
         if 'cart' in request.session:
+
             del request.session['cart']
 
         context = {

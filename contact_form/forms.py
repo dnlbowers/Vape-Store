@@ -13,6 +13,10 @@ class ContactForm(ModelForm):
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
+        """
+        Initialise the form attributes
+        """
+
         placeholders = {
             'name': 'Your name',
             'email': 'Your email address',

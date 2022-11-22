@@ -12,6 +12,7 @@
 
     <!-- Edit product form -->
     <form class="mx-auto" action="{% url 'edit_product' product.slug %}" method="POST" enctype="multipart/form-data">
+
         {% csrf_token %}
         {{form|crispy}}
 
@@ -21,12 +22,16 @@
     </form>
     
     <div class="text-center mt-2 p-3">
+
         <a href="{% url 'product_detail' product.slug %}">
+
             <span>
                 <i class="fas fa-chevron-left fa-sm"></i>
             </span>
+
             Back to {{product.name}} details product detials page
         </a>
+        
     </div>
 
 </main>

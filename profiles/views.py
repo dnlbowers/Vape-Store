@@ -26,6 +26,7 @@ class Profile(LoginRequiredMixin, View):
             completed_orders = profile.orders.all()
 
             context = {
+                'profile': profile,
                 'details_form': form,
                 'completed_orders': completed_orders,
                 'on_profile_page': True,

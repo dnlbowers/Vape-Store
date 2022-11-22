@@ -5,6 +5,11 @@ from .models import AllProducts, CategoryGroupings, SubCategory
 
 
 class ProductForm(forms.ModelForm):
+    """"
+    Form to allow quick editing of products from the
+    front end.
+    """
+
     class Meta:
         model = AllProducts
         fields = '__all__'
@@ -16,6 +21,9 @@ class ProductForm(forms.ModelForm):
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
+        """"
+            Initialise the form attributes
+        """
 
         # taken from boutique ado walkthrough to display friendly names
         categories = CategoryGroupings.objects.all()
@@ -35,7 +43,6 @@ class ProductForm(forms.ModelForm):
         self.fields['name'].widget.attrs['readonly'] = True
         self.fields['sku'].widget.attrs['readonly'] = True
 
-        placeholders = {}
         for field in self.fields:
             if self.fields[field].required:
                 placeholder = f'{field} *'
