@@ -31,7 +31,6 @@ body {
     padding-top: 0.5rem;
 }
 
-
 /* ------------------------------------------------------------------------- counter styling for number of items in cart  */
 .cart-counter {
     position: absolute;
@@ -49,9 +48,7 @@ body {
     padding-top: 0.5rem;
 }
 
-
 /* -------------------------------------------------------------- bootstrap toasts/cart preview taken from boutique ado */
-
 .cart-preview-container {
     position: fixed;
     top: 72px;
@@ -74,7 +71,6 @@ body {
 }
 
 /* -------------------------------------------------------------- General form styling */
-
 input, textarea {
     color: #000!important;
 }
@@ -103,7 +99,6 @@ textarea:focus, textarea:active {
 }
 
 /* -------------------------------------------------------------- General button styling */
-
 .btn {
     border-radius: 0!important;
     text-transform: uppercase;
@@ -121,7 +116,6 @@ textarea:focus, textarea:active {
 }
 
 /* -------------------------------------------------------------- footer styling */
-
 footer {
     margin-top: auto;
 }
@@ -133,8 +127,6 @@ footer {
 }
 
 /* -------------------------------------------------------------- Media Queries */
-
-
 @media (min-width: 992px) {
     .cart-counter {
         top: 2px;

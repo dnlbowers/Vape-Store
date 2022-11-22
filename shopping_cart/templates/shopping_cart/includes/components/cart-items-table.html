@@ -1,0 +1,204 @@
+{% load cart_subtotal_tool %}
+
+<div class="table-responsive rounded p-0">
+
+    <table class="table table-sm table-borderless">
+
+        <caption class="sr-only">Current items in your cart</caption>
+
+        <thead class="text-center bg-black text-light  w-100">
+            <tr class="d-none d-md-table-row">
+                <th scope="col">Product Info</th>
+                <th scope="col"></th>
+                <th scope="col">Price</th>
+                <th scope="col">Qty</th>
+                <th scope="col">Subtotal</th>
+                <th scope="col"></th>
+            </tr>
+        </thead>
+
+        <tbody>
+
+            {% for item in cart_contents %}
+
+                <tr>
+
+                    <td class="p-3 w-25">
+
+                        {% if item.product.image %}
+
+                            <a  href="{% url 'product_detail' item.product.slug %}">
+                                <img class="img-fluid rounded" href="{% url 'product_detail' item.product.id %}" src="{{ item.product.image.url }}" alt="{{ item.product.name }}">
+                            </a>
+
+                        {% else %}
+
+                            <a  href="{% url 'product_detail' item.product.slug %}">
+                                <img src="{{ MEDIA_URL }}noimage.png" alt="No image available for {{ item.product.name }}" class="img-fluid mt-0">
+                            </a>
+
+                        {% endif %}
+
+                    </td>
+
+                    <td class="py-3">
+
+                        <p class="my-0"><a href="{% url 'product_detail' item.product.slug%}"><strong>{{ item.product.name }}</strong></a></p>
+                        <p class="my-0 small text-muted d-none d-md-block">SKU: {{ item.product.sku|upper }}</p>
+                    
+                    </td>
+
+                    <td class="py-3 text-center">
+
+                        <p class="my-0">€{{ item.product.price }}</p>
+
+                    </td>
+
+                    <td class="d-none d-md-table-cell">
+
+                        <form action="{% url 'edit_cart' item.product.id %}" class="form update-qty-form pt-3 mx-auto" method="POST">
+                            
+                            {% csrf_token %}
+                            
+                            <div class="input-group input-group-{{item.product.id}}">
+                               
+                                <div class="input-group-prepend">
+                                    
+                                    <button class="btn btn-danger btn-sm rounded-left border border-dark py-1 px-2 decrease-qty decrease-qty-{{ item.product.id }}" data-product-id="{{ item.product.id}}">
+                                        <span>
+                                            <i class="fas fa-minus fa-sm"></i>
+                                        </span>
+                                    </button>
+                                
+                                </div>
+                                
+                                <input type="number" name="quantity" class="form-control form-control-sm border border-dark qty-input current-qty-pid-{{ item.product.id }}" value="{{item.quantity}}" min="1" max="{{ item.product.stock_level }}" data-product-id="{{ item.product.id }}">
+                                
+                                <div class="input-group-append">
+                                    
+                                    <button class="btn btn-success btn-sm rounded-right border border-dark py-1 px-2 increase-qty increase-qty-{{ item.product.id }}" data-product-id="{{ item.product.id}}">
+                                        <span>
+                                            <i class="fas fa-plus fa-sm"></i>
+                                        </span>
+                                    
+                                    </button>
+                                
+                                </div>
+                            
+                            </div>
+                            
+                            <div>
+                                <button type="submit" class="btn btn-outline-primary btn-sm btn-block mt-2">Update</button>
+                            </div>
+
+                        </form>
+                    </td>
+
+                    <td class="py-3 text-center">
+                        <p class="my-0">€{{ item.product.price | calc_subtotal:item.quantity }}</p>
+                    </td>
+
+                    <td class="py-3 text-right d-flex align-items-center">
+                        <a data-remove-id="{{ item.product.id }}" class="delete-btn btn-sm btn-danger"><i class="fa-solid fa-trash-can fa-lg"></i></a>
+                    </td>
+
+                </tr>
+
+                <tr class="d-md-none">
+
+                    <td colspan="6" class="py-3">
+
+                        <form action="{% url 'edit_cart' item.product.id %}" class="form update-qty-form" method="POST">
+                            
+                            {% csrf_token %}
+                            <div class="text-center">
+                                <label for="input-group-{{item.product.id}}">Qty:</label>
+                            </div>
+                            
+                            <div class="input-group input-group-{{item.product.id}}">
+                            
+                                <div class="input-group-prepend">
+                            
+                                    <button class="btn btn-danger btn-sm rounded-left border border-dark decrease-qty decrease-qty-{{ item.product.id }}" data-product-id="{{ item.product.id}}">
+                                        <span>
+                                            <i class="fas fa-minus fa-sm"></i>
+                                        </span>
+                            
+                                    </button>
+                            
+                                </div>
+                                
+                                <input type="number" name="quantity" class="form-control border border-dark qty-input current-qty-pid-{{ item.product.id }}" value="{{ item.quantity }}" min="1" max="{{ item.product.stock_level }}" data-product-id="{{ item.product.id }}">
+                                
+                                <div class="input-group-append">
+                                    
+                                    <button class="btn btn-sm btn-success rounded-right border border-dark increase-qty increase-qty-{{ item.product.id }}" data-product-id="{{ item.product.id }}">
+                                        <span>
+                                            <i class="fas fa-plus fa-sm"></i>
+                                        </span>
+                                    
+                                    </button>
+                                
+                                </div>
+                                
+                            </div>
+                            
+                            <div>
+                                <button type="submit" class="btn btn-outline-primary btn-sm btn-block mt-2">Update Qty</button>
+                            </div>
+
+                        </form>
+
+                    </td>
+
+                </tr>
+
+                <tr class="w-100">
+                    <td colspan="12">
+                        <hr class="w-100">
+                    </td>
+                </tr>                            
+
+            {% endfor %}
+            <tr>
+                <td colspan="5" class="pt-5 text-right">
+
+                    <h6><strong>Total: €{{ cart_total|floatformat:2 }}</strong></h6>
+                    <h6>Shipping: €{{ shipping|floatformat:2 }}</h6>
+                    <h4 class="mt-4"><strong>Grand Total: €{{ grand_total|floatformat:2 }}</strong></h4>
+
+                    {% if free_shipping_delta > 0 %}
+
+                        <p class="mb-1 text-danger">
+                            Spend just <strong>€{{ free_shipping_delta }}</strong> more for free delievery!
+                        </p>
+
+                    {% endif %}
+
+                </td>
+            </tr>
+
+            <tr>
+                <td colspan="5" id="checkout-access" class="text-right">
+
+                    <a href="{% url 'products' %}" class="btn btn-success border text-light border-dark my-1 rounded-0">
+                        <span>
+                            <i class="fas fa-chevron-left fa-sm"></i>
+                        </span>
+                        <span class="text-uppercase">Shop for more</span>
+                    </a>
+
+                    <a href="{% url 'checkout' %}" class="btn border border-dark btn-warning my-1 rounded-0">
+                        <span class="text-uppercase">Secure Checkout</span>
+                        <span>
+                            <i class="fas fa-lock fa-sm"></i>
+                        </span>
+                    </a>
+
+                </td>
+            </tr>
+
+        <tbody>
+    </table>
+    
+</div>

@@ -210,7 +210,8 @@ class DeleteProduct(View):
     @staticmethod
     def get(request, *args, **kwargs):
         """"
-        Returns a single product and it details
+        Deletes a product from the database
+        but restricts this action to superusers
         """
 
         if not request.user.is_superuser:
