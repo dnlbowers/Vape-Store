@@ -8,6 +8,11 @@ from .forms import UserProfileForm
 
 
 class Profile(LoginRequiredMixin, View):
+    """
+    A view to return the user's profile
+    LoginRequiredMixin ensures that only logged
+    in users can access this view
+    """
 
     login_url = '/accounts/login/'
 
@@ -35,6 +40,9 @@ class Profile(LoginRequiredMixin, View):
             return render(self.request, 'profiles/profile.html', context)
 
     def post(self, *args, **kwargs):
+        """
+        Handles the form submission to update the users delivery details
+        """
 
         if not self.request.user.is_authenticated:
 
@@ -55,6 +63,7 @@ class Profile(LoginRequiredMixin, View):
                 return redirect(reverse('profile'))
 
             else:
+
                 messages.error(
                     self.request,
                     'Update failed. Please try again.')
@@ -68,20 +77,37 @@ class Profile(LoginRequiredMixin, View):
 
 
 class CompletedOrders(View):
+    """
+    A view to return the user's completed orders
+    from past check successes.
+    """
 
     def get(self, *args, **kwargs):
         order_number = self.kwargs.get('order_number')
         order = get_object_or_404(Order, order_number=order_number)
+        order_email = order.email
 
-        messages.info(
-            self.request,
-            f'This is a past confirmation for order no. {order_number}.'
-            'A confirmation email was sent at the time of purchase.')
+        if self.request.user.id == order.user_profile.id:
+            messages.info(
+                self.request,
+                f'This is a past confirmation for order no. {order_number}.'
+                f'A confirmation email was sent to {order.email} at the time\
+                     of purchase.')
 
-        template = 'checkout/checkout-success.html'
-        context = {
-            'order': order,
-            'from_profile': True
-        }
+            template = 'checkout/checkout-success.html'
 
-        return render(self.request, template, context)
+            context = {
+                'order': order,
+                'from_profile': True
+            }
+
+            return render(self.request, template, context)
+
+        else:
+
+            messages.error(
+                self.request,
+                'Sorry, this order does not belong to you or\
+                    you were not logged in at the time of purchase. \
+                        Please contact us for assistance.')
+            return redirect(reverse('home'))
