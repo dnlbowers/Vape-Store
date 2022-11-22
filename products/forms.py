@@ -22,7 +22,7 @@ class ProductForm(forms.ModelForm):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         """"
-            Initialise the form attributes
+        Initialise the form attributes
         """
 
         # taken from boutique ado walkthrough to display friendly names
@@ -44,12 +44,19 @@ class ProductForm(forms.ModelForm):
         self.fields['sku'].widget.attrs['readonly'] = True
 
         for field in self.fields:
+
             if self.fields[field].required:
+
                 placeholder = f'{field} *'
+
             else:
+
                 placeholder = field
+
             if field == 'image':
+
                 self.fields[field].label = False
+
             self.fields[field].widget.attrs['placeholder'] = placeholder
             self.fields[field].widget.attrs[
                 'aria-label'] = placeholder
