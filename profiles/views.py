@@ -83,9 +83,9 @@ class CompletedOrders(View):
     """
 
     def get(self, *args, **kwargs):
+
         order_number = self.kwargs.get('order_number')
         order = get_object_or_404(Order, order_number=order_number)
-        order_email = order.email
 
         if self.request.user.id == order.user_profile.id:
             messages.info(

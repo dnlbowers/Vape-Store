@@ -6,40 +6,58 @@
 {% endblock %}
 
 {% block content %}
-<main class="container mx-auto my-5">
+<main class="container mx-auto my-3">
+
     <h2 class="text-center text-capitalize my-3">{% if edit_review %}Edit your review of {% endif %}review {{ product.name }}</h2>
+
     <div class="mx-auto text-center my-3">
+
+        <!-- Product image or placeholder -->
         {% if product.image %}
-            <a href="{% url 'product_detail' product.id %}" class="text-center mx-auto">
+
+            <a href="{% url 'product_detail' product.slug %}" class="text-center mx-auto">
                 <img class="img-max" src="{{ product.image.url }}" alt="{{ product.name }}">
             </a>
+
         {% else %}
-            <a href="{% url 'product_detail' product.id %}">
+
+            <a href="{% url 'product_detail' product.slug %}">
                 <img <img class="img-max" src="{{ MEDIA_URL }}noimage.png" alt="No image available for {{ product.name }}" class="mx-auto my-3">
             </a>
+
         {% endif %}
+
     </div>
 
+    <!-- Form to add or edit a review -->
     <form id="review-form" class="mx-auto" action="{% if edit_review %}{% url 'edit_review' product.id review.id %}{% else %}{% url 'add_review' product.id %}{% endif %}" method="POST">
+        
         {% csrf_token %}
         {{ review_form.title|as_crispy_field }}
         {{ review_form.content|as_crispy_field }}
         {{ review_form.rating|as_crispy_field }}
+        
         <input type="hidden" name="product_id" value="{{ product.id }}">
         <input type="hidden" name="user_id" value="{{ user.id }}">
 
         <div class="text-right">
             <button type="submit" class="btn btn-success text-light text-uppercase">{% if edit_review%}Edit{% else %}Submit{% endif %} Review</button>
         </div>
-        <input type="hidden" name="redirect_url" value="{{ request.path }}">                                   
+
+        <input type="hidden" name="redirect_url" value="{{ request.path }}">
+
     </form>
+
     <div class="text-center mt-2 p-3">
+
         <a href="{% url 'product_detail' product.slug %}">
             <span>
                 <i class="fas fa-chevron-left fa-sm"></i>
             </span>
             Back to product details
         </a>
+
     </div>
+    
 </main>
 {% endblock  %}

@@ -238,6 +238,8 @@ class OrderLineItem(models.Model):
                     if check_stock < 0:
                         # done to ensure a staff member does not add more
                         # stock than is available to an amended order.
+                        # admin shows a success message but user manual
+                        # will explain why stock is not updated
                         pass
 
                     else:

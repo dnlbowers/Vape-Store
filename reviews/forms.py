@@ -3,12 +3,20 @@ from django.forms import ModelForm
 
 
 class ProductReviewForm(ModelForm):
+    """
+    A form to allow users to leave a review
+    """
+
     class Meta:
         model = ProductReviews
         fields = ['title', 'content', 'rating']
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
+        """
+        Initializes the form attributes
+        """
+
         placeholders = {
             'title': 'Your review in a sentence',
             'content': 'Tell us some more about your experience',
