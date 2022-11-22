@@ -1,105 +1,171 @@
+<!-- Top half of header/nav bar visable only on larger screens -->
 <div class="row pt-2 d-none d-lg-flex pl-3 pr-3 no-gutters bg-black text-light">
+
     <div class="col-12 col-lg-4 my-auto">
+
         <a class="navbar-brand" href="{% url 'home' %}">
             {% include 'includes/layout/logo.html'%}
         </a>
+
     </div>
+
     <div class="col-12 col-lg-4 my-auto">
+
         {% include 'includes/components/search-form.html'%}
+
     </div>
+
     <nav class="col-12 col-lg-4">
+
         <ul class="list-inline list-unstyled text-right my-auto">
+
             <li class="dropdown list-inline-item">
+
                 <a class="nav-link text-reset" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" aria-label="user account options">
+                    
                     <div class="text-center">
                         <i class="fas fa-user fa-lg"></i>
                     </div>
+
                     <p class="my-0">Account</p>
+
                 </a>
                 <div class="dropdown-menu border-0">
+
                     {% include 'includes/components/account-dropdown.html'%}
+
                 </div>
             </li>
+
             <li class="list-inline-item">
+
                 <a href="{% url 'view_cart' %}" class="nav-link {% if cart_contents %}text-primary font-weight-bold{%else%} text-light{% endif %}" aria-label="View your cart and review your order before purchase">
+                    
                     <div class="text-center">
+                        
                         <i class="fa-solid fa-cart-shopping fa-lg"></i>
+                        
                         {% if product_count > 0 %}
                                 <span class="cart-counter badge badge-warning badge-pill text-dark">{{product_count}}</span>
                         {% endif %}
+
                     </div>
                     <p class="my-0">
+
                         {% if cart_total %}
                             €{{ cart_total|floatformat:2 }}
                         {% else %}
                         €0.00
                         {% endif %}
+
                     </p>
+
                 </a>
+
             </li>
+
         </ul>
+
     </nav>
+
 </div>
 
-<!-- Nav bar with mobile verison inluded -->
+<!-- Nav menu with mobile verison inluded -->
 <nav class="navbar navbar-expand-lg bg-black text-light px-0">
+
     <div class="row mx-auto w-100 d-lg-none">
+
         <div class="col-4 col-lg-0 my-auto d-flex justify-content-start  padding-top">
+
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="fa-solid fa-bars fa-lg text-light"></span>
             </button>
+
         </div>
         <div class="col-4 col-lg-0 my-auto">
+
             <div class="d-flex d-lg-none my-auto justify-content-center padding-top">
                 <a class="navbar-brand" href="{% url 'home' %}">
                     {% include 'includes/layout/logo.html'%}
                 </a>
             </div>
+
         </div>
+
         <div class="col-4 col-lg-0 my-auto p-0">
+
             <ul class="list-inline list-unstyled my-auto d-flex d-lg-none my-auto justify-content-end">
+
                 <li class="dropdown list-inline-item">
+
                     <a class="nav-link px-1 py-3 text-reset" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"  aria-label="user account options">
                         <div class="text-center padding-top">
                             <i class="fas fa-user fa-lg"></i>
                         </div>
                         <p class="my-0">Account</p>
                     </a>
+
                     <div class="dropdown-menu border-0">
                         {% include 'includes/components/account-dropdown.html'%}
                     </div>
+
                 </li>
                 <li class="list-inline-item">
+
                     <a href="{% url 'view_cart' %}" class="nav-link px-1 py-3 {% if cart_contents %}text-primary font-weight-bold {%else%}text-light{% endif %}" aria-label="View your cart and review your order before purchase">
+                        
                         <div class="counter-container text-center">
+
                             <i class="fa-solid fa-cart-shopping fa-lg"></i>
+
                             {% if product_count > 0 %}
+
                                 <span class="cart-counter badge badge-warning badge-pill text-dark">{{product_count}}</span>
+                            
                             {% endif %}
+
                         </div>
+
                         <p class="my-0">
+
                             {% if cart_total %}
+
                                 €{{ cart_total|floatformat:2 }}
+
                             {% else %}
+
                                 €0.00
+
                             {% endif %}
+
                         </p>
+
                     </a>
+
                 </li>
+
             </ul>
+
         </div>
+
     </div>
     
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
         <ul class="navbar-nav mx-auto text-centre text-light">
+
             <li class="nav-item active">
                 <a class="nav-link text-reset font-weight-bold ml-2" href="{% url 'products' %}">All Products<span class="sr-only">(current)</span></a>
             </li>
+
             <li class="nav-item dropdown">
+
                 <a class="nav-link dropdown-toggle text-reset font-weight-bold ml-2" href="#" id="hardwareDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     Hardware
                 </a>
+
                 <div class="dropdown-menu" aria-labelledby="hardwareDropdown">
+
                     <a class="dropdown-item" href="{% url 'products' %}?subcategory=mod">Mods</a>
                     <div class="dropdown-divider"></div>
                     <a class="dropdown-item" href="{% url 'products' %}?subcategory=disposable">Disposables</a>
@@ -107,13 +173,18 @@
                     <a class="dropdown-item" href="{% url 'products' %}?subcategory=tank">Tanks</a>
                     <div class="dropdown-divider"></div>
                     <a class="dropdown-item" href="{% url 'products' %}?subcategory=coil">Coils</a>
+
                 </div>
+
             </li>
             <li class="nav-item dropdown">
+
                 <a class="nav-link dropdown-toggle text-reset font-weight-bold ml-2" href="#" id="VapeJuiceDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     VapeJuice
                 </a>
+
                 <div class="dropdown-menu" aria-labelledby="VapeJuiceDropdown">
+
                     <a class="dropdown-item" href="{% url 'products' %}?subcategory=vapejuice">Pre-mixed</a>
                     <div class="dropdown-divider"></div>
                     <a class="dropdown-item" href="{% url 'products' %}?subcategory=baseliquid">Base Liquids</a>
@@ -121,17 +192,30 @@
                     <a class="dropdown-item" href="{% url 'products' %}?subcategory=concentrate">Flavour concentrates</a>
                     <div class="dropdown-divider"></div>
                     <a class="dropdown-item" href="{% url 'products' %}?subcategory=nicotine">Nicotine</a>
+
                 </div>
+
             </li>
+
             <li class="nav-item">
+
                 <a class="nav-link text-reset font-weight-bold ml-2" href="{% url 'products' %}?subcategory=battery,accessory">Accessories</a>
+            
             </li>
+
             <li class="nav-item">
+
                 <a class="nav-link text-danger font-weight-bold ml-2" href="{% url 'products' %}?clearance">*Special Offers*</a>
+            
             </li>
             <li class="nav-item">
+
                 <a class="nav-link text-reset font-weight-bold ml-2" href="{% url 'contact_us' %}?subcategory=battery,accessory">Contact Us</a>
+            
             </li>
+
         </ul>
+
     </div>
+    
 </nav>

@@ -216,7 +216,8 @@ class DeleteProduct(View):
 
         if not request.user.is_superuser:
 
-            messages.error(request, 'Sorry, only store owners can do that.')
+            messages.error(request, 'Sorry, only store owners can\
+                 delete products.')
 
             return redirect(reverse('home'))
 
