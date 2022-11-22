@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Damion&display=swap');
+
 * {
     margin: 0;
     padding: 0;
@@ -7,6 +9,7 @@
 body {
     display: flex;
     flex-direction: column;
+    font-family: 'DM Sans', sans-serif !important;
     min-height: 100vh;
 }
 
@@ -29,6 +32,12 @@ body {
 
 .padding-top {
     padding-top: 0.5rem;
+}
+
+.logo-letter {
+    font-family: 'Damion', cursive;
+    font-size: 2rem;
+    color: #dc3545;
 }
 
 /* ------------------------------------------------------------------------- counter styling for number of items in cart  */
