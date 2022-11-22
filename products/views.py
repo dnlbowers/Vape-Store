@@ -22,7 +22,6 @@ class AllProductsView(generic.ListView):
     query = None
     categories = None
     subcategories = None
-    product_count = 0
     clearance = None
 
     def get_ordering(self, *args, **kwargs):
@@ -68,6 +67,7 @@ class AllProductsView(generic.ListView):
             if 'clearance' in self.request.GET:
 
                 products = products.filter(has_sale=True)
+                self.clearance = True
 
             if 'category' in self.request.GET:
 
