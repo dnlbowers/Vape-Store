@@ -32,23 +32,25 @@
 }
 
 #devices{
-    background: url('/media/devices.jpg') no-repeat center center;
+    background: url('/media/devices.jpg');
+    background-position-x: center;
+    background-position-y: 75%;
 }
 
 #vape-juice {
-    background: url('/media/vape-juice.jpg') no-repeat center center;
+    background: url('/media/vape-juice.jpg') center;
 }
 
 #tanks-and-coils {
-    background: url('/media/tanks-and-coils.jpg') no-repeat center center;
+    background: url('/media/tanks-and-coils.jpg') center;
 }
 
-#bats-and-assessories {
-    background: url('/media/bats-and-assessories.jpg') no-repeat center center;
+#bats-and-accessories {
+    background: url('/media/bats-and-assessories.jpg') center;
 }
 
 .home-card {
-    background-size: cover;
+    background-size: 100% auto;
     height: 300px;
     position: relative;
     width: 100%;

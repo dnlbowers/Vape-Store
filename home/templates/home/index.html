@@ -7,57 +7,103 @@
 
 
 {% block content %}
-    <div class="hero-image-container bg-black border-bottom-red">
+    
+    <div class="hero-image-container bg-black">
+    
         <div class="hero-animation index-hero-image mx-auto">
+    
         </div>
         
     </div>
+
     <main class="container-fluid no-gutters mx-auto">
 
-        <div class="row mx-auto mt-3">
+        <div class="row mx-auto mb-4 mt-5">
+            
             <div class="col-lg-1"></div>
+            
             <div class="col-sm-6 col-lg-5">
-                <a href="{% url 'products' %}?category=vaping_devices" class="card shadow mx-auto my-3 rounded w-100">
-                    <div id="devices" class="home-card card-body rounded-0">
+
+                <a href="{% url 'products' %}?category=vaping_devices" aria-label="Takes you to the Vaping device products">
+                    
+                    <div id="devices" class="home-card card shadow rounded-0 border-red">
+                    
                         <div class="overlay d-flex align-items-center justify-content-center">
+                    
                             <h2 class="text-light">Vaping Devices</h2>
+                    
                         </div>
+                    
                     </div>
+                
                 </a>
+            
             </div>
+            
             <div class="col-sm-6 col-lg-5">
-                <a href="{% url 'products' %}?category=e_liquids" class="card shadow mx-auto my-3 rounded w-100">
-                    <div id="vape-juice" class="home-card card-body rounded-0">
+            
+                <a href="{% url 'products' %}?category=e_liquids" aria-label="Takes you to the e-liquid products">
+            
+                    <div id="vape-juice" class="home-card card shadow rounded-0 border-red">
+                        
                         <div class="overlay d-flex align-items-center justify-content-center">
+                        
                             <h2 class="text-light">E-liquids</h2>
+                        
                         </div>
+
                     </div>
+
                 </a>
+
             </div>
+
             <div class="col-lg-1"></div>
+
         </div>
 
-        <div class="row mx-auto mb-3">
+        <div class="row mx-auto mt-4 mb-5">
+
             <div class="col-lg-1"></div>
+
             <div class="col-sm-6 col-lg-5">
-                <a href="{% url 'products' %}?category=tanks_and_coils" class="card shadow mx-auto my-3 rounded w-100">
-                    <div id="tanks-and-coils" class="home-card card-body rounded-0">
-                        <div class="overlay d-flex align-items-center justify-content-center">
+
+                <a href="{% url 'products' %}?category=tanks_and_coils" aria-label="Takes you to the tanks and coils products">
+                    
+                    <div id="tanks-and-coils" class="home-card card shadow rounded-0 border-red">
+
+                        <div class="overlay d-flex align-items-center justify-content-center ">
+
                             <h2 class="text-light">Tanks and Coils</h2>
+
                         </div>
+
                     </div>
+
                 </a>
+
             </div>
+
             <div class="col-sm-6 col-lg-5">
-                <a href="{% url 'products' %}?category=batteries_and_accessories" class="card shadow mx-auto my-3 rounded w-100">
-                    <div id="bats-and-assessories" class="home-card card-body rounded-0">
-                        <div class="overlay d-flex align-items-center justify-content-center">
+
+                <a href="{% url 'products' %}?category=batteries_and_accessories" aria-label="Takes you to the Batteries and Accessories products">
+                    
+                    <div id="bats-and-accessories" class="home-card card shadow rounded-0 border-red">
+                        
+                        <div class="overlay d-flex align-items-center justify-content-center ">
+
                             <h2 class="text-light">Batteries and Accessories</h2>
+
                         </div>
+
                     </div>
                 </a>
+
             </div>
+
             <div class="col-lg-1"></div>
+
         </div>
+
     </main>
 {% endblock %}
