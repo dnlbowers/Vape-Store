@@ -34,6 +34,10 @@ body {
     padding-top: 0.5rem;
 }
 
+a {
+    color: #800080;
+}
+
 /* ------------------------------------------------------------------------logo styling */
 .logo-letter {
     font-family: 'Damion', cursive;

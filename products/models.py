@@ -170,6 +170,10 @@ class Mods(AllProducts):
         verbose_name_plural = 'Mods'
 
     colour = models.CharField(max_length=254, null=True, blank=True)
+    built_in_battery = models.BooleanField(
+        default=False)
+    battery_size = models.CharField(max_length=254, null=True, blank=True)
+    output = models.CharField(max_length=254, null=True, blank=True)
 
 
 class Tanks(AllProducts):

@@ -59,7 +59,7 @@ av_setCookie = function(e) {
 	var is_legal = $(e.currentTarget).attr('rel');
 
 	$.cookie('is_legal', is_legal, {
-		expires: 30,
+		expires: 1,
 		path: '/'
 	});
 

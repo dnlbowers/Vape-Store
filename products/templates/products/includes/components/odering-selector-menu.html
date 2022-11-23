@@ -1,6 +1,6 @@
 <select id="sorting-menu" class="custom-select custom-select-sm w-50">
     
-    <option value="default" {% if current_ordering == 'None_None' %}selected{% endif %}>Sort by...</option>
+    <option value="default" {% if current_ordering == 'None_None' %}selected{% endif %}>Sort products by...</option>
     <option value="name" {% if current_ordering == 'name' %}selected{% endif %}>Name (A to Z)</option>
     <option value="-name" {% if current_ordering == '-name' %}selected{% endif %}>Name (Z to A)</option>
     <option value="price" {% if current_ordering == 'price' %}selected{% endif %}>Price (low to high)</option>
