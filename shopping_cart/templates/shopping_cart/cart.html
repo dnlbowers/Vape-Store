@@ -65,40 +65,8 @@
     {{ block.super }}
     <script src="{% static 'products/js/qtySelectorBtns.js' %}"></script>
     {% comment %} {% include 'products/includes/scripts/qty-selector-btn-scripts.html' %} {% endcomment %}
-    <script type="text/javascript">
+    <script src="{% static 'shopping_cart/js/deleteCartItem.js' %}">
         
-        $('.update-btn').click(e => {
-            /**
-            * This function is used to update the quantity of a product in the bag.
-            */
-            e.preventDefault();
-            $(e.target).closest('qty-update-form').submit();
-        });
-
-        $('.delete-btn').click(function(e) {
-            /**
-            * This function is used to delete a product from the bag.
-            */
-            e.preventDefault();
-            let productId = $(this).data('remove-id');
-            const crsfToken = "{{ csrf_token }}";
-            console.log(productId);
-            const url = `/shoppingcart/deleteitem/${productId}/`;
-            console.log(url);
-            $.ajax({
-                url: url,
-                type: 'POST',
-                data: {
-                    'csrfmiddlewaretoken': crsfToken,
-                    'product_id': productId,
-                },
-                success: function (data) {
-                    location.reload();
-                },
-                error: function (data) {
-                    console.log(data);
-                }
-            });
-        });
+        
     </script>
 {% endblock %}

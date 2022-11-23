@@ -25,11 +25,23 @@ class AddToCart(View):
         cart = request.session.get('cart', {})
 
         if product_id in list(cart.keys()):
-            cart[product_id] += quantity
-            messages.success(
-                request,
-                f'Added additional {quantity} {product.name} to your cart'
-            )
+            new_quantity = cart[product_id] + quantity
+            check_stock = product.stock_level - new_quantity
+            if check_stock >= 0:
+                cart[product_id] = new_quantity
+                messages.success(
+                    request,
+                    f'Added additional {quantity} {product.name} to your cart'
+                )
+            else:
+                messages.error(
+                    request,
+                    f'There is not enough {product.name} in stock to meet \
+                         this request. Please cross check the amount \
+                             already in your cart with the total \
+                            amount in stock currently'
+
+                )
         else:
             cart[product_id] = quantity
             messages.success(

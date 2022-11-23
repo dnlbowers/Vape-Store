@@ -35,7 +35,7 @@ body {
 }
 
 a {
-    color: #800080;
+    color: #490049;
 }
 
 /* ------------------------------------------------------------------------logo styling */
@@ -54,8 +54,8 @@ a {
 /* ------------------------------------------------------------------------- counter styling for number of items in cart  */
 .cart-counter {
     position: absolute;
-    top: 0;
-    right: 0;
+    top: -1px;
+    right: 10px;
     color: #fff;
     font-size: 0.8rem;
     padding: 0.2rem 0.5rem;
@@ -154,8 +154,8 @@ footer {
     
 @media screen and (min-width: 992px) {
     .cart-counter {
-        top: 2px;
-        right: 9px;
+        top: -1px;
+        right: 25px;
     }
 
     .border-top-red {

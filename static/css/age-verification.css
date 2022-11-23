@@ -14,7 +14,7 @@
 }
 
 #modal_screen.nope {
-	background-color: #1e0924; 
+	background-color: #000; 
 }
 
 #modal_content {
@@ -97,7 +97,7 @@
 }
 
 #modal_content nav .av_btn:hover {
-	background-color: #1e0924;
+	background-color: #000;
 }
 
 #modal_content #modal_regret_wrapper nav a.av_btn {
