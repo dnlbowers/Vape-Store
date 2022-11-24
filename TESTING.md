@@ -59,5 +59,12 @@ Most of this epic were tasks for the development phase and therefore the testing
 |:---:|:---|
 |&check;| The site has a list of products.
 |&check;| The list of products is paginated.
-|&check;| The list of products is ordered by ID.
-|&check;| The list of products can be ordered by name.
+|&check;| The list of products is ordered by ID by default.
+|&check;| The list of products can be ordered by name ascending and descending.
+|&check;| The list of products can be ordered by price ascending and descending.
+|&check;| The list of products can be ordered by rating ascending and descending.
+|&check;| The list of products can be filter to show only those that have an active sale.
+|&check;| The list of products show stock status i.e. in stock/out of stock.
+|&check;| Add to cart button works as expected on both the all products page and the product details page.
+|&check;| User cannot add more items to their cart than are in stock.
+|&check;| When and item is out of stock the add to cart button is disabled.

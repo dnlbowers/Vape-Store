@@ -130,7 +130,9 @@
 
                             </a>
                         
-                            <button type="submit" class="btn btn-success text-light text-uppercase ml-1 p-3" value="Add to Bag">
+                            <button class="btn btn-success font-weight-bold py-3 px-5" type="submit" {% if not product.in_stock %}disabled{% endif %}>
+                                Add <i class="fa-solid fa-cart-shopping fa-sm"></i>
+                            </button>
                         
                         </div>
                         
