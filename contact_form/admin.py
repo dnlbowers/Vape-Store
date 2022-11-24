@@ -24,7 +24,7 @@ class CustomerMessagesAdmin(admin.ModelAdmin):
         'pending_reply',
         'marked_as_done',
     )
-    list_filter = ('pending_reply', 'marked_as_done')
+    list_filter = ('pending_reply', 'marked_as_done', 'date_received')
     summer_note_field = ('message',)
     readonly_fields = ('date_received', 'message',)
 

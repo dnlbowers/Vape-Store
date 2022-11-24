@@ -112,4 +112,77 @@ Most of this epic were tasks for the development phase and therefore the testing
 |&check;| User cannot enter a value less than 1 for the rating field.
 |&check;| User cannot submit a review without a title.
 |&check;| User cannot submit a review without a rating.
-|&check;| Over all rating is calculated and displayed on the product detail page/product card .
+|&check;| Over all rating is calculated and displayed on the product detail page/product card.
+|&check;| Over all rating is adjusted when review is deleted or edited.
+|&check;| Author of review can edit their review.
+|&check;| Author of review can delete their review.
+|&check;| Author of review can not edit or delete another users review.
+|&check;| success message is displayed when a review is submitted.
+
+|passed | **View reviews of a product** so that I can **see what other people think of a product.**
+|:---:|:---|
+|&check;| The site has a review section on the product detail page.
+|&check;| The review section shows the review title.
+|&check;| The review heading shows the review rating.
+|&check;| The review heading shows a preview of the the review body.
+|&check;| The review heading shows the review author.
+|&check;| The review heading shows the review date.
+|&check;| The review edit/delete buttons only show to the author and super users.
+|&check;| Accordion opens and closes when clicked.
+|&check;| Accordion only allows for one review to be expanded at a time to save display space.
+|&check;| If no reviews then an inline form is shown in place of the accordion.
+|&check;| If reviews then there is a button above for the user to be able to add a review.
+
+|passed | **Identify any promotions that are available** so that I can **take advantage of them and obtain the best value for money possible.**
+|:---:|:---|
+|&check;| The site has a promotions page.
+|&check;| The promotions page shows only items that have sale active.
+
+|passed | **See clearly when something goes wrong on the site** so that I can **correct any errors and continue with my purchase.**
+|:---:|:---|
+|&check;| The site has a 404 page active when url unknown.
+|&check;| The site has a 500 page active when server error.
+|&check;| Relevant feedback is displayed as a toast message when the user cannot perform an action.
+
+|passed | * ... **See a pleasantly styled and easy to navigate site** so that I can **enjoy the experience of using the site.**
+|:---:|:---|
+| | The site has a pleasant colour scheme.
+| | The site has a pleasant font scheme.
+| | The site has a pleasant layout.
+| | The site has a pleasant navigation.
+| | The site has a pleasant footer.
+| | The site has a pleasant header.
+| | The site has a pleasant product card.
+| | The site has a pleasant product detail page.
+| | The site has a pleasant cart page.
+| | The site has a pleasant checkout page.
+| | The site has a pleasant promotions page.
+| | Everything is aligned and spaced correctly.
+
+|passed | **Easily contact the store owner** so that I can **ask questions about the products or the site.**
+|:---:|:---|
+|&check;| The site has a contact page.
+|&check;| Contact form cannot be submitted with required fields blank.
+|&check;| Contact form cannot be submitted with invalid email address.
+|&check;| Contact form submits a message to the database.
+|&check;| Message can be read in the admin panel.
+|&check;| success message is shown to the user when message is submitted.
+|&check;| Notes can be added to the message in the admin panel.
+|&check;| Message can be updated as done.
+|&check;| pending reply is automatically ticked and can be un-ticked to indicate the message is complete
+|&check;| Message can be deleted.
+|&check;| Messages can be filtered by "marked as done" and "pending reply".
+|&check;| Messages can be filtered by "all", "today", "this week", "this month" and "this year".
+
+|passed | **All site users are of legal age to purchase vape supplies** so that I can **comply with the law.**
+|:---:|:---|
+|&check;| on first visit to the site the user is asked to confirm they are over 18.
+|&check;| if the user is under 18 they blocked from viewing the site until they confirm they are of legal age.
+|&check;| Cookie is left upon the user confirming they are of legal age.
+|&check;| Pop up appears on every page until the user confirms they are of legal age.
+|&check;| Cookie has an expiry date of one day.
+
+|passed | **Register for an account** so that I can **save my personal details, view my order history online.**
+|:---:|:---|
+|&check;| The site has a registration page.
+|&check;| users can successfully register for the site

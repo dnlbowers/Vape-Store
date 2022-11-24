@@ -182,7 +182,7 @@
 
                             {% if user.is_authenticated %}
 
-                                <p class="text-center"><a href="{% url 'add_review' product.id %}">Leave your own review</a></p>
+                                <p class="text-center"><a class="btn btn-lg btn-success" href="{% url 'add_review' product.id %}">Leave your own review</a></p>
                             
                             {% else %}
 
