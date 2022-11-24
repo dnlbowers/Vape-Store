@@ -166,7 +166,7 @@ Most of this epic were tasks for the development phase and therefore the testing
 |&check;| Contact form cannot be submitted with invalid email address.
 |&check;| Contact form submits a message to the database.
 |&check;| Message can be read in the admin panel.
-|&check;| success message is shown to the user when message is submitted.
+|&check;| Success message is shown to the user when message is submitted.
 |&check;| Notes can be added to the message in the admin panel.
 |&check;| Message can be updated as done.
 |&check;| pending reply is automatically ticked and can be un-ticked to indicate the message is complete
@@ -176,8 +176,8 @@ Most of this epic were tasks for the development phase and therefore the testing
 
 |passed | **All site users are of legal age to purchase vape supplies** so that I can **comply with the law.**
 |:---:|:---|
-|&check;| on first visit to the site the user is asked to confirm they are over 18.
-|&check;| if the user is under 18 they blocked from viewing the site until they confirm they are of legal age.
+|&check;| On first visit to the site the user is asked to confirm they are over 18.
+|&check;| If the user is under 18 they blocked from viewing the site until they confirm they are of legal age.
 |&check;| Cookie is left upon the user confirming they are of legal age.
 |&check;| Pop up appears on every page until the user confirms they are of legal age.
 |&check;| Cookie has an expiry date of one day.
@@ -185,14 +185,28 @@ Most of this epic were tasks for the development phase and therefore the testing
 |passed | **Register for an account** so that I can **save my personal details, view my order history online.**
 |:---:|:---|
 |&check;| The site has a registration page.
-|&check;| users can successfully register for the site
-|&check;| users can not register with an email address that is already in use.
-|&check;| users can not register with a username that is already in use.
-|&check;| users can not register with a password that is similar to their user name.
-|&check;| users can not register with a password that is similar to their email address.
-|&check;| users can not register with a password that is too short.
+|&check;| Users can not register with an email address that is already in use.
+|&check;| Users can successfully register for the site
+|&check;| Users can not register with a username that is already in use.
+|&check;| Users can not register with a password that is similar to their user name.
+|&check;| Users can not register with a password that is similar to their email address.
+|&check;| Users can not register with a password that is too short.
 |&check;| Errors are displayed to the user if any of the above are attempted.
-|&check;| success message is displayed to the user if registration is successful.
-|&check;| user sees message to verify their email.
-|&check;| user can not login until they have verified their email.
-|&check;| Email to verify email is sent.
+|&check;| Success message is displayed to the user if registration is successful.
+|&check;| User sees message to verify their email.
+|&check;| User can not login until they have verified their email.
+|&check;| Verification email is sent to the user.
+|&check;| Verification email contains a link to verify the users email.
+|&check;| Once verified user can log in with their username or email.
+
+|passed | **Easily login or logout at any time** so that I can **access my personal account information and protect it from unauthorized viewing on shared devices.**
+|:---:|:---|
+|&check;| Log out options is visible on all pages under the my account dropdown.
+|&check;| Once logged out personal information is no longer visible.
+|&check;| Once logged out the user is redirected to the home page.
+|&check;| User receives a success message when they log out.
+
+|passed | **View my personal account information** so that I can **see my personal details and order history.**
+|:---:|:---|
+
+

@@ -37,7 +37,7 @@ av_showmodal = function() {
 
 	// Regret Content
 	var regret_heading = $('<h2>We\'re Sorry!</h2>');
-	var regret_buttons = $('<nav><small>I hit the wrong button!</small> <ul><li><a href="#nothing" class="av_btn av_go" rel="yes">I\'m old enough!</a></li></ul></nav>');
+	var regret_buttons = $('<nav><small class="pb-2">I hit the wrong button!</small> <ul><li><a href="#nothing" class="av_btn av_go" rel="yes">I\'m old enough!</a></li></ul></nav>');
 	var regret_text = $('<p>You must be 18 years of age or older to enter this site.</p>');
 
 	modal_content_wrapper.append(content_heading, content_buttons, content_text);

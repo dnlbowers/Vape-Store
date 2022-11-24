@@ -167,7 +167,6 @@ The only user story in this Epic is related to the initial deployment, this is a
 * As a **Site User** I want to be able to...
   * ...**Register for an account** so that I can **save my personal details, view my order history online.**
   * ...**Easily login or logout at any time** so that I can **access my personal account information and protect it from unauthorized viewing on shared devices.**
-  * ...**Add multiple addresses to my account** so that I can **order to different locations.**
   * ...**Save my personal details to my profile from the checkout page** so that I **don’t have to enter them every time I make a purchase.**
   * ...**Amend my personal details from my profile** so that I can **update information should there be any changes.**
   * ...**Recover my password in case I forget it** so that I can **regain access to my account in the event I lose my password.**
@@ -222,6 +221,11 @@ The only user story in this Epic is related to the initial deployment, this is a
   * ...**Set up a social media page** so that I can **promote my business and products to the global market.**
   * ...**Increase my search engine ranking** so that I can **increase the number of visitors to my site.**
 
+#### User Stories dropped as part of the AGILE process
+
+##### **Form Epic 3 - Registration and User Accounts:**
+
+* As a **Site User** I want to be able to **Add multiple addresses to my account** so that I can **order to different locations.**
 
 ### **Skeleton**
 
