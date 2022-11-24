@@ -224,3 +224,101 @@ Most of this epic were tasks for the development phase and therefore the testing
 |&check;| User can update their details on the profile page.
 |&check;| Appropriate error messages are shown if the user enters invalid details.
 |&check;| Success message is shown if the user updates their details successfully.
+|&check;| Shipping address on previous order unaffected by updating details.
+
+|passed | **Recover my password in case I forget it** so that I can **regain access to my account in the event I lose my password.**
+|:---:|:---|
+|&check;| The site has a password reset page.
+|&check;| The password reset page has a form to enter the users email address.
+|&check;| Email is sent with password reset token.
+|&check;| Link in email takes user to password reset page.
+|&check;| Password reset page has a form to enter the new password.
+|&check;| User get a success message once password has been reset
+|&check;| User can now log in with their new password.
+
+|passed | **Receive an email confirmation upon registration** so that I can **confirm the registration process worked correctly.**
+|:---:|:---|
+|&check;| Email sent upon registration asking for the user to verify there email address.
+
+#### Epic 4
+
+|passed | **Sort the list of available products** so that I can **view them in different orders. and find the highest/lowest rating/prices and sort alphabetically to aid in finding the most suitable products to suit my needs.**
+|:---:|:---|
+|&check;| Products can be sorted by name in ascending order.
+|&check;| Products can be sorted by name in descending order.
+|&check;| Products can be sorted by price in ascending order.
+|&check;| Products can be sorted by price in descending order.
+|&check;| Products can be sorted by rating in ascending order.
+|&check;| Products can be sorted by rating in descending order.
+
+|passed | **Search for a product by name or content in the product description** so that I can **find a specific product I am looking for.**
+|:---:|:---|
+|&check;| Search bar is visible on all pages.
+|&check;| Search returns results based on the search term.
+|&check;| Search query checks product name and description.
+|&check;| search terms is displayed above the search results.
+|&check;| Number of products returned is displayed above the search results.
+
+|passed | **View a list of products in a specific category** so that I can **view all products in that category.**
+|:---:|:---|
+|&check;| Products can be filtered by category via the navbar links.
+|&check;| Products can be filtered by sub-category via the navbar links.
+
+#### 5
+
+|passed | **Select a quantity of a product** so that I can **buy the required amount of the product.**
+|:---:|:---|
+|&check;| Quantity can be selected on the product page.
+|&check;| Quantity can be selected on the product detail page.
+|&check;| User cannot set the quantity selector to more than the in stock level
+|&check;| User cannot set the quantity selector to less than 1
+|&check;| User can set the quantity selector to the in stock level
+|&check;| User can set the quantity selector to 1
+|&check;| User can use the plus and minus buttons to select the quantity.
+|&check;| User cannot add a quantity of 0 to the cart.
+|&check;| User cannot add more than the stock level to their cart.
+|&check;| server side checks prevent the user from adding more than the stock level to their cart even if they change the input max value in the dev tools.
+|&check;| User receives message if item added to cart.
+|&check;| User receives message if if new quantity selected takes the cart total number of items over the stock level.
+|&check;| Quantity selector is disabled if the product is out of stock.
+
+|passed | **View items in my bag to be purchased** so that I can **identify the total cost of my purchases before checkout.**
+|:---:|:---|
+|&check;| The site has a shopping cart page.
+|&check;| The shopping cart page has a list of all the items in the users cart.
+|&check;| The shopping cart page has a total price for all the items in the users cart.
+|&check;| The shopping cart page has a button to proceed to checkout.
+|&check;| The shopping cart page has a button to remove items from the cart.
+
+|passed | **Adjust the quantity of individual items in my bag** so that I can **easily make changes to my bag.**
+|:---:|:---|
+|&check;| The quantity of each item in the cart can be changed and updated from the cart page.
+|&check;| Total recalculates each time the quantity is changed.
+|&check;| User is shown success/error message when state changed in cart.
+|&check;| User cannot set the quantity selector to more than the in stock level
+|&check;| User cannot set the quantity selector to less than 1
+|&check;| User can set the quantity selector to the in stock level.
+|&check;| User can set the quantity selector to 1.
+|&check;| User can use the plus and minus buttons to select the quantity.
+|&check;| User cannot add a quantity of 0 to the cart.
+
+|passed | **Easily enter my payment information** so that I can **checkout quickly with no hassles by using information previously stored in the system.**
+|:---:|:---|
+|&check;| The site has a checkout page.
+|&check;| The checkout page has a form to enter the users payment details.
+|&check;| The checkout page has a form to enter the users shipping details.
+|&check;| Payments are handled by Stripe.
+|&check;| The checkout page has a button to complete the order.
+|&check;| The checkout page has a button to cancel the order and return to the shopping cart.
+|&check;| The checkout page has a button to save the users details for future use.
+|&check;| If checked the details from the checkout form are saved to the users profile.
+|&check;| If exists the users saved details are pre-filled in the checkout form.
+|&check;| If the user has saved details the checkbox is unchecked by default.
+
+|passed | **View an order confirmation after checkout** so that I can **verify that I haven’t made any mistakes.**
+|:---:|:---|
+|&check;| The site has a checkout success page.
+|&check;| The checkout success page has a message to confirm the order was successful.
+|&check;| The checkout success page has a button to return to the home page.|
+|&check;| The checkout success page has a button to take the user to the special offers page.
+|&check;| Email is sent to the user confirming the order.

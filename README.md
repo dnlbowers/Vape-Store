@@ -179,7 +179,6 @@ The only user story in this Epic is related to the initial deployment, this is a
   * ...**Search for a product by name or content in the product description** so that I can **find a specific product I am looking for.**
   * ...**View a list of products in a specific category** so that I can **view all products in that category.**
   * ...**Identify what I have searched for easily and the number of results found** so that I can **easily see the availability of the item I searched for and quickly find the product I want.**
-  <!-- * ...**Sort a specific category of products** so that I can **search for a specific type of product according to my needs.** -->
 
 ##### **EPIC 5 - Purchasing and Checkout:**
 
