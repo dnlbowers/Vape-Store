@@ -214,5 +214,13 @@ Most of this epic were tasks for the development phase and therefore the testing
 |:---:|:---|
 |&check;| The site has a profile page.
 |&check;| The profile page has a form to update the users details.
-|&check;| 
+|&check;| Checkout form takes the information available in the profile for the checkout process
+|&check;| Details from checkout save if save info box checked
+|&check;| Details from checkout do not save if save info box not checked
+|&check;| Shipping address on previous order unaffected by updating details.
 
+|passed | **Amend my personal details from my profile** so that I can **update information should there be any changes.**
+|:---:|:---|
+|&check;| User can update their details on the profile page.
+|&check;| Appropriate error messages are shown if the user enters invalid details.
+|&check;| Success message is shown if the user updates their details successfully.
