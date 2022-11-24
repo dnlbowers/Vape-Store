@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+    <main class="container no-gutters mx-auto my-3">
+
+        <div class="row mx-auto my-3">
+            
+            <div class="col-12 text-center">
+
+                <h2 class="text-uppercase pb-3">Forbidden (403)</h2>
+
+                <p>
+                    Come on now, thats just plain rude. or to quote Monty Python "He's not the massiah, hes a very naughty boy!"
+                </p>
+
+            </div>
+
+        </div>
+
+        <div class="row mx-auto my-3">
+
+            <!-- Logo with surrounding columns for alighment so to fill the white space -->
+            <div class="col-sm-3"></div>
+
+            <div class="col-sm-6 text-center px-2">
+
+                <p>Click the below image and Head back to the homepage</p>
+
+                <a class="navbar-brand" href="{% url 'home' %}" aria-label="returns you back to the home page of this site">
+                    
+                    <h3 class="rounded-circle border-red bg-warning text-danger pt-1 pb-2 px-2">
+
+                        <span class="d-none d-sm-inline p-0 mb-1 logo-letter font-weight-bold ml-2">
+                            Vapor
+                        </span>
+
+                        <i class="fa-solid fa-city fa-lg text-dark pb-3"></i>
+                
+                        <span class="d-none d-sm-inline p-0 mb-1 logo-letter font-weight-bold mr-2">
+                            Town
+                        </span> 
+
+                    </h3>
+
+                </a>
+                
+                <p>The party has started, so what you waiting for?</p>
+            
+            </div>
+            
+            <div class="col-sm-3"></div>
+        
+        </div>
+
+    </main>
+{% endblock %}

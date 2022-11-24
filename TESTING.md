@@ -182,6 +182,8 @@ Most of this epic were tasks for the development phase and therefore the testing
 |&check;| Pop up appears on every page until the user confirms they are of legal age.
 |&check;| Cookie has an expiry date of one day.
 
+#### Epic 3
+
 |passed | **Register for an account** so that I can **save my personal details, view my order history online.**
 |:---:|:---|
 |&check;| The site has a registration page.
@@ -198,15 +200,19 @@ Most of this epic were tasks for the development phase and therefore the testing
 |&check;| Verification email is sent to the user.
 |&check;| Verification email contains a link to verify the users email.
 |&check;| Once verified user can log in with their username or email.
+|&check;| Users is redirected to the login in page once email is verified.
 
 |passed | **Easily login or logout at any time** so that I can **access my personal account information and protect it from unauthorized viewing on shared devices.**
 |:---:|:---|
-|&check;| Log out options is visible on all pages under the my account dropdown.
+|&check;| Log in/out options is visible on all pages under the my account dropdown.
 |&check;| Once logged out personal information is no longer visible.
-|&check;| Once logged out the user is redirected to the home page.
-|&check;| User receives a success message when they log out.
+|&check;| Once logged In the my account options change to reveal a profile link.
+|&check;| Once logged in/out the user is redirected to the home page.
+|&check;| User receives a success message when they log in/out.
 
-|passed | **View my personal account information** so that I can **see my personal details and order history.**
+|passed | ...**Save my personal details to my profile from the checkout page** so that I **don’t have to enter them every time I make a purchase.**
 |:---:|:---|
-
+|&check;| The site has a profile page.
+|&check;| The profile page has a form to update the users details.
+|&check;| 
 

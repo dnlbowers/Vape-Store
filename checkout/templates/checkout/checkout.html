@@ -138,7 +138,9 @@
                         {% if user.is_authenticated %}
 
                             <label class="form-check-label" for="id-save-info">Save this as my default delivery address.</label>
-                            <input class="form-check-input ml-2 mr-0" type="checkbox" id="id-save-info" name="save-info" checked>
+                            
+                            <!-- Save info unchecked to make it harder for the user to accidentally override their default address -->
+                            <input class="form-check-input ml-2 mr-0" type="checkbox" id="id-save-info" name="save-info">
 
                         {% else %}
 
