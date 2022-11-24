@@ -79,8 +79,37 @@ Most of this epic were tasks for the development phase and therefore the testing
 |&check;| The product details page shows the product description.
 |&check;| The product details page shows the product rating.
 |&check;| The product details page shows the product reviews.
+|&check;| The product details page shows review form if no reviews already..
 |&check;| The product details page shows the product stock status.
 |&check;| The product details page shows the product quantity selector.
 |&check;| The product details page shows the product add to cart button.
 |&check;| User is unable to add more items to the cart than is currently in stock.
 
+|passed | **View the total of my purchases at any time** so that I can **see and review how much I am spending at any time whilst building an order.**
+|:---:|:---|
+|&check;| The site has a cart page.
+|&check;| The cart page/preview shows the product image.
+|&check;| The cart page/preview shows the product name.
+|&check;| The cart page/preview shows the product price.
+|&check;| The cart page/preview shows current quantity in the cart.
+|&check;| Cart preview shows from any page when item is added to it.
+|&check;| The cart page shows the product quantity selector and the user can update their order quantity.
+|&check;| The cart page/preview shows the cart total.
+|&check;| The cart page/preview shows amount left to spend to get free delivery.
+|&check;| The cart page shows the delivery cost and grand total.
+|&check;| The cart page allows the user to completely remove and item from their cart and updates the cart total.
+|&check;| When the quantity is updated in the users cart the cart total updates accurately.
+
+|passed | **Leave a review** so that I can **share my opinion of a product and leave a star rating.**
+|:---:|:---|
+|&check;| The site has a review form.
+|&check;| The review form has a title field.
+|&check;| The review form has a rating field.
+|&check;| The review form has a body field.
+|&check;| When no reviews a review form is shown in place on the products detail page.
+|&check;| When a review is submitted the review is added to the product detail page.
+|&check;| User cannot enter a value greater than 5 for the rating field.
+|&check;| User cannot enter a value less than 1 for the rating field.
+|&check;| User cannot submit a review without a title.
+|&check;| User cannot submit a review without a rating.
+|&check;| Over all rating is calculated and displayed on the product detail page/product card .

@@ -122,6 +122,8 @@ class DeleteReview(View):
 
     def post(self, request, product_id, review_id):
 
+        review = get_object_or_404(ProductReviews, id=review_id)
+
         if not request.user.is_superuser or request.user != review.author:
 
             messages.error(request, 'Sorry, you don\'t have the required\
