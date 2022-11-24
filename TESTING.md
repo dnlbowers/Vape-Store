@@ -68,3 +68,12 @@ Most of this epic were tasks for the development phase and therefore the testing
 |&check;| Add to cart button works as expected on both the all products page and the product details page.
 |&check;| User cannot add more items to their cart than are in stock.
 |&check;| When and item is out of stock the add to cart button is disabled.
+
+|passed | **View individual product details** so that I can **identify the price, description, detailed reviews, and product image enabling me to compare how the product differs from other items.**
+|:---:|:---|
+|&check;| The site has a product details page.
+|&check;| The product details page shows the product image.
+|&check;| The product details page shows the product name.
+|&check;| The product details page shows the product price.
+|&check;| The product details page shows the sale price if item has sale.
+|&check;| The product details page shows the product description.

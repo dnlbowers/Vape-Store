@@ -74,7 +74,10 @@ class AllProducts(PolymorphicModel):
         on_delete=models.SET_NULL)
     sku = models.CharField(max_length=254, null=True, blank=True, unique=True)
     name = models.CharField(max_length=254)
-    slug = models.SlugField(max_length=254, null=True, blank=True, unique=True)
+    slug = models.SlugField(
+        max_length=254, null=True,
+        blank=True, unique=True,
+        editable=False)
     brand = models.CharField(max_length=254, null=True, blank=True)
     description = models.TextField()
     current_rating = models.DecimalField(
@@ -91,15 +94,16 @@ class AllProducts(PolymorphicModel):
     image = models.ImageField(upload_to='products/', null=True, blank=True)
     stock_level = models.IntegerField()
     in_stock = models.BooleanField(default=True)
-    has_sale = models.BooleanField(default=False)
     rrp = models.DecimalField(max_digits=6, decimal_places=2)
+    has_sale = models.BooleanField(default=False)
+    discounted_price = models.DecimalField(
+        max_digits=6, decimal_places=2, null=False, blank=False)
     price = models.DecimalField(
         max_digits=6,
         decimal_places=2,
         null=True,
-        blank=True)
-    discounted_price = models.DecimalField(
-        max_digits=6, decimal_places=2, null=False, blank=False)
+        blank=True,
+        editable=False)
 
     def __str__(self):
         return self.name

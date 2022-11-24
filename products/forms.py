@@ -35,13 +35,7 @@ class ProductForm(forms.ModelForm):
 
         self.fields['category'].choices = category_friendly_names
         self.fields['sub_category'].choices = sub_category_friendly_names
-        self.fields['current_rating'].widget.attrs['readonly'] = True
-        self.fields['accumulative_rating'].widget.attrs['readonly'] = True
-        self.fields['number_of_ratings'].widget.attrs['readonly'] = True
-        self.fields['price'].widget.attrs['readonly'] = True
-        self.fields['slug'].widget.attrs['readonly'] = True
-        self.fields['name'].widget.attrs['readonly'] = True
-        self.fields['sku'].widget.attrs['readonly'] = True
+        self.fields['rrp'].widget.attrs.update({'class': 'text-uppercase'})
 
         for field in self.fields:
 
