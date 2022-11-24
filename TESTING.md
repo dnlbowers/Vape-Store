@@ -186,3 +186,13 @@ Most of this epic were tasks for the development phase and therefore the testing
 |:---:|:---|
 |&check;| The site has a registration page.
 |&check;| users can successfully register for the site
+|&check;| users can not register with an email address that is already in use.
+|&check;| users can not register with a username that is already in use.
+|&check;| users can not register with a password that is similar to their user name.
+|&check;| users can not register with a password that is similar to their email address.
+|&check;| users can not register with a password that is too short.
+|&check;| Errors are displayed to the user if any of the above are attempted.
+|&check;| success message is displayed to the user if registration is successful.
+|&check;| user sees message to verify their email.
+|&check;| user can not login until they have verified their email.
+|&check;| Email to verify email is sent.

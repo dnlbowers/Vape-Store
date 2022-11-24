@@ -55,12 +55,12 @@
         {% csrf_token %}
         {{ form|crispy }}
         
-        <div class="text-right my-3">
+        <div class="text-center my-3">
           <a href="{% url 'home' %}" class="btn btn-danger rounded-0">Home</a>
           <button class="btn btn-success rounded-0" name="action_add" type="submit">{% trans "Add E-mail" %}</button>
       </div>
     </form>
-  </main>
+</main>
 
 {% endblock %}
 

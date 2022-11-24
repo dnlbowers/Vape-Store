@@ -15,13 +15,16 @@
   <form class="signup" id="signup_form" method="post" action="{% url 'account_signup' %}">
     {% csrf_token %}
     {{ form |crispy }}
+
     {% if redirect_field_value %}
-    <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
+      <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
     {% endif %}
-    <div class="text-right">
+
+    <div class="text-center">
       <a href="{% url 'home' %}" class="btn btn-danger rounded-0">Home</a>
       <button class="btn btn-success rounded-0" type="submit">{% trans "Sign Up" %} &raquo;</button>
     </div>
-    </form>
+
+  </form>
 </main>
 {% endblock %}

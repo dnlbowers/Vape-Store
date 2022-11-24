@@ -10,8 +10,10 @@
         <h2>{% trans "Account Inactive" %}</h2>
     </div>
 
-<p class="text-center m-3">{% trans "This account is inactive." %}</p>
-<div class="text-right my-3">
-    <a href="{% url 'home' %}" class="btn btn-danger rounded-0">Home</a>
-</div>
+    <p class="text-center m-3">{% trans "This account is inactive." %}</p>
+
+    <div class="text-center my-3">
+        <a href="{% url 'home' %}" class="btn btn-danger rounded-0">Home</a>
+    </div>
+</main>
 {% endblock %}

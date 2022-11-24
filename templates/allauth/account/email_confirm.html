@@ -8,6 +8,7 @@
 
 {% block content %}
 <main class="conainer mx-auto my-5">
+
     <div class="text-center m-3 text-uppercase">
         <h2>{% trans "Confirm E-mail Address" %}</h2>
     </div>
@@ -21,7 +22,7 @@
 
     <form class="m-3" method="post" action="{% url 'account_confirm_email' confirmation.key %}">
     {% csrf_token %}
-        <div class="text-right my-3">
+        <div class="text-center my-3">
             <a href="{% url 'home' %}" class="btn btn-danger rounded-0">Home</a>
             <button class="btn btn-success rounded-0" type="submit">{% trans 'Confirm' %}</button>
         </div>
