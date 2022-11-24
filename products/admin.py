@@ -228,6 +228,7 @@ class AllProductsAdmin(PolymorphicParentModelAdmin):
         Accessories,
         Batteries,
         PreBuiltCoils)
+
     summer_fields = ('description',)
 
     list_display = (

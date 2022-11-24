@@ -16,6 +16,7 @@ class TestPage(TestCase):
             category=self.category,
             sku='test_sku',
             name='test_name',
+            slug='test_slug',
             brand='test_brand',
             description='test_description',
             accumulative_rating=197,
@@ -32,10 +33,16 @@ class TestPage(TestCase):
         self.assertTemplateUsed(response, "products/products.html")
 
     def test_products_details_page_template(self):
-        response = self.client.get(reverse("product_detail", args=[1]))
+        response = self.client.get(reverse(
+            "product_detail", args=[
+                self.product.slug
+                ]))
         self.assertEqual(response.status_code, 200)
-        self.assertTemplateUsed(response, "products/product_detail.html")
+        self.assertTemplateUsed(response, "products/product-detail.html")
 
-    def test_non_existent_product_id_returns_404(self):
-        response = self.client.get(reverse("product_detail", args=[2]))
-        self.assertEqual(response.status_code, 404)
+    def test_non_existent_product_id_returns_404_template(self):
+        response = self.client.get(reverse(
+            "product_detail", args=[
+                'wrong_slug'
+                ]))
+        self.assertTemplateUsed(response, "errors/404.html")

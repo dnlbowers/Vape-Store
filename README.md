@@ -1,6 +1,8 @@
 # **Vapor Town** (review after project and add where needed)
 
-Vapor Town is a fictional B2C vape supply store design and implemented with Django, Python, HTML and CSS. IIt aims to provide and easy to use interface where customers can browse all items at once or sort into specified categories. The site provides search functionality as well as an inbuilt stock system to ensure users cannot buy items which are not currently in stock, and once signed in allows the user to save an address to their profile for easy and convenient checkout.
+Vapor Town is a fictional B2C vape supply store designed and implemented with Django, Python, HTML and CSS. IIt aims to provide and easy to use interface where customers can browse all items at once or sort into specified categories. The site provides search functionality as well as an inbuilt stock system to ensure users cannot buy items which are not currently in stock, and once signed in allows the user to save an address to their profile for easy and convenient checkout.
+
+This small scale business idea was born from a pipe dream back in the day where I use to dream of having an online store selling all the latest and greatest vape gear. I have since moved on from that dream and decided to use this project as a way to learn and practice my skills in Django and Python.
 
 **RESPONSIVE SCREENSHOT TO GO HERE**
 
@@ -12,9 +14,11 @@ Vapor Town is a fictional B2C vape supply store design and implemented with Djan
 
 ### ***Site Aims***
 
-These days vaping has become a very popular and wide spread replacement for traditional cigarettes and therefore the possible product categories are vast. For some is has proved a way to stop smoking, for others it has become a hobby/lifestyle, and in some places it has even become a sport with organized cloud chasing competitions to judge who can make the biggest vapor clouds. The aim of this site is to act as the online presence for a fictional vape supply store, and to provide a simple and easy to use interface for customers to browse and purchase products.
+These days vaping has become a very popular and wide spread replacement for traditional cigarettes and therefore the possible product categories are vast. For some is has proved a way to stop smoking, for others it has become a hobby/lifestyle, and in some places it has even become a sport with organized cloud chasing competitions to judge who can make the biggest vapor clouds.
 
-For the purpose of this project I will only be focusing on the few categories which are widely considered to be the core products in the vaping scene,  and any customer would expect to find in a store of this type. The exception to this would be sites that specialize in solely the production of e-liquid (e.g. [flavor art](https://flavourart.com/)) or vaping devices (e.g [SmokStore](https://www.smokstore.com/)). Since this site is designed to be the web presence of a physical shop, a variety of products is expected to assist people with their vaping needs.
+The aim of this site is to act as the online presence for a fictional vape supply store, and to provide a simple and easy to use interface for customers to browse and purchase products.
+
+For the purpose of this project I will only be focusing on the few categories which are widely considered to be the core products in the vaping scene,  and any customer would expect to find in a store of this type. The exception to this would be sites that specialize in solely the production of e-liquid (e.g. [flavor art](https://flavourart.com/)) or vaping devices (e.g [SmokStore](https://www.smokstore.com/)). Since this site is designed to be the web presence of a physical shop, a variety of products is expected to assist people with their vaping needs and the admin panel will be leveraged with a user manual for the shop staff who will be managing the site sales during quieter periods in the shop.
 
 The minimum must have product categories for a shops in the genre are: -
 
@@ -70,7 +74,7 @@ Totals | 138 | 139
 
 ### ***Scope***
 
-Due to the time given for this project and the required grade criteria There will definitely need to be some trade offs in design/development process. Using the agile methodology I will be reviewing my progress weekly and adding, adapting or removing features as applicable to the project at the review portion after each sprint in order to ensure a MVP is delivered by the deadline.
+Due to the time given for this project and the required grade criteria There will definitely need to be some further trade offs in design/development process. Using the agile methodology I will be reviewing my progress weekly and adding, adapting or removing features as applicable to the project at the review portion after each sprint in order to ensure a MVP is delivered by the deadline.
 
 To avoid scope creep I have used the MoSCoW method to divided the above opportunities into the below categories aiding me prioritize and ensure that I can achieve my goal of a fully functioning MVP by the deadline: -
 
@@ -86,7 +90,7 @@ To avoid scope creep I have used the MoSCoW method to divided the above opportun
   * Guest checkout completion.
   * User Role permissions.
   * Order History.
-  * Social Media pages.
+  * Social Media page.
   * Special offers.
   * Password Recovery.
   * Email confirmation of order.

@@ -79,10 +79,14 @@ class AllProducts(PolymorphicModel):
     description = models.TextField()
     current_rating = models.DecimalField(
         max_digits=6, decimal_places=2,
-        null=True, blank=True, default=0
-    )
-    accumulative_rating = models.IntegerField(null=True, blank=True, default=0)
-    number_of_ratings = models.IntegerField(null=True, blank=True, default=0)
+        null=True, blank=True,
+        default=0, editable=False)
+    accumulative_rating = models.IntegerField(
+        null=True, blank=True,
+        default=0, editable=False)
+    number_of_ratings = models.IntegerField(
+        null=True, blank=True,
+        default=0, editable=False)
     image_url = models.URLField(max_length=1024, null=True, blank=True)
     image = models.ImageField(upload_to='products/', null=True, blank=True)
     stock_level = models.IntegerField()

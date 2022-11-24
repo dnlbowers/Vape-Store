@@ -28,7 +28,7 @@ class TestPage(TestCase):
         )
         self.product_page_response = self.client.get(reverse("products"))
         self.product_detail_response = self.client.get(reverse(
-            'product_detail', args=[self.product.id]
+            'product_detail', args=[self.product.slug]
         ))
 
     def test_products_page_contains_correct_context(self):

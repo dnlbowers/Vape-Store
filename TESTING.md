@@ -29,3 +29,35 @@ Below is a list of bugs and fixes found while creating a feature. You can find o
 * Solution - Changing the query submit() to vanilla JS using "addEventListener" for "submit" resolved the issue. Although I later found this was causing further issues with the form submission when testing the loading indicator via a 3ds test payment. I then decide to use a click event and discovered that trying to combine JS and jquery in a single line was n't working as it should so I decided to write only Jquery with a reference to the button and the click() function.
 
 Instead of documenting here from here out I decided it was better to solely raise a bug ticket in [JIRA](https://dnlbowers.atlassian.net/browse/PVS-47?filter=10005). I was finding myself getting fixated on bugs which were preventing my completing the over all purpose of the sprint in a timely manner. I decided to raise the bugs and move on to the next feature only to return in the same iteration later if there was excess time.
+
+## Testing(post development phase)
+
+I began the project writing automated tests for everything, however I soon realized this was slowing me down and I needed to focus on getting the project completed. You will find automated test files in the home and product apps. however the remaining apps do not have automated tests. I have decided to write manual tests for the remaining apps and features by testing each user story individually.
+
+### Manual Testing of User Stories
+
+For the following I will be skipping type of use i.e. "As a shopper I can" and list the latter part of the story as a heading.
+
+#### Epic 1
+
+Most of this epic were tasks for the development phase and therefore the testing is the working of the overall site. The was the one story which tests all tasks as one.
+
+|passed | **Access a live url** so that I can **use the site on any device**.
+|:---:|:---|
+|&check;| Can access the site via the deployed url on desktop.
+|&check;| Can access the site via the deployed url on mobile.
+|&check;| Can access the site via the deployed url on tablet.
+|&check;| All images and styles are in tacked and as expected.
+
+#### Epic 2
+
+|passed | .**Clearly identity the sites purpose upon visiting** so that I can **determine if the site is what I am looking for.**
+|:---:|:---|
+|&check;| The site has a clear purpose and is easy to navigate.
+
+|passed | **View a list of products** so that I can **select some to purchase.**
+|:---:|:---|
+|&check;| The site has a list of products.
+|&check;| The list of products is paginated.
+|&check;| The list of products is ordered by ID.
+|&check;| The list of products can be ordered by name.

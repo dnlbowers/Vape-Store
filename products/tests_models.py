@@ -39,3 +39,12 @@ class Testmodels(TestCase):
         self.has_sale = True
         self.product.save()
         self.assertEqual(self.product.price, 12.99)
+
+    def test_if_slug_is_created_from_name_on_save(self):
+        self.product.save()
+        self.assertEqual(self.product.slug, self.product.name)
+
+    def test_if_slug_changes_if_name_changes(self):
+        self.product.name = 'new name'
+        self.product.save()
+        self.assertEqual(self.product.slug, 'new-name')
