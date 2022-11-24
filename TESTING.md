@@ -77,3 +77,10 @@ Most of this epic were tasks for the development phase and therefore the testing
 |&check;| The product details page shows the product price.
 |&check;| The product details page shows the sale price if item has sale.
 |&check;| The product details page shows the product description.
+|&check;| The product details page shows the product rating.
+|&check;| The product details page shows the product reviews.
+|&check;| The product details page shows the product stock status.
+|&check;| The product details page shows the product quantity selector.
+|&check;| The product details page shows the product add to cart button.
+|&check;| User is unable to add more items to the cart than is currently in stock.
+

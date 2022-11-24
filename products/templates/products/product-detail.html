@@ -47,7 +47,16 @@
                 <p class="text-center mt-5 {% if product.current_rating == 0 %}mb-2{% else %}mb-3{% endif %}"> Customer Rating = <i class="fa-solid fa-star"></i>{% if product.current_rating == 0 %} 0 / 5 </p><p class="text-center mt-0">Be the first to rate this product </p>{% else %} {{ product.current_rating }} / 5{% endif %}</p>
                 
                 <div class="bg-black text-light text-center p-3 font-weight-bold mt-5">
-                    &euro; {{ product.price }}
+                    <!-- Product price and if relevant sale price to show saving -->
+                    {% if product.has_sale %}
+
+                        <p class="text-center font-weight-bold mb-0 pl-5 ml-5">
+                            <s class="text-danger">&euro;{{ product.rrp }}</s>
+                        </p>
+        
+                    {% endif %}
+        
+                    <p class="text-center font-weight-bold">&euro;{{ product.price }}</p>
                 </div>
 
                 <p class="small text-center text-muted mb-5">sku: {{ product.sku }}</p>
