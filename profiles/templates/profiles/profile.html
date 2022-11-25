@@ -5,6 +5,8 @@
     <link rel="stylesheet" href="{% static 'profiles/css/profile.css' %}">
 {% endblock %}
 
+{% block head_title %}- {{profile.user.username}}'s Profile Page{% endblock %}
+
 {% block content %}
 <main class="container my-3">
 

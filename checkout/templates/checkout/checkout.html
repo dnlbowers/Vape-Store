@@ -6,6 +6,8 @@
     <link rel="stylesheet" href="{% static 'checkout/css/checkout.css' %}">
 {% endblock %}
 
+{% block head_title %}- Checkout{% endblock %}
+
 {% block content %}
 
 <main class="container my-3">
@@ -50,7 +52,7 @@
                     <div class="col-2 my-2">
 
                         <!-- Product Image or placeholder -->
-                        <a href="{% url 'product_detail' cart_item.product.id %}">
+                        <a href="{% url 'product_detail' cart_item.product.slug %}">
 
                             {% if cart_item.product.image %}
 
