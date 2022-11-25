@@ -322,3 +322,11 @@ Most of this epic were tasks for the development phase and therefore the testing
 |&check;| The checkout success page has a button to return to the home page.|
 |&check;| The checkout success page has a button to take the user to the special offers page.
 |&check;| Email is sent to the user confirming the order.
+|&check;| order is available to the customer who made the order in their order history page.
+|&check;| checkout success page for an order made by a registered user can only be seen by that user from the profile.
+|&check;| once an order is confirmed on screen the order confirmation can only be revisited from a registered users profile/ non registered users cannot revisit the check out success page.
+
+|passed | **Receive an email confirmation after checking out** so that I can **keep a record of my purchases.**
+|:---:|:---|
+|&check;| Email is sent to the user confirming the order.
+|

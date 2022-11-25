@@ -210,6 +210,8 @@ class CheckoutSuccess(View):
 
         save_info = request.session.get('save_info')
         order = get_object_or_404(Order, order_number=order_number)
+        order.times_viewed += 1
+        order.save()
 
         if request.user.is_authenticated:
 
@@ -255,4 +257,16 @@ class CheckoutSuccess(View):
             'order': order,
         }
 
-        return render(request, self.template, context)
+        if order.times_viewed > 1:
+
+            messages.warning(
+                request, f'Our sincere apologies however this\
+                 page cannot be revisited. If you need to view your order\
+                     again please use the order history page.\n'
+                'If you were not signed in when you placed your order\
+                            kindly contact us via the "contact us" page\
+                                and we will be happy to assist you.')
+
+            return redirect(reverse('home'))
+        else:
+            return render(request, self.template, context)

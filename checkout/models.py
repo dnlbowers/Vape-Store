@@ -110,6 +110,8 @@ class Order(models.Model):
         default='Received'
     )
 
+    times_viewed = models.IntegerField(default=0)
+
     def __str__(self):
         return self.order_number
 
