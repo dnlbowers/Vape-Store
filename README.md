@@ -229,7 +229,6 @@ The only user story in this Epic is related to the initial deployment, this is a
   * ...**Delete a category** so that I can **remove categories that are no longer for sale.**
   * ...**Add a category** so that I can **add new categories to the store.**
   
-
 ### **Skeleton**
 
 #### **Wireframes:**

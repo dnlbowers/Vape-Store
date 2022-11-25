@@ -409,7 +409,7 @@ Most of this epic were tasks for the development phase and therefore the testing
 
 #### **EPIC 7 - Product Reviews:**
 
-|passed | **Add a review** so that I can **share my thoughts on a product.**
+|passed | **Leave a review** so that I can **share my opinion of a product and leave a rating.**
 |:---:|:---|
 |&check;| The site has a review form.
 |&check;| When there are no reviews for a product, the review form is displayed on the product details page.
@@ -420,14 +420,49 @@ Most of this epic were tasks for the development phase and therefore the testing
 |&check;| The review form has a button to submit the review.
 |&check;| Rating cannot be above 5 or below 1.
 |&check;| Rating is a number field.
-|&check;| Once successfully submitted the review is visible on the product details page.
-|&check;| All reviews can be edited by a superuser.
-|&check;| All reviews can be deleted by a superuser.
-|&check;| All reviews can be edited by the user who created the review.
-|&check;| All reviews can be deleted by the user who created the review.
-|&check;| Over all rating is re-calculated when a review is edited or deleted.
 |&check;| Over all rating is re-calculated when a review is added.
-|&check;| Review cannot be edited or deleted by a user who did not create the review.
 
-|passed | **Edit a review** so that I can **update my thoughts on a product.**
+|passed | **View reviews of a product** so that I can **see what other people think of a product.**
+|:---:|:---|
+|&check;| Once successfully submitted the review is visible on the product details page.
+|&check;| Author name is in the heading of the accordion item.
+|&check;| Review title is in the heading of the accordion item.
+|&check;| Review text is previewed in the body of the accordion item.
 
+|passed | **Edit my reviews of a product** so that I can **update my public opinion should it ever change*
+|&check;| Review cannot be edited by a user who did not create the review (unless superuser) even by using the url.
+|&check;| Edit review for is pre-populated with the review details.
+|&check;| All reviews can be edited by a superuser.
+|&check;| All reviews can be edited by the user who created the review.
+|&check;| Over all rating is re-calculated when a review is edited.
+
+|passed | **delete my reviews of a product** so that I can **remove previous reviews should I see fit**
+|:---:|:---|
+|&check;| Review cannot be deleted by a user who did not create the review (unless superuser) even by using the url.
+|&check;| All reviews can be deleted by a superuser.
+|&check;| All reviews can be deleted by the user who created the review.
+|&check;| Over all rating is re-calculated when a review is deleted.
+
+#### **EPIC 8 - Marketing:**
+
+|passed | **Send promotional emails** so that I can **promote new products and offers to my customers.**
+|:---:|:---|
+|&check;| Mail chimp form visible from all pages.
+|&check;| Mail chimp form has a field to enter the email address.
+|&check;| Mail chimp form has a button to submit the email address.
+|&check;| Collected email addresses are stored in the mail chimp database.
+
+|passed | **Set up a social media page** so that I can **promote my business and products to the global market.**
+|:---:|:---|
+|&check;| Facebook page is set up.
+|&check;| Facebook page is linked in footer.
+|&check;| Facebook page is link has correct rel attributes.
+|&check;| Facebook page has shop now button linked to the sight.
+
+|passed | .**Increase my search engine ranking** so that I can **increase the number of visitors to my site.**
+|:---:|:---|
+| | Each page has a meta description.
+| | Each page has a meta title.
+| | Each page has a meta keywords.
+| | Site map done
+| | Robots.txt done
