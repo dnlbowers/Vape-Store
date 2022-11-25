@@ -466,3 +466,8 @@ Most of this epic were tasks for the development phase and therefore the testing
 | | Each page has a meta keywords.
 | | Site map done
 | | Robots.txt done
+
+## Validation
+
+### HTML
+
