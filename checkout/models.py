@@ -247,7 +247,6 @@ class OrderLineItem(models.Model):
                         updated_product.save()
                         self.lineitem_total = self.product.price * \
                             self.quantity
-                        # self.order.update_total()
                         self.previous_quantity = self.quantity
                         super().save(*args, **kwargs)
 
@@ -256,13 +255,11 @@ class OrderLineItem(models.Model):
                     updated_product.stock_level += abs(difference)
                     updated_product.save()
                     self.lineitem_total = self.product.price * self.quantity
-                    # self.order.update_total()
                     self.previous_quantity = self.quantity
                     super().save(*args, **kwargs)
             else:
 
                 self.lineitem_total = self.product.price * self.quantity
-                # self.order.update_total()
                 self.previous_quantity = self.quantity
                 super().save(*args, **kwargs)
         else:

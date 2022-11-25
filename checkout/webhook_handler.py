@@ -75,7 +75,7 @@ class StripeWH_Handler:
             if save_info:
 
                 profile.default_shipping_name = \
-                    shipping_details.full_name
+                    shipping_details.name
                 profile.default_phone_number = \
                     shipping_details.phone
                 profile.default_country = \
