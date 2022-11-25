@@ -38,7 +38,7 @@ I began the project writing automated tests for everything, however I soon reali
 
 For the following I will be skipping type of use i.e. "As a shopper I can" and list the latter part of the story as a heading.
 
-#### Epic 1
+#### **EPIC 1 - Set up and Deployment:**
 
 Most of this epic were tasks for the development phase and therefore the testing is the working of the overall site. The was the one story which tests all tasks as one.
 
@@ -49,7 +49,7 @@ Most of this epic were tasks for the development phase and therefore the testing
 |&check;| Can access the site via the deployed url on tablet.
 |&check;| All images and styles are in tacked and as expected.
 
-#### Epic 2
+#### **EPIC 2 - Viewing and Navigation:**
 
 |passed | .**Clearly identity the sites purpose upon visiting** so that I can **determine if the site is what I am looking for.**
 |:---:|:---|
@@ -182,7 +182,7 @@ Most of this epic were tasks for the development phase and therefore the testing
 |&check;| Pop up appears on every page until the user confirms they are of legal age.
 |&check;| Cookie has an expiry date of one day.
 
-#### Epic 3
+#### **EPIC 3 - Registration and User Accounts:**
 
 |passed | **Register for an account** so that I can **save my personal details, view my order history online.**
 |:---:|:---|
@@ -240,7 +240,7 @@ Most of this epic were tasks for the development phase and therefore the testing
 |:---:|:---|
 |&check;| Email sent upon registration asking for the user to verify there email address.
 
-#### Epic 4
+#### **EPIC 4 - Sorting and Searching:**
 
 |passed | **Sort the list of available products** so that I can **view them in different orders. and find the highest/lowest rating/prices and sort alphabetically to aid in finding the most suitable products to suit my needs.**
 |:---:|:---|
@@ -264,7 +264,7 @@ Most of this epic were tasks for the development phase and therefore the testing
 |&check;| Products can be filtered by category via the navbar links.
 |&check;| Products can be filtered by sub-category via the navbar links.
 
-#### 5
+#### **EPIC 5 - Purchasing and Checkout:**
 
 |passed | **Select a quantity of a product** so that I can **buy the required amount of the product.**
 |:---:|:---|
@@ -329,4 +329,105 @@ Most of this epic were tasks for the development phase and therefore the testing
 |passed | **Receive an email confirmation after checking out** so that I can **keep a record of my purchases.**
 |:---:|:---|
 |&check;| Email is sent to the user confirming the order.
-|
+|&check;| Email contains the order number.
+|&check;| Email contains the order total.
+|&check;| Email contains the order date.
+|&check;| Email contains the delivery address.
+|&check;| Email contains the delivery cost.
+|&check;| Email has a contact email address for assistance.
+
+|passed | **View my order history** so that I can **see the orders I have made previously.**
+|:---:|:---|
+|&check;| The site has an order history page for registered users.
+|&check;| The order history page has a list of all the orders made by the user.
+|&check;| The order history page has a link to view the order details.
+|&check;| The order history page has a link to return to their profile page.
+|&check;| The order history page can only be accessed by the user who made the order.
+|&check;| Unregistered users cannot access their previous orders confirmation.
+|&check;| Appropriate error message is shown if a user tries to access an order confirmation that is not theirs.
+|&check;| Appropriate error message is shown if an unregistered user tries to get back to their order confirmation using a url.
+
+|passed | **Access the checkout page** so that I can **review my order whilst entering my payment/shipping details**
+|:---:|:---|
+|&check;| The site has a checkout page.
+|&check;| The checkout page has a form to enter the users payment details.
+|&check;| The checkout page has a form to enter the users shipping details.
+|&check;| The checkout page has a button to complete the order.
+|&check;| The checkout page has a button to cancel the order and return to the shopping cart.
+|&check;| The checkout page has a button to save the users details for future use.
+|&check;| If checked the details from the checkout form are saved to the users profile.
+|&check;| If exists the users saved details are pre-filled in the checkout form.
+|&check;| Saved details the checkbox is unchecked by default.
+|&check;| Guest users are invited to register/sign in and warned that they cannot view their order history online without registering.
+
+|passed | **securely submit my payment details** so that I can **rest assured my financial information is safe**
+|:---:|:---|
+|&check;| Stripe payment system is used.
+|&check;| Stripe payment system is PCI compliant.
+
+#### **EPIC 6 - Admin and Store Management:**
+
+|passed | **Add a product** so that I can **add new products to the store.**
+|:---:|:---|
+|&check;| Product can be added via the admin panel and is visible in the store front end.
+|&check;| Newly added item had full functionality of pre existing items.
+
+|passed | **Edit a product** so that I can **update the details of a product.**
+|:---:|:---|
+|&check;| Product can be edited via the admin panel and is visible in the store front end.
+|&check;| Quick edited can be made from the front end only by super users.
+
+|passed | **Delete a product** so that I can **remove products that are no longer for sale.**
+|:---:|:---|
+|&check;| Product can be deleted via the admin panel and is no longer visible in the store front end.
+|&check;| Quick delete can be made from the front end only by super users.
+|&check;| product cannot be deleted by non superuser using the url.
+
+|passed | **Add a promotion** so that I can **add new promotions to the store.**
+|:---:|:---|
+|&check;| Promotion can be added via the admin panel and is visible in the store front end.
+|&check;| Start sale function in the admin panel set has sale to true.
+|&check;| Remove sale function in the admin panel set has sale to false.
+|&check;| 10% discount function works to reduce the discounted price to 10% less.
+|&check;| 20% discount function works to reduce the discounted price to 20% less.
+|&check;| 30% discount function works to reduce the discounted price to 30% less.
+|&check;| 40% discount function works to reduce the discounted price to 40% less.
+|&check;| 50% discount function works to reduce the discounted price to 50% less.
+|&check;| Price comes from discounted price when has sale is true.
+|&check;| Price comes from RRP when has sale is false.
+|&check;| Sale actions taken in the back end are visible on the front end via product cards and details pages.
+
+|passed | **manually manage the stock levels** so that I can **input received purchase orders and ensure that the stock levels are accurate in case of discrepancies or damages.**
+|:---:|:---|
+|&check;| Stock levels can be manually adjusted via the admin panel.
+|&check;| Stock levels can be manually adjusted via the front end.
+|&check;| Stock levels are deducted upon a successful purchase.
+|&check;| Item set to out of stock if stock level is 0.
+|&check;| If order is deleted, stock is returned into the system.
+|&check;| If order is amended from admin panel, stock is also adjusted accordingly.
+|&check;| Order cannot be amended to have more products than are in stock..
+
+#### **EPIC 7 - Product Reviews:**
+
+|passed | **Add a review** so that I can **share my thoughts on a product.**
+|:---:|:---|
+|&check;| The site has a review form.
+|&check;| When there are no reviews for a product, the review form is displayed on the product details page.
+|&check;| When there are reviews they are displayed in an accordion with all relevant details visible.
+|&check;| When there are reviews the is a button to add a review.
+|&check;| The leave review takes the user to the review form page with the correct product name in the title and image displayed.
+|&check;| The review form has a field to enter the review title, rating, and text.
+|&check;| The review form has a button to submit the review.
+|&check;| Rating cannot be above 5 or below 1.
+|&check;| Rating is a number field.
+|&check;| Once successfully submitted the review is visible on the product details page.
+|&check;| All reviews can be edited by a superuser.
+|&check;| All reviews can be deleted by a superuser.
+|&check;| All reviews can be edited by the user who created the review.
+|&check;| All reviews can be deleted by the user who created the review.
+|&check;| Over all rating is re-calculated when a review is edited or deleted.
+|&check;| Over all rating is re-calculated when a review is added.
+|&check;| Review cannot be edited or deleted by a user who did not create the review.
+
+|passed | **Edit a review** so that I can **update my thoughts on a product.**
+

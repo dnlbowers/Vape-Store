@@ -66,21 +66,31 @@ class EditReview(LoginRequiredMixin, View):
         """
 
         user = request.user
+
         review = get_object_or_404(ProductReviews, id=review_id)
         product = get_object_or_404(AllProducts, id=product_id)
 
-        form = ProductReviewForm(instance=review)
-        edit_review = True
+        if user == review.author or user.is_superuser:
 
-        context = {
-            'review_form': form,
-            'review': review,
-            'product': product,
-            'edit_review': edit_review,
-            'user': user,
-        }
+            form = ProductReviewForm(instance=review)
+            edit_review = True
 
-        return render(request, 'reviews/review-form-page.html', context)
+            context = {
+                'review_form': form,
+                'review': review,
+                'product': product,
+                'edit_review': edit_review,
+                'user': user,
+            }
+
+            return render(request, 'reviews/review-form-page.html', context)
+
+        else:
+
+            messages.error(request, 'You do not have permission to edit \
+                this review.')
+
+            return redirect('product_detail', product.slug)
 
     def post(self, request, product_id, review_id):
         """

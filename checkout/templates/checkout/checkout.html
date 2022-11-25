@@ -137,7 +137,7 @@
                         <!-- Save Details to profile if user logged in-->
                         {% if user.is_authenticated %}
 
-                            <label class="form-check-label" for="id-save-info">Save this as my default delivery address.</label>
+                            <label class="form-check-label" for="id-save-info">Save these as my default delivery details.</label>
                             
                             <!-- Save info unchecked to make it harder for the user to accidentally override their default address -->
                             <input class="form-check-input ml-2 mr-0" type="checkbox" id="id-save-info" name="save-info">
@@ -147,6 +147,7 @@
                             <label class="form-check-label" for="id-save-info">
                                 <a class="text-info" href="{% url 'account_signup' %}">Create an account</a> or 
                                 <a class="text-info" href="{% url 'account_login' %}">login</a> to save this information
+                                <p class="pt-1"><small>* If you are not logged in your order history will not be visible to you online after the initial confirmation.</small></p>
                             </label>
 
                         {% endif %}

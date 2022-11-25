@@ -158,9 +158,8 @@ The only user story in this Epic is related to the initial deployment, this is a
   * ...**See clearly when something goes wrong on the site** so that I can **correct any errors and continue with my purchase.**
   * ... **See a pleasantly styled and easy to navigate site** so that I can **enjoy the experience of using the site.**
   * ...**Easily contact the store owner** so that I can **ask questions about the products or the site.**
-
-* As a **business owner** I want to be able to...
-  * ...**All site users are of legal age to purchase vape supplies** so that I can **comply with the law.**  
+  * As a **business owner** I want to be able to...
+    * ...**All site users are of legal age to purchase vape supplies** so that I can **comply with the law.**  
 
 ##### **EPIC 3 - Registration and User Accounts:**
 
@@ -199,9 +198,6 @@ The only user story in this Epic is related to the initial deployment, this is a
   * ...**Add a product** so that I can **add new products to the store.**
   * ...**Edit/update a product** so that I can **change product details.**
   * ...**Delete a product** so that I can **remove products that are no longer for sale.**
-  * ...**Add a category** so that I can **add new categories to the store.**
-  * ...**Edit/update a category** so that I can **change category details.**
-  * ...**Delete a category** so that I can **remove categories that are no longer for sale.**
   * ...**Add a promotion** so that I can **add new promotions to the store.**
   * ...**manually manage the stock levels** so that I can **input received purchase orders and ensure that the stock levels are accurate in case of discrepancies or damages.**
 
@@ -225,6 +221,14 @@ The only user story in this Epic is related to the initial deployment, this is a
 ##### **Form Epic 3 - Registration and User Accounts:**
 
 * As a **Site User** I want to be able to **Add multiple addresses to my account** so that I can **order to different locations.**
+
+##### **Form Epic 6 - Admin and Store Management:**
+
+* As a **Store Owner** I want to be able to...
+  * ...**Edit/update a category** so that I can **change category details.**
+  * ...**Delete a category** so that I can **remove categories that are no longer for sale.**
+  * ...**Add a category** so that I can **add new categories to the store.**
+  
 
 ### **Skeleton**
 
