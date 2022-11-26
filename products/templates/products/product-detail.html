@@ -17,7 +17,7 @@
         
         <div class="row no-gutters mb-3">
 
-            <div class="col-12 col-md-6">
+            <div class="col-12 col-md-6 d-flex flex-column justify-content-center align-items-center">
 
                 <div class="bg-black text-light">
 
@@ -30,13 +30,13 @@
                 {% if product.image %}
                     
                     <a href="{{ product.image.url }}" target="_blank" aria-label="opens product image in a new tab">
-                        <img src="{{ product.image.url }}" alt="{{ product.name }}" class="img-fluid p-2 mt-3">
+                        <img src="{{ product.image.url }}" alt="{{ product.name }}" class="img-fluid">
                     </a>
                 
                 {% else %}
 
                     <a href="#">
-                        <img src="{{ MEDIA_URL }}noimage.png" alt="No image available for {{ product.name }}" class="card-img-top img-fluid">
+                        <img src="{{ MEDIA_URL }}noimage.png" alt="No image available for {{ product.name }}" class="img-fluid">
                     </a>
                 
                 {% endif %}
