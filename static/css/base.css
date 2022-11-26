@@ -150,6 +150,12 @@ footer {
     font-size: 2rem;
 }
 
+.site-map-heading {
+    font-size: 1rem;
+    color:#dc3545;
+    margin-top: 5px;
+}
+
 /* -----------------------------------Mailchimp signup form styling */
 #mc_embed_signup{
     clear:left; 

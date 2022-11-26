@@ -2,11 +2,11 @@
 
     <div class="row pb-0 no-gutters">
 
-        <div class="col-sm-4 text-center p-2 order-3 order-sm-1">
+        <div class="col-md-4 text-center p-2 order-3 order-md-1">
 
-            <h2 class="text-uppercase sub-heading">Find Us On</h2>
+            <h3 class="text-uppercase sub-heading mt-3">Find Us On</h3>
 
-            <ul class="list-inline mt-3 mt-sm-2">
+            <ul class="list-inline my-3 mt-sm-2">
 
                 <li class="list-inline-item social-icon">
                     <a href="https://www.facebook.com/people/Vapor-Town/100087760702549/" aria-label="Check out our facebook page" rel="noopener nofollow" target="_blank">
@@ -19,7 +19,7 @@
 
         </div>
 
-        <div class="col-sm-4 text-center p-1 order-1 order-sm-2">
+        <div class="col-md-4 text-center p-1 order-1 order-md-2">
 
             <!-- Begin Mailchimp Signup Form -->
             <div class="mx-auto bg-black p-0">
@@ -27,7 +27,7 @@
                 <form action="https://herokuapp.us21.list-manage.com/subscribe/post?u=a223762e88a0ce48e000b2e89&amp;id=eb134c824d&amp;f_id=005ac5e1f0" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate w-100" target="_blank" novalidate>
                     <div id="mc_embed_signup_scroll">
                         
-                        <h2 class="sub-heading text-uppercase">Newsletter</h2>
+                        <h3 class="sub-heading text-uppercase my-3">Newsletter</h3>
                         <p class="text-left">Get exclusive deals straight to your inbox</p>
                         
                         <div class="mc-field-group">
@@ -73,11 +73,57 @@
             <!--End mc_embed_signup-->
         </div>
 
-        <div class="col-sm-4 text-center p-2 order-3 order-sm-3">
+        <div class="col-md-4 text-center p-2 order-3 order-md-3">
 
-            <h2 class="text-uppercase sub-heading">Site Map</h2>
+            <h3 class="text-uppercase sub-heading my-3">Site Map</h3>
 
-            <!-- here will go several rows with two columns -->
+            <div class="row">
+                <div class="col-6">
+                    <ul class="list-unstyled">
+
+                        <li><h4 class="site-map-heading">The Vaping Crew</h4></li>
+
+                        <li><a href="{% url 'contact_us' %}" class="text-light">Contact Us</a></li>
+                        <li><a href="{% url 'home' %}" class="text-light">Home</a></li>
+                        <li><a href="{% url 'products' %}" class="text-light">All Products</a></li>
+                        
+                        <li><h4 class="site-map-heading">Hardware</h4></li>
+                        
+                        <li><a href="{% url 'products' %}?subcategory=mod" class="text-light">Mods</a></li>
+                        <li><a href="{% url 'products' %}?subcategory=disposable" class="text-light">Disposables</a></li>
+                        <li><a href="{% url 'products' %}?subcategory=tank" class="text-light">Tanks</a></li>
+                        <li><a href="{% url 'products' %}?subcategory=coil" class="text-light">Coils</a></li>
+                        
+                        <li><h4 class="site-map-heading">Accessories</h4></li>
+                        
+                        <li><a href="{% url 'products' %}?subcategory=battery,accessory" class="text-light">Accessories</a></li>
+                        
+                        <li><h4 class="site-map-heading">Deals and Offers</h4></li>
+                        
+                        <li><a href="{% url 'products' %}?clearance" class="text-light">*Special Offers*</a></li>
+                        
+                    </ul>
+                </div>
+                <div class="col-6">
+                    <ul class="list-unstyled">
+
+                        <li><h4 class="site-map-heading">Vape Juice</h4></li>
+
+                        <li><a href="{% url 'products' %}?subcategory=vapejuice" class="text-light">Pre-mixed</a></li>
+                        <li><a href="{% url 'products' %}?subcategory=baseliquid" class="text-light">Base Liquids</a></li>
+                        <li><a href="{% url 'products' %}?subcategory=concentrate" class="text-light">Flavour concentrates</a></li>
+                        <li><a href="{% url 'products' %}?subcategory=nicotine" class="text-light">Nicotine</a></li>
+                        
+                        <li><h4 class="site-map-heading">Category Groupings</h4></li>    
+                        
+                        <li><a href="{% url 'products' %}?category=e_liquids" class="text-light">E-liquids</a></li>
+                        <li><a href="{% url 'products' %}?category=vaping_devices" class="text-light">Vaping Devices</a></li>
+                        <li><a href="{% url 'products' %}?category=tanks_and_coils" class="text-light">Tanks and Coils</a></li>
+                        <li><a href="{% url 'products' %}?category=batteries_and_accessories" class="text-light">Batteries and Accessories</a></li>
+                        
+                    </ul>
+                </div>
+            </div>
 
         </div>
 
