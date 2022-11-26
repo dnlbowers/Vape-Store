@@ -6,7 +6,7 @@ document.addEventListener("DOMContentLoaded", function () {
     * disables buttons when exceeded
     * sets value to stock limit if keyboard used to enter value greater than stock limit
     */
-    qtyInputRangeHandler = productID => {
+    let qtyInputRangeHandler = productID => {
         
         const qtyInput = $(`.current-qty-pid-${productID}`);
         const qtyInputValue = parseInt(qtyInput.val());
@@ -22,7 +22,7 @@ document.addEventListener("DOMContentLoaded", function () {
         } else if (qtyInputValue < 1) {
             qtyInput.val(1);
         }
-    }
+    };
 
     const allQtyInputs = $('.qty-input');
     allQtyInputs.each((index, input) => {
@@ -40,7 +40,7 @@ document.addEventListener("DOMContentLoaded", function () {
         e.preventDefault();
         let quantyInput = $(this).closest('.input-group').find('.qty-input')[0];
         let quantity = parseInt(quantyInput.value);
-        let productId = $(this).data('product-id')
+        let productId = $(this).data('product-id');
         let allQtyInputs = $(`.input-group-${productId} input[name='quantity']`);
         $(allQtyInputs).val(quantity - 1);
         qtyInputRangeHandler(productId);
@@ -55,7 +55,7 @@ document.addEventListener("DOMContentLoaded", function () {
         e.preventDefault();
         let quantyInput = $(this).closest('.input-group').find('.qty-input')[0];
         let quantity = parseInt(quantyInput.value);
-        let productId = $(this).data('product-id')
+        let productId = $(this).data('product-id');
         let allQtyInputs = $(`.input-group-${productId} input[name='quantity']`);
         $(allQtyInputs).val(quantity + 1);
         qtyInputRangeHandler(productId);

@@ -48,7 +48,7 @@ document.addEventListener("DOMContentLoaded", function () {
         
         if (event.error) {
 
-            errorContent = getErrorMessageHtml(event)
+            let errorContent = getErrorMessageHtml(event);
             $(errorDivRef).html(errorContent);
 
         } else {
@@ -143,18 +143,18 @@ document.addEventListener("DOMContentLoaded", function () {
             .then( result => {
                 if (result.error) {
         
-                    loading(false)
-                    errorContent = getErrorMessageHtml(result)
+                    loading(false);
+                    let errorContent = getErrorMessageHtml(result);
                     $(errorDivRef).html(errorContent);
         
                 } else {
                     
                     if (result.paymentIntent.status === "succeeded") {
         
-                        paymentForm.submit()
+                        paymentForm.submit();
         
                     }
-                };
+                }
             });
         }).fail(() => {
 

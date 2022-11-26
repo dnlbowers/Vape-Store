@@ -1,6 +1,6 @@
-# Manuel Testing
+# **Manuel Testing**
 
-## Bugs and Fixes During the Development Process
+## **Bugs and Fixes During the Development Process**
 
 Below is a list of bugs and fixes found while creating a feature. You can find other bugs as bug tickets in [JIRA](https://dnlbowers.atlassian.net/browse/PVS-47?filter=-2&jql=project%20%3D%20PVS%20AND%20issuetype%20%3D%20Bug%20AND%20reporter%20in%20(currentUser())%20order%20by%20created%20DESC). The Jira tickets are bugs found after I concluded the sprint including this feature because during the feature creation I missed the bugs.
 
@@ -30,11 +30,11 @@ Below is a list of bugs and fixes found while creating a feature. You can find o
 
 Instead of documenting here from here out I decided it was better to solely raise a bug ticket in [JIRA](https://dnlbowers.atlassian.net/browse/PVS-47?filter=10005). I was finding myself getting fixated on bugs which were preventing my completing the over all purpose of the sprint in a timely manner. I decided to raise the bugs and move on to the next feature only to return in the same iteration later if there was excess time.
 
-## Testing(post development phase)
+## **Testing(post development phase)**
 
 I began the project writing automated tests for everything, however I soon realized this was slowing me down and I needed to focus on getting the project completed. You will find automated test files in the home and product apps. however the remaining apps do not have automated tests. I have decided to write manual tests for the remaining apps and features by testing each user story individually.
 
-### Manual Testing of User Stories
+### **Manual Testing of User Stories**
 
 For the following I will be skipping type of use i.e. "As a shopper I can" and list the latter part of the story as a heading.
 
@@ -467,12 +467,28 @@ Most of this epic were tasks for the development phase and therefore the testing
 | | Site map done
 | | Robots.txt done
 
-## Validation
+## **Validation**
 
-### HTML
+### **[HTML](https://validator.w3.org)**
 
-The only errors I found during validation we injected from the summernote widget used in the admin panel. This widget was used in the product description field so when adding products the admin can style the text should they wish to. The errors where like the following: 
+The only errors left were injected from the summernote widget used in the admin panel. This widget was used in the product description field so when adding products the admin can style the text should they wish to. The errors where like the below and relates to using inline css which is no longer considered good practice.
 
-![summernote css injection errors](docs/validation-errors/summernote-css-injection.JPG)
+![summernote css injection errors](docs/validation/html/summernote-css-injection.JPG)
 
 Once these were filtered out the rest of the site was validated with no errors.
+
+### **[CSS](https://jigsaw.w3.org/css-validator/)**
+
+Checking each CSS file by direct input there was not errors found within my CSS.
+
+![CSS validation](docs/validation/css/css-validation.jpg)
+
+### **[JavaScript](https://jshint.com/)**
+
+Checking my static JS files in jshint it picked up on one undeclared variable stripe-elements.js.
+
+![jshint](docs/validation/js/stripe-elements.jpg)
+
+This was a false positive since this variable stripe is the initialization of the stripe elements widget. This is a third party widget so I cannot change the variable name.
+
+Other than this there are no remaining errors in my js files.

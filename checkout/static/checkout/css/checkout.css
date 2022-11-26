@@ -20,7 +20,6 @@ select option {
     width: 100%;
 }
 
-
 #card-errors {
     color: #dc3545;
     text-align: left;
@@ -46,6 +45,7 @@ select option {
 .spinner:after {
     border-radius: 50%;
 }
+
 .spinner {
     top: 50%;
     color: #ffffff;
@@ -60,11 +60,13 @@ select option {
     -ms-transform: translateZ(0);
     transform: translateZ(0);
 }
+
 .spinner:before,
 .spinner:after {
     position: absolute;
     content: "";
 }
+
 .spinner:before {
     width: 10.4px;
     height: 20.4px;
@@ -77,6 +79,7 @@ select option {
     -webkit-animation: loading 2s infinite ease 1.5s;
     animation: loading 2s infinite ease 1.5s;
 }
+
 .spinner:after {
     width: 10.4px;
     height: 10.2px;
@@ -91,6 +94,7 @@ select option {
 }
 
 @-webkit-keyframes loading {
+
     0% {
         -webkit-transform: rotate(0deg);
         transform: rotate(0deg);
@@ -100,7 +104,9 @@ select option {
         transform: rotate(360deg);
     }
 }
+
 @keyframes loading {
+    
     0% {
         -webkit-transform: rotate(0deg);
         transform: rotate(0deg);
@@ -112,6 +118,7 @@ select option {
 }
 
 @media only screen and (max-width: 600px) {
+
     form {
         width: 80vw;
     }
