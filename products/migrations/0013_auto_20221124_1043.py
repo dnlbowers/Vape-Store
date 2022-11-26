@@ -13,16 +13,30 @@ class Migration(migrations.Migration):
         migrations.AlterField(
             model_name='allproducts',
             name='accumulative_rating',
-            field=models.IntegerField(blank=True, default=0, editable=False, null=True),
+            field=models.IntegerField(
+                blank=True,
+                default=0,
+                editable=False,
+                null=True),
         ),
         migrations.AlterField(
             model_name='allproducts',
             name='current_rating',
-            field=models.DecimalField(blank=True, decimal_places=2, default=0, editable=False, max_digits=6, null=True),
+            field=models.DecimalField(
+                blank=True,
+                decimal_places=2,
+                default=0,
+                editable=False,
+                max_digits=6,
+                null=True),
         ),
         migrations.AlterField(
             model_name='allproducts',
             name='number_of_ratings',
-            field=models.IntegerField(blank=True, default=0, editable=False, null=True),
+            field=models.IntegerField(
+                blank=True,
+                default=0,
+                editable=False,
+                null=True),
         ),
     ]

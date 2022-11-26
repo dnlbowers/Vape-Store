@@ -50,7 +50,7 @@ def end_sale(self, request, selected_products):
 
 def reduce_price_by_10_percent(self, request, selected_products):
     """"
-    Call back function to reducred the selected products sale by 10%
+    Call back function to reduced the selected products sale by 10%
     of the RRP so mass sales can be done
     """
 

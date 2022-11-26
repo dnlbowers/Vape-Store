@@ -4,7 +4,7 @@ from products.models import AllProducts, CategoryGroupings
 # Create your models here.
 
 
-class Testmodels(TestCase):
+class TestModels(TestCase):
 
     def setUp(self):
         self.category = CategoryGroupings.objects.create(

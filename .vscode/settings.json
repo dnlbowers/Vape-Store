@@ -25,6 +25,8 @@
    "editor.defaultFormatter": "HookyQR.beautify",
    "cSpell.words": [
       "allauth",
+      "colour",
+      "deleteitem",
       "dotenv",
       "Kanthal",
       "lineitem",

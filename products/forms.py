@@ -25,7 +25,7 @@ class ProductForm(forms.ModelForm):
         Initialise the form attributes
         """
 
-        # taken from boutique ado walkthrough to display friendly names
+        # taken from boutique ado walk through to display friendly names
         categories = CategoryGroupings.objects.all()
         sub_categories = SubCategory.objects.all()
         category_friendly_names = [

@@ -13,6 +13,25 @@ class Migration(migrations.Migration):
         migrations.AlterField(
             model_name='order',
             name='order_status',
-            field=models.CharField(choices=[('Received', 'Order Received'), ('Processing', 'Order Processing'), ('Dispatched', 'Order Dispatched'), ('On Hold', 'On Hold'), ('Extra to be paid', 'Extra to be Paid'), ('Pending Partial Refund', 'Pending Partial Refund'), ('Cancelled Pending Refund', 'Cancelled Pending Refund'), ('Cancelled', 'Cancelled')], default='Received', max_length=50),
+            field=models.CharField(
+                choices=[
+                    ('Received',
+                     'Order Received'),
+                    ('Processing',
+                     'Order Processing'),
+                    ('Dispatched',
+                     'Order Dispatched'),
+                    ('On Hold',
+                     'On Hold'),
+                    ('Extra to be paid',
+                     'Extra to be Paid'),
+                    ('Pending Partial Refund',
+                     'Pending Partial Refund'),
+                    ('Cancelled Pending Refund',
+                     'Cancelled Pending Refund'),
+                    ('Cancelled',
+                     'Cancelled')],
+                default='Received',
+                max_length=50),
         ),
     ]

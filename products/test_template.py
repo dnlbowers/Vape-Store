@@ -36,7 +36,7 @@ class TestPage(TestCase):
         response = self.client.get(reverse(
             "product_detail", args=[
                 self.product.slug
-                ]))
+            ]))
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, "products/product-detail.html")
 
@@ -44,5 +44,5 @@ class TestPage(TestCase):
         response = self.client.get(reverse(
             "product_detail", args=[
                 'wrong_slug'
-                ]))
+            ]))
         self.assertTemplateUsed(response, "errors/404.html")
