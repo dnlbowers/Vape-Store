@@ -140,7 +140,6 @@ textarea:focus, textarea:active {
 }
 
 .btn-success, .btn-danger {
-    font-size: 18pt;
     text-shadow: 1px 1px #000;
     color: #f8f9fa !important;
 }
