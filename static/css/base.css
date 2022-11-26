@@ -146,6 +146,10 @@ footer {
     margin-top: auto;
 }
 
+.social-icon {
+    font-size: 2rem;
+}
+
 /* -----------------------------------Mailchimp signup form styling */
 #mc_embed_signup{
     clear:left; 
