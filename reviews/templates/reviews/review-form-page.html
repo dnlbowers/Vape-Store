@@ -17,13 +17,13 @@
         <!-- Product image or placeholder -->
         {% if product.image %}
 
-            <a href="{% url 'product_detail' product.slug %}" class="text-center mx-auto">
+            <a href="{{ product.image.url }}" class="text-center mx-auto" aria-label="opens product image in a new tab" target="_blank">
                 <img class="img-max" src="{{ product.image.url }}" alt="{{ product.name }}">
             </a>
 
         {% else %}
 
-            <a href="{% url 'product_detail' product.slug %}">
+            <a href="">
                 <img class="img-max" src="{{ MEDIA_URL }}noimage.png" alt="No image available for {{ product.name }}" class="mx-auto my-3">
             </a>
 

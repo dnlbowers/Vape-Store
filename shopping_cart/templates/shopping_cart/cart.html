@@ -19,7 +19,7 @@
                 <p>
                     <small>Please review your cart before proceeding to the 
 
-                        <a href="#checkout-access" aria-label="Skip to cart totals and section from where you can proceed to check out page">
+                        <a href="#checkout-access" aria-label="Skip to cart reviewbe taken down the page to click pay now button">
                             checkout page
                         </a>
 
@@ -67,9 +67,5 @@
 {% block postloadjs %}
     {{ block.super }}
     <script src="{% static 'products/js/qtySelectorBtns.js' %}"></script>
-    {% comment %} {% include 'products/includes/scripts/qty-selector-btn-scripts.html' %} {% endcomment %}
-    <script src="{% static 'shopping_cart/js/deleteCartItem.js' %}">
-        
-        
-    </script>
+    <script src="{% static 'shopping_cart/js/deleteCartItem.js' %}"></script>
 {% endblock %}

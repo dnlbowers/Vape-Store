@@ -1,6 +1,11 @@
 {% extends 'base.html' %}
 {% load static %}
 
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'products/css/review-accordion.css' %}">
+{% endblock %}
+
+
 {% block head_title %}- {{product.name}}{% endblock %}
 
 {% block content %}
@@ -47,7 +52,7 @@
                 
                 </div>
 
-                <p class="text-center mt-5 {% if product.current_rating == 0 %}mb-2{% else %}mb-3{% endif %}"> Customer Rating = <i class="fa-solid fa-star text-warning"></i>{% if product.current_rating == 0 %} 0 / 5 </p><p class="text-center mt-0">Be the first to rate this product </p>{% else %} {{ product.current_rating }} / 5{% endif %}</p>
+                <p class="text-center mt-5 {% if product.current_rating == 0 %}mb-2{% else %}mb-3{% endif %}"> Customer Rating = <i class="fa-solid fa-star text-warning"></i>{% if product.current_rating == 0 %} 0 / 5 </p><p class="text-center mt-0">Be the first to rate this product {% else %} {{ product.current_rating }} / 5{% endif %}</p>
                 
                 <div class="bg-black text-light text-center p-3 font-weight-bold mt-5">
                     <!-- Product price and if relevant sale price to show saving -->
@@ -71,7 +76,7 @@
                     <div>
                         <div>
                             
-                            <label class="d-flex justify-content-center w-50 mx-auto font-weight-bold" for="quantity">Select Quantity:</label>
+                            <p class="mx-auto font-weight-bold text-center pb-0 mb-0">Select Quantity:</p>
                             
                             <!-- Qty slector buttons -->
                             <div class="form-group d-flex justify-content-center">
@@ -80,21 +85,21 @@
                                     
                                     <div class="input-group-prepend">
                                     
-                                        <button class="btn btn-danger rounded-left border border-dark decrease-qty decrease-qty-{{ product.id }}" data-product-id="{{ product.id}}">
+                                        <button class="btn btn-danger rounded-left border border-dark decrease-qty decrease-qty-{{ product.id }}" data-product-id="{{ product.id}}" aria-label="decrease quantity">
                                             <span>
-                                                <i class="fas fa-minus"></i>
+                                                <i class="fas fa-minus fa-lg"></i>
                                             </span>
                                         </button>
                                     
                                     </div>
                                     
-                                    <input type="number" name="quantity" class=" text-center form-control border border-dark qty-input current-qty-pid-{{ product.id }}" value="1" min="1" max="{{ product.stock_level }}" data-product-id="{{ product.id }}">
+                                    <input type="number" name="quantity" aria-label="enter required quantity" class=" text-center form-control border border-dark qty-input current-qty-pid-{{ product.id }}" value="1" min="1" max="{{ product.stock_level }}" data-product-id="{{ product.id }}">
                                     
                                     <div class="input-group-append">
                                     
-                                        <button class="btn btn-success rounded-right border border-dark increase-qty increase-qty-{{ product.id }}" data-product-id="{{ product.id}}">
+                                        <button class="btn btn-success rounded-right border border-dark increase-qty increase-qty-{{ product.id }}" data-product-id="{{ product.id}}" aria-label="increase quantity">
                                             <span>
-                                                <i class="fas fa-plus"></i>
+                                                <i class="fas fa-plus fa-lg"></i>
                                             </span>
                                         </button>
                                     
@@ -124,8 +129,8 @@
 
                             <div class="text-right">
 
-                                <a class="m-3 btn btn-link" href="{% url 'edit_product' product.slug %}">Edit</a>  |  
-                                <a class="btn btn-link text-danger m-3" type="submit" href="{% url 'delete_product' product.id %}">Delete</a>
+                                <a class="m-3 btn btn-link" href="{% url 'edit_product' product.slug %}" aria-label="edit product">Edit</a>  |  
+                                <a class="btn btn-link text-danger m-3" href="{% url 'delete_product' product.id %}" aria-label="delete product">Delete</a>
                             
                             </div>
 
@@ -185,7 +190,7 @@
 
                             {% if user.is_authenticated %}
 
-                                <p class="text-center"><a class="btn btn-lg btn-success" href="{% url 'add_review' product.id %}">Leave your own review</a></p>
+                                <p class="text-center"><a class="btn btn-lg btn-success" href="{% url 'add_review' product.id %}" aria-label="leave a review">Leave your own review</a></p>
                             
                             {% else %}
 
@@ -193,8 +198,8 @@
                                 
                                 <div class="text-center">
 
-                                    <a class="btn btn-info m-2" href="{% url 'account_signup' %}">Create an account</a> or 
-                                    <a class="btn btn-success m-2" href="{% url 'account_login' %}">login</a> 
+                                    <a class="btn btn-info m-2" href="{% url 'account_signup' %}" aria-label="create and account">Create an account</a> or 
+                                    <a class="btn btn-success m-2" href="{% url 'account_login' %}" aria-label="login">login</a> 
                                 
                                 </div>
                             

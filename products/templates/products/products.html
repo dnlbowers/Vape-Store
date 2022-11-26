@@ -65,9 +65,13 @@
             <div class="row no-gutters card-deck mx-auto">
                 
                 {% for product in products %}
-                <div class="col">
-                    {% include "./includes/components/product-card.html" %}
-                </div> 
+                
+                    <div class="col">
+                        
+                            {% include "./includes/components/product-card.html" %}
+                        
+                    </div>
+                
                 {% endfor %}
             </div>
 

@@ -471,3 +471,8 @@ Most of this epic were tasks for the development phase and therefore the testing
 
 ### HTML
 
+The only errors I found during validation we injected from the summernote widget used in the admin panel. This widget was used in the product description field so when adding products the admin can style the text should they wish to. The errors where like the following: 
+
+![summernote css injection errors](docs/validation-errors/summernote-css-injection.JPG)
+
+Once these were filtered out the rest of the site was validated with no errors.

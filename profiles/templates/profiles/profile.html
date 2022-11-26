@@ -36,9 +36,9 @@
 
             <div class="tab-content p-5 border border-dark mb-3" id="nav-tabContent">
 
-                <div class="tab-pane fade show active" id="nav-personal-info" role="tabpanel" aria-labelledby="nav-personal-info-tab">
+                <section class="tab-pane fade show active" id="nav-personal-info" role="tabpanel" aria-labelledby="nav-personal-info-tab">
 
-                    <p class="font-weight-bold">Default Delivery Details:</p>
+                    <h2 class="font-weight-bold sub-heading pb-2">Default Delivery Details:</h2>
 
                     <form action="{%url 'profile'%}" method="post">
                         
@@ -60,18 +60,18 @@
 
                         <p class="small my-2 text-center">
                             * Kindly note the above is for deleivery only and will not affect the email attached to you account. The current email attached to your account is {{ profile.user.email }} Should you wish to change your default account email the please 
-                            <a href="{% url 'contact_us' %}">
+                            <a href="{% url 'contact_us' %}" aria-label="contact us">
                                 Contact Us
                             </a>
                         </p>
                         
                     </form>
 
-                </div>
+                </section>
 
-                <div class="tab-pane fade" id="nav-order-history" role="tabpanel" aria-labelledby="nav-order-history-tab">
+                <section class="tab-pane fade" id="nav-order-history" role="tabpanel" aria-labelledby="nav-order-history-tab">
 
-                    <p class="font-weight-bold">Order History:</p>
+                    <h2 class="font-weight-bold sub-heading pb-2">Order History:</h2>
 
                     <div class="completed-orders table-responsive">
 
@@ -95,7 +95,7 @@
                                             <a href="{% url 'completed_orders' order.order_number %}"
                                             title="{{ order.order_number }}">
                                                 {{ order.order_number|truncatechars:6 }}
-                                            <a>
+                                            </a>
                                         </td>
                                         
                                         <td>{{ order.date }}</td>
@@ -130,7 +130,7 @@
                         </table>
                     </div>
 
-                </div>
+                </section>
 
             </div>
 

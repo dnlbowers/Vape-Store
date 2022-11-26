@@ -15,11 +15,16 @@
 
         <div class="col">
 
-            <p>Thank you for shopping with us, the below confirmation will be sent to {{ order.email }}.</p>
-            <h1 class="text-left border-bottom border-top mt-0 py-3 mb-4 text-uppercase">Order Confirmation</h1>
+            <h1 class="text-left border-bottom mt-0 py-3 mb-4 text-uppercase">Order Confirmation</h1>
+            <p class="{% if from_profile %}border-bottom mt-0 py-3 mb-4{% endif %}">Thank you for shopping with us, the below confirmation {% if from_profile %}was{% else %}will be{% endif %} sent to {{ order.email }}.</p>
+            
+            {% if not from_profile %}
+                <p class="small text-danger border-bottom mt-0 py-3 mb-4">* Kindly note that if this page refreshes or you leave the page it is lost forever. Users who where signed in during checkout can revisit their order history via thier profile.</p>
+            {% endif %}
 
         </div>
     </div>
+    <h2 class="sub-heading font-weight-bold">Order Summary:</h2>
 
     <div class="row">
 
@@ -67,7 +72,7 @@
     <div class="row border-top  mt-2">
         
         <div class="col-12">
-            <h3 class="text-left mt-2 pb-3">Order Summary:</h3>
+            <h3 class="text-left mt-2 pb-3 sub-heading">Items purchased:</h3>
         </div>
 
     </div>
@@ -79,25 +84,26 @@
 
             <div class="col-2 my-2">
 
-                <a href="{% url 'product_detail' ordered_product.product.slug %}" aria-label=" image of {{ ordered_product.product.name }}">
-
-                    {% if ordered_product.product.image %}
-
+                {% if ordered_product.product.image %}
+                    <a href="{{ ordered_product.product.image.url }}" target="_blank" aria-label="Opens the image of {{ ordered_product.product.name }} in a new tab">
                         <img class="w-100" src="{{ ordered_product.product.image.url }}" alt="image of {{ ordered_product.product.name }}">
-
-                    {% else %}
-
+                    </a>
+                {% else %}
+                    <a href="">
                         <img class="w-100" src="{{ MEDIA_URL }}noimage.png" alt="No image available for {{ ordered_product.product.name }}">
-
-                    {% endif %}
-
-                </a>
+                    </a>
+                {% endif %}
 
             </div>
 
             <div class="col-7">
 
-                <p class="my-2 font-weight-bold">{{ ordered_product.product.name }}</p>
+                <p class="my-2 font-weight-bold">
+                    <!-- opens a new tab to see the product info this is because if a user is not signed in they cannot return to the order confirmation -->
+                    <a href="{% url 'product_detail' ordered_product.product.slug %}" target="_blank" aria-label="Takes you back to {{ ordered_product.product.name }}'s details in a new tab">
+                        {{ ordered_product.product.name }}
+                    </a>
+                </p>
 
                 <p class="my-2 small text-muted">Qty: {{ ordered_product.quantity }}</p>
 
@@ -148,7 +154,7 @@
 
         <div class="col-12">
 
-            <h3 class="text-left mt-2 pb-3">Shipping Details:</h3>
+            <h4 class="text-left mt-2 pb-3 sub-heading">Shipping Details:</h3>
 
         </div>
 

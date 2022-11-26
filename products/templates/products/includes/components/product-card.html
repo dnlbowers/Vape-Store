@@ -3,25 +3,23 @@
     <div class="h-50 card-img-top text-center">
 
         <!-- image or placeholder -->
-        {% if product.image %}
+        <a href="{% url 'product_detail' product.slug %}" aria-label="Opens the product details page">
+            {% if product.image %}
 
-            <a href="{% url 'product_detail' product.slug %}">
-                <img class="img-fluid h-100"  src="{{ product.image.url }}" alt="{{ product.name }}">
-            </a>
+                    <img class="img-fluid h-100"  src="{{ product.image.url }}" alt="{{ product.name }}">
 
-        {% else %}
+            {% else %}
 
-            <a href="{% url 'product_detail' product.slug %}" >
-                <img class="img-fluid h-100" src="{{ MEDIA_URL }}noimage.png" alt="No image available for {{ product.name }}">
-            </a>
+                    <img class="img-fluid h-100" src="{{ MEDIA_URL }}noimage.png" alt="No image available for {{ product.name }}">
+                
 
-        {% endif %}
-
+            {% endif %}
+        </a>
     </div>
 
     <div class="card-body h-25 d-flex flex-column justify-content-between py-3">
 
-        <h3 class="card-title text-center text-warning font-weight-bold text-capitalize">{{ product.name }}</h3>
+        <h2 class="card-title text-center text-warning font-weight-bold text-capitalize sub-heading">{{ product.name }}</h2>
 
         <p class="card-text mt-3 text-right">
 
@@ -130,5 +128,4 @@
 
     </div>
         
-    
 </div> 

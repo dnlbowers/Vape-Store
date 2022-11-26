@@ -177,10 +177,12 @@ document.addEventListener("DOMContentLoaded", function () {
             loadingOverlayRef.removeClass("d-none");
             card.update({ "disabled": true });
             payNowBtnTxtRef.addClass("d-none");
+            loadingSpinnerRef.addClass("d-inline-block");
             loadingSpinnerRef.removeClass("d-none");
 
         } else {
 
+            loadingSpinnerRef.removeClass("d-inline-block");
             loadingSpinnerRef.addClass("d-none");
             payNowBtnTxtRef.removeClass("d-none");
             card.update({ "disabled": false });

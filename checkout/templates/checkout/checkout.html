@@ -52,18 +52,16 @@
                     <div class="col-2 my-2">
 
                         <!-- Product Image or placeholder -->
-                        <a href="{% url 'product_detail' cart_item.product.slug %}">
-
-                            {% if cart_item.product.image %}
-
+                        
+                        {% if cart_item.product.image %}
+                            <a href="{{ cart_item.product.image.url }}" aria-label="opens product image in a new tab" target="_blank">
                                 <img class="w-100" src="{{ cart_item.product.image.url }}" alt="{{ cart_item.product.name }}">
-
-                            {% else %}
-
+                            </a>
+                        {% else %}
+                            <a href="">
                                 <img class="w-100" src="{{ MEDIA_URL }}noimage.png" alt="No image available for {{ cart_item.product.name }}">
-
-                            {% endif %}
-                        </a>
+                            </a>
+                        {% endif %}
 
                     </div>
 
@@ -162,7 +160,7 @@
 
                     <!-- contianers for stripe injected element -->
                     <legend class="font-weight-bold">Card Detals:</legend>
-                    <div id="card-element" aria-label="card details"></div>
+                    <div id="card-element"></div>
                     <div id="card-errors"></div>
                     <input type="hidden" value="{{ client_secret}}" name="client_secret">
 
@@ -181,7 +179,7 @@
 
                     <button id="pay-now-btn" class="btn btn-warning mt-1">
 
-                        <div class="spinner d-none" id="spinner"></div>
+                        <span class="spinner d-none" id="spinner"></span>
 
                         <span id="pay-now-btn-txt">
                             <span class="font-weight-bold">Pay Now</span>

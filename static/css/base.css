@@ -38,6 +38,11 @@ a {
     color: #490049;
 }
 
+.sub-heading {
+    font-size: 1.25rem;
+}
+
+
 /* ------------------------------------------------------------------------logo styling */
 .logo-letter {
     font-family: 'Damion', cursive;
@@ -54,8 +59,8 @@ a {
 /* ------------------------------------------------------------------------- counter styling for number of items in cart  */
 .cart-counter {
     position: absolute;
-    top: -1px;
-    right: 10px;
+    top: -2px;
+    right: 5px;
     color: #fff;
     font-size: 0.8rem;
     padding: 0.2rem 0.5rem;
@@ -155,7 +160,7 @@ footer {
 @media screen and (min-width: 992px) {
     .cart-counter {
         top: -1px;
-        right: 25px;
+        right: 1.25rem;
     }
 
     .border-top-red {
