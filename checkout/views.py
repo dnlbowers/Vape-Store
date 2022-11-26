@@ -242,21 +242,6 @@ class CheckoutSuccess(View):
                 if user_profile_form.is_valid():
 
                     user_profile_form.save()
-
-        messages.success(request, f'We\'ve successfully received your\
-                order. Your order reference number is {order_number}, and a\
-                    confirmation email will be sent to {order.email} shortly.\
-                        Any questions can be directed to our customer service\
-                            team via the "contact us" page.')
-
-        if 'cart' in request.session:
-
-            del request.session['cart']
-
-        context = {
-            'order': order,
-        }
-
         if order.times_viewed > 1:
 
             messages.warning(
@@ -269,4 +254,21 @@ class CheckoutSuccess(View):
 
             return redirect(reverse('home'))
         else:
+
+            messages.success(
+                request,
+                f'We\'ve successfully received your order. Your order \
+                    reference number is {order_number}, and a confirmation \
+                        email will be sent to {order.email} shortly. Any \
+                            questions can be directed to our customer service \
+                                team via the "contact us" page.')
+
+            if 'cart' in request.session:
+
+                del request.session['cart']
+
+            context = {
+                'order': order,
+            }
+
             return render(request, self.template, context)
