@@ -16,8 +16,8 @@
                 </div>
                 
                 <p class="mb-1">{{ review.content|truncatewords:7 }}....</p>
-                <small class="text-muted">Reviewed by {{ review.author }}</small>
-                <small class="float-right text-muted">{{ review.date }}</small>                                            
+                <small class="">Reviewed by {{ review.author }}</small>
+                <small class="float-right">{{ review.date }}</small>                                            
             
             </div>
 
@@ -32,7 +32,7 @@
 
                     <div class="text-right">
 
-                        <a class="m-3 btn btn-link" href="{% url 'edit_review' product.id review.id %}" aria-label="edit-review">Edit</a>  |  
+                        <a class="m-3 btn btn-link text-blue" href="{% url 'edit_review' product.id review.id %}" aria-label="edit-review">Edit</a>  |  
                         <form class="d-inline" action="{% url 'delete_review' product.id review.id %}" method="post">
                             {% csrf_token %}
                             <button class="btn btn-link text-danger m-3" type="submit">Delete</button>

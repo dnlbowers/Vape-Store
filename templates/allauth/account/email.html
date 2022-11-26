@@ -9,6 +9,37 @@
   <div class="text-center m-3 text-uppercase">
       <h1>{% trans "E-mail Addresses" %}</h1>
   </div>
+
+  <div class="row mx-auto my-3">
+
+    <!-- Logo with surrounding columns for alighment so to fill the white space -->
+    <div class="col-sm-3"></div>
+
+    <div class="col-sm-6 text-center px-2">
+
+        <a class="navbar-brand" href="{% url 'home' %}" aria-label="returns you back to the home page of this site">
+            
+            <p class="rounded-circle border-red bg-logo text-danger pt-1 pb-2 px-2">
+
+                <span class="d-none d-sm-inline p-0 mb-1 logo-letter font-weight-bold ml-2">
+                    Vapor
+                </span>
+
+                <i class="fa-solid fa-city fa-lg text-dark pb-3"></i>
+        
+                <span class="d-none d-sm-inline p-0 mb-1 logo-letter font-weight-bold mr-2">
+                    Town
+                </span> 
+
+            </p>
+
+        </a>
+    
+    </div>
+    
+    <div class="col-sm-3"></div>
+
+  </div>
   {% if user.emailaddress_set.all %}
     <p class="text-center m-3">{% trans 'The following e-mail addresses are associated with your account:' %}</p>
 
@@ -56,8 +87,8 @@
         {{ form|crispy }}
         
         <div class="text-center my-3">
-          <a href="{% url 'home' %}" class="btn btn-danger rounded-0">Home</a>
-          <button class="btn btn-success rounded-0" name="action_add" type="submit">{% trans "Add E-mail" %}</button>
+          <a href="{% url 'home' %}" class="btn btn-lg btn-outline-dark px-4 mt-3">Cancel</a>
+          <button class="btn btn-lg btn-warning border border-dark px-4 ml-3 mt-3" name="action_add" type="submit">{% trans "Add E-mail" %}</button>
       </div>
     </form>
 </main>

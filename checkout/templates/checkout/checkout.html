@@ -95,7 +95,7 @@
 
                 </div>
 
-                <div class="col-3">
+                <div class="col-3 mb-3">
 
                     <p class="my-1">€{{ cart_total | floatformat:2 }}</p>
                     <p class="my-1">{% if shipping <= 0 %}Free{%else%}€{{ shipping | floatformat:2 }}{% endif %}</p>
@@ -146,8 +146,8 @@
 
                             <!-- Invite user to register or sign in -->
                             <div class="">
-                                <a class="text-info" href="{% url 'account_signup' %}">Create an account</a> or 
-                                <a class="text-info" href="{% url 'account_login' %}">login</a> to save this information
+                                <a href="{% url 'account_signup' %}">Create an account</a> or 
+                                <a href="{% url 'account_login' %}">login</a> to save this information
                                 <p class="pt-1 text-danger"><small>* If you are not logged in your order history will not be visible to you online after the initial confirmation screen.</small></p>
                             </div>
 
@@ -167,18 +167,18 @@
 
                 </fieldset> 
 
-                <div class="text-right mt-5 mb-2">   
+                <div class="text-center mt-2 mb-3">   
 
-                    <a href="{% url 'view_cart' %}" class="btn btn-success mt-1">
+                    <a href="{% url 'view_cart' %}" class="btn btn-lg btn-outline-dark mt-3">
 
                         <span>
                             <i class="fas fa-chevron-left fa-sm"></i>
                         </span>
-                        <span class="font-weight-bold">Edit Purchase</span>
+                        <span class="font-weight-bold mr-1">Edit Purchase</span>
 
                     </a>
 
-                    <button id="pay-now-btn" class="btn btn-warning mt-1">
+                    <button id="pay-now-btn" class="btn btn-lg btn-warning border border-dark px-5 ml-3 mt-3">
 
                         <span class="spinner d-none" id="spinner"></span>
 
@@ -191,16 +191,16 @@
 
                     </button>
 
-                    <p class="small text-danger my-2">
-
-                        <span class="icon">
-                            <i class="fas fa-exclamation-circle"></i>
-                        </span>
-                        <span>Your card will be charged <span class="font-weight-bold">€{{ grand_total|floatformat:2 }}</span></span>
-
-                    </p>
-
                 </div>
+                
+                <p class="small text-center text-danger my-3">
+
+                    <span class="icon">
+                        <i class="fas fa-exclamation-circle"></i>
+                    </span>
+                    <span>Your card will be charged <span class="font-weight-bold">€{{ grand_total|floatformat:2 }}</span></span>
+
+                </p>
 
             </form>
         </div>

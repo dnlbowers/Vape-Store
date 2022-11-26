@@ -18,7 +18,7 @@
 
             <a class="navbar-brand" href="{% url 'home' %}" aria-label="returns you back to the home page of this site">
                 
-                <h2 class="rounded-circle border-red bg-logo text-danger pt-1 pb-2 px-2">
+                <p class="rounded-circle border-red bg-logo text-danger pt-1 pb-2 px-2">
 
                     <span class="d-none d-sm-inline p-0 mb-1 logo-letter font-weight-bold ml-2">
                         Vapor
@@ -30,7 +30,7 @@
                         Town
                     </span> 
 
-                </h2>
+                </p>
 
             </a>
             
@@ -40,25 +40,27 @@
     
     </div>
 
+    <!-- Contact form -->
     <form class="mx-auto" action="{% url 'contact_us' %}" method="POST">
 
         {% csrf_token %}
         {{form|crispy}}
 
-        <div class="text-right">
-            <button type="submit" class="btn btn-success text-light text-uppercase">Send</button>
+        <div class="text-center">
+            <a href="{% url 'products' %}" class="btn btn-lg btn-outline-dark px-4 mt-3" aria-label="back to the products page">
+                <span>
+                    <i class="fas fa-chevron-left fa-sm"></i>
+                </span>
+                Cancel
+            </a>
+            <button type="submit" class="btn btn-lg btn-warning border border-dark px-4 ml-3 mt-3">Send</button>
         </div>
 
     </form>
 
     <div class="text-center mt-2 p-3">
 
-        <a href="{% url 'home' %}">
-            <span>
-                <i class="fas fa-chevron-left fa-sm"></i>
-            </span>
-            Back to Home
-        </a>
+        
 
     </div>
 

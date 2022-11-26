@@ -129,7 +129,7 @@
 
                             <div class="text-right">
 
-                                <a class="m-3 btn btn-link" href="{% url 'edit_product' product.slug %}" aria-label="edit product">Edit</a>  |  
+                                <a class="m-3 btn btn-link text-blue" href="{% url 'edit_product' product.slug %}" aria-label="edit product">Edit</a>  |  
                                 <a class="btn btn-link text-danger m-3" href="{% url 'delete_product' product.id %}" aria-label="delete product">Delete</a>
                             
                             </div>
@@ -138,7 +138,7 @@
 
                         <div class="d-flex justify-content-sm-around bg-black p-5">
                         
-                            <a href="{% url 'products' %}" class="btn btn-danger border text-light border-dark p-3">
+                            <a href="{% url 'products' %}" class="btn btn-outline-danger p-3">
                         
                                 <span>
                                     <i class="fas fa-chevron-left fa-sm"></i>
@@ -147,7 +147,7 @@
 
                             </a>
                         
-                            <button class="btn btn-success font-weight-bold py-3 px-5" type="submit" {% if not product.in_stock %}disabled{% endif %}>
+                            <button class="btn btn-outline-success font-weight-bold py-3 px-5" type="submit" {% if not product.in_stock %}disabled{% endif %}>
                                 Add <i class="fa-solid fa-cart-shopping fa-sm"></i>
                             </button>
                         
@@ -190,7 +190,7 @@
 
                             {% if user.is_authenticated %}
 
-                                <p class="text-center"><a class="btn btn-lg btn-success" href="{% url 'add_review' product.id %}" aria-label="leave a review">Leave your own review</a></p>
+                                <p class="text-center"><a class="btn btn-lg btn-success text-black" href="{% url 'add_review' product.id %}" aria-label="leave a review">Leave your own review</a></p>
                             
                             {% else %}
 
@@ -198,8 +198,8 @@
                                 
                                 <div class="text-center">
 
-                                    <a class="btn btn-info m-2" href="{% url 'account_signup' %}" aria-label="create and account">Create an account</a> or 
-                                    <a class="btn btn-success m-2" href="{% url 'account_login' %}" aria-label="login">login</a> 
+                                    <a class="btn btn-info m-2 text-black" href="{% url 'account_signup' %}" aria-label="create and account">Create an account</a> or 
+                                    <a class="btn btn-success m-2 text-black" href="{% url 'account_login' %}" aria-label="login">login</a> 
                                 
                                 </div>
                             
@@ -219,10 +219,10 @@
 
                                 <p class="text-center font-weight-bold">Sign in and be the first to review this product</p>
                             
-                                <div class="text-right">
+                                <div class="text-center">
                                     
-                                    <a class="btn btn-info m-2" href="{% url 'account_signup' %}">Create an account</a> or 
-                                    <a class="btn btn-success m-2" href="{% url 'account_login' %}">login</a> 
+                                    <a class="btn btn-info m-2 text-black" href="{% url 'account_signup' %}">Create an account</a> or 
+                                    <a class="btn btn-success m-2 text-black" href="{% url 'account_login' %}">login</a> 
                                     
                                 </div>
                             

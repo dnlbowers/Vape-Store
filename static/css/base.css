@@ -23,11 +23,11 @@ body {
 }
 
 .border-top-red {
-    border-top: 2px solid #dc3545;
+    border-top: 3px solid #dc3545;
 }
 
 .border-bottom-red {
-    border-bottom: 2px solid #dc3545;
+    border-bottom: 3px solid #dc3545;
 }
 
 .padding-top {
@@ -35,13 +35,20 @@ body {
 }
 
 a {
-    color: #9d0a9d;
+    color: #004c9e;
 }
 
 .sub-heading {
     font-size: 1.25rem;
 }
 
+.text-black {
+    color: #000;
+}
+
+.text-blue {
+    color: #004c9e;
+}
 
 /* ------------------------------------------------------------------------logo styling */
 .logo-letter {
@@ -134,16 +141,6 @@ textarea:focus, textarea:active {
     font-weight: bold;
 }
 
-.btn-boarder {
-    border: 1px solid #000!important;
-    box-shadow: 0 1px 3px 0 #000;
-}
-
-.btn-success, .btn-danger {
-    text-shadow: 1px 1px #000;
-    color: #f8f9fa !important;
-}
-
 /* -------------------------------------------------------------- footer styling */
 footer {
     margin-top: auto;
@@ -153,6 +150,14 @@ footer {
 #mc_embed_signup{
     clear:left; 
     font:14px Helvetica,Arial,sans-serif;
+}
+
+/* Added styling to the mailchimp subscribe button to mimic bootstraps btn-outline-success, 
+The ID gives it precedence over the form input default styling above  */
+#mc-embedded-subscribe {
+    background-color: #000;
+    color: #28a745!important;
+    border-color: #28a745!important;
 }
 
 /* -------------------------------------------------------------- Media Queries */

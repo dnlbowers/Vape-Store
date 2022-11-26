@@ -195,17 +195,24 @@
 
     </div>
 
-    <div class="row text-right my-3">
+    <div class="row text-center my-3">
 
         <div class="col-12">
 
             {% if from_profile %}
 
-                <a href="{% url 'profile' %}" class="btn btn-success">Back to Profile</a>
+                <a href="{% url 'profile' %}" class="btn btn-outline-dark rounded-0 btn-lg mt-3 ml-3">
+                    <span>
+                        <i class="fas fa-chevron-left fa-sm"></i>
+                    </span>
+                    <span class="font-weight-bold pr-2">
+                        Back to Profile
+                    </span>
+                </a>
 
             {% else %}
 
-                <a href="{% url 'home' %}" class="btn btn-secondary my-1">
+                <a href="{% url 'home' %}" class="btn btn-outline-dark rounded-0 btn-lg mt-3">
 
                     <span>
                         <i class="fas fa-chevron-left fa-sm"></i>
@@ -215,7 +222,7 @@
 
                 </a>
 
-                <a href="{% url 'products' %}?clearance" class="btn btn-success my-1">
+                <a href="{% url 'products' %}?clearance" class="btn btn-lg btn-warning border border-dark px-4 ml-3 mt-3">
 
                     <span class="font-weight-bold">Special Offers</span>
 
