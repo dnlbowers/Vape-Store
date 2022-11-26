@@ -1,4 +1,4 @@
-<select id="sorting-menu" class="custom-select custom-select-sm w-50">
+<select id="sorting-menu" class="custom-select custom-select-sm w-50" aria-label="sort products by slector">
     
     <option value="default" {% if current_ordering == 'None_None' %}selected{% endif %}>Sort products by...</option>
     <option value="name" {% if current_ordering == 'name' %}selected{% endif %}>Name (A to Z)</option>
