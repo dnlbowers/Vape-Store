@@ -523,3 +523,5 @@ This occurred again on the for the success toast shown on the checkout success p
 
 ![success toast error](docs/validation/accessibility/sr-only-error-toast.JPG)
 
+I also found that using white text on the toasts produced a low contrast score and so I changed the text to black. This change fixed the contrast error.
+

@@ -97,10 +97,10 @@ document.addEventListener("DOMContentLoaded", function () {
         loading(true); 
         
         let saveInfo = Boolean($('#id_save_info').attr('checked'));
-        const crsfToken = $("input[name='csrfmiddlewaretoken']").val();
+        const csrfToken = $("input[name='csrfmiddlewaretoken']").val();
 
         const postCacheData = {
-            "csrfmiddlewaretoken": crsfToken,
+            "csrfmiddlewaretoken": csrfToken,
             "client_secret": clientSecret,
             "save_info": saveInfo,
         };

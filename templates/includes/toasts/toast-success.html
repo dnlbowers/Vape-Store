@@ -2,7 +2,7 @@
 <div class="toast border-3 border-dark bg-light" role="alert" aria-live="assertive" aria-atomic="true" data-delay="{% if product_count %}10000{% else %}5000{% endif %}">
     
     <div class="toast-header bg-success text-light border-3 border-dark">
-        <span class="mr-auto font-weight-bold">Success</span>
+        <span class="mr-auto font-weight-bold text-black">Success</span>
         <button type="button" class="ml-2 mb-1 close" data-dismiss="toast" aria-label="Close">
             <span aria-hidden="true">&times;</span>
         </button>
@@ -33,7 +33,7 @@
                         <p class="">
                             €{{ item.product.price }}
                         </p>
-                        <p class="text-muted small">
+                        <p class="small">
                             Qty: {{ item.quantity }}
                         </p>
                     </div>
@@ -55,7 +55,7 @@
                     </a>
                 </div>
                 {% if free_shipping_delta > 0 %}
-                    <p class="mb-0 p-2 bg-danger shadow-sm text-light text-center">
+                    <p class="mb-0 p-2 bg-danger shadow-sm text-black text-center">
                         You're just <span class="font-weight-bold">€{{ free_shipping_delta }}</span> away from free international shipping!
                     </p>
                 {% endif %}

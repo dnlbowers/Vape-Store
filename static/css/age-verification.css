@@ -88,16 +88,9 @@
 	letter-spacing: 0;
 }
 
-#modal_content nav .av_go {
-	background-color: #28a745;
-}
-
-#modal_content nav .av_no {
-	background-color: #6C757D;
-}
-
 #modal_content nav .av_btn:hover {
-	background-color: #000;
+	background-color: #fff;
+	color: #000;
 }
 
 #modal_content #modal_regret_wrapper nav a.av_btn {

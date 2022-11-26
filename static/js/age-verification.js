@@ -32,12 +32,12 @@ let av_showmodal = function() {
 
 	// Question Content
 	var content_heading = $('<h2>Are you 18 or older?</h2>');
-	var content_buttons = $('<nav><ul><li><a href="#nothing" class="av_btn av_go" rel="yes">Yes</a></li><li><a href="#nothing" class="av_btn av_no" rel="no">No</a></li></nav>');
+	var content_buttons = $('<nav><ul><li><a href="#nothing" class="av_btn av_go btn btn-lg btn-outline-success" rel="yes">Yes</a></li><li><a href="#nothing" class="av_btn av_no btn btn-lg btn-outline-danger" rel="no">No</a></li></nav>');
 	var content_text = $('<p>You must verify that you are 18 years of age or older to enter this site.</p>');
 
 	// Regret Content
 	var regret_heading = $('<h2>We\'re Sorry!</h2>');
-	var regret_buttons = $('<nav><small class="pb-2">I hit the wrong button!</small> <ul><li><a href="#nothing" class="av_btn av_go" rel="yes">I\'m old enough!</a></li></ul></nav>');
+	var regret_buttons = $('<nav><small class="pb-2">I hit the wrong button!</small> <ul><li><a href="#nothing" class="av_btn av_go btn btn-lg btn-outline-success" rel="yes">I\'m old enough!</a></li></ul></nav>');
 	var regret_text = $('<p>You must be 18 years of age or older to enter this site.</p>');
 
 	modal_content_wrapper.append(content_heading, content_buttons, content_text);
