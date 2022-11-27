@@ -2,7 +2,6 @@
 <!doctype html>
 <html lang="en">
     <head>
-        {% comment %} {% include 'includes/page/head.html' %} {% endcomment %}
         {% block meta %}
             <meta http-equiv="X-UA-Compatible" content="IE=edge">
             <meta charset="utf-8">
@@ -13,6 +12,7 @@
         {% endblock %}
 
         {% block corecss %}
+
             <!-- Bootstrap CDN -->
             <link rel="stylesheet preconnect" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
             
@@ -25,15 +25,17 @@
 
             <!-- CSS for Age verification pop up https://www.jqueryscript.net/other/Website-Age-Verification-Plugin-with-jQuery.html#google_vignette -->
             <link href="{% static 'css/age-verification.css' %}" rel="stylesheet">
-           
+
             <!-- Custom CSS -->
             <link rel="stylesheet" href="{% static 'css/base.css' %}">
+
         {% endblock %}
 
         {% block extra_css %}
         {% endblock %}
 
         {% block corejs %}
+        
             <!-- Fontawsome -->
             <script src="https://kit.fontawesome.com/328aade986.js" crossorigin="anonymous"></script>
             
@@ -47,6 +49,7 @@
             
             <!-- Stripe-->
             <script src="https://js.stripe.com/v3/"></script>
+
         {% endblock %}
 
         {% block extra_js %}
@@ -64,15 +67,17 @@
             content="Mod, vaping device, electronic cigarettes, vaping pen, diposables, Where can I buy an e-ciggerette?, safer alternative to smoking?
             e-liquid, mods, batteries, base liquids, disposable vapes, chargers, e-ciggerette, vaping supplies, coils, where can I buy vaping supplies, what do I need to start vaping, 
             how much does vaping cost, Tobacco alternative, how to quit smoking, What can I used to help stop smoking?
-            Is there a safer alternative to smoking cigarettes'?, batteries, charger, drip tips, quit smoking, base liquids, nicotine shots, flavor concentrates."
-        >
+            Is there a safer alternative to smoking cigarettes'?, batteries, charger, drip tips, quit smoking, base liquids, nicotine shots, flavor concentrates.
+            How are e-liquids made?, How do I make my own e-liquids?, What batteries do I use in a vape device, What charger do I need to recharge vape batteries
+            online payments, credit card payments, debit card payments, free shipping, free delivery, international delivery, international shipping, PCI compliant, secure checkout"
+            >
 
     </head>
     <body class="d-flex flex-column">
         <header class="container-fluid px-0">
             {% include 'includes//components/navbar.html' %}
             <div class="bg-black border-top-red border-bottom-red">
-                <p class=" text-warning text-center py-3 font-weight-bold m-0"> Free International Delivery on all orders over €{{free_shipping_qualifier}}</p>
+                <p class=" text-warning text-center py-3 font-weight-bold m-0">Free International Delivery on all orders over €{{free_shipping_qualifier}}</p>
             </div>
         </header>
         
