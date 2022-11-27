@@ -237,30 +237,69 @@ Wireframes were created using Balsamiq wireframes to get a visual idea of how th
 
 ##### ***Home Page:***
 
-![Home page wireframe](docs/wireframes/landing-page.png)
+[Home page wireframe](docs/wireframes/landing-page.png)
 
 ##### ***Products Page:***
 
-![Products page wireframe](docs/wireframes/products-page.png)
+[Products page wireframe](docs/wireframes/products-page.png)
 
 ##### ***Product Details Page:***
 
-![Product details page wireframe](docs/wireframes/product-detail-page.png)
+This page changed from the original design in the following ways:
+
+* Multiple images not implemented and so no accordion was needed.
+* Buy now button was removed as it was not needed.
+
+[Product details page wireframe](docs/wireframes/product-detail-page.png)
 
 ##### ***Shopping Cart Page:***
 
-![Shopping cart page wireframe](docs/wireframes/shopping-cart-page.png)
+[Shopping cart page wireframe](docs/wireframes/shopping-cart-page.png)
 
 ##### ***Checkout Page:***
 
-![Checkout page wireframe](docs/wireframes/checkout-page.png)
+[Checkout page wireframe](docs/wireframes/checkout-page.png)
 
 ##### ***User Profile Page:***
 
-![User profile page wireframe](docs/wireframes/user-profile.png)
+This page changed from the original design in the following ways:
+
+* No multiple addresses.
+* No delete account button.
+
+[User profile page wireframe](docs/wireframes/user-profile.png)
 
 ##### ***Order Confirmation Page:***
 
-![Order confirmation page wireframe](docs/wireframes/order-confirmation-page.png)
+[Order confirmation page wireframe](docs/wireframes/order-confirmation-page.png)
 
 #### **Database Schema:**
+
+The database table scheme was created using [drawsql.app](drawsql.app) and can be seen below.
+
+##### All Products Table
+
+This table was designed for scalability, I didn't have time to leverage the full advantages of a polymorphic database table but I have included the fields that would be needed to do so. In the future I would be automating a lot more processes allowing for products with sizes to be linked together and display the product options on a single product page. This kind of database model also allows for quicker queries as the volume of products grow so it was put in now to save a lot of restructuring late on when the business popularity grows.
+
+[All products table](docs/flowcharts/database/products.png)
+
+[View online with notes](https://drawsql.app/teams/student-444/diagrams/pp5-vapor-town/embed)
+
+##### Product Reviews Table
+
+[Product reviews table](docs/flowcharts/database/product-reviews.png)
+
+[View online with notes](https://drawsql.app/teams/student-444/diagrams/reviews/embed)
+
+##### Contact us Table
+
+[Contact us table](docs/flowcharts/database/contact-us.png)
+
+[View online with notes](https://drawsql.app/teams/student-444/diagrams/reviews/embed)
+
+##### Order Tables
+
+[Order tables](docs/flowcharts/database/checkout.png)
+
+[View online with notes](https://drawsql.app/teams/student-444/diagrams/checkout-app/embed)
+
