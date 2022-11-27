@@ -42,24 +42,19 @@
         <input type="hidden" name="product_id" value="{{ product.id }}">
         <input type="hidden" name="user_id" value="{{ user.id }}">
 
-        <div class="text-right">
-            <button type="submit" class="btn btn-success text-light text-uppercase">{% if edit_review%}Edit{% else %}Submit{% endif %} Review</button>
+        <div class="text-center">
+            <a class="btn btn-lg btn-outline-dark mt-3" href="{% url 'product_detail' product.slug %}">
+                <span>
+                    <i class="fas fa-chevron-left fa-sm"></i>
+                </span>
+                Back to product details
+            </a>
+            <button type="submit" class="btn btn-lg btn-warning border border-dark px-5 ml-3 mt-3 text-uppercase">{% if edit_review%}Edit{% else %}Submit{% endif %} Review</button>
         </div>
 
         <input type="hidden" name="redirect_url" value="{{ request.path }}">
 
     </form>
-
-    <div class="text-center mt-2 p-3">
-
-        <a href="{% url 'product_detail' product.slug %}">
-            <span>
-                <i class="fas fa-chevron-left fa-sm"></i>
-            </span>
-            Back to product details
-        </a>
-
-    </div>
     
 </main>
 {% endblock  %}

@@ -1,5 +1,8 @@
 document.addEventListener("DOMContentLoaded", function () {
 
+    /** 
+     * Part of the form template prvovided by MailChimp
+     */
     (function($) {window.fnames = new Array();
         window.ftypes = new Array();
         fnames[0]='EMAIL';

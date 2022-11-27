@@ -1,4 +1,7 @@
 User-agent: *
 Disallow: /accounts/
 Disallow: /shoppingcart/
+Disallow: /profile/
+Disallow: /summernote/
+Disallow: /admin/
 Sitemap: https://pp5-vaportown.herokuapp.com/sitemap.mxl

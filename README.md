@@ -8,7 +8,7 @@ This small scale business idea was born from a pipe dream back in the day where 
 
 **TOC HERE**
 
-## **Planning Phase**
+# **Planning Phase**
 
 ## **Strategy**
 
@@ -277,7 +277,7 @@ This page changed from the original design in the following ways:
 
 The database table scheme was created using [drawsql.app](drawsql.app) and can be seen below.
 
-##### All Products Table
+##### ***All Products Table***
 
 This table was designed for scalability, I didn't have time to leverage the full advantages of a polymorphic database table but I have included the fields that would be needed to do so. In the future I would be automating a lot more processes allowing for products with sizes to be linked together and display the product options on a single product page. This kind of database model also allows for quicker queries as the volume of products grow so it was put in now to save a lot of restructuring late on when the business popularity grows.
 
@@ -285,21 +285,288 @@ This table was designed for scalability, I didn't have time to leverage the full
 
 [View online with notes](https://drawsql.app/teams/student-444/diagrams/pp5-vapor-town/embed)
 
-##### Product Reviews Table
+##### ***Product Reviews Table***
 
 [Product reviews table](docs/flowcharts/database/product-reviews.png)
 
 [View online with notes](https://drawsql.app/teams/student-444/diagrams/reviews/embed)
 
-##### Contact us Table
+##### ***Contact us Table***
 
 [Contact us table](docs/flowcharts/database/contact-us.png)
 
 [View online with notes](https://drawsql.app/teams/student-444/diagrams/reviews/embed)
 
-##### Order Tables
+##### ***Order Tables***
 
 [Order tables](docs/flowcharts/database/checkout.png)
 
 [View online with notes](https://drawsql.app/teams/student-444/diagrams/checkout-app/embed)
 
+##### ***Profile Table***
+
+[Profile table](docs/flowcharts/database/profiles.png)
+
+[View online with notes](https://drawsql.app/teams/student-444/diagrams/profiles/embed)
+
+##### ***Full ERD from PgAdmin***
+
+This was taken via pgAdmin connected directly to my instance of elephant SQL and shows the complete relationship of all tables inclusive of any which came from libraries such as all auth.
+
+[Full ERD](docs/flowcharts/database/pgadmin-erd.png)
+
+### **SEO considerations**
+
+#### ***Keywords***
+
+Unfortunately the site word tracker was never working enough for me to use. I even subscribed and continued to encounter the issue where I had no results or was told i had made to many searched. Speaking to their customer support they advise this is a known issue and they are working on it, but its been a few months and its still not working for me. That said I have included a brain dump using key words and google to return a list of long and short tail keywords. The ones ticked have been included in the site meta description.
+
+![Key words Brain dump](docs/seo/keywords.jpg)
+
+#### ***Page Titles***
+
+Each page shows an extra title after the store name to assist help with SEO.
+
+#### ***Robots.txt and sitemap.xml***
+
+sitemap and robots.txt files have been added to the root of the site to help with SEO.
+
+At first I found that lighthouse was showing a fault with my robots txt. The issue was it was being read as a HTML file and not a text file. This was fix by adding a URL path in the project level URLs.py. More about the method can be read [here](https://adamj.eu/tech/2020/02/10/robots-txt/).
+
+Due to the way the template was initialized in the path I have to move the robots.txt into my templates folder in order to make it work.
+
+### ***Content***
+
+The site did not have a lot of opportunity's for content in terms of paragraphs and text. A lot of the key words are products themselves so I have tried to leverage correctly the use of heading tags and other semantic tags  so that the quality of my sites search rating is as high as possible.
+
+### **Surface**
+
+Once the project was planned I then had to decide a theme. I wanted to keep it simple but have some colour to help it stand out. I also wanted to keep it clean and easy to navigate. I have used a lot of white space and a simple colour scheme to help with this.
+
+#### ***Colour Scheme***
+
+Black and white feature heavily through out the site. However added colour to help the content pop and to help with the branding. below is the full color grid I used to help me decide on the final colour scheme. Some my initial ideas change due to contrasts and these are noted in [TESTING.md](TESTING.md). 
+
+The final colour scheme can be seen:
+  
+    * online [here](https://contrast-grid.eightshapes.com/?version=1.1.0&background-colors=&foreground-colors=%23007bff%2C%0D%0A%236c757d%2C%0D%0A%2328a745%2C%0D%0A%2317a2b8%2C%0D%0A%23ffc107%2C%0D%0A%23dc3545%2C%0D%0A%23f8f9fa%2C%0D%0A%23fff59a%2C%0D%0A%23343a40%2C%0D%0A%23ffffff%2C%0D%0A%235469d4%2C%0D%0A%23aab7c4%2C%0D%0A%23000000%2C%0D%0A%23004c9e%2C%0D%0A%23004c9e%0D%0A%23490049%0D%0A%0D%0A&es-color-form__tile-size=compact&es-color-form__show-contrast=aaa&es-color-form__show-contrast=aa&es-color-form__show-contrast=aa18&es-color-form__show-contrast=dnp)
+    * via github [here](docs/color/contrast-grid.JPG)
+
+#### ***Typography***
+
+For this project I have used the following fonts:
+
+* [DM Sans](https://fonts.google.com/specimen/DM+Sans?query=dm+s) - This font is used for the main headings and the logo. It is a clean and simple font that is easy to read and stands out well.
+* [Damion](https://fonts.google.com/specimen/Damion?query=damion) - This was for the logo. I initially wanted just to make the V and the T cursive however I found this font and it was perfect for all letters of the logo.
+
+## **Agile Development Process**
+
+I used [JIRA](https://dnlbowers.atlassian.net/jira/software/projects/PVS/boards/5/roadmap) to track and create issues/user stories. I will provide login credentials for the above project space when submitting the project. However, you can find a summary of my agile process/learnings [here](AGILE.md).
+
+# **Features**
+
+## **Common Features**
+
+### **Navbar**
+
+The navigation bar is the core navigation for the site. It differs slightly from mobile to desktop however all the same components are included.
+
+#### **Overall Appearance**
+
+##### ***Desktop***
+
+![Desktop Navbar](docs/features/desktop/navbar-desktop.jpg)
+
+##### ***Mobile***
+
+![Mobile Navbar](docs/features/mobile/navbar-mobile.jpg)
+
+#### **Common Navbar Features for both Desktop and Mobile**
+
+##### ***Logo***
+
+The logo was design symbolize the brand. I made it myself using HTML and CSS (including bootstrap classes) this is then scattered around the sight to add colour and help develop brand familiarity and recognition.
+
+The size of the logo is responsive to the screen size. On mobile it is smaller and on desktop it is larger This is why it was so important that the color scheme be vivid and the image relatable to the name of the store.
+
+###### ***Desktop***
+
+![Desktop Logo](docs/features/desktop/logo-desktop.jpg)
+
+###### ***Mobile***
+
+![Mobile Logo](docs/features/mobile/logo-mobile.jpg)
+
+##### ***Search Bar***
+
+The search bar changes location according to the screen size, this was to prevent squashing it on mobile. On desktop it is in the center of the navbar and on mobile it is below the logo.
+
+###### ***Desktop***
+
+![Desktop Search Bar](docs/features/desktop/search-desktop.jpg)
+
+###### ***Mobile***
+
+![Mobile Search Bar](docs/features/mobile/search-mobile.jpg)
+
+#### **Account menu**
+
+The account menu is a drop down menu that appears when the user clicks on the account icon. The drop down changes slightly dependant on the authentication status of the user. If the user is not logged in the menu will show the option to login or register. If the user is logged in the menu will show the option to logout and an option to go to their account where they can amend the default shipping address and review their order history.
+
+##### ***Unauthenticated***
+
+![Unauthenticated Account Menu](docs/features/unauthenticated.jpg)
+
+##### ***Authenticated***
+
+![Authenticated Account Menu](docs/features/authenticated.jpg)
+
+#### **Cart icon**
+
+the cart icon is visible in the navbar on all pages, it indicated the current total of all the items in the cart and offers a count of how many items the user has at the moment. 
+
+![Cart Icon](docs/features/cart-icon.jpg)
+
+When the user add an item to the cart a cart preview appears. this cart preview relays the success message, give a scrollable preview of the cart, current total excluding delivery and a informative message about how far the user is from free delivery qualifier.
+
+![Cart Preview](docs/features/cart-preview.jpg)
+
+And the cart icon turns blue and a small pill appears with the product count.
+
+![Cart Icon with pill](docs/features/cart-icon-pill.jpg)
+
+Clicking the cart icon at any time will take the user to the shopping cart page described later.
+
+### **Footer**
+
+#### ***Desktop***
+
+![Desktop Footer](docs/features/desktop/footer-desktop.jpg)
+
+#### ***Mobile***
+
+![Mobile Footer](docs/features/mobile/footer-mobile.jpg)
+
+#### **Common Features to both Desktop and Mobile**
+
+The footer is a simple footer that is present on all pages. It contains three main sections and then a disclaimer and copy wright section at the bottom.
+
+The three sections common to both desktop and mobile are:
+
+* Social Media Links
+* Newsletter Sign Up
+* Sitemap
+
+##### ***Social Media Links***
+
+I have included only one social media link for Facebook for the purposes of this project as it is the one I would most leverage in my marketing strategy. However, should this project ever grow further it would be expected to also include twitter and instagram as a minimum.
+
+The current face book link will take the user directly to [facebook](https://www.facebook.com/people/Vapor-Town/100087760702549/) where the shop will share promotions and news about the shop ad internal vaping community on a regular basis. More will be discussed about this in the marketing section.
+
+I have included a screenshot of the facebook page incase facebook decides to remove it on account of it not being a real business at this stage.
+
+![facebook page](docs/features/facebook.jpg)
+
+##### ***Newsletter Sign Up***
+
+I contemplated creating my own newsletter system however I decided to use [Mailchimp](https://mailchimp.com/) as it is a free service that is easy to use and has a good reputation with excellent analytics which are key for a new business when trying to understand the effectiveness of their marketing.
+
+##### ***Sitemap***
+
+The site map in the footer serves to purposes:
+
+  * It allows the user to navigate the site quickly and easily.
+  * It helps to increase the SEO of the site.
+
+### **Notifications**
+
+Similar to the cart preview the notifications are a small pop up that appears in the top right of the screen. They are used to inform the user of the status of their actions. For example, if the user adds an item to the cart they will see a notification that says "Item added to cart". If the user tries to add an item to the cart that is out of stock they will see a notification that says "Item out of stock". Where ever possible when the cart preview is not required the notifications do not include it. 
+
+These alerts are color coded according to the default bootstrap colors/names below:
+
+![Bootstrap Colors](docs/features/toasts-colors.jpg)
+
+** Kindly note that bg-secondary was not used for the toasts as it did not fit any specific purpose of and alert type.
+## **Page content**
+
+### **Home Page**
+
+The home page is the first page a user would land on. For this reason it has to have a clearly defined purpose and be easy to navigate. It is also the page that will be used to promote the shop and its products.
+
+To make the site purpose immediately clear I included a hero image which was both colorful and eye catching. with a slogan relevant to the theme. I also included a call to action button that takes the user to the products page.
+
+Below this I have included 4 cards which highlight 4 popular product groupings these are to further demonstrate the purpose of the site and to encourage the user to explore the site further.
+
+![Home Page](docs/features/home-page.jpg)
+
+
+### **Products Page**
+
+The products page is the main page of the site. It is where the user will go to browse the products and add them to the cart. It is also where the user will go when they filter the products by category. The page is paginated by 6 objects at a time and the user can navigate between pages using the pagination buttons at the bottom of the page.
+
+Where ever filter set the user chooses they always have the option to sort by price, rating and name.
+
+On the individual product cards the user can see the product name, price, rating, image and if relevant a sale price. The user can also add the product to the cart from this page. The user can even add the product directly to their cart in the desired quantity without ever having to access the product details page. The intention of this is to make the user experience as smooth as possible and to reduce the number of clicks required to add an item to the cart.
+
+The product names are all displayed in h2 tags and resized using CSS to increase the SEO of the site.
+
+A user accesses the product details by clicking on the product image.
+
+![Products Page](docs/features/products-page.jpg)
+
+Further to the above when a user searches for a product and no results are returned a message is displayed to the user informing them that no results were found.
+
+![No Results](docs/features/no-products.jpg)
+
+### **Product Details Page**
+
+When a user needs more information prior to commiting to purchase an item they can access the product details page. This page contains all the information the user needs to make an informed decision. The page is divided into 4 sections:
+
+* Breadcrumbs - So a user can look at various other products in the same category or jump back to the home page.
+* Product Image
+* Name, Price, Rating and select quantity
+* Tabs for product description, reviews.
+
+![Product Details Page](docs/features/desktop/details-desktop.JPG)
+
+The layout does change a little on a mobile view to improve the appearance
+
+![Product Details Page Mobile](docs/features/mobile/details-mobile.JPG)
+
+It is also worth noting that a superuser will be able to see and edit and delete button on the details page to allow for a quick edit of certain felids and to remove the product completely should it be required. I decided to leverage the admin panel for most internal business functions however I will go more into detail on that later.
+
+![Product edit and delete for super users](docs/features/product-edit-del.jpg)
+
+### **Reviews**
+
+The reviews tab was best suited to be on the products details page so it was easy to determine for which product the review was for. The reviews are displayed in an accordion to sav space however this tab has a few different ways of displaying depending on the users verifications status.
+
+#### ***Unauthenticated***
+
+The user can see all reviews when logged out however they cannot leave one. above the accordion they are prompted to log in or register to leave a review. The prompt also appears even when there are no reviews along with an invite to be the firs to review the product.
+
+![Reviews when logged out](docs/features/reviews-logged-out.jpg)
+
+#### ***Authenticated***
+
+If a product has no review and the user is logged in they will see an inline review form. This review must have at least a title and a rating ans there are several checks in place to ensure the ration is between 1 and 5 and the title is not empty.
+
+![inline review form](docs/features/reviews-inline.jpg)
+
+If there is already an existing review for a product then the user has a button to take them to the same form but on a new page. Once the user submits the review they are taken back to the product they are reviewing.
+
+![review form](docs/features/review-form.jpg)
+
+The last thing to mention here is that the review author (and the super user in case of bad language) can delete or edit the review. This is done by clicking the delete/edit button in the review body visible only to them.
+
+![review edit and delete](docs/features/edit-review.jpg)
+
+From a programmatic perspective the review calculation is amended each time a rating is added, edited or deleted so that the overall rating is always accurate.
+
+### **Edit product - frontend form**
+
+As shown above the product details page has an edit button for the super user to make a quick edit should they spot a typo or want to change a picture. This button takes the super user to a form that is pre-populated with the current product information. The user can then make the changes they require and submit the form. The form is validated on the front end and the user is informed of any errors. The form is also validated on the back end and the user is informed of any errors. The user is then redirected to the product details page.
+
+![Edit product form](docs/features/edit-product.jpg)
+
+### **Shopping Cart**

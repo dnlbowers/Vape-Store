@@ -17,6 +17,8 @@ urlpatterns = [
     path('profile/', include('profiles.urls')),
     path('reviews/', include('reviews.urls')),
     path('contact/', include('contact_form.urls')),
+    
+    # Had to use https://adamj.eu/tech/2020/02/10/robots-txt/ to get my robots.txt readable by lighthouse
     path(
         "robots.txt",
         TemplateView.as_view(
