@@ -250,6 +250,8 @@ This page changed from the original design in the following ways:
 * Multiple images not implemented and so no accordion was needed.
 * Buy now button was removed as it was not needed.
 
+These will now be added as part of the future features.
+
 [Product details page wireframe](docs/wireframes/product-detail-page.png)
 
 ##### ***Shopping Cart Page:***
@@ -266,6 +268,9 @@ This page changed from the original design in the following ways:
 
 * No multiple addresses.
 * No delete account button.
+* No image/avatar upload.
+
+These will now be added as part of the future features.
 
 [User profile page wireframe](docs/wireframes/user-profile.png)
 
@@ -279,7 +284,7 @@ The database table scheme was created using [drawsql.app](drawsql.app) and can b
 
 ##### ***All Products Table***
 
-This table was designed for scalability, I didn't have time to leverage the full advantages of a polymorphic database table but I have included the fields that would be needed to do so. In the future I would be automating a lot more processes allowing for products with sizes to be linked together and display the product options on a single product page. This kind of database model also allows for quicker queries as the volume of products grow so it was put in now to save a lot of restructuring late on when the business popularity grows.
+This table was designed for scalability, I didn't have time to leverage the full advantages of a polymorphic data set but I have included the fields that would be needed to do so. In the future I would be automating a lot more processes allowing for products with sizes to be linked together and display the product options on a single product page. This kind of database model also allows for quicker queries as the volume of products grow so it was put in now to save a lot of restructuring late on when the business popularity grows.
 
 [All products table](docs/flowcharts/database/products.png)
 
@@ -409,6 +414,10 @@ The search bar changes location according to the screen size, this was to preven
 
 ![Mobile Search Bar](docs/features/mobile/search-mobile.jpg)
 
+The user can enter their search term and the products page will then return any products that match the search term. This function checks the product name, and description and the search term is retained and display to the user next to the number of results displayed.
+
+![Search Bar](docs/features/search-term.jpg)
+
 #### **Account menu**
 
 The account menu is a drop down menu that appears when the user clicks on the account icon. The drop down changes slightly dependant on the authentication status of the user. If the user is not logged in the menu will show the option to login or register. If the user is logged in the menu will show the option to logout and an option to go to their account where they can amend the default shipping address and review their order history.
@@ -499,7 +508,6 @@ Below this I have included 4 cards which highlight 4 popular product groupings t
 
 ![Home Page](docs/features/home-page.jpg)
 
-
 ### **Products Page**
 
 The products page is the main page of the site. It is where the user will go to browse the products and add them to the cart. It is also where the user will go when they filter the products by category. The page is paginated by 6 objects at a time and the user can navigate between pages using the pagination buttons at the bottom of the page.
@@ -570,3 +578,85 @@ As shown above the product details page has an edit button for the super user to
 ![Edit product form](docs/features/edit-product.jpg)
 
 ### **Shopping Cart**
+
+The shopping cart page is where the user can review the items for purchase, The is a link at the to which will skip the list of item and take the user directly to the totals at the bottom. the intention here so that if the user has a long list of items then they can quickly get to the checkout.
+
+The user can also amend the quantity of each update and click the update button to update the cart. The user can also remove an item from the cart by clicking the remove button. The user cannot add more of a product than is currently in stock.
+
+Once the user is happy with the items in the cart they can click the secure checkout button to proceed to the checkout page.
+
+The layout on this page changes slightly on mobile to improve the responsive nature. The quantity selector goes under the item on smaller screens. 
+#### ***Desktop***
+
+![Shopping Cart](docs/features/desktop/cart-desktop.jpg)
+
+#### ***Mobile***
+
+![Shopping Cart](docs/features/mobile/cart-mobile.jpg)
+
+Lastly if a user tries to access the shopping cart with no items they will see the following message displayed.
+
+![Shopping Cart](docs/features/empty-cart.jpg)
+
+### **Checkout**
+
+The checkout page is where the user will enter their payment details and shipping address. There is a chance to make one final review of the cart before proceeding to payment. The user can also go back to the cart to make any changes. If the user is logged in with details already saved to their profile frm a previous order then the form will be prefilled with this information. 
+
+The user has the option to save their details from the check out page also however this option is unchecked by default to prevent the user from accidentally saving their details.
+
+The card element is injected by the stripe API and uses a payment system which is fully PCI compliant. The same API also handles any errors using the allocated div to display them to the user. For a list of test card number please see the [stripe documentation.](https://stripe.com/docs/testing).
+
+When the form is submitted the pay now button converts into a spinner to show it is processing and there is a transparent overlay to prevent the user from clicking anything else. This is to prevent the user from clicking the button multiple times and creating multiple orders. 
+
+The page is fully responsive and the display order changes slightly from mobile to desktop.
+
+#### ***Desktop***
+
+![Shopping Cart](docs/features/desktop/checkout-desktop.jpg)
+
+#### ***Mobile***
+
+![Shopping Cart](docs/features/mobile/checkout-mobile.jpg)
+
+Guests can also check out and on the checkout page they see the following in place of the save info checkbox.
+
+![Shopping Cart](docs/features/guest-checkout.jpg)
+
+The reason for this is that if they are not logged in there is no way to return to the check out success page as described below
+
+The last stage of the check out if for the user to receive an email like the sample below:
+
+![Shopping Cart](docs/features/confirmation-email.jpg)
+
+### **Checkout Success**
+
+This page confirms to the user all the details of their order. at the bottom the user can choose to return to the home page or to view the recent offers available to them.
+
+This page can only be viewed once and has a logic on the back end to prevent any one returning to it. This is to protect users details from anyone who might be able to intercept the order number or be trying random UUID's with the URL. For this reason I have included a small disclaimer in red warning the user that if they were not logged in then they need to be careful not to leave or refresh the page and the only way to get the order info is by contacting the store directly.
+
+![Checkout Success](docs/features/checkout-success.jpg)
+
+### **Profile**
+
+The profile page has a tab which is a form for the user to update their default shipping details
+
+![Profile](docs/features/profile.jpg)
+
+And another tab to view the order history in a scrollable table
+
+![Profile](docs/features/completed-orders.jpg)
+
+The order number is truncated to save space and whn the user clicks on it they are taken to a variation of the check out success page. The only differences to the original check out success page are the lack of a warning not to leave the page if not logged in and the button at the bottom which takes the user back to the profile page.
+
+![Profile](docs/features/profile-return.jpg)
+
+### ***Contact us***
+
+Finally for the front end, I have created a simple contact form for the user to get in touch. I will dicuss in detail shortly how this works from the point of view of replying however the form allows a platform for the user to send a message to the chop and it will be picked up from the admin panel and responded to via email as is a common convention.
+
+![Contact us](docs/features/contact-us.jpg)
+
+### **Responsive Design**
+
+It is worth stating that all pages are fully responsive however I have only screenshot the ones with a significant layout change in the screen shots above.
+
