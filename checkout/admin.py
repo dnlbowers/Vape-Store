@@ -6,7 +6,7 @@ class OrderLineItemAdminInline(admin.TabularInline):
     """
     Allows editing of line items in the admin
     """
-    
+
     model = OrderLineItem
     readonly_fields = ('lineitem_total',)
     exclude = ('previous_quantity',)
@@ -16,9 +16,9 @@ class InternalNotesAdmin(admin.StackedInline):
     """
     Internal notes for orders
     """
-    
+
     model = InternalOrderNotes
-    extra = 0
+    extra = 1
     readonly_fields = ('date',)
 
 
@@ -61,7 +61,7 @@ class OrderAdmin(admin.ModelAdmin):
         'street_address2', 'county', 'shipping_cost',
         'order_total', 'grand_total', 'original_cart',
         'order_status', 'shipping_method',
-        'stripe_payment_id', 'user_profile',
+        'stripe_payment_id',
     )
 
     ordering = ('-date',)
@@ -69,9 +69,9 @@ class OrderAdmin(admin.ModelAdmin):
     def get_actions(self, request):
         """
         Removes the option to mass delete orders and thus reducing
-        human error. Orderder can still be deleted individually.
+        human error. Order can still be deleted individually.
         """
-        
+
         actions = super().get_actions(request)
         if 'delete_selected' in actions:
             del actions['delete_selected']

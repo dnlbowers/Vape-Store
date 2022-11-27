@@ -120,6 +120,10 @@ class DisposableVapesAdmin(ModelAChildAdmin):
     show_in_index = False
 
     def has_module_permission(self, request):
+        """"
+        Hides the model from the admin panel
+        """
+
         return False
 
 
@@ -130,6 +134,8 @@ class ModsAdmin(ModelAChildAdmin):
     show_in_index = False
 
     def has_module_permission(self, request):
+        """" hides the model from the admin panel"""
+
         return False
 
 
@@ -140,6 +146,10 @@ class TanksAdmin(ModelAChildAdmin):
     show_in_index = False
 
     def has_module_permission(self, request):
+        """"
+        Hides the model from the admin panel
+        """
+
         return False
 
 
@@ -150,6 +160,10 @@ class PreBuiltCoilsAdmin(ModelAChildAdmin):
     show_in_index = False
 
     def has_module_permission(self, request):
+        """"
+        Hides the model from the admin panel
+        """
+
         return False
 
 
@@ -160,6 +174,9 @@ class BatteriesAdmin(ModelAChildAdmin):
     show_in_index = False
 
     def has_module_permission(self, request):
+        """"
+        Hides the model from the admin panel
+        """
         return False
 
 
@@ -170,6 +187,9 @@ class VapeJuiceAdmin(ModelAChildAdmin):
     show_in_index = False
 
     def has_module_permission(self, request):
+        """"
+        Hides the model from the admin panel
+        """
         return False
 
 
@@ -180,6 +200,9 @@ class BaseLiquidsAdmin(ModelAChildAdmin):
     show_in_index = False
 
     def has_module_permission(self, request):
+        """"
+        Hides the model from the admin panel
+        """
         return False
 
 
@@ -190,6 +213,9 @@ class NicotineShots(ModelAChildAdmin):
     show_in_index = False
 
     def has_module_permission(self, request):
+        """"
+        Hides the model from the admin panel
+        """
         return False
 
 
@@ -200,6 +226,9 @@ class FlavorConcentrates(ModelAChildAdmin):
     show_in_index = False
 
     def has_module_permission(self, request):
+        """"
+        Hides the model from the admin panel
+        """
         return False
 
 
@@ -212,12 +241,19 @@ class AccessoriesAdmin(ModelAChildAdmin):
     show_in_index = False
 
     def has_module_permission(self, request):
+        """"
+        Hides the model from the admin panel
+        """
         return False
 
 
 @admin.register(AllProducts)
 class AllProductsAdmin(PolymorphicParentModelAdmin):
-    """ Admin registration and configuration for the Product model"""
+    """
+    Admin registration and configuration for the Product model
+    Allows the user to see all products and filter them as
+    desired
+    """
     base_model = AllProducts
     child_models = (
         DisposableVapes,
@@ -249,7 +285,6 @@ class AllProductsAdmin(PolymorphicParentModelAdmin):
         'description',
         'sku',
         'sub_category__name',
-        'category_groupings__name',
         'category__name',
     )
 

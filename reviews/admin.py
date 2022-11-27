@@ -4,6 +4,9 @@ from .models import ProductReviews
 
 @admin.register(ProductReviews)
 class ProductReviewsAdmin(admin.ModelAdmin):
+    """
+    Allows staff to view/filter customer reviews
+    """
     baseModel = ProductReviews
     list_display = (
         'product',
@@ -15,5 +18,7 @@ class ProductReviewsAdmin(admin.ModelAdmin):
         'times_updated',
         'previous_rating',
     )
+
+    list_filter = ('product', 'author', 'date', 'times_updated')
 
     ordering = ('-date',)

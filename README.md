@@ -370,7 +370,7 @@ I used [JIRA](https://dnlbowers.atlassian.net/jira/software/projects/PVS/boards/
 
 # **Features**
 
-## **Common Features**
+## **Common to All Pages**
 
 ### **Navbar**
 
@@ -656,10 +656,134 @@ Finally for the front end, I have created a simple contact form for the user to 
 
 ![Contact us](docs/features/contact-us.jpg)
 
+### **Authentication**
+
+The user can login and out using adapted version of templates from from the allauth library.
+
+![Login](docs/features/allauth/login.jpg) ![Sign out](docs/features/allauth/logout.jpg)
+
+The user can reset their password via a form
+
+![Reset password step 1](docs/features/allauth/pass-reset.jpg)
+
+![Reset password - email sent](docs/features/allauth/pass-reset-2.jpg)
+
+Will receive an email with a link to reset their password on the store site.
+
+![reset email](docs/features/allauth/pass-reset-email.jpg)  
+
+![change password form](docs/features/allauth/change-password.jpg)
+
+Once changed they will see the following message.
+
+![password changed](docs/features/allauth/pass-reset-conf.jpg)
+
+The user can also register for an account using the following form.
+
+![Register](docs/features/allauth/register.jpg)
+
+and will receive an email to verify their email. This is to prevent spam accounts being created.
+
+![Verify email](docs/features/allauth/verify-email.jpg)
+
+![Verify email](docs/features/allauth/email-verify.jpg)
+
+The link in the email brings them to this screen
+
+![Verify email](docs/features/allauth/conf-email.jpg)
+
+And once the email is confirmed the user is invite to log in with their new account.
+
+### ***Stock management system***
+
+I have built in a simple stock system which means when an oder is completed the stock is reduced by the quantity ordered. If the user tries to add more of an item to the cart than is in stock then they will see the following message.
+
+![not enough stock](docs/features/not-enough-error.jpg)
+
+Once an item is out of stock the add to cart button is disabled and future user are shown that the item is out of stock.
+
+![out of stock](docs/features/in-out-stock.jpg)
+
+This is also affected by amending the order from the admin panel which I will discuss shortly.
+
+### **Age verification pop up**
+
+This is actually a stole piece of code which I found [online with a open license making it free to use and customise](https://www.jqueryscript.net/other/Website-Age-Verification-Plugin-with-jQuery.html#google_vignette). However I couldn't make a vape sotre and not include it so for the sake of time I implemented and amended it to suit my needs.
+
+![Age verification](docs/features/age-check.jpg) ![Age verification - deny](docs/features/age-deny.jpg)
+
+
+
 ### **Responsive Design**
 
 It is worth stating that all pages are fully responsive however I have only screenshot the ones with a significant layout change in the screen shots above.
 
 ## **Admin Panel for Shop Administration**
 
-I have decided that since Django has such powerful admin panel built in that I would leverge this to help the daily running of the e-store. I have created a user manual which is aimed at staff members for reference on how to use it in its current state. 
+I have decided that since Django has such powerful admin panel built in that I would leverage this to help the daily running of the e-store.
+
+### **Admin Panel Overview**
+
+The admin panel is accessed via the /admin/ url and is protected by a login. The admin panel is a fully featured Django admin panel and has all the functionality of the standard Django admin panel. I have added a few extra features to help with the running of the store.
+
+#### ***Products***
+
+From the admin panel the super user can view all the products, categories, reviews and orders. They can also add, edit and delete any of these items.
+
+Staff can also filter and search for products and apply sales on mass. The price is taken from the rrp or the discount price depending if the has sale field is checked or not. The user can use the reduce by percentages to quickly set up mass sales of 10, 20, 30, 40, or 50% off. the reduce by percentage actions do not apply the has sale = True and so once the discounted price is set they need to then reselect the products and click start sale to apply the sale. The reason for this is to allow the store to set up mass promotions ahead of time and then simply click start sale when the promotion is ready to go live. Equally the remove sale function then unchecks the has sale field to end the sale and everything returns to the rrp price.
+
+They can also edit individual items by updating the discounted price or checking the has sale box from within the product.
+
+**Note for the assessor** - All the sub classes of the Allproducts model are hidden to keep the admin navigation simple for the user. They are all accessible via the Allproducts model and each type can be filtered by category or sub category which was partly why I introduced the subcategory model.
+
+#### **Messages**
+
+The admin panel is also where the super user can see any messages sent via the contact us form and there is a section for them to leave notes internally for other staff members to see. In the future I would have a ticketing system so the admin could reply here too and make it visible to the customer on the front end, but of now the customer leave a message and the admin can leave notes about actions needing to be done or the response they sent by email. 
+
+I have also enabled it so a staff member can mark a message as replied to and it is defaulted as pending reply, this is to help the staff members keep track of which messages have been replied to and which have not. To further help there are a series of filter options which allow the staff to filter by status and date.
+
+#### **Orders**
+
+The admin panel is also where the super user can see any orders placed by customers and there is a section for them to leave notes internally for other staff members to see.
+
+There is a status field with multiple options so that the admin can keep track of the order status. The default is received (meaning by the store) and the admin can change this to processing (whilst packing and waiting to ship), or dispatched (when shipped). There are also several option which refer to orders amended at the customers request after the check out process has been complete, these allow the staff to provide a dynamic service by documenting everything which changes by their hands. The admins can also filter by status so for example they can see which orders are awaiting and extra payment for adding items, or refunds for those which have been cancelled or had to have items removed.
+
+The admin can also filter by date and shipping method. Shipping method was included as in the future I wuld like to add an option to send by recorded mail or courier and so this would allow the admin to filter by the shipping method to see which orders are being sent by which method.
+
+You may note that there is no ability to delete on mass records in the order category and this is intentional. I have decided that this feature would lead to the potential of deleting orders wrongfully and users not receiving goods they have paid for. Orders can still be deleted but only one at a time and the admin is prompted to confirm the deletion.
+
+There is also the ability to amend line items quantities and delete line items. This is to allow the admin to amend orders after the check out process has been completed. This is useful if the customer has requested an extra item or if they have requested a refund for an item. The admin can also add a note to the order to explain the reason for the change.  Also I have left the original cart visible which shows a key pair value of {product_id:quantity} so that the admin can see what the original order was and what it has been changed to. these two things are useful so an admin can keep track of what has been done and why.  Any amendment made to the order also reflect in the stock level of the items in the store. I have also added a check to prevent an admin adding more than is in stock to the order however this is not a fool proof system and so the admin should be careful to check the stock level before adding items to the order. If the admin adds a quantity higher than the stock via the line items section and hits save, they will see a sucess message because te form saved successfully however when you go back into the order you will see that the quantity has not saved and returned to the original value. I was unable to find a way to get a model method to return a message in the admin panel so I leave this feature like this for now. Since it is not a customer facing bug it is sufficient that staff using he system are made aware they must always be aware of the current stock level when adding further items to an order.
+
+### **Future Features**
+
+This project was a lot of fun and although there is a viable MVP the is alot of additional features I would like to add in the future.
+
+#### ***Automation of the stock system***
+
+Currently purchase orders would required someone to manually input them one item at a time. I would like to add a feature to upload an exported excel file from the supplier and have the system automatically add the items to the stock.
+
+#### ***Dynamically add nav links for new categories/subcategories***
+Currently to add any categories or sub categories this become a job for a developer with the current set up to manually add a new link to the front end. I would like to be able to have it so that the admin could extend (within reason) the navigation by mere creating the new category or sub category in the admin panel.
+
+#### ***Sales reports***
+
+We all know that in this world of data driven decision making that sales reports are a must. I would like to add a feature to the admin panel which allows the admin to generate sales reports for a given time period. This would allow the admin to see how the store is performing and make decisions based on the data.
+
+#### ***Additional shipping choices***
+
+such are courier and recorded mail.
+
+#### ***Additional payment methods***
+
+Such as paypal.
+
+#### ***Additional user account features***
+
+Like additional user information such as extra address, phone number etc. and an avatar to be displayed when leaving reviews to build a sense of community.
+
+#### ***Product options***
+
+Such as more images per item, video demos included, linked products and related products. For example as it is now there would need to be a product for a 10 ml bottle and a 50 ml bottle. I would like to be able to have it so that the admin could add a product option for size and then have the option to select the size from a drop down menu when adding to the cart. This would allow the admin to have one product for both sizes and the customer would be able to select the size they want.
+
+
+
