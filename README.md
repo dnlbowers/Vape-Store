@@ -660,3 +660,6 @@ Finally for the front end, I have created a simple contact form for the user to 
 
 It is worth stating that all pages are fully responsive however I have only screenshot the ones with a significant layout change in the screen shots above.
 
+## **Admin Panel for Shop Administration**
+
+I have decided that since Django has such powerful admin panel built in that I would leverge this to help the daily running of the e-store. I have created a user manual which is aimed at staff members for reference on how to use it in its current state. 
