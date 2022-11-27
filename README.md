@@ -233,4 +233,34 @@ The only user story in this Epic is related to the initial deployment, this is a
 
 #### **Wireframes:**
 
+Wireframes were created using Balsamiq wireframes to get a visual idea of how the site would look and function. I have included these below however there where some changes/omissions made during the development process due to time or practicality.
+
+##### ***Home Page:***
+
+![Home page wireframe](docs/wireframes/landing-page.png)
+
+##### ***Products Page:***
+
+![Products page wireframe](docs/wireframes/products-page.png)
+
+##### ***Product Details Page:***
+
+![Product details page wireframe](docs/wireframes/product-detail-page.png)
+
+##### ***Shopping Cart Page:***
+
+![Shopping cart page wireframe](docs/wireframes/shopping-cart-page.png)
+
+##### ***Checkout Page:***
+
+![Checkout page wireframe](docs/wireframes/checkout-page.png)
+
+##### ***User Profile Page:***
+
+![User profile page wireframe](docs/wireframes/user-profile.png)
+
+##### ***Order Confirmation Page:***
+
+![Order confirmation page wireframe](docs/wireframes/order-confirmation-page.png)
+
 #### **Database Schema:**
