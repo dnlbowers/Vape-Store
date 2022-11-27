@@ -1,7 +1,7 @@
-user-agent: *
-disallow: /accounts/
-disallow: /admin/
-disallow: /shoppingcart/
-disallow: /summernote/
-disallow: /profile/
-sitemap: https://pp5-vaportown.herokuapp.com/sitemap.mxl
+User-agent: *
+Disallow: /accounts/
+Disallow: /admin/
+Disallow: /shoppingcart/
+Disallow: /summernote/
+Disallow: /profile/
+Sitemap: https://pp5-vaportown.herokuapp.com/sitemap.mxl
