@@ -23,6 +23,8 @@ class ProductReviewForm(ModelForm):
             'rating': 'Enter a rating out of 5',
         }
 
+        self.fields['rating'].widget.attrs['min'] = 1
+        self.fields['rating'].widget.attrs['max'] = 5
         self.fields['title'].widget.attrs['autofocus'] = True
         for field in self.fields:
             if self.fields[field].required:

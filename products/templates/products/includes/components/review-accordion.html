@@ -25,7 +25,8 @@
             <div id="collapse{{ review.id }}" class="collapse p-3" aria-labelledby="reviewTitle-{{ review.id }}" data-parent="#reviewAccordion">
             
                 <div class="card-body">
-                    {{ review.content|safe }}
+                    <p>Review Heading : {{review.title}}s</p>
+                    <p>{{ review.content|safe }}</p>
                 </div>
             
                 {% if user == review.author or user.is_superuser %}
