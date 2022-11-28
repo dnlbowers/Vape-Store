@@ -34,7 +34,7 @@ The sprint's focus was to get the development environment step up and deployed t
 
 ### Sprint 2 Notes
 
-![Sprint 2](/docs/agile/sprintscreenshots/sprint2.jpg)
+![Sprint 2](/docs/agile/sprintscreenshots/sprint2.JPG)
 
 This sprint aimed to get the project's coding side up and running. I have decided to stick with one-week sprints as I did with my previous project. The planning aspect of this sprint has probably seen me overestimate the story points; however, because I took a break to focus on the new professional role, I wanted to ensure I had enough time to get back into the swing of things.
 
@@ -44,7 +44,7 @@ This sprint aimed to get the project's coding side up and running. I have decide
 
 ### Sprint 3 Notes
 
-![Sprint 3](/docs/agile/sprintscreenshots/sprint3.jpg)
+![Sprint 3](/docs/agile/sprintscreenshots/sprint3.JPG)
 
 This sprint aims to get the products portion of the site up and running; I need to make the models to hold the product/category data, upload some products and then create the views to display the data to the user. This process will include creating the product admin page so I can manually add them to the site.
 
@@ -54,7 +54,7 @@ This sprint aims to get the products portion of the site up and running; I need 
 
 ### Sprint 4 Notes
 
-![Sprint 4](/docs/agile/sprintscreenshots/sprint4.jpg)
+![Sprint 4](/docs/agile/sprintscreenshots/sprint4.JPG)
 
 The sprint aims at sorting products and starting the shopping cart.
 
@@ -67,7 +67,7 @@ The sprint aims at sorting products and starting the shopping cart.
 
 ### Sprint 5 Notes
 
-![Sprint 5](/docs/agile/sprintscreenshots/sprint5.jpg)
+![Sprint 5](/docs/agile/sprintscreenshots/sprint5.JPG)
 
 This spirit is aimed primarily at the checkout process and setting up the ability to make payments.
 
@@ -78,7 +78,7 @@ This spirit is aimed primarily at the checkout process and setting up the abilit
 
 ### Sprint 6 Notes
 
-![Sprint 6](/docs/agile/sprintscreenshots/sprint6.jpg)
+![Sprint 6](/docs/agile/sprintscreenshots/sprint6.JPG)
 
 This sprint aims to get the user profile up and running and then add the ability to save the user's address from being reused.
 
@@ -90,7 +90,7 @@ This sprint aims to get the user profile up and running and then add the ability
 
 ### Sprint 7 Notes
 
-![Sprint 7](/docs/agile/sprintscreenshots/sprint7.jpg)
+![Sprint 7](/docs/agile/sprintscreenshots/sprint7.JPG)
 
 With the deadline fast approaching, this sprint aims to focus on the remaining features and bug fixes. I may have overstretched the number of stories; however, I have prioritized them and will focus on the most important ones first, the remaining will going in the next sprint. I may also have overstated my confidence in how quickly I will work some of these stories and give them a user point value that is too low. If required, I will see how I go and adjust in the newsprint.
 
@@ -100,7 +100,7 @@ With the deadline fast approaching, this sprint aims to focus on the remaining f
 
 ### Sprint 8 Notes
 
-![Sprint 8](/docs/agile/sprintscreenshots/sprint8.jpg)
+![Sprint 8](/docs/agile/sprintscreenshots/sprint8.JPG)
 
 This sprint is aimed at finishing the final features and marketing requirements. The sprint's last task is to tidy up and refactor without story points since this is a developer task and not a user story.
 
