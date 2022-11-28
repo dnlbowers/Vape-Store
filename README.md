@@ -1,10 +1,12 @@
-# **Vapor Town** (review after project and add where needed)
+# **Vapor Town**
 
 Vapor Town is a fictional B2C vape supply store designed and implemented with Django, Python, HTML and CSS. IIt aims to provide and easy to use interface where customers can browse all items at once or sort into specified categories. The site provides search functionality as well as an inbuilt stock system to ensure users cannot buy items which are not currently in stock, and once signed in allows the user to save an address to their profile for easy and convenient checkout.
 
 This small scale business idea was born from a pipe dream back in the day where I use to dream of having an online store selling all the latest and greatest vape gear. I have since moved on from that dream and decided to use this project as a way to learn and practice my skills in Django and Python.
 
-**RESPONSIVE SCREENSHOT TO GO HERE**
+The deployed site can be visted here: [Vapor Town](https://pp5-vaportown.herokuapp.com/)
+
+![Vapor Town](docs/responsive-mockup.jpg)
 
 **TOC HERE**
 
@@ -121,7 +123,7 @@ To avoid scope creep I have used the MoSCoW method to divided the above opportun
 
 ### ***Structure***
 
-Using the the above as a guide I have created a flow diagram to help me visualize how the user will navigate through the core functionality of the web store. During the Agile process there may be some minor tweaks to this pre planned user journey but the overall structure will remain the same. **TO ADD MAILING LIST TO FLOW CHART and give each path a final check**
+Using the the above as a guide I have created a flow diagram to help me visualize how the user will navigate through the core functionality of the web store. During the Agile process there may be some minor tweaks to this pre planned user journey but the overall structure will remain the same.
 
 ![UserFlow Journey flowchart](docs/flowcharts/userjourney.jpg)
 
@@ -708,7 +710,7 @@ This is also affected by amending the order from the admin panel which I will di
 
 ### **Age verification pop up**
 
-This is actually a stole piece of code which I found [online with a open license making it free to use and customise](https://www.jqueryscript.net/other/Website-Age-Verification-Plugin-with-jQuery.html#google_vignette). However I couldn't make a vape sotre and not include it so for the sake of time I implemented and amended it to suit my needs.
+This is actually a stole piece of code which I found [online with a open license making it free to use and customise](https://www.jqueryscript.net/other/Website-Age-Verification-Plugin-with-jQuery.html#google_vignette). However I couldn't make a vape store and not include it so for the sake of time I implemented and amended it to suit my needs.
 
 ![Age verification](docs/features/age-check.jpg) ![Age verification - deny](docs/features/age-deny.jpg)
 
@@ -763,6 +765,7 @@ This project was a lot of fun and although there is a viable MVP the is alot of 
 Currently purchase orders would required someone to manually input them one item at a time. I would like to add a feature to upload an exported excel file from the supplier and have the system automatically add the items to the stock.
 
 #### ***Dynamically add nav links for new categories/subcategories***
+
 Currently to add any categories or sub categories this become a job for a developer with the current set up to manually add a new link to the front end. I would like to be able to have it so that the admin could extend (within reason) the navigation by mere creating the new category or sub category in the admin panel.
 
 #### ***Sales reports***
@@ -785,5 +788,66 @@ Like additional user information such as extra address, phone number etc. and an
 
 Such as more images per item, video demos included, linked products and related products. For example as it is now there would need to be a product for a 10 ml bottle and a 50 ml bottle. I would like to be able to have it so that the admin could add a product option for size and then have the option to select the size from a drop down menu when adding to the cart. This would allow the admin to have one product for both sizes and the customer would be able to select the size they want.
 
+#### ***Ticketing Sytem***
 
+Which would allow users to have a personal inbox when contacting the store regarding their issues.
 
+## **Testing Phase**
+
+I have included testing details during and post-development in a separate document called [TESTING.md](TESTING.md).
+
+## **Deployment**
+
+The final Deployed site can be found [here](https://pp5-vaportown.herokuapp.com/)
+I have included details of my initial deployment in a separate document called [DEPLOYMENT.md](DEPLOYMENT.md).
+
+## **Technologies used**
+
+* Python
+  * The packages installed for the is project can be found in [the requirements.txt](requirements.txt)
+* Django
+  * Django was used as the python framework in the project.
+  * Django all auth was used to handle user authentication and related tasks i.e. sign in, sign up, sign out.
+* Heroku
+  * Used to deploy the page and make it publicly available.
+* Heroku PostgreSQL & ElephantSQL
+  * Used for the database during development and in deployment.
+* HTML
+  * HTML was the base language used to layout the skeleton of all templates.
+* CSS
+  * Custom CSS used to style the page and make the appearance look a little more unique.
+* Javascript
+  * I have used Javascript throughout to manipulate the DOM and communicate to the backend to create, read, update, and delete data from the database.
+* jQuery
+  * I have used jQuery to simplify the use of Javascript.
+* Jinja
+  * Jinja was the templating language used in order to implement the views.py logic and models.py data into a template so it could be displayed to the user.
+* Bootstrap 4.6
+  * Used to style HTML, CSS, minor javascript. The more I used this framework the most I realized retrospectively how it could have saved me writing several parts of the code I had already written.
+* Font awesome
+  * All icons throughout the page.
+
+## **Honorable Mentions**
+
+* [Richard Wells](https://github.com/D0nni387) - Mentor extraordinaire. He was ways on call when I needed him and never afraid to pull out the big guns to push that little bit further.
+* [Sean Murphy](https://github.com/nazarja) - Just a legend, any way you slice it, he helped me understand the logic behind my pin job feature by providing examples of similar things and helped me to connect to Heroku through the console of VSCODE
+* [Matt Bodden](https://github.com/MattBCoding) - The comfort of a friend no matter the time of day, the push of a competitor even if I was not playing the game.
+* [Steve Wier](https://github.com/StevenWeir038) - A man and a legend in his own right. Always checking in on me and testing my work. Pushing me to move forward even when I did not feel like it.
+* Ed_CI - was always there in the project channel and quick to jump in to help.
+* The code institute Slack community as a whole who tested and supported me throughout. There have been too many to mention everyone who encouraged along the way, but they are all superstars.
+* And the biggest thanks goes to my son, Oliver has been my reason for the change, and was great a forcing me to take regular play breaks.
+
+## **Credits**
+
+* [Code Institute](https://codeinstitute.net/) - For the course material and the support throughout.  Some of the project may reflect similarities to the course material, but I have tried to make it as unique as possible.
+* Balsamiq was used to create the wireframes.
+* The site was developed using VScode.
+* GitHub was used to store my repository.
+* Responsive screenshot made using [techsini.com](https://techsini.com/multi-mockup/index.php)
+* The flowchart to the left was created using [draw.io](https://app.diagrams.net/)
+* I lived in the [django documentation](https://docs.djangoproject.com/en/3.2/) and [Bootstrap](https://getbootstrap.com/docs/4.6/getting-started/introduction/) for the duration of the project live they were a bibles.
+* [W3cschool](https://www.w3schools.com) used to remeber the syntax of various languages.
+* [Stackoverflow](https://stackoverflow.com/) for debugging and finding solutions to problems.
+* Fonts were taken from [Google Fonts](https://fonts.google.com/)
+* [Jinja Template Documentation](https://jinja.palletsprojects.com/en/3.0.x/templates/) for templating syntax
+  

@@ -36,6 +36,7 @@ class ProductForm(forms.ModelForm):
         self.fields['category'].choices = category_friendly_names
         self.fields['sub_category'].choices = sub_category_friendly_names
         self.fields['rrp'].widget.attrs.update({'class': 'text-uppercase'})
+        self.fields['name'].widget.attrs['readonly'] = True
 
         for field in self.fields:
 

@@ -207,7 +207,7 @@ class BaseLiquidsAdmin(ModelAChildAdmin):
 
 
 @admin.register(NicotineShots)
-class NicotineShots(ModelAChildAdmin):
+class NicotineShotsAdmin(ModelAChildAdmin):
     """ Admin registration and configuration for the BaseLiquids model"""
     base_model = NicotineShots
     show_in_index = False
@@ -220,7 +220,7 @@ class NicotineShots(ModelAChildAdmin):
 
 
 @admin.register(FlavorConcentrates)
-class FlavorConcentrates(ModelAChildAdmin):
+class FlavorConcentratesAdmin(ModelAChildAdmin):
     """ Admin registration and configuration for the BaseLiquids model"""
     base_model = FlavorConcentrates
     show_in_index = False
@@ -263,7 +263,10 @@ class AllProductsAdmin(PolymorphicParentModelAdmin):
         BaseLiquids,
         Accessories,
         Batteries,
-        PreBuiltCoils)
+        PreBuiltCoils,
+        NicotineShots,
+        FlavorConcentrates,
+        )
 
     summer_fields = ('description',)
 
