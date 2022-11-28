@@ -6,7 +6,7 @@ This small-scale business idea was born from a pipe dream back when I used to dr
 
 The deployed site can be visited here: [Vapor Town](https://pp5-vaportown.herokuapp.com/)
 
-![Vapor Town](docs/responsive-mockup.jpg)
+![Vapor Town](docs/responsive-mockup.JPG)
 
 * [**Vapor Town**](#vapor-town)
 * [**Planning Phase**](#planning-phase)
