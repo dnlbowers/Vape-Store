@@ -90,6 +90,86 @@ The above occurred again for the success toast shown on the checkout success pag
 
 I also found that using white text on the toasts produced a low contrast score and so I changed the text to black. This change fixed the contrast error.
 
+### **Lighthouse Scores**
+
+#### **Home page**
+
+##### **Desktop**
+
+![lighthouse home](docs/lighthouse/desktop//home.jpg)
+##### **Mobile**
+
+![lighthouse home mobile](docs/lighthouse/mobile/home.JPG)
+
+#### **Products page**
+
+##### **Desktop**
+
+![lighthouse products page](docs/lighthouse/desktop/products.jpg)
+##### **Mobile**
+
+![lighthouse products page mobile](docs/lighthouse/mobile/products.JPG)
+
+#### **Product Details Page**
+
+##### **Desktop**
+
+![lighthouse details page](docs/lighthouse/desktop/details.jpg)
+##### **Mobile**
+
+![lighthouse details page mobile](docs/lighthouse/mobile/details.JPG)
+
+#### **Contact us page**
+
+##### **Desktop**
+
+![lighthouse contact page](docs/lighthouse/desktop/contact.jpg)
+##### **Mobile**
+
+![lighthouse contact page mobile](docs/lighthouse/mobile/contact.JPG)
+
+#### **Shopping Cart page**
+
+##### **Desktop**
+
+![lighthouse cart page](docs/lighthouse/desktop/cart.jpg)
+##### **Mobile**
+
+![lighthouse cart page mobile](docs/lighthouse/mobile/cart.JPG)
+
+#### **Checkout page**
+
+##### **Desktop**
+
+![lighthouse checkout page](docs/lighthouse/desktop/checkout.jpg)
+##### **Mobile**
+
+![lighthouse checkout page mobile](docs/lighthouse/mobile/checkout.JPG)
+
+#### **Profile Page**
+
+##### **Desktop**
+
+![lighthouse Profile page](docs/lighthouse/desktop/profile.jpg)
+##### **Mobile**
+
+![lighthouse Profile page mobile](docs/lighthouse/mobile/profile.JPG)
+
+#### **Checkout Success/Order History Page**
+
+##### **Desktop**
+
+![lighthouse Checkout Success/Order History page](docs/lighthouse/desktop/history.jpg)
+##### **Mobile**
+
+![lighthouse Checkout Success/Order History page mobile](docs/lighthouse/mobile/history.JPG)
+
+### **Reviewing the Lighthouse Scores**
+
+The performance score was generally a little lower on mobiles however testing from several mobile devices the site was responsive and responded well.
+
+I also note that any path disallowed in the robots.txt had its SEO score suffer with the robots.txt being specified as a cause.
+
 ### **Automated tests**
 
 I began writing automated tests for everything; however, I soon realized this was slowing me down, and I needed to focus on completing the project. You will find automated test files in the home and product apps. However, the remaining apps do not have automated tests. I have decided to write manual tests for the remaining apps and features by testing each user story individually.
