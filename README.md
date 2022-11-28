@@ -393,7 +393,7 @@ These will now be added as part of the future features.
 
 #### **Database Schema:**
 
-The database table scheme was created using [drawsql.app](drawsql.app) and can be seen below.
+The database table scheme was created using [drawsql.app](https://drawsql.app) and can be seen below.
 
 ##### ***All Products Table***
 
