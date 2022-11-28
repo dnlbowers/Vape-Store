@@ -493,7 +493,9 @@ As Vapor Town is a start-up business, the budget for marketing is limited. Howev
 
 The second is the use of google ads which are a great way to increase brand awareness and help with SEO. The use of google ads can also help with the use of long-tail keywords and help with the ranking of the site.
 
-The third is the use of influencers. Influences are a great way to increase brand awareness. Free samples could be sent to popular vape reviewers on youtube in exchange for a mention/hashtag/ link in the description. Further helps raise brand awareness because the video could be posted on Facebook and the influencer tagged in the post, which with the help of the algorithm gods at Facebook, would help bring an organic audience to the Facebook page and, hopefully, the store
+The third is the use of influencers. Influences are a great way to increase brand awareness. Free samples could be sent to popular vape reviewers on youtube in exchange for a mention/hashtag/ link in the description. Further helps raise brand awareness because the video could be posted on Facebook and the influencer tagged in the post, which with the help of the algorithm gods at Facebook, would help bring an organic audience to the Facebook page and, hopefully, the store.
+
+The final method would then be sending regular news letters to the mailing list obtained via the mailchimp form.  The newsletter would contain links to recent articles on vaping, the latest products and the highly sought after special offers and promotions. This would help with brand awareness building a community around the brand.
 
 # **Features**
 
