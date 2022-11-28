@@ -439,7 +439,7 @@ The EDR from pgAdmin, connected directly to my instance of elephantSQL, shows th
 
 Unfortunately, the website word tracker never worked enough for me. I even subscribed and continued encountering the issue where I had no results or was told I had made too many searches. Speaking to their customer support, they advised this is a known issue and that they are working on it, but it's been a few months, and it's still not working for me. I have included a brain dump using keywords and google to return a list of long and short-tail keywords. The ones ticked were included in the site meta description.
 
-![Key words Brain dump](docs/seo/keywords.jpg)
+![Key words Brain dump](docs/seo/keywords.JPG)
 
 #### ***Page Titles***
 
@@ -505,11 +505,11 @@ The navigation bar is the core navigation for the site. It differs slightly from
 
 ##### ***Desktop***
 
-![Desktop Navbar](docs/features/desktop/navbar-desktop.jpg)
+![Desktop Navbar](docs/features/desktop/navbar-desktop.JPG)
 
 ##### ***Mobile***
 
-![Mobile Navbar](docs/features/mobile/navbar-mobile.jpg)
+![Mobile Navbar](docs/features/mobile/navbar-mobile.JPG)
 
 #### **Common Navbar Features for both Desktop and Mobile**
 
@@ -521,11 +521,11 @@ The size of the logo is responsive to the screen size. On mobile, it is smaller;
 
 ###### ***Desktop***
 
-![Desktop Logo](docs/features/desktop/logo-desktop.jpg)
+![Desktop Logo](docs/features/desktop/logo-desktop.JPG)
 
 ###### ***Mobile***
 
-![Mobile Logo](docs/features/mobile/logo-mobile.jpg)
+![Mobile Logo](docs/features/mobile/logo-mobile.JPG)
 
 ##### ***Search Bar***
 
@@ -533,15 +533,15 @@ The search bar changes location according to the screen size, and this was to pr
 
 ###### ***Desktop***
 
-![Desktop Search Bar](docs/features/desktop/search-desktop.jpg)
+![Desktop Search Bar](docs/features/desktop/search-desktop.JPG)
 
 ###### ***Mobile***
 
-![Mobile Search Bar](docs/features/mobile/search-mobile.jpg)
+![Mobile Search Bar](docs/features/mobile/search-mobile.JPG)
 
 The user can enter their search term, and the products page will return any products that match the search term. This function checks the product name and description; the search term is retained and displayed to the user next to the number of results displayed.
 
-![Search Bar](docs/features/search-term.jpg)
+![Search Bar](docs/features/search-term.JPG)
 
 #### **Account menu**
 
@@ -549,25 +549,25 @@ The account menu is a drop-down menu that appears when the user clicks on the ac
 
 ##### ***Unauthenticated***
 
-![Unauthenticated Account Menu](docs/features/unauthenticated.jpg)
+![Unauthenticated Account Menu](docs/features/unauthenticated.JPG)
 
 ##### ***Authenticated***
 
-![Authenticated Account Menu](docs/features/authenticated.jpg)
+![Authenticated Account Menu](docs/features/authenticated.JPG)
 
 #### **Cart icon**
 
 The cart icon is visible in the navbar on all pages. The icon indicates the current total of all the items in the cart and how many things make up this total.
 
-![Cart Icon](docs/features/cart-icon.jpg)
+![Cart Icon](docs/features/cart-icon.JPG)
 
 A cart preview appears when the user adds an item to the cart. This cart preview relays the success message, gives a scrollable preview of the cart, the current total excluding delivery, and an informative message about how far the user is from the free delivery qualifier.
 
-![Cart Preview](docs/features/cart-preview.jpg)
+![Cart Preview](docs/features/cart-preview.JPG)
 
 And the cart icon turns blue, and a small pill appears with the product count.
 
-![Cart Icon with pill](docs/features/cart-icon-pill.jpg)
+![Cart Icon with pill](docs/features/cart-icon-pill.JPG)
 
 Clicking the cart icon any time will take the user to the shopping cart page described later.
 
@@ -575,11 +575,11 @@ Clicking the cart icon any time will take the user to the shopping cart page des
 
 #### ***Desktop***
 
-![Desktop Footer](docs/features/desktop/footer-desktop.jpg)
+![Desktop Footer](docs/features/desktop/footer-desktop.JPG)
 
 #### ***Mobile***
 
-![Mobile Footer](docs/features/mobile/footer-mobile.jpg)
+![Mobile Footer](docs/features/mobile/footer-mobile.JPG)
 
 #### **Common Features to both Desktop and Mobile**
 
@@ -599,7 +599,7 @@ The current Facebook link will take the user directly to [Facebook](https://www.
 
 I have included a screenshot of the Facebook page in case Facebook decides to remove it because it is not a real business at this stage.
 
-![facebook page](docs/features/facebook.jpg)
+![facebook page](docs/features/facebook.JPG)
 
 ##### ***Newsletter Sign Up***
 
@@ -618,7 +618,7 @@ Similar to the cart preview, the notifications are a small pop-up appearing on t
 
 These alerts are color-coded according to the default bootstrap colors/names below:
 
-![Bootstrap Colors](docs/features/toasts-colors.jpg)
+![Bootstrap Colors](docs/features/toasts-colors.JPG)
 
 ** Kindly note that bg-secondary was not used for the toasts as it did not fit any specific purpose and alert type.
 ## **Page content**
@@ -631,7 +631,7 @@ To make the site's purpose immediately apparent, I included a hero image that wa
 
 Below, I have included four cards highlighting four popular product groupings. These demonstrate the site's purpose further and encourage the user to explore the site further.
 
-![Home Page](docs/features/home-page.jpg)
+![Home Page](docs/features/home-page.JPG)
 
 ### **Products Page**
 
@@ -645,11 +645,11 @@ The product names are all displayed in h2 tags and resized using CSS to increase
 
 A user accesses the product details by clicking on the product image.
 
-![Products Page](docs/features/products-page.jpg)
+![Products Page](docs/features/products-page.JPG)
 
 Further to the above, when a user searches for a product and no results are returned, a message is displayed informing them that no results were found.
 
-![No Results](docs/features/no-products.jpg)
+![No Results](docs/features/no-products.JPG)
 
 ### **Product Details Page**
 
@@ -668,7 +668,7 @@ The layout does change a little on a mobile view to improve the appearance
 
 It is also worth noting that a superuser can see an edit and delete button on the details page to quickly improve certain felids and remove the product altogether should it be required. I decided to leverage the admin panel for most internal business functions; however, I will go into more detail later.
 
-![Product edit and delete for super users](docs/features/product-edit-del.jpg)
+![Product edit and delete for super users](docs/features/product-edit-del.JPG)
 
 ### **Reviews**
 
@@ -678,21 +678,21 @@ The reviews tab was best suited to be on the product details page, making it eas
 
 The user can see all reviews when logged out; however, they cannot leave one. Above the accordion, they are prompted to log in or register to leave a review. The prompt also appears when there are no reviews, along with an invite to be the first to review the product.
 
-![Reviews when logged out](docs/features/reviews-logged-out.jpg)
+![Reviews when logged out](docs/features/reviews-logged-out.JPG)
 
 #### ***Authenticated***
 
 If a product has no review and the user is logged in, they will see an inline review form. This review must have at least a title and a rating, and several checks are in place to ensure the rating is between 1 and 5, and the title is not empty.
 
-![inline review form](docs/features/reviews-inline.jpg)
+![inline review form](docs/features/reviews-inline.JPG)
 
 If there is already an existing review for a product, then the user has a button to take them to the same form but on a new page. Once the user submits the review, they are returned to the product details page of the product they were reviewing.
 
-![review form](docs/features/review-form.jpg)
+![review form](docs/features/review-form.JPG)
 
 The last thing to mention here is that the review author (and the superuser in case of foul language) can delete or edit the review. Editing/deletion is performed by clicking the delete/edit button in the review body, visible only to them.
 
-![review edit and delete](docs/features/edit-review.jpg)
+![review edit and delete](docs/features/edit-review.JPG)
 
 From a programmatic perspective, the review calculation is amended each time a rating is added, edited, or deleted so that the overall rating is always accurate.
 
@@ -700,7 +700,7 @@ From a programmatic perspective, the review calculation is amended each time a r
 
 As shown above, the product details page has an edit button for the super user to make a quick edit should they spot a typo or want to change a picture. This button takes the superuser to a form pre-populated with the current product information. The user can then make the changes they require and submit the form. The form is validated on the front and back end, and the user is informed of any errors. The user is then redirected to the product details page.
 
-![Edit product form](docs/features/edit-product.jpg)
+![Edit product form](docs/features/edit-product.JPG)
 
 ### **Shopping Cart**
 
@@ -713,45 +713,45 @@ Once the user is happy with the items in the cart, they can click the secure che
 The layout on this page changes slightly on mobile to improve the responsive nature. The quantity selector goes under the item on smaller screens. 
 #### ***Desktop***
 
-![Shopping Cart](docs/features/desktop/cart-desktop.jpg)
+![Shopping Cart](docs/features/desktop/cart-desktop.JPG)
 
 #### ***Mobile***
 
-![Shopping Cart](docs/features/mobile/cart-mobile.jpg)
+![Shopping Cart](docs/features/mobile/cart-mobile.JPG)
 
 Lastly, users will see the following message displayed if they try to access the shopping cart with no items.
 
-![Shopping Cart](docs/features/empty-cart.jpg)
+![Shopping Cart](docs/features/empty-cart.JPG)
 
 ### **Checkout**
 
-The checkout page is where the user will enter their payment details and shipping address. There is a chance to make one final review of the cart before proceeding to payment. The user can also go back to the cart to make any changes. If the user is logged in with details already saved to their profile from a previous order, then the form will be prefilled with this information. 
+The checkout page is where the user will enter their payment details and shipping address. There is a chance to make one final review of the cart before proceeding to payment. The user can also go back to the cart to make any changes. If the user is logged in with details already saved to their profile from a previous order, then the form will be prefilled with this information.
 
 The user can also save their details from the checkout page. However, this option is unchecked by default to prevent users from accidentally saving their details.
 
 The card element is injected by the stripe API and uses a payment system that is fully PCI compliant. The same API also handles any errors using the allocated div to display them to the user. For a list of test card numbers, please see the [stripe documentation.](https://stripe.com/docs/testing).
 
-When the form has been submitted, the pay now button converts into a spinner to show it is processing. Further to the spinner, there is a transparent overlay to prevent the user from clicking anything else and creating multiple orders. 
+When the form has been submitted, the pay now button converts into a spinner to show it is processing. Further to the spinner, there is a transparent overlay to prevent the user from clicking anything else and creating multiple orders.
 
 The page is fully responsive, and the display order changes slightly from mobile to desktop.
 
 #### ***Desktop***
 
-![Shopping Cart](docs/features/desktop/checkout-desktop.jpg)
+![Shopping Cart](docs/features/desktop/checkout-desktop.JPG)
 
 #### ***Mobile***
 
-![Shopping Cart](docs/features/mobile/checkout-mobile.jpg)
+![Shopping Cart](docs/features/mobile/checkout-mobile.JPG)
 
 Guests can also check out, and on the checkout page, they see the following in place of the save info checkbox.
 
-![Shopping Cart](docs/features/guest-checkout.jpg)
+![Shopping Cart](docs/features/guest-checkout.JPG)
 
 If users are not logged in, there is no way to return to the checkout success page, as described below
 
 The last stage of the check out if for the user to receive an email like the sample below:
 
-![Shopping Cart](docs/features/confirmation-email.jpg)
+![Shopping Cart](docs/features/confirmation-email.JPG)
 
 ### **Checkout Success**
 
@@ -759,7 +759,7 @@ This page confirms to the user all the details of their order. At the bottom, th
 
 This page can only be viewed once and has logic on the back end to prevent anyone from returning to it to protect the user's details from anyone who might be able to intercept the order number or be trying random UUIDs with the URL. For this reason, I have included a small disclaimer in red warning the user that if they were not logged in, they need to be careful not to leave or refresh the page and the only way to get the order info is by contacting the store directly.
 
-![Checkout Success](docs/features/checkout-success.jpg)
+![Checkout Success](docs/features/checkout-success.JPG)
 
 ### **Profile**
 
@@ -779,43 +779,43 @@ The order number is truncated to save space, and when the user clicks on it, the
 
 Finally, for the front end, I have created a simple contact form for the user to get in touch. I will discuss in detail shortly how this works from the point of view of replying. However, the form allows a platform for the user to send a message to the shop. The message will then be picked up from the admin panel and responded to via email, as is a standard convention.
 
-![Contact us](docs/features/contact-us.jpg)
+![Contact us](docs/features/contact-us.JPG)
 
 ### **Authentication**
 
 The user can log in and out using an adapted version of templates from the all-auth library.
 
-![Login](docs/features/allauth/login.jpg) ![Sign out](docs/features/allauth/logout.jpg)
+![Login](docs/features/allauth/login.JPG) ![Sign out](docs/features/allauth/logout.JPG)
 
 The user can reset their password via a form
 
-![Reset password step 1](docs/features/allauth/pass-reset.jpg)
+![Reset password step 1](docs/features/allauth/pass-reset.JPG)
 
-![Reset password - email sent](docs/features/allauth/pass-reset-2.jpg)
+![Reset password - email sent](docs/features/allauth/pass-reset-2.JPG)
 
 Then receive an email with a link to reset their password on the store site.
 
-![reset email](docs/features/allauth/pass-reset-email.jpg)  
+![reset email](docs/features/allauth/pass-reset-email.JPG)  
 
-![change password form](docs/features/allauth/change-password.jpg)
+![change password form](docs/features/allauth/change-password.JPG)
 
 Once changed, they will see the following message.
 
-![password changed](docs/features/allauth/pass-reset-conf.jpg)
+![password changed](docs/features/allauth/pass-reset-conf.JPG)
 
 The user can also register for an account using the following form.
 
-![Register](docs/features/allauth/register.jpg)
+![Register](docs/features/allauth/register.JPG)
 
 And will receive an email to verify their email, preventing spam accounts from being created.
 
-![Verify email](docs/features/allauth/verify-email.jpg)
+![Verify email](docs/features/allauth/verify-email.JPG)
 
-![Verify email](docs/features/allauth/email-verify.jpg)
+![Verify email](docs/features/allauth/email-verify.JPG)
 
 The link in the email brings them to this screen
 
-![Verify email](docs/features/allauth/conf-email.jpg)
+![Verify email](docs/features/allauth/conf-email.JPG)
 
 And once the email is confirmed, the user is invited to log in with their new account.
 
@@ -823,11 +823,11 @@ And once the email is confirmed, the user is invited to log in with their new ac
 
 I have built a simple stock system which means when an order is completed, the stock reduces by the quantity ordered. If the user tries to add more of an item to the cart than is in stock, they will see the following message.
 
-![not enough stock](docs/features/not-enough-error.jpg)
+![not enough stock](docs/features/not-enough-error.JPG)
 
 Once an item is out of stock, the add to cart button is disabled, and future users are shown that the item is out of stock.
 
-![out of stock](docs/features/in-out-stock.jpg)
+![out of stock](docs/features/in-out-stock.JPG)
 
 The stock level is also affected by amending the order from the admin panel, which I will discuss shortly.
 
@@ -835,7 +835,7 @@ The stock level is also affected by amending the order from the admin panel, whi
 
 These files were found [online with an open license making it free to use and customize](https://www.jqueryscript.net/other/Website-Age-Verification-Plugin-with-jQuery.html#google_vignette). However, I couldn't make a vape store and not include it so for the sake of time I implemented and amended it to suit my needs.
 
-![Age verification](docs/features/age-check.jpg) ![Age verification - deny](docs/features/age-deny.jpg)
+![Age verification](docs/features/age-check.jpg) ![Age verification - deny](docs/features/age-deny.JPG)
 
 
 ### **Responsive Design**
@@ -862,7 +862,7 @@ They can also edit individual items by updating the discounted price or checking
 
 #### **Messages**
 
-The admin panel is also where the superuser can see any messages sent via the “contact us” form, and there is a section for them to leave notes internally for other staff members to see. In the future, I would have a ticketing system so the admin could reply here too, and make it visible to the customer on the front end. Still, the customer leaves a message, and the admin can leave notes about actions needing to be done or the response they sent by email. 
+The admin panel is also where the superuser can see any messages sent via the “contact us” form, and there is a section for them to leave notes internally for other staff members to see. In the future, I would have a ticketing system so the admin could reply here too, and make it visible to the customer on the front end. Still, the customer leaves a message, and the admin can leave notes about actions needing to be done or the response they sent by email.
 
 I have also enabled it so a staff member can mark a message as replied to, and it defaults as a pending reply; this is to help the staff members keep track of which messages have been replied to and which have not. To further help, a series of filter options allow the staff to filter by status and date.
 
@@ -934,7 +934,7 @@ I have included details of my initial deployment in a separate document called [
   * Used to deploy the page and make it publicly available.
 * Heroku PostgreSQL & ElephantSQL
   * Used for the database during deployment.
-* SQLlite3 
+* SQLlite3
 	* Was used during development as a database to test models.
 * HTML
   * HTML was the base language used to lay out the skeleton of all templates.
