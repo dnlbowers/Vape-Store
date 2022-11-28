@@ -29,7 +29,6 @@ select option {
 }
 
 /* spinner/processing state, taken from https://stripe.com/docs/payments/card-element?client=html*/
-
 #loading-overlay {
     position: fixed;
     top: 0;

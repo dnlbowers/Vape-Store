@@ -28,6 +28,7 @@ class ProductForm(forms.ModelForm):
         # taken from boutique ado walk through to display friendly names
         categories = CategoryGroupings.objects.all()
         sub_categories = SubCategory.objects.all()
+
         category_friendly_names = [
             (c.id, c.get_friendly_name()) for c in categories]
         sub_category_friendly_names = [

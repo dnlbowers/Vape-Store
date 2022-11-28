@@ -1,8 +1,6 @@
 from django.test import TestCase
 from products.models import AllProducts, CategoryGroupings
 
-# Create your models here.
-
 
 class TestModels(TestCase):
 

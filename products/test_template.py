@@ -3,8 +3,6 @@ from django.urls import reverse
 from products.models import AllProducts, CategoryGroupings, SubCategory
 
 
-# Create your tests here.
-
 class TestPage(TestCase):
 
     def setUp(self):

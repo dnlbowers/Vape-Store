@@ -2,7 +2,6 @@
  * Taken and adapted from (https://github.com/Herudea/age-verification)
  *  code is under GNU GENERAL PUBLIC LICENSE
  */
-
 #modal_screen {
 	position: fixed;
 	top:0;
@@ -58,9 +57,23 @@
 	font:11px/1.5em 'DM Sans', sans-serif;
 }
 
-#modal_content nav {font-size: 18px; display:table; width: 282px;}
-#modal_content nav ul {display:table-row; width: 100%; margin:0; padding:0;}
-#modal_content nav li {display: table-cell; text-align: right; width: auto;}
+#modal_content nav {
+	font-size: 18px; 
+	display:table; 
+	width: 282px;
+}
+
+#modal_content nav ul {
+	display:table-row; 
+	width: 100%; 
+	margin:0; padding:0;
+}
+
+#modal_content nav li {
+	display: table-cell; 
+	text-align: right;
+	width: auto;
+}
 
 #modal_content nav:after {
 	content: "";
@@ -133,7 +146,6 @@
 	#modal_content nav {width: 396px;}
 
 	#modal_content nav a.av_btn {
-		/* padding:1em 2.5em; */
 		margin:1.6em auto 0;
 		font-size: 1em;
 	}

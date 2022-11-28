@@ -3,9 +3,6 @@ from django.urls import reverse
 from products.models import AllProducts, CategoryGroupings, SubCategory
 
 
-# Create your tests here.
-
-
 class TestPage(TestCase):
 
     def setUp(self):
@@ -51,6 +48,3 @@ class TestPage(TestCase):
         self.assertContains(
             self.product_detail_response,
             self.product.stock_level)
-
-    def test_search_form(self):
-        pass
