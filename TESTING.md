@@ -655,4 +655,4 @@ Most of this epic were tasks for the development phase; therefore, the testing i
 |&check;| Site map done
 |&check;| Robots.txt done
 
-
+[Back to Readme](README.md)
