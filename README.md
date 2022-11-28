@@ -983,6 +983,8 @@ I have included details of my initial deployment in a separate document called [
 * [age verification check](https://www.jqueryscript.net/other/Website-Age-Verification-Plugin-with-jQuery.html#google_vignette) was under GNU license so I took it from here and adapted it to my needs.
 * To fix my issue with my [robots.txt](https://adamj.eu/tech/2020/02/10/robots-txt/)
 * [favicon generator](https://www.favicon-generator.org/) was used to generate the favicon.
+* [drawsql](https://drawsql.app/) was used to create the database diagram.
+* Pgadmin was used to create the full EDR diagram.
 
 ### **Media**  
 
