@@ -1,5 +1,7 @@
 # Agile Methodology
 
+## **Table of Contents**
+
 * [Agile Methodology](#agile-methodology)
   * [Overview](#overview)
   * [Sprint Notes](#sprint-notes)

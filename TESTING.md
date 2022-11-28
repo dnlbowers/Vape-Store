@@ -1,5 +1,7 @@
 # **Manuel Testing**
 
+## **Table of Contents**
+
 * [**Manuel Testing**](#manuel-testing)
   * [**Bugs and Fixes During the Development Process**](#bugs-and-fixes-during-the-development-process)
   * [**Testing(post development phase)**](#testingpost-development-phase)

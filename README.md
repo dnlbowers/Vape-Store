@@ -8,7 +8,8 @@ The deployed site can be visited here: [Vapor Town](https://pp5-vaportown.heroku
 
 ![Vapor Town](docs/responsive-mockup.JPG)
 
-* [**Vapor Town**](#vapor-town)
+## **Table of Contents**
+
 * [**Planning Phase**](#planning-phase)
   * [**Strategy**](#strategy)
     * [***Site Aims***](#site-aims)
