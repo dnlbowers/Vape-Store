@@ -467,8 +467,9 @@ Black and white feature heavily throughout the site. However, I added color to h
 
 The final color scheme can be seen below:
   
-    * online [here](https://contrast-grid.eightshapes.com/?version=1.1.0&background-colors=&foreground-colors=%23007bff%2C%0D%0A%236c757d%2C%0D%0A%2328a745%2C%0D%0A%2317a2b8%2C%0D%0A%23ffc107%2C%0D%0A%23dc3545%2C%0D%0A%23f8f9fa%2C%0D%0A%23fff59a%2C%0D%0A%23343a40%2C%0D%0A%23ffffff%2C%0D%0A%235469d4%2C%0D%0A%23aab7c4%2C%0D%0A%23000000%2C%0D%0A%23004c9e%2C%0D%0A%23004c9e%0D%0A%23490049%0D%0A%0D%0A&es-color-form__tile-size=compact&es-color-form__show-contrast=aaa&es-color-form__show-contrast=aa&es-color-form__show-contrast=aa18&es-color-form__show-contrast=dnp)
-    * via GitHub [here](docs/color/contrast-grid.JPG)
+Online [here](https://contrast-grid.eightshapes.com/?version=1.1.0&background-colors=&foreground-colors=%23007bff%2C%0D%0A%236c757d%2C%0D%0A%2328a745%2C%0D%0A%2317a2b8%2C%0D%0A%23ffc107%2C%0D%0A%23dc3545%2C%0D%0A%23f8f9fa%2C%0D%0A%23fff59a%2C%0D%0A%23343a40%2C%0D%0A%23ffffff%2C%0D%0A%235469d4%2C%0D%0A%23aab7c4%2C%0D%0A%23000000%2C%0D%0A%23004c9e%2C%0D%0A%23004c9e%0D%0A%23490049%0D%0A%0D%0A&es-color-form__tile-size=compact&es-color-form__show-contrast=aaa&es-color-form__show-contrast=aa&es-color-form__show-contrast=aa18&es-color-form__show-contrast=dnp)
+
+And via GitHub [here](docs/color/contrast-grid.JPG)
 
 #### ***Typography***
 
@@ -765,15 +766,15 @@ This page can only be viewed once and has logic on the back end to prevent anyon
 
 The profile page has a tab which is a form for the user to update their default shipping details
 
-![Profile](docs/features/profile.jpg)
+![Profile](docs/features/profile.JPG)
 
 And another tab to view the order history in a scrollable table
 
-![Profile](docs/features/completed-orders.jpg)
+![Completed orders](docs/features/completed-orders.JPG)
 
 The order number is truncated to save space, and when the user clicks on it, they are taken to a variation of the checkout success page. The only differences to the original checkout success page are the lack of a warning not to leave the page if not logged in and the button at the bottom, which takes the user back to the profile page.
 
-![Profile](docs/features/profile-return.jpg)
+![return to profile](docs/features/profile-return.JPG)
 
 ### ***Contact us***
 
@@ -835,7 +836,7 @@ The stock level is also affected by amending the order from the admin panel, whi
 
 These files were found [online with an open license making it free to use and customize](https://www.jqueryscript.net/other/Website-Age-Verification-Plugin-with-jQuery.html#google_vignette). However, I couldn't make a vape store and not include it so for the sake of time I implemented and amended it to suit my needs.
 
-![Age verification](docs/features/age-check.jpg) ![Age verification - deny](docs/features/age-deny.JPG)
+![Age verification](docs/features/age-check.JPG) ![Age verification - deny](docs/features/age-deny.JPG)
 
 
 ### **Responsive Design**

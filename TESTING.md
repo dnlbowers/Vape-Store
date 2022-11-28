@@ -105,7 +105,7 @@ The above error was a false positive since this variable Stripe is the initializ
 
 There was another set of warnings in mailChimp.js due to the use of the mail chimp API. I tried removing it entirely, but this caused other features to break on the site, so I put it back as it was. The warnings in jshint are not critical, so the file can be left as is.
 
-![jshint](docs/validation/js/mailchimp.jpg)
+![jshint](docs/validation/js/mailchimp.JPG)
 
 #### **Python - PEP8 - using pycodestyle**
 
@@ -121,15 +121,15 @@ To check the accessibility of my site, I used the [Wave](https://wave.webaim.org
 
 Consistently throughout the site, the footer was flagged for having one low contrast error and one error.  
 
-![footer contrast errors](docs/validation/accessibility/footer.jpg)
+![footer contrast errors](docs/validation/accessibility/footer.JPG)
 
 These are related to the imported code from Mailchimp. The label-related error is for a hidden element; Mailchimp has included comments with this element advising mere mortals like me against messing with this code. The hidden part offers protection from bot sign-ups and is critical for security reasons. Since the component is hidden, I will play it safe and leave it as is.
 
-![MailChimp hidden label error](docs/validation/accessibility/mailchimp-label-error.jpg)
+![MailChimp hidden label error](docs/validation/accessibility/mailchimp-label-error.JPG)
 
 The contrast error comes from the "sr-only" span under the Facebook link. Sr-only is a class I have used to hide the text from the user but still have it read by screen readers, which is a common practice and recommended by the [W3C](https://www.w3.org/WAI/tutorials/forms/labels/#hiding-label-text), and so should be left as is. Further thinking about it could also be why Mailchimp has included the hidden label element to ensure that screen readers read the text. However, I am just speculating.
 
-![sr-only span error](docs/validation/accessibility/sr-only-error.jpg)
+![sr-only span error](docs/validation/accessibility/sr-only-error.JPG)
 
 The above occurred again for the success toast shown on the checkout success page.
 
@@ -143,7 +143,7 @@ I also found that using white text on the toasts produced a low contrast score a
 
 ##### **Desktop**
 
-![lighthouse home](docs/lighthouse/desktop//home.jpg)
+![lighthouse home](docs/lighthouse/desktop//home.JPG)
 ##### **Mobile**
 
 ![lighthouse home mobile](docs/lighthouse/mobile/home.JPG)
@@ -152,7 +152,7 @@ I also found that using white text on the toasts produced a low contrast score a
 
 ##### **Desktop**
 
-![lighthouse products page](docs/lighthouse/desktop/products.jpg)
+![lighthouse products page](docs/lighthouse/desktop/products.JPG)
 ##### **Mobile**
 
 ![lighthouse products page mobile](docs/lighthouse/mobile/products.JPG)
@@ -161,7 +161,7 @@ I also found that using white text on the toasts produced a low contrast score a
 
 ##### **Desktop**
 
-![lighthouse details page](docs/lighthouse/desktop/details.jpg)
+![lighthouse details page](docs/lighthouse/desktop/details.JPG)
 ##### **Mobile**
 
 ![lighthouse details page mobile](docs/lighthouse/mobile/details.JPG)
@@ -170,7 +170,7 @@ I also found that using white text on the toasts produced a low contrast score a
 
 ##### **Desktop**
 
-![lighthouse contact page](docs/lighthouse/desktop/contact.jpg)
+![lighthouse contact page](docs/lighthouse/desktop/contact.JPG)
 ##### **Mobile**
 
 ![lighthouse contact page mobile](docs/lighthouse/mobile/contact.JPG)
@@ -179,7 +179,7 @@ I also found that using white text on the toasts produced a low contrast score a
 
 ##### **Desktop**
 
-![lighthouse cart page](docs/lighthouse/desktop/cart.jpg)
+![lighthouse cart page](docs/lighthouse/desktop/cart.JPG)
 ##### **Mobile**
 
 ![lighthouse cart page mobile](docs/lighthouse/mobile/cart.JPG)
@@ -188,7 +188,7 @@ I also found that using white text on the toasts produced a low contrast score a
 
 ##### **Desktop**
 
-![lighthouse checkout page](docs/lighthouse/desktop/checkout.jpg)
+![lighthouse checkout page](docs/lighthouse/desktop/checkout.JPG)
 ##### **Mobile**
 
 ![lighthouse checkout page mobile](docs/lighthouse/mobile/checkout.JPG)
@@ -197,7 +197,7 @@ I also found that using white text on the toasts produced a low contrast score a
 
 ##### **Desktop**
 
-![lighthouse Profile page](docs/lighthouse/desktop/profile.jpg)
+![lighthouse Profile page](docs/lighthouse/desktop/profile.JPG)
 ##### **Mobile**
 
 ![lighthouse Profile page mobile](docs/lighthouse/mobile/profile.JPG)
@@ -206,7 +206,7 @@ I also found that using white text on the toasts produced a low contrast score a
 
 ##### **Desktop**
 
-![lighthouse Checkout Success/Order History page](docs/lighthouse/desktop/history.jpg)
+![lighthouse Checkout Success/Order History page](docs/lighthouse/desktop/history.JPG)
 ##### **Mobile**
 
 ![lighthouse Checkout Success/Order History page mobile](docs/lighthouse/mobile/history.JPG)
@@ -617,11 +617,12 @@ Most of this epic were tasks for the development phase; therefore, the testing i
 |&check;| Review text is previewed in the body of the accordion item.
 
 |passed | **Edit my reviews of a product** so that I can **update my public opinion should it ever change*
-|&check;| Review cannot be edited by a user who did not create the review (unless superuser) even by using the URL.
-|&check;| Edit review for is pre-populated with the review details.
-|&check;| A superuser can edit all reviews.
-|&check;| All reviews can be edited by the user who created the review.
-|&check;| Overall rating is re-calculated when a review is edited.
+|:---:|:---|  
+|&check;| Review cannot be edited by a user who did not create the review (unless superuser) even by using the URL.  
+|&check;| Edit review for is pre-populated with the review details.  
+|&check;| A superuser can edit all reviews.  
+|&check;| All reviews can be edited by the user who created the review.  
+|&check;| Overall rating is re-calculated when a review is edited.  
 
 |passed | **delete my reviews of a product** so that I can **remove previous reviews should I see fit**
 |:---:|:---|
@@ -648,10 +649,10 @@ Most of this epic were tasks for the development phase; therefore, the testing i
 
 |passed | .**Increase my search engine ranking** so that I can **increase the number of visitors to my site.**
 |:---:|:---|
-| | Each page has a meta description.
-|&check; | Each page has a meta title.
-| | Each page has meta keywords.
-| | Site map done
-| | Robots.txt done
+|&check;| Each page has a meta description.
+|&check;| Each page has a meta title.
+|&check;| Each page has meta keywords.
+|&check;| Site map done
+|&check;| Robots.txt done
 
 
