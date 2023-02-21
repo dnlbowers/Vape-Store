@@ -4,4 +4,4 @@ Disallow: /shoppingcart/
 Disallow: /profile/
 Disallow: /summernote/
 Disallow: /admin/
-Sitemap: https://pp5-vaportown.herokuapp.com/sitemap.mxl
+Sitemap: https://vaportown.dev-bowers.com/sitemap.mxl
