@@ -8,7 +8,7 @@
     * [**Create repository**](#create-repository)
     * [**Setting up the Workspace** (To be done locally via the console of your chosen editor)](#setting-up-the-workspace-to-be-done-locally-via-the-console-of-your-chosen-editor)
     * [**Create Heroku App**](#create-heroku-app)
-    * [**AWS S3 Bucket**](#aws-s3-bucket)
+    * [**AWS S3 Bucket**](#aws-s3-bucket) 
     * [**Creating Environmental Variables Locally**](#creating-environmental-variables-locally)
     * [**Setting up setting.py File**](#setting-up-settingpy-file)
     * [Set up Heroku for use via the console](#set-up-heroku-for-use-via-the-console)
