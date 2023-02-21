@@ -215,7 +215,7 @@ if 'USE_AWS' in os.environ:
     }
 
     # Bucket config
-    AWS_STORAGE_BUCKET_NAME = 'pp5-vapeshop'
+    AWS_STORAGE_BUCKET_NAME = 'vaportown'
     AWS_S3_REGION_NAME = 'eu-central-1'
     AWS_ACCESS_KEY_ID = os.environ.get('AWS_ACCESS_KEY_ID')
     AWS_SECRET_ACCESS_KEY = os.environ.get('AWS_SECRET_ACCESS_KEY')
