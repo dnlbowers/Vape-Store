@@ -21,7 +21,7 @@ DEBUG = "DEVELOPMENT" in os.environ
 
 X_FAME_OPTIONS = 'SAMEORIGIN'
 
-ALLOWED_HOSTS = ['pp5-vaportown.herokuapp.com', 'localhost', '127.0.0.1']
+ALLOWED_HOSTS = ['pp5-vaportown.herokuapp.com', 'vaportown.dev-bowers.com', 'localhost', '127.0.0.1']
 
 
 # Application definition
