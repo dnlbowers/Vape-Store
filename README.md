@@ -4,7 +4,7 @@ Vapor Town is a fictional B2C vape supply store designed and implemented with Dj
 
 This small-scale business idea was born from a pipe dream back when I used to dream of having an online store selling all the latest and greatest vape gear. This dream has since dissipated, but I decided to use this project to learn and practice my skills in Django and Python.
 
-The deployed site can be visited here: [Vapor Town](https://vaportown.dev-bowers.com/))
+The deployed site can be visited here: [Vapor Town](https://vaportown.dev-bowers.com/)
 
 ![Vapor Town](docs/responsive-mockup.JPG)
 
