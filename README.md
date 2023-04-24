@@ -924,7 +924,7 @@ I have included testing details during and post-development in a separate docume
 
 ## **Deployment**
 
-The final Deployed site can be found [here](https://pp5-vaportown.herokuapp.com/)
+The final Deployed site can be found [here](https://vaportown.dev-bowers.com/)
 I have included details of my initial deployment in a separate document called [DEPLOYMENT.md](DEPLOYMENT.md).
 
 ## **Technologies used**
